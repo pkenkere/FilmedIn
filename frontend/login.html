@@ -1,0 +1,12 @@
+<!-- <label for="email"> Email</label>
+<input type="text" placeholder="Email" name="email" ng-model="login.email" required focus/> -->
+<form>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
+    </div>
+
+    <div class="form-group">
+         <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
+    </div>
+
+    <button type="submit" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
