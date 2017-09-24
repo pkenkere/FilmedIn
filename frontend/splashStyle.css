@@ -1,0 +1,48 @@
+h1 {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  color: red;
+  font-size: 100px;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  background: https://ak5.picdn.net/shutterstock/videos/806455/thumb/1.jpg;
+}
+
+.btn-lg { //jobs button
+  color: white;
+  background-color: pink;
+  position: absolute;
+  border: 2px solid #f44336;
+  top: 350px;
+  right: 550px;
+  left: 500px;
+  align-self: baseline;
+  margin: 0;
+}
+
+.btn { //news button
+  color: white;
+  background-color: pink;
+  position: absolute;
+  top: 410px;
+  border: 2px solid #f44336;
+  right: 550px;
+  left: 500px;
+  align-self: baseline;
+  margin: 0;
+}
+
+
+
+.btn-success { //join now button
+  color: white;
+  position: absolute;
+  top: 500px;
+  right: 100px;
+  margin: 0;
+}
