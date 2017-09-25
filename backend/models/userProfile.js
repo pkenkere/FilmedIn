@@ -8,7 +8,7 @@ var roleObj = new mongoose.Schema({
     },
     description:String  //Should we include desc and index????
 })
-var userObject = new mongoose.Schema({
+var userProfile = new mongoose.Schema({
   username: {
       type: String,
       unique: true,
@@ -35,4 +35,5 @@ var userObject = new mongoose.Schema({
   height: Number,
   weight: Number
 });
-var User = mongoose.model('User', userObject);
+var UserProfile = mongoose.model('UserProfile', userProfile);
+module.exports = UserProfile;

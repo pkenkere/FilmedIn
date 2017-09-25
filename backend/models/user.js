@@ -21,3 +21,4 @@ var userObject = new mongoose.Schema({
   }
 });
 var User = mongoose.model('User', userObject);
+module.exports = User;
