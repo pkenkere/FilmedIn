@@ -1,0 +1,11 @@
+{
+    "name": "filmedin",
+    "description": "Connecting Film Socials",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+    }
+}
+
