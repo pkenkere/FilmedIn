@@ -44,5 +44,17 @@ UserSchema.statics.authenticate = function (email, password, callback) {
     });
 }
 
+//Encrypting by hashing a password before saving it to the database
+UserSchema.pre('save', function (next) {
+  var user = this;
+  bcrypt.hash(user.password, 10, function (err, hash) {
+    if (err) {
+      return next(err);
+    }
+    user.password = hash;
+    next();
+  })
+});
+
 var User = mongoose.model('User', userObject);
 module.exports = User;
