@@ -1,0 +1,115 @@
+/*
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  color: red;
+  font-size: 100px;
+  transform: translate(-50%, -50%);
+}*/
+div {
+  overflow: scroll;
+}
+
+img {
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 15px;
+  resize: both;
+  width: 120px;
+  height: 150px;
+}
+
+body {
+  background: https://ak5.picdn.net/shutterstock/videos/806455/thumb/1.jpg;
+}
+
+.profileCircle {
+    border-radius: 50%;
+    /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+    position: absolute;
+    top: 92px;
+    left: 15px;
+    background: rgba(229, 198, 71, 0.2);
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+
+    font: 50px Arial, sans-serif;
+}
+
+.tabs{
+  position: fixed;
+  top: 96px;
+  left: 120px;
+}
+
+.panels {
+  position: fixed;
+  width: 1000px;
+  top: 190px;
+  left: 140px;
+  border: none;
+}
+
+.panels .panel-group {
+  border: none;
+}
+.panels .panel-group .panel-heading {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: black;
+}
+
+.panels .panel-group .panel {
+  border: none;
+}
+
+.panel-body {
+  height: 70px;
+}
+
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}
