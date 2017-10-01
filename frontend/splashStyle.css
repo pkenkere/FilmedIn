@@ -4,7 +4,7 @@ h1 {
   top: 40%;
   left: 50%;
   margin-right: -50%;
-  color: rgb(229, 198, 71);
+  color: red;
   font-size: 100px;
   font-style: italic;
   font-family: fantasy;
@@ -18,45 +18,56 @@ html {
   /*overflow-y: auto;*/
 }
 
-.btn-lg { //jobs button
+#JobsBtn { //jobs button
   color: white;
-  background-color: pink;
+  background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
-  border: 2px solid #f44336;
+  border: 2px solid rgb(229, 198, 71);
   top: 350px;
   width: 280px;
   right: 530px;
   left: 450px;
 }
 
-.btn { //news button
+#NewsBtn { //news button
   color: white;
-  background-color: pink;
+  background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   font-size: 20px;
-  border: 2px solid #f44336;
+  border: 2px solid rgb(229, 198, 71);
   top: 410px;
   width: 280px;
   right: 550px;
   left: 450px;
 }
 
-.btn-success { //Sign Up button
+#SignUpBtn { //Sign Up button
   color: white;
   position: absolute;
-  background-color: pink;
-  border: 2px solid #f44336;
+  background-color: rgba(199, 168, 41, 0.5);
+  border: 2px solid rgb(229, 198, 71);
   top: 500px;
   right: 300px;
   left: 200px;
 }
 
-.btn-primary { //Login button
+#LoginBtn { //Login button
   color: white;
   position: absolute;
-  background-color: pink;
+  background-color: rgba(199, 168, 41, 0.5);
   top: 500px;
-  border: 2px solid #f44336;
+  border: 2px solid rgb(229, 198, 71);
   right: 200px;
   left: 900px;
+}
+
+.modal-header {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+.modal-body {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+
+.modal-footer {
+  background-color: rgba(199, 168, 41, 0.5);
 }
