@@ -9,7 +9,7 @@
       <link rel="stylesheet" type="text/css" href="loginstyle.css">
       <link rel="stylesheet" type="text/css" href="splashStyle.css">
       <div class="row col-xs-6 block2 center">
-        <h2>Login</h2>
+        <h2>Sign Up</h2>
         <form>
       <div class="form-group">
         <input type="email" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
@@ -18,7 +18,10 @@
      <div class="form-group">
        <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
      </div>
-      <button type="submit" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+     <div class="form-group">
+       <input type="password" class="form-control" placeholder="Re-enter password" ng-model="login.password" required/>
+     </div>
+      <button type="submit" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Sign Up</button>
   </form>
   </div>
   </body>
