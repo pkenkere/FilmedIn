@@ -28,12 +28,12 @@ body {
 .profileCircle {
     border-radius: 50%;
     /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     padding: 8px;
     position: absolute;
     top: 92px;
-    left: 15px;
+    left: 25px;
     background: rgba(229, 198, 71, 0.2);
     border: 2px solid #666;
     color: #666;
@@ -43,16 +43,16 @@ body {
 }
 
 .tabs{
-  position: fixed;
+  position: absolute;
   top: 96px;
-  left: 120px;
+  left: 170px;
 }
 
 .panels {
-  position: fixed;
+  position: absolute;
   width: 1000px;
-  top: 190px;
-  left: 140px;
+  top: 160px;
+  left: 170px;
   border: none;
 }
 
@@ -65,12 +65,17 @@ body {
   color: black;
 }
 
+.panels .panel-group .panel-heading .btn-edit-Ed {
+  position: absolute;
+  left: 950px;
+}
+
 .panels .panel-group .panel {
   border: none;
 }
 
 .panel-body {
-  height: 70px;
+  height:fit-content;
 }
 
 .btn-home { //jobs button
