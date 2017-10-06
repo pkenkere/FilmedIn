@@ -28,21 +28,45 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-     </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
       </div>
-      <div class="form-group">
-         <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+        <button id = "ForgotPassBtn" type="button" class="btn-forgotPass" data-toggle="modal" data-target = "#ForgotPassModal">Forgot Your Password</button>
       </div>
     </div>
-  <div class="modal-footer">
-    <button type="button" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
-  </div>
   </div>
  </div>
- </div>
+
+ <div class="modal fade" id="ForgotPassModal" role="dialog">
+   <div class="model-dialog">
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <h2 class="model-title">Forgot Password</h2>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <div class="form-group">
+           <input type="email" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
+         </div>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Reset Password</button>
+       </div>
+     </div>
+   </div>
+  </div>
+
 
  <div class="modal fade" id="SignUpModal" role="dialog">
    <div class="modal-dialog">
