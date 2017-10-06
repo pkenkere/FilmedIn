@@ -69,6 +69,13 @@
   height:fit-content;
 }
 
+.deleteMe{
+    background: rgba(0, 0, 0, 0.1);
+    color: red;
+    font-style: bold;
+    float: right;
+}
+
 /*#RoleBtn {
   top: 130px;
   left: 350px;
