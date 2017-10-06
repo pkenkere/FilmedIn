@@ -1,0 +1,27 @@
+.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 250px;
+  background-color: rgb(229, 198, 71);
+}
+
+.form-control {
+display:block;
+margin:0 auto;
+text-align: center;
+width: 50%
+}
+
+.block2 {
+  min-height: 150px;
+  padding-top: 2px;
+}
+
+h2 {
+  font-size: 35px;
+  font-style:oblique;
+  font-weight: bold;
+  text-align: center;
+}
