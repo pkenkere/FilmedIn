@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="jobsearch.css">
+  <script type="text/javascript" language="javascript" src="searchJobs.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+  </div>
+</head>
+<body onload="body_onload()">
+<div id = "container">
+  <h1>Filter Results</h1>
+  <div class = "content">
+<!-- Everything goes inside the box -->
+    <div id="box">
+    <div class="box-top1">Gender</div>
+      <div class="box-panel1">
+        <div class="checkbox">
+            <label><input type="checkbox" value="">Male</label>
+            <label><input type="checkbox" value="">Female</label>
+            <label><input type="checkbox" value="">Other</label>
+            <label><input type="checkbox" value="">Any</label>
+         </div>
+       </div>
+     </div>
+    <div id="box">
+     <div class="box-top2">Age</div>
+      <div class="box-panel2">
+        <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
+        <button id="range">0</button>
+        <script type="text/javascript">
+          function showValue(newValue)
+            {
+              document.getElementById("range").innerHTML=newValue;
+            }
+        </script>
+      </div>
+  </div>
+   <div id="box">
+   <div class="box-top3">Role Type</div>
+    <div class="box-panel3">
+      <select id = "RoleTypes">
+        <option value="" disabled selected>Select type of role</option>
+        <option value="Lead Actor">Lead Actor</option>
+        <option value="Producer">Producer</option>
+        <option value="Film Editor">Film Editor</option>
+        <option value="Script Writer">Script Writer</option>
+        <option value="Cinematographer">Cinematographer</option>
+      </select>
+    </div>
+ </div>
+ <div id="box">
+ <div class="box-top4">Production Type</div>
+  <div class="box-panel4">
+    <select id = "ProductionTypes">
+      <option value="" disabled selected>Select type of role</option>
+      <option value="Lead Actor">Lead Actor</option>
+      <option value="Producer">Producer</option>
+      <option value="Film Editor">Film Editor</option>
+      <option value="Script Writer">Script Writer</option>
+      <option value="Cinematographer">Cinematographer</option>
+    </select>
+  </div>
+</div>
+<div id="box">
+<div class="box-top5">Ethnicity</div>
+ <div class="box-panel5">
+   <select id = "ethnicity">
+     <option value="" disabled selected>Select type of role</option>
+     <option value="Lead Actor">Lead Actor</option>
+     <option value="Producer">Producer</option>
+     <option value="Film Editor">Film Editor</option>
+     <option value="Script Writer">Script Writer</option>
+     <option value="Cinematographer">Cinematographer</option>
+   </select>
+ </div>
+</div>
+  <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
+ </div>
+</div>
