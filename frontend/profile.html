@@ -9,16 +9,8 @@
   <link rel="stylesheet" type="text/css" href="profileStyle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-  function checkEdits() {
-    //find out if the user has previously saved edits
-    /*if(localStorage.userMajorEdit!=null) {
-      document.getElementById("result").innerHTML = localStorage.userMajorEdit;
-    }*/
-  }
-  </script>
 </head>
-<body onload="checkEdits()">
+<body>
 
 <div class="profileCircle"></div>
 
@@ -41,31 +33,28 @@
     <div class="panel education">
       <div class="panel-heading">Education
         <button id="editEdMajor" class="btn-edit-Ed">Edit</button>
-          <div id="eEMModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <input id="userMajor" class="my-input">
-            </div>
-          </div>
-
       </div>
-      <div class="panel-body" id="editMaj">
+      <div class="panel-body">
         <div id="result">Major:  </div>
       </div>
     </div>
 
     <div class = "panel education">
       <div class = "panel-heading">Education
-        <button id = "editEdYear" type = "button" class = "btn-edit-Ed">Edit</button>
+        <button id = "editEdMajor" class = "btn-edit-Ed">Edit</button>
       </div>
-      <div class="panel-body">Year: </div>
+      <div class="panel-body">
+        <div id="resultY">Year:  </div>
+      </div>
     </div>
 
     <div class="panel interests">
       <div class="panel-heading">Interests
-        <button id = "editInt" type= "button" class = "btn-edit-Ed">Edit</button>
+        <button id = "editEdMajor" type= "button" class = "btn-edit-Ed">Edit</button>
       </div>
-      <div class="panel-body">Interests: </div>
+      <div class="panel-body">
+        <div id="resultI">Interests: </div>
+      </div>
     </div>
 
     <div class="panel past-jobs">
@@ -117,6 +106,15 @@
   </div>
 </div>
 
+<div id="eEMModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    Major: <input id="userMajor" class="my-input"></br></br>
+    Year: <input id="userYear" class="my-input"></br></br>
+    Interests: <input id="userInterests" class="my-input">
+  </div>
+</div>
+
 <div id="TopPanel"
   style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
   <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -127,9 +125,18 @@
 
 <script>
   var modal = document.getElementById('eEMModal');
-  var btn = document.getElementById("editEdMajor");
+  var btn = document.getElementsByClassName("btn-edit-Ed");
   var span = document.getElementsByClassName("close")[0];
-  btn.onclick = function() {
+
+  btn[0].onclick = function() {
+    modal.style.display = "block";
+  }
+
+  btn[1].onclick = function() {
+    modal.style.display = "block";
+  }
+
+  btn[2].onclick = function() {
     modal.style.display = "block";
   }
   span.onclick = function() {
