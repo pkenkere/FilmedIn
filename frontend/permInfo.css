@@ -1,0 +1,41 @@
+
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}

@@ -34,7 +34,7 @@ function signUp_onclick() {
 
   accounts.push(account);
   saveAccounts();
-  location.href = "splash.html";
+  location.href = "permInfo.html";
 }
 
 function login_onclick() {
