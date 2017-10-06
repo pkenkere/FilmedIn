@@ -25,34 +25,62 @@ body {
   background: https://ak5.picdn.net/shutterstock/videos/806455/thumb/1.jpg;
 }
 
+h1 {
+  position: absolute;
+  top: 90px;
+  left: 200px;
+  font-size: 50px;
+}
+
 .profileCircle {
     border-radius: 50%;
     /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    transition: all .3s ease;
+    text-decoration: none;
     padding: 8px;
     position: absolute;
-    top: 92px;
+    top: 99px;
     left: 25px;
-    background: rgba(229, 198, 71, 0.2);
+    background: rgba(229, 198, 71, 0.1);
     border: 2px solid #666;
-    color: #666;
+    color: transparent;
+    /*#666;*/
     text-align: center;
 
-    font: 50px Arial, sans-serif;
+    /*font: 50px Arial, sans-serif;*/
+}
+
+.profileCircle:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  color: #fff;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+.profileCircle span {
+  display: inline-block;
+  padding-top: 4.5em;
+  padding-bottom: 4.5em
 }
 
 .tabs{
   position: absolute;
-  top: 96px;
-  left: 170px;
+  top: 200px;
+  left: 230px;
 }
 
 .panels {
   position: absolute;
   width: 1000px;
-  top: 160px;
-  left: 170px;
+  top: 260px;
+  left: 230px;
   border: none;
 }
 
@@ -70,6 +98,11 @@ body {
   left: 950px;
 }
 
+.panels .panel-group .panel-heading .btn-edit-Job {
+  position: absolute;
+  left: 923px;
+}
+
 .panels .panel-group .panel {
   border: none;
 }
@@ -78,7 +111,7 @@ body {
   height:fit-content;
 }
 
-.modal {
+.modalJ {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -93,7 +126,7 @@ body {
 }
 
 /* Modal Content */
-.modal-content {
+.modal-contentJ {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
