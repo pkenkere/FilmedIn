@@ -24,13 +24,13 @@
   <div id="box">
   <div class="box-top1">Search by Name</div>
    <div class="box-panel1">
-       <input id = "name" type="text">
+       <input id = "name" type="text" onchange="enable()">
    </div>
  </div>
       <div id="box">
       <div class="box-top2">Gender</div>
         <div class="box-panel2">
-          <div class="checkbox">
+          <div class="checkbox" onchange="enable()">
               <label><input type="checkbox" value="">Male</label>
               <label><input type="checkbox" value="">Female</label>
               <label><input type="checkbox" value="">Other</label>
@@ -47,6 +47,7 @@
             function showValue(newValue)
               {
                 document.getElementById("range").innerHTML=newValue;
+                document.getElementById("btnSrch").disabled = false;
               }
           </script>
         </div>
@@ -54,7 +55,7 @@
      <div id="box">
      <div class="box-top4">Ethnicity</div>
       <div class="box-panel4">
-        <select id = "ethnicity">
+        <select id = "ethnicity" onchange="enable()">
             <option value="All Ethnicities">All Ethnicities</option>
             <option value="Caucasian">Caucasian</option>
             <option value="African American">African American</option>
@@ -65,8 +66,14 @@
           </select>
       </div>
    </div>
-    <button type="submit" class="btn-info" id="btnSrch" disabled="true">Search</button>
+    <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
    </div>
   </div>
+  <script>
+    function enable() {
+      document.getElementById("btnSrch").disabled = false;
+      // document.getElementById("btnSrch").style.backgroundColor= green;
+    }
+  </script>
   </body>
-  </html>``
+  </html>

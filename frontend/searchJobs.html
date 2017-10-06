@@ -7,7 +7,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="jobsearch.css">
-  <script type="text/javascript" language="javascript" src="searchJobs.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -24,7 +23,7 @@
     <div id="box">
     <div class="box-top1">Gender</div>
       <div class="box-panel1">
-        <div class="checkbox">
+        <div class="checkbox" onchange="enable()">
             <label><input type="checkbox" value="">Male</label>
             <label><input type="checkbox" value="">Female</label>
             <label><input type="checkbox" value="">Other</label>
@@ -35,7 +34,7 @@
     <div id="box">
      <div class="box-top2">Role Type</div>
       <div class="box-panel2">
-        <select id = "RoleTypes">
+        <select id = "RoleTypes" onchange="enable()">
           <option value="" disabled selected>Select type of role</option>
           <option value="Lead Actor">Lead Actor</option>
           <option value="Producer">Producer</option>
@@ -54,6 +53,7 @@
         function showValue(newValue)
           {
             document.getElementById("range").innerHTML=newValue;
+            document.getElementById("btnSrch").disabled = false;
           }
       </script>
     </div>
@@ -61,7 +61,7 @@
  <div id="box">
  <div class="box-top4">Production Type</div>
   <div class="box-panel4">
-    <select id = "ProductionTypes">
+    <select id = "ProductionTypes" onchange="enable()">
       <option value="" disabled selected>Select a type of production</option>
       <option value="Theatre">Theatre</option>
       <option value="Film">Film</option>
@@ -73,7 +73,7 @@
 <div id="box">
 <div class="box-top5">Ethnicity</div>
  <div class="box-panel5">
-   <select id = "ethnicity">
+   <select id = "ethnicity" onchange="enable()">
        <option value="All Ethnicities">All Ethnicities</option>
        <option value="Caucasian">Caucasian</option>
        <option value="African American">African American</option>
@@ -84,8 +84,14 @@
      </select>
  </div>
  </div>
-  <button type="submit" class="btn-info" id="btnSrch" disabled="true">Search</button>
+  <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
  </div>
 </div>
+<script>
+  function enable() {
+    document.getElementById("btnSrch").disabled = false;
+    // document.getElementById("btnSrch").style.backgroundColor= green;
+  }
+</script>
 </body>
 </html>
