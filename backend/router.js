@@ -5,7 +5,7 @@ var User = require('../models/user');
 
 //GET data for reading
 router.get('/',function (req, res, next) {
-	return res.sendFile(path.join(__dirname + 'landingPage.html'));
+	return res.sendFile(path.join(__dirname + 'localhost:5000'));
 });
 
 
