@@ -77,14 +77,6 @@
   color: black;
 }*/
 
-/*#ProductionBtn: hover {
-  background-color: blue;
-}*/
-
-/*#prod {
-  top:150px;
-  position: absolute;
-}*/
 
 #range {
   left: 100px;
@@ -92,8 +84,6 @@
   position: absolute;
 }
 
-
-/*
-#roleType, #production, #prod_des, #prodDate  {
-  margin-left: 25px;
-}*/
+h2 {
+  margin-left: 20px;
+}
