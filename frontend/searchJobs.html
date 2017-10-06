@@ -16,7 +16,7 @@
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
   </div>
 </head>
-<body onload="body_onload()">
+<body>
 <div id = "container">
   <h1>Filter Results</h1>
   <div class = "content">
@@ -33,41 +33,40 @@
        </div>
      </div>
     <div id="box">
-     <div class="box-top2">Age</div>
+     <div class="box-top2">Role Type</div>
       <div class="box-panel2">
-        <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
-        <button id="range">0</button>
-        <script type="text/javascript">
-          function showValue(newValue)
-            {
-              document.getElementById("range").innerHTML=newValue;
-            }
-        </script>
+        <select id = "RoleTypes">
+          <option value="" disabled selected>Select type of role</option>
+          <option value="Lead Actor">Lead Actor</option>
+          <option value="Producer">Producer</option>
+          <option value="Film Editor">Film Editor</option>
+          <option value="Script Writer">Script Writer</option>
+          <option value="Cinematographer">Cinematographer</option>
+        </select>
       </div>
-  </div>
+    </div>
    <div id="box">
-   <div class="box-top3">Role Type</div>
+   <div class="box-top3">Age</div>
     <div class="box-panel3">
-      <select id = "RoleTypes">
-        <option value="" disabled selected>Select type of role</option>
-        <option value="Lead Actor">Lead Actor</option>
-        <option value="Producer">Producer</option>
-        <option value="Film Editor">Film Editor</option>
-        <option value="Script Writer">Script Writer</option>
-        <option value="Cinematographer">Cinematographer</option>
-      </select>
+      <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
+      <button id="range">0</button>
+      <script type="text/javascript">
+        function showValue(newValue)
+          {
+            document.getElementById("range").innerHTML=newValue;
+          }
+      </script>
     </div>
  </div>
  <div id="box">
  <div class="box-top4">Production Type</div>
   <div class="box-panel4">
     <select id = "ProductionTypes">
-      <option value="" disabled selected>Select type of role</option>
-      <option value="Lead Actor">Lead Actor</option>
-      <option value="Producer">Producer</option>
-      <option value="Film Editor">Film Editor</option>
-      <option value="Script Writer">Script Writer</option>
-      <option value="Cinematographer">Cinematographer</option>
+      <option value="" disabled selected>Select a type of production</option>
+      <option value="Theatre">Theatre</option>
+      <option value="Film">Film</option>
+      <option value="Commercials">Commercials</option>
+      <option value="Events and Presentations">Events and Presentations</option>
     </select>
   </div>
 </div>
@@ -75,15 +74,18 @@
 <div class="box-top5">Ethnicity</div>
  <div class="box-panel5">
    <select id = "ethnicity">
-     <option value="" disabled selected>Select type of role</option>
-     <option value="Lead Actor">Lead Actor</option>
-     <option value="Producer">Producer</option>
-     <option value="Film Editor">Film Editor</option>
-     <option value="Script Writer">Script Writer</option>
-     <option value="Cinematographer">Cinematographer</option>
-   </select>
+       <option value="All Ethnicities">All Ethnicities</option>
+       <option value="Caucasian">Caucasian</option>
+       <option value="African American">African American</option>
+       <option value="Latino/Hispanic">Latino/Hispanic</option>
+       <option value="Asian">Asian</option>
+       <option value="South Asian">South Asian</option>
+       <option value="Middle Eastern">Middle Eastern</option>
+     </select>
+ </div>
+ </div>
+  <button type="submit" class="btn-info" id="btnSrch" disabled="true">Search</button>
  </div>
 </div>
-  <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
- </div>
-</div>
+</body>
+</html>

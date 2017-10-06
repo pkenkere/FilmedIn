@@ -1,0 +1,204 @@
+/*
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  color: red;
+  font-size: 100px;
+  transform: translate(-50%, -50%);
+}*/
+/*div {
+  overflow: scroll;
+}*/
+
+img {
+  display: block;
+  position: fixed;
+  top: 30px;
+  left: 15px;
+  resize: both;
+  width: 120px;
+  height: 150px;
+}
+
+body {
+  background: https://ak5.picdn.net/shutterstock/videos/806455/thumb/1.jpg;
+}
+
+h1 {
+  position: absolute;
+  top: 90px;
+  left: 200px;
+  font-size: 50px;
+}
+
+.profileCircle {
+    border-radius: 50%;
+    /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+    width: 140px;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    transition: all .3s ease;
+    text-decoration: none;
+    padding: 8px;
+    position: absolute;
+    top: 99px;
+    left: 25px;
+    background: rgba(229, 198, 71, 0.1);
+    border: 2px solid #666;
+    color: transparent;
+    /*#666;*/
+    text-align: center;
+
+    /*font: 50px Arial, sans-serif;*/
+}
+
+.profileCircle:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  color: #fff;
+  transition: all .3s ease;
+  text-decoration: none;
+}
+
+.profileCircle span {
+  display: inline-block;
+  padding-top: 4.5em;
+  padding-bottom: 4.5em
+}
+
+.tabs{
+  position: absolute;
+  top: 200px;
+  left: 230px;
+}
+
+.panels {
+  position: absolute;
+  width: 1000px;
+  top: 260px;
+  left: 230px;
+  border: none;
+}
+
+.panels .panel-group {
+  border: none;
+}
+.panels .panel-group .panel-heading {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: black;
+}
+
+.panels .panel-group .panel-heading .btn-edit-Ed {
+  position: absolute;
+  left: 950px;
+}
+
+.panels .panel-group .panel-heading .btn-edit-Job {
+  position: absolute;
+  left: 923px;
+}
+
+.panels .panel-group .panel {
+  border: none;
+}
+
+.panel-body {
+  height:fit-content;
+}
+
+.modalJ {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 300px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-contentJ {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+/*
+.modal-header {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+.modal-body {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+
+.modal-footer {
+  background-color: rgba(199, 168, 41, 0.5);
+}*/
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}

@@ -98,6 +98,17 @@ div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
 }
 
 #range {
-  margin-left: 50%;
+  margin-left: -0.5%;
+  position: absolute;
+  top: 40%;
   font-size: 15px;
+}
+
+#slider {
+  margin-left: 2%;
+}
+
+#btnSrch {
+  float: right;
+  margin-top: 2%;
 }
