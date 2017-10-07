@@ -37,13 +37,19 @@ module.exports = function(app) {
         });
     });
 
-    /*app.get('/:username',function(req,res){
+    app.get('/profile/:user',function(req,res){
     	if(req.session.user == null){
 	   res.redirect('/');
 	}  else{
-	   res.send("" + req.params.username + "'s profile!");
+	   console.log(req.params);
+	   if(req.params.user == req.session.user.user){
+	   	res.send("" + req.session.user.name + "'s profile!");
+	   }
+	   else{
+	   	res.send("User profile inaccessible. Login First");
+	   }
 	}
-});*/
+});
 
     // logged-in user homepage //
     app.get('/home', function(req, res) {
