@@ -37,12 +37,12 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/profile/:user',function(req,res){
+    app.get('/profile',function(req,res){
     	if(req.session.user == null){
 	   res.redirect('/');
 	}  else{
 	   console.log(req.params);
-	   if(req.params.user == req.session.user.user){
+	   if(req.param('user') == req.session.user.user){
 	   	res.send("" + req.session.user.name + "'s profile!");
 	   }
 	   else{
