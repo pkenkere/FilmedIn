@@ -7,6 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="jobpost.css">
+  <script language="javascript" type="text/javascript" src="jobpost.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -76,17 +77,10 @@
             <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
                 <button type="button" id ="RoleBtn" class="btn btn-info" data-toggle="modal" data-target="#role">+ Add roles</button>
-                <ul>
-                    <li>Role 1 information <div class='deleteMe'>X</div></li>
-                    <li>Role 2 information <div class='deleteMe'>X</div></li>
-                </ul>
-                  <script>
-                  $(document).ready(function(){
-                  $(".deleteMe").on("click", function(){
-                  $(this).closest("li").remove();
-                  });
-                });
-                </script>
+                <div class="roles-container" id="dynamicInput">
+                <div class="panel-group" id="role-accordion">
+                </div>
+                </div>
               </div>
             </div>
           </div>
@@ -133,7 +127,7 @@
       <div class="form-group">
         <label>Name of Role:</label>
         <br>
-        <input type="text">
+        <input id="rolename" type="text">
       </div>
       <div class="form-group">
         <label>Role Type</label>
@@ -151,11 +145,11 @@
       <div class="form-group">
         <label>Gender:</label>
         <br>
-        <div class="checkbox">
-    <label><input type="checkbox" value="">Male</label>
-    <label><input type="checkbox" value="">Female</label>
-    <label><input type="checkbox" value="">Transgender</label>
-  </div>
+        <form action="#n">
+          <input type="radio" name="gender" value="male">Male</label>
+          <input type="radio" name="gender" value="female">Female</label>
+          <input type="radio" name="gender" value="other">Other</label>
+        </form>
       </div>
 
       <div class="form-group">
@@ -185,11 +179,11 @@
       <div class="form-group">
         <label>Role Description</label>
         <br>
-    <textarea></textarea>
+    <input id="roledesc">
     </div>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="btn">Save Role</button>
+  <button id="addRole" type="submit" class="btn" onclick="updateR('dynamicInput');" data-dismiss="modal">Save Role</button>
 </div>
 </div> <!--Close modal-content -->
 </div> <!-- Close modal dialog -->
