@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<body style="background-color:rgba(0, 0, 0, 0.2)">
+<html>
 <head>
-  <title>FilmedIn</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="findTalentStyle.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-  <style type="text/css"></style>
-
+  <link rel="stylesheet" type="text/css" href="jobsearch.css">
+  <script type="text/javascript" language="javascript" src="searchJobs.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -21,11 +15,65 @@
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
   </div>
-
-<div id="SearchBox" style="background-color:rgba(0, 0, 0, 0.1);padding:80px;">
-  <h1>Hola this is the search box</h1>
-
-</div>
-
-</body>
-</html>
+</head>
+<body>
+  <div id = "container">
+    <h1>Filter Results</h1>
+    <div class = "content">
+  <!-- Everything goes inside the boxs -->
+  <div id="box">
+  <div class="box-top1">Search by Name</div>
+   <div class="box-panel1">
+       <input id = "name" type="text" onchange="enable()">
+   </div>
+ </div>
+      <div id="box">
+      <div class="box-top2">Gender</div>
+        <div class="box-panel2">
+          <div class="checkbox" onchange="enable()">
+              <label><input type="checkbox" value="">Male</label>
+              <label><input type="checkbox" value="">Female</label>
+              <label><input type="checkbox" value="">Other</label>
+              <label><input type="checkbox" value="">Any</label>
+           </div>
+         </div>
+       </div>
+      <div id="box">
+       <div class="box-top3">Age</div>
+        <div class="box-panel3">
+          <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
+          <button id="range">0</button>
+          <script type="text/javascript">
+            function showValue(newValue)
+              {
+                document.getElementById("range").innerHTML=newValue;
+                document.getElementById("btnSrch").disabled = false;
+              }
+          </script>
+        </div>
+    </div>
+     <div id="box">
+     <div class="box-top4">Ethnicity</div>
+      <div class="box-panel4">
+        <select id = "ethnicity" onchange="enable()">
+            <option value="All Ethnicities">All Ethnicities</option>
+            <option value="Caucasian">Caucasian</option>
+            <option value="African American">African American</option>
+            <option value="Latino/Hispanic">Latino/Hispanic</option>
+            <option value="Asian">Asian</option>
+            <option value="South Asian">South Asian</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+          </select>
+      </div>
+   </div>
+    <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
+   </div>
+  </div>
+  <script>
+    function enable() {
+      document.getElementById("btnSrch").disabled = false;
+      // document.getElementById("btnSrch").style.backgroundColor= green;
+    }
+  </script>
+  </body>
+  </html>
