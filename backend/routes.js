@@ -59,7 +59,7 @@ module.exports = function(app) {
         }   else{
             res.render('home', {
                 title : 'Control Panel',
-                countries : CT,
+                //countries : CT,
                 udata : req.session.user
             });
         }
@@ -74,7 +74,7 @@ module.exports = function(app) {
                 name    : req.param('name'),
                 email   : req.param('email'),
                 pass    : req.param('pass'),
-                country : req.param('country')
+                //country : req.param('country')
             }, function(e, o){
                 if (e){
                     res.status(400).send('error-updating-account');
@@ -108,7 +108,7 @@ module.exports = function(app) {
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
-          country : req.param('country'),
+          //country : req.param('country'),
         };
         AM.addNewAccount(newData, function(e){
             if (e){

@@ -69,7 +69,7 @@ exports.manualLogin = function(user, pass, callback)
 
 exports.addNewAccount = function(newData, callback)
 {
-    console.log(newData);
+    //console.log(newData);
     accounts.findOne({user:newData.user}, function(e, o) {
         if (o){
             callback('username-taken');
