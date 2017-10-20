@@ -77,3 +77,7 @@ html {
   align-self: flex-end;
   left: 30px;
 }
+
+p {
+  color: red;
+}

@@ -69,7 +69,6 @@
    </div>
   </div>
 
-
  <div class="modal fade" id="SignUpModal" role="dialog">
    <div class="modal-dialog">
      <!-- Modal content-->
@@ -102,8 +101,36 @@
    </div>
    </div>
   </div>
-  </div>
-  <div>
+ </div>
 
+     <div class="modal fade" id="WrongDetailsModal" role="dialog">
+    <div class="alert alert-danger">
+  <strong>ERROR!</strong>There were one or more errors in your submission.
+</div>
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Login!</h2>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="email" id="loginEmail" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
+            <p>That's not the right password. Please try again or click "Forgot Password to request for a new one"</p>
+          </div>
+          <div class="form-group">
+            <input type="password" id="passLogin" class="form-control" placeholder="Password" ng-model="login.password" required/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="loginButton" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+          <button id = "ForgotPassBtn" type="button" class="btn-forgotPass" data-toggle="modal" data-target = "#ForgotPassModal">Forgot Your Password</button>
+        </div>
+      </div>
+    </div>
+     </div>
 </body>
 </html>
