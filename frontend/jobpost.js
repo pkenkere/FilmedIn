@@ -1,3 +1,18 @@
+function body_onload() {
+  document.getElementById('LogoutBtn').onclick = logout_onclick;
+    document.getElementById('ProfBtn').onclick = findTalent_onclick;
+}
+
+function logout_onclick() {
+  localStorage.removeItem("loggedInId");
+  location.href = "splash.html";
+}
+
+function findTalent_onclick() {
+  location.href = "findTalent.html";
+}
+
+
 var count = 0;
 
 

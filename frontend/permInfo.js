@@ -5,7 +5,6 @@ function body_onload() {
   getProfileInfo();
   document.getElementById('submitInfo').onclick = submitInfo_onclick;
 }
-
 function submitInfo_onclick() {
   var age = document.getElementById('age').value;
   var eI= document.getElementById('ethnicity');

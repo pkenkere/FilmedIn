@@ -11,5 +11,5 @@ function getAccounts() {
   if (json == null)
     return;
 
-  accounts = JSON.parse(json);
+accounts = JSON.parse(json);
 }

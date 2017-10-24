@@ -34,6 +34,8 @@ function signUp_onclick() {
 
   accounts.push(account);
   saveAccounts();
+
+  localStorage.setItem("loggedInId", accounts.length - 1);
   location.href = "permInfo.html";
 }
 
