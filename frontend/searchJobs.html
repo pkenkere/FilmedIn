@@ -7,7 +7,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="jobsearch.css">
+<<<<<<< HEAD
     <script language="javascript" type="text/javascript" src="searchJobs.js"></script>
+=======
+  <script type="text/javascript" language="javascript" src="searchJobs.js"></script>
+  <script type="text/javascript" language="javascript" src="shared.js"></script>
+>>>>>>> 3e6566feadc62f67e0882367f573429ea250a2e6
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -28,12 +33,12 @@
     <div id="box">
     <div class="box-top1">Gender</div>
       <div class="box-panel1">
-        <div class="checkbox" onchange="enable()">
-            <label><input type="checkbox" value="">Male</label>
-            <label><input type="checkbox" value="">Female</label>
-            <label><input type="checkbox" value="">Other</label>
-            <label><input type="checkbox" value="">Any</label>
-         </div>
+        <form class="checkbox" onchange="enable()">
+            <label><input type="checkbox" id="chck1" value="">Male</label>
+            <label><input type="checkbox" id="chck2" value="">Female</label>
+            <label><input type="checkbox" id="chck3" value="">Other</label>
+            <label><input type="checkbox" id="chck4" value="">Any</label>
+         </form>
        </div>
      </div>
     <div id="box">
@@ -89,14 +94,8 @@
      </select>
  </div>
  </div>
-  <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
+  <button type="submit" class="btn" id="btnSrch" disabled>Search</button>
  </div>
 </div>
-<script>
-  function enable() {
-    document.getElementById("btnSrch").disabled = false;
-    // document.getElementById("btnSrch").style.backgroundColor= green;
-  }
-</script>
 </body>
 </html>
