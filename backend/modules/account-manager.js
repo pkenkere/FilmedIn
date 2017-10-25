@@ -5,7 +5,7 @@ var moment      = require('moment');
 
 /*
  *  ESTABLISH DATABASE CONNECTION
- *  */
+ */
 
 var dbName = process.env.DB_NAME || 'filmedIn';
 var dbHost = process.env.DB_HOST || 'localhost'

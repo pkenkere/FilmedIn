@@ -1,6 +1,7 @@
 var CT = require('./modules/country-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var PM = require('./modules/profile-manager');
 
 module.exports = function(app) {
 
@@ -38,30 +39,31 @@ module.exports = function(app) {
     });
 
     app.get('/profile/:user',function(req,res){
-    	if(req.session.user == null){
-	   res.redirect('/');
-	}  else{
-	   console.log(req.params);
-	   if(req.params.user == req.session.user.user){
-	   	res.send("" + req.session.user.name + "'s profile!");
-	   }
-	   else{
-	   	res.send("User profile inaccessible. Login First");
-	   }
-	}
-});
+        	if(req.session.user == null){
+    	   res.redirect('/');
+    	}  else{
+    	   console.log(req.params);
+    	   if(req.params.user == req.session.user.user){
+    	   	res.send("" + req.session.user.name + "'s profile!");
+    	   }
+    	   else{
+    	   	res.send("User profile inaccessible. Login First");
+    	   }
+    	}
+    });
 
     // logged-in user homepage //
-    app.get('/home', function(req, res) {
+    app.get('/profile', function(req, res) {
         if (req.session.user == null){
             // if user is not logged-in redirect back to login page //
             res.redirect('/');
         }   else{
-            res.render('home', {
+            /*res.render('home', {
                 title : 'Control Panel',
                 //countries : CT,
                 udata : req.session.user
-            });
+            });*/
+
         }
     });
 
