@@ -7,15 +7,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="jobpost.css">
+  <script language="javascript" type="text/javascript" src="jobpost.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
     <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
   </div>
 </head>
-<body>
+<body onload="body_onload()">
   <h2>Post a Job</h2>
 <div class="panels">
   <div class="panel-group">
@@ -76,9 +80,34 @@
             <div id="collapse2" class="panel-collapse collapse">
               <div class="panel-body">
                 <button type="button" id ="RoleBtn" class="btn btn-info" data-toggle="modal" data-target="#role">+ Add roles</button>
+                <div class="roles-container" id="dynamicInput">
+                <div class="panel-group" id="role-accordion">
+                </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Auditions</a>
+              </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <label>Any Special Submission Instructions</label> <br>
+                <textarea rows = "4" cols = "50" placeholder="Mention here if candidate must upload cover letter, or a video"></textarea>
+                <br>
+                <label>Date of audition</label><br>
+                <label>from<input type="date"></label>
+                <label>to<input type="date"></label>
+                <br>
+
+              </div>
+            </div>
+          </div>
+
         </div> <!-- close panel group -->
         </div> <!-- Close container 1 -->
       </div> <!-- close container-body -->
@@ -101,7 +130,7 @@
       <div class="form-group">
         <label>Name of Role:</label>
         <br>
-        <input type="text">
+        <input id="rolename" type="text">
       </div>
       <div class="form-group">
         <label>Role Type</label>
@@ -119,11 +148,11 @@
       <div class="form-group">
         <label>Gender:</label>
         <br>
-        <div class="checkbox">
-    <label><input type="checkbox" value="">Male</label>
-    <label><input type="checkbox" value="">Female</label>
-    <label><input type="checkbox" value="">Transgender</label>
-  </div>
+        <form action="#n">
+          <input type="radio" name="gender" value="male">Male</label>
+          <input type="radio" name="gender" value="female">Female</label>
+          <input type="radio" name="gender" value="other">Other</label>
+        </form>
       </div>
 
       <div class="form-group">
@@ -153,11 +182,11 @@
       <div class="form-group">
         <label>Role Description</label>
         <br>
-    <textarea></textarea>
+    <input id="roledesc">
     </div>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="btn">Save Role</button>
+  <button id="addRole" type="submit" class="btn" onclick="updateR('dynamicInput');" data-dismiss="modal">Save Role</button>
 </div>
 </div> <!--Close modal-content -->
 </div> <!-- Close modal dialog -->

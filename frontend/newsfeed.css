@@ -57,58 +57,35 @@
   border: none;
 }
 
-.panels {
+.image_box {
+  width: 98%;
+   height: 100px;
+   padding: 20px;
+   border: 1px dotted black;
+}
+
+#news1 {
+  width: 40%;
+  height : 57%;
+  margin-top:1%;
+  margin-left:1%;
+}
+
+.box {
+  height: 27%;
+  width: 100%;
+  border: 2px solid black;
   position: absolute;
-  width: 1000px;
-  top: 160px;
-  left: 170px;
-  border: none;
+  bottom: 10%;
+  top: 90%;
 }
 
-.panels .panel-group {
-  border: none;
-}
-.panels .panel-group .panel-heading {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
-  color: black;
+h4 {
+  text-align: center;
 }
 
-.panels .panel-group .panel-heading .btn-edit-Ed {
-  position: absolute;
-  left: 950px;
-}
-
-.panels .panel-group .panel {
-  border: none;
-}
-
-.panel-body {
-  height:fit-content;
-}
-
-.deleteMe{
-    background: rgba(0, 0, 0, 0.1);
-    color: red;
-    font-style: bold;
-    float: right;
-}
-
-/*#RoleBtn {
-  top: 130px;
-  left: 350px;
-  position: absolute;
-  border: blue;
-  color: black;
-}*/
-
-
-#range {
-  left: 100px;
-  top: 210px;
-  position: absolute;
-}
-
-h2 {
-  margin-left: 20px;
+#news2 {
+  margin-left: 50%;
+  margin-top: -12%;
+  width: 46%;
 }
