@@ -42,6 +42,20 @@ exports.addProfileInfo = function(email, newData, callback) {
   });
 }
 
+exports.updateProfile = function(email, newData, callback) {
+  profiles.findOne({email:email}, function(e, o) {
+    o.name  = newData.name;
+    o.age = newData.age;
+    o.gender = newData.gender;
+    o.ethnicity = newData.ethnicity;
+    o.education = newData.education;
+    profiles.save(o, {safe: true}, function (e) {
+      if (e) callback(e);
+      else callback(null, o);
+    });
+  });
+}
+
 exports.getProfileByEmail = function(email, callback) {
   profiles.findOne({email:email}, function(e, o) {callback(o)});
 }
