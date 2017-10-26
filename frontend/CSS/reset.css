@@ -1,12 +1,22 @@
-h1 {
-  margin: 0;
+
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
   position: absolute;
-  top: 40%;
-  left: 50%;
-  margin-right: -50%;
-  color: red;
-  font-size: 100px;
-  font-style: italic;
-  font-family: fantasy;
-  transform: translate(-50%, -50%);
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+.btn-logout{
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
 }
