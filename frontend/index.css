@@ -12,7 +12,7 @@ h1 {
 }
 
 html {
-  /*background-image: https://ak5.picdn.net/shutterstock/videos/806455/thumb/1.jpg;*/
+  /*background-image: /Users/shreyashankar/Desktop/FilmedIn/frontend/backgroundfinal.jpg;*/
   background: url("background.png") no-repeat center fixed;
   background-size: cover;
   /*overflow-y: auto;*/
@@ -70,4 +70,22 @@ html {
 
 .modal-footer {
   background-color: rgba(199, 168, 41, 0.5);
+}
+
+.btn-forgotPass {
+  position: absolute;
+  align-self: flex-end;
+  left: 30px;
+}
+
+p {
+  color: red;
+}
+
+#strongErrorAlert{
+  display: none;
+}
+
+#errorMsg{
+  display: none;
 }

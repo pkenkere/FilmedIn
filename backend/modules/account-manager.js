@@ -5,7 +5,7 @@ var moment      = require('moment');
 
 /*
  *  ESTABLISH DATABASE CONNECTION
- *  */
+ */
 
 var dbName = process.env.DB_NAME || 'filmedIn';
 var dbHost = process.env.DB_HOST || 'localhost'
@@ -50,7 +50,7 @@ exports.autoLogin = function(user, pass, callback)
 
 exports.manualLogin = function(user, pass, callback)
 {
-    accounts.findOne({user:user}, function(e, o) {
+    accounts.findOne({email:user}, function(e, o) {
         if (o == null){
             callback('user-not-found');
         }   else{
@@ -69,7 +69,7 @@ exports.manualLogin = function(user, pass, callback)
 
 exports.addNewAccount = function(newData, callback)
 {
-    console.log(newData);
+    //console.log(newData);
     accounts.findOne({user:newData.user}, function(e, o) {
         if (o){
             callback('username-taken');
@@ -95,7 +95,7 @@ exports.updateAccount = function(newData, callback)
     accounts.findOne({_id:getObjectId(newData.id)}, function(e, o){
         o.name      = newData.name;
         o.email     = newData.email;
-        o.country   = newData.country;
+        //o.country   = newData.country;
         if (newData.pass == ''){
             accounts.save(o, {safe: true}, function(e) {
                 if (e) callback(e);

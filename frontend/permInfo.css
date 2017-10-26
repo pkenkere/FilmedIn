@@ -1,3 +1,4 @@
+
 .btn-home { //jobs button
   color: white;
   font: Helvetica;
@@ -55,60 +56,4 @@
   top: 30px;
   left: 1200px;
   border: none;
-}
-
-.panels {
-  position: absolute;
-  width: 1000px;
-  top: 160px;
-  left: 170px;
-  border: none;
-}
-
-.panels .panel-group {
-  border: none;
-}
-.panels .panel-group .panel-heading {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
-  color: black;
-}
-
-.panels .panel-group .panel-heading .btn-edit-Ed {
-  position: absolute;
-  left: 950px;
-}
-
-.panels .panel-group .panel {
-  border: none;
-}
-
-.panel-body {
-  height:fit-content;
-}
-
-.deleteMe{
-    background: rgba(0, 0, 0, 0.1);
-    color: red;
-    font-style: bold;
-    float: right;
-}
-
-/*#RoleBtn {
-  top: 130px;
-  left: 350px;
-  position: absolute;
-  border: blue;
-  color: black;
-}*/
-
-
-#range {
-  left: 100px;
-  top: 210px;
-  position: absolute;
-}
-
-h2 {
-  margin-left: 20px;
 }

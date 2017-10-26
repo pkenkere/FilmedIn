@@ -13,7 +13,7 @@ var app = express();
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 5000);
 app.engine('html', cons.swig);
-app.set('views', __dirname + '/backend/views');
+app.set('views', __dirname + '/frontend');
 app.set('view engine', 'html');
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -54,7 +54,9 @@ app.use(session({
     store: new MongoStore({ url: dbURL })
 }));
 
-require('./backend/routes')(app);
+require('./backend/routes/loginRoutes')(app);
+require('./backend/routes/profileRoutes')(app);
+
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
