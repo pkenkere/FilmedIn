@@ -13,7 +13,7 @@ var app = express();
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 5000);
 app.engine('html', cons.swig);
-app.set('views', __dirname + '/backend/views');
+app.set('views', __dirname + '/frontend');
 app.set('view engine', 'html');
 app.use(cookieParser());
 app.use(bodyParser.json());
