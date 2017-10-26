@@ -54,7 +54,9 @@ app.use(session({
     store: new MongoStore({ url: dbURL })
 }));
 
-require('./backend/routes')(app);
+require('./backend/routes/loginRoutes')(app);
+require('./backend/routes/profileRoutes')(app);
+
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));

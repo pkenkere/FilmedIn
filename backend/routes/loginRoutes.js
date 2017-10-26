@@ -1,7 +1,9 @@
-var CT = require('./modules/country-list');
-var AM = require('./modules/account-manager');
-var EM = require('./modules/email-dispatcher');
-var PM = require('./modules/profile-manager');
+var path = require('path');
+
+var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
+var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
+var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
+var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app) {
 
@@ -26,6 +28,7 @@ module.exports = function(app) {
     app.post('/', function(req, res){
         AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
             if (!o){
+                //console.log("MAA KIIII CHHUUUTTTTTT!!!!!");
                 res.status(400).send(e);
             }   else{
                 req.session.user = o;
@@ -36,61 +39,6 @@ module.exports = function(app) {
                 res.status(200).send(o);
             }
         });
-    });
-
-    app.get('/profile/:user',function(req,res){
-        	if(req.session.user == null){
-    	   res.redirect('/');
-    	}  else{
-    	   console.log(req.params);
-    	   if(req.params.user == req.session.user.user){
-    	   	res.send("" + req.session.user.name + "'s profile!");
-    	   }
-    	   else{
-    	   	res.send("User profile inaccessible. Login First");
-    	   }
-    	}
-    });
-
-    // logged-in user homepage //
-    app.get('/profile', function(req, res) {
-        if (req.session.user == null){
-            // if user is not logged-in redirect back to login page //
-            res.redirect('/');
-        }   else{
-            /*res.render('home', {
-                title : 'Control Panel',
-                //countries : CT,
-                udata : req.session.user
-            });*/
-
-        }
-    });
-
-    app.post('/home', function(req, res){
-        if (req.session.user == null){
-            res.redirect('/');
-        }   else{
-            AM.updateAccount({
-                id      : req.session.user._id,
-                name    : req.param('name'),
-                email   : req.param('email'),
-                pass    : req.param('pass'),
-                //country : req.param('country')
-            }, function(e, o){
-                if (e){
-                    res.status(400).send('error-updating-account');
-                }   else{
-                    req.session.user = o;
-                    // update the user's login cookies if they exists //
-                    if (req.cookies.user != undefined && req.cookies.pass != undefined){
-                        res.cookie('user', o.user, { maxAge: 900000 });
-                        res.cookie('pass', o.pass, { maxAge: 900000 });
-                    }
-                    res.status(200).send('ok');
-                }
-            });
-        }
     });
 
     app.post('/logout', function(req, res){
@@ -172,7 +120,7 @@ module.exports = function(app) {
     });
 
     // view & delete accounts //
-    app.get('/print', function(req, res) {
+    app.get('/printUsers', function(req, res) {
         AM.getAllRecords( function(e, accounts){
             //res.render('print', { title : 'Account List', accts : accounts });
             res.send(accounts);
@@ -197,6 +145,5 @@ module.exports = function(app) {
         });
     });
 
-    app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
-
+    //app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
 };
