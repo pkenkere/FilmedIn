@@ -1,12 +1,13 @@
 "use strict";
 var url = "localhost:5000";
+function sendEmail(email) {
 var resetPasswordData = {
     method: "POST",
     headers: {
         'content-type': 'application/json'
     },
     body: JSON.stringify({
-        user: loginEmail.value
+        user: email,
     })
 }
 fetch(url+"/lost-password", resetPasswordData)
@@ -23,3 +24,4 @@ fetch(url+"/lost-password", resetPasswordData)
 .catch(function(err){
     console.log("POST request failed", err);
 });
+}

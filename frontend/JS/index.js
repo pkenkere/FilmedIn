@@ -4,6 +4,7 @@ function body_onload() {
   //getAccounts();
   signUp.onclick = signUp_onclick;
   loginButton.onclick = login_onclick;
+  resetPWBtn.onclick = resetPWB_onclick;
 }
 
 function signUp_onclick() {
@@ -62,4 +63,8 @@ function login_onclick() {
 function incorrectCredentials() {
   errorMsg.style.display = "block";
   strongErrorAlert.style.display = "block";
+}
+
+function resetPWB_onclick() {
+  sendEmail(loginEmail.value);
 }

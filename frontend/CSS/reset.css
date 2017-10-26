@@ -1,0 +1,12 @@
+h1 {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  color: red;
+  font-size: 100px;
+  font-style: italic;
+  font-family: fantasy;
+  transform: translate(-50%, -50%);
+}
