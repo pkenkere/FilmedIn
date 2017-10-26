@@ -6,20 +6,6 @@ var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app) {
-  /*app.get('/profile/:user',function(req,res){
-        if(req.session.user == null){
-       res.redirect('/');
-    }  else{
-       console.log(req.params);
-       if(req.params.user == req.session.user.user){
-        res.send("" + req.session.user.name + "'s profile!");
-       }
-       else{
-        res.send("User profile inaccessible. Login First");
-       }
-    }
-  });*/
-
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
       if (req.session.user == null){
@@ -42,20 +28,57 @@ module.exports = function(app) {
         res.redirect('/');
     }
     else {
-        PM.updateProfile(req.param('email'), {
-          name : req.param('name'),
-          age : req.param('age'),
-          gender : req.param('gender'),
-          ethnicity : req.param('ethnicity'),
-          education : req.param('education'),
-        }, function (e, o) {
-          if (e) {
-            res.status(400).send('error-updating-account');
-          }
-          else {
-            res.status(200).send('ok');
-          }
-        });
+        PM.getProfileByEmail(req.param('email'),
+          function (e, o) {
+            if (e) {
+              res.status(400).send('error with profile');
+            }
+            else if (!o) {
+              PM.addProfileInfo(req.param('email'), {
+                email : req.param('email'),
+                name : req.param('name'),
+                age : req.param('age'),
+                gender : req.param('gender'),
+                ethnicity : req.param('ethnicity'),
+                education : req.param('education'),
+              }, function (e, o) {
+                if (e) {
+                  res.status(400).send('error adding profile');
+                }
+                else {
+                  res.status(200).send('ok, new account added');
+                }
+              });
+            }
+            else {
+              PM.updateProfile(req.param('email'), {
+                email : req.param('email'),
+                name : req.param('name'),
+                age : req.param('age'),
+                gender : req.param('gender'),
+                ethnicity : req.param('ethnicity'),
+                education : req.param('education'),
+              }, function (e, o) {
+                if (e) {
+                  res.status(400).send('error-updating-account');
+                }
+                else {
+                  res.status(200).send('ok, account updated');
+                }
+              });
+            }
+           });
     }
+  });
+
+  app.get('/printProfiles', function(req, res) {
+    PM.getAllProfiles(function(e, profiles) {
+      if (e) {
+        res.send('error in getting all profiles');
+      }
+      else {
+        res.send(profiles);
+      }
+    });
   });
 };

@@ -120,7 +120,7 @@ module.exports = function(app) {
     });
 
     // view & delete accounts //
-    app.get('/print', function(req, res) {
+    app.get('/printUsers', function(req, res) {
         AM.getAllRecords( function(e, accounts){
             //res.render('print', { title : 'Account List', accts : accounts });
             res.send(accounts);
@@ -145,6 +145,5 @@ module.exports = function(app) {
         });
     });
 
-    app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
-
+    //app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
 };

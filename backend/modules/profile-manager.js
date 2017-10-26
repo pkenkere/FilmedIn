@@ -44,20 +44,32 @@ exports.addProfileInfo = function(email, newData, callback) {
 
 exports.updateProfile = function(email, newData, callback) {
   profiles.findOne({email:email}, function(e, o) {
-    o.name  = newData.name;
-    o.age = newData.age;
-    o.gender = newData.gender;
-    o.ethnicity = newData.ethnicity;
-    o.education = newData.education;
-    profiles.save(o, {safe: true}, function (e) {
-      if (e) callback(e);
-      else callback(null, o);
-    });
+    if (o == null) {
+      callback('user-not-found');
+    }
+    else {
+      o.email = newData.email;
+      o.name  = newData.name;
+      o.age = newData.age;
+      o.gender = newData.gender;
+      o.ethnicity = newData.ethnicity;
+      o.education = newData.education;
+      o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
+      profiles.save(o, {safe: true}, function (e) {
+        if (e) callback(e);
+        else callback(null, o);
+      });
+    }
   });
 }
 
 exports.getProfileByEmail = function(email, callback) {
-  profiles.findOne({email:email}, function(e, o) {callback(o)});
+  profiles.findOne({email:email}, function(e, o) {
+    if (e)
+      callback('user-not-found');
+    else
+      callback(null, o);
+  });
 }
 
 exports.getAllProfiles = function(callback) {
