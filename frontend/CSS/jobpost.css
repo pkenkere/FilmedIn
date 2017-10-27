@@ -112,3 +112,9 @@
 h2 {
   margin-left: 20px;
 }
+
+#SubmitJobBtn {
+  position: absolute;
+  top:70%;
+  right: 10%;
+}

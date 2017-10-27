@@ -1,5 +1,5 @@
 "use strict";
-var url = "localhost:5000";
+var url = "http://localhost:5000";
 function loginPost(email, password) {
   var loginCredentials = {
       method: "POST",
@@ -27,4 +27,20 @@ function loginPost(email, password) {
   .catch(function(err){
       console.log("POST request failed", err);
   });
+}
+
+function logoutPost(){
+    fetch(url+"/logout")
+    .then(function(res){
+        if(res.ok){
+            console.log("successfully logged out!");
+            location.href = "index.html";
+        }
+        else{
+            console.log("failed to log out");
+        }
+    })
+    .catch(function(err){
+        console.log("POST request failed", err);        
+    });
 }

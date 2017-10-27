@@ -1,16 +1,17 @@
-var count = 0;
+// var count = 0;
 
 function body_onload() {
-  getAccounts();
-  var id = parseInt(localStorage.getItem("loggedInId"));
-  var account = accounts[id];
-  var fname = account.FirstName;
-  var lname = account.LastName;
-  $('#proName').html(fname + " " + lname);
-  document.getElementById('PostJobBtn').onclick = postJob_onclick;
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-    document.getElementById('ProfBtn').onclick = findTalent_onclick;
-      document.getElementById('JobsBtn').onclick = opportunities_onclick;
+  // getAccounts();
+  // var id = parseInt(localStorage.getItem("loggedInId"));
+  // var account = accounts[id];
+  // var fname = account.FirstName;
+  // var lname = account.LastName;
+  // $('#proName').html(fname + " " + lname);
+  // document.getElementById('PostJobBtn').onclick = postJob_onclick;
+  // document.getElementById('LogoutBtn').onclick = logout_onclick;
+  //   document.getElementById('ProfBtn').onclick = findTalent_onclick;
+  //     document.getElementById('JobsBtn').onclick = opportunities_onclick;
+  LogoutBtn.onclick = logout_onclick;
 }
 
 //create body onload
@@ -29,8 +30,9 @@ function findTalent_onclick() {
 }
 
 function logout_onclick() {
-  localStorage.removeItem("loggedInId");
-  location.href = "splash.html";
+  // localStorage.removeItem("loggedInId");
+  // location.href = "splash.html";
+  logoutPost();
 }
 
 function updateJ(divName) {
