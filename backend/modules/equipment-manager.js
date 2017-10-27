@@ -11,8 +11,6 @@ db.open(function(e, d){
     if (e) {
         console.log(e);
     } else {
-        //console.log(process.env.DB_USER);
-        //console.log(process.env.DB_PASS);
         if (process.env.NODE_ENV == 'live') {
             db.authenticate(process.env.DB_USER, process.env.DB_PASS, function(e, res) {
                 if (e) {
@@ -29,3 +27,46 @@ db.open(function(e, d){
 });
 
 var equipments = db.collection('equipments');
+var accounts = db.collection('accounts');
+
+exports.addEquipment = function(equipData, callback) {
+  equipData.date = moment().format('MMMM Do YYYY, h:mm:ss');
+  equipments.insert(equipData, {safe: true}, callback);
+}
+
+exports.updateEquipment = function(equipData, callback) {
+  equipments.findOne({name: equipData.name}, function(e, o) {
+    if (e) {
+      callback(e, null);
+    }
+    else if (!o) {
+      callback('the equipment does not exist');
+    }
+    else {
+      o.name = equipData.name;
+      o.category = equipData.category;
+      o.available = equipData.available;
+      equipments.save(o, {safe: true}, function(e) {
+        if (e) callback(e);
+        else callback(null, o);
+      })
+    }
+  });
+}
+
+exports.deleteEquipment = function(name, callback) {
+  equipments.remove({name: name}, callback);
+}
+
+exports.getEquipByName = function(name, callback) {
+  equipments.findOne({name: name}, function(e, o) {callback(o);});
+}
+
+exports.getAllEquipments = function(callback) {
+  equipments.find().toArray(function(e, res) {
+    if (e)
+      callback(e);
+    else
+    callback(null, res);
+  });
+}

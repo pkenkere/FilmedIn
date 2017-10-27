@@ -58,6 +58,7 @@ module.exports = function(app) {
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
+          isAdmin : req.param('isAdmin');
           //country : req.param('country'),
         };
         AM.addNewAccount(newData, function(e){
@@ -139,7 +140,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/reset', function(req, res) {
+    app.post('/reset', function(req, res) {
         AM.delAllRecords(function(){
             res.redirect('/print');
         });
