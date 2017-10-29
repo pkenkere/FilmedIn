@@ -91,6 +91,7 @@ require('./backend/routes/loginRoutes')(app);
 require('./backend/routes/profileRoutes')(app);
 require('./backend/routes/job-routes')(app, db);
 require('./backend/routes/announcement-routes')(app, db);
+require('./backend/routes/inventory-routes')(app, db);
 
 
 http.createServer(app).listen(app.get('port'), function(){
