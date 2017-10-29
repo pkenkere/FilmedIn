@@ -1,6 +1,6 @@
 var path = require('path');
 
-var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
+//var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
 var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
@@ -48,9 +48,9 @@ module.exports = function(app) {
     })
 
     // creating new accounts //
-    app.get('/signup', function(req, res) {
+    /*app.get('/signup', function(req, res) {
         res.render('signup', {  title: 'Signup', countries : CT });
-    });
+    });*/
 
     app.post('/signup', function(req, res){
         var newData = {
@@ -58,6 +58,7 @@ module.exports = function(app) {
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
+          isAdmin : req.param('isAdmin');
           //country : req.param('country'),
         };
         AM.addNewAccount(newData, function(e){
@@ -139,7 +140,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/reset', function(req, res) {
+    app.post('/reset', function(req, res) {
         AM.delAllRecords(function(){
             res.redirect('/print');
         });

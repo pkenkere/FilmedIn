@@ -11,8 +11,6 @@ db.open(function(e, d){
     if (e) {
         console.log(e);
     } else {
-        //console.log(process.env.DB_USER);
-        //console.log(process.env.DB_PASS);
         if (process.env.NODE_ENV == 'live') {
             db.authenticate(process.env.DB_USER, process.env.DB_PASS, function(e, res) {
                 if (e) {
@@ -36,7 +34,7 @@ exports.addProfileInfo = function(email, newData, callback) {
     if (o == null) {
       callback('user-not-found');
     } else {
-      newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
+      newData.date = moment().format('MMMM Do YYYY, h:mm:ss');
       profiles.insert(newData, {safe: true}, callback);
     }
   });

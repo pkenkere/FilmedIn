@@ -1,8 +1,6 @@
 var path = require('path');
 
-var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
-var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
-var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
+//var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app) {
