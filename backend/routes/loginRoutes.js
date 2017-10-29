@@ -7,9 +7,10 @@ var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app) {
 
-    // main login page //
+	// main login page //
     app.get('/', function(req, res){
         // check if the user's credentials are saved in a cookie //
+        console.log(req.cookies.user, req.cookies.pass);
         if (req.cookies.user == undefined || req.cookies.pass == undefined){
             res.render('login', { title: 'FilmedIn' });
         }   else{
@@ -141,7 +142,7 @@ module.exports = function(app) {
 
     app.get('/reset', function(req, res) {
         AM.delAllRecords(function(){
-            res.redirect('/print');
+            res.redirect('/printUsers');
         });
     });
 
