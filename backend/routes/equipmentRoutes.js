@@ -10,9 +10,9 @@ module.exports = function(app) {
       }
       else if (!o) {
         EM.addEquipment({
-          name : req.param('name');
-          category : req.param('category');
-          available : req.param('available');
+          name : req.param('name'),
+          category : req.param('category'),
+          available : req.param('available')
         }, function(e, o) {
           if (e) {
             res.status(400).send('error adding equipment');
@@ -24,9 +24,9 @@ module.exports = function(app) {
       }
       else {
         EM.updateEquipment({
-          name : req.param('name');
-          category : req.param('category');
-          available : req.param('available');
+          name : req.param('name'),
+          category : req.param('category'),
+          available : req.param('available'),
         }, function(e, o) {
           if (e)
             res.status(400).send('error updating equipment');

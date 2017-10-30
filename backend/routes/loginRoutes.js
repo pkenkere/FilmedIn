@@ -58,7 +58,7 @@ module.exports = function(app) {
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
-          isAdmin : req.param('isAdmin');
+          isAdmin : req.param('isAdmin'),
           //country : req.param('country'),
         };
         AM.addNewAccount(newData, function(e){
