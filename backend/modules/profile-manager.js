@@ -80,6 +80,23 @@ exports.getAllProfiles = function(callback) {
     });
 }
 
+exports.getProfiles = function(criterias, callback) {
+  console.log("log from manager minAge: " + criterias.minAge);
+  profiles.find({
+    age: { $gt : criterias.minAge, $lt : criterias.maxAge }
+    //ethnicity : criterias.ethnicity,
+    //gender : criterias.gender
+  }).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
 /*exports.deleteProfile = function(email, callback) {
   profiles.remove({});
 }*/

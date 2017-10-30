@@ -79,4 +79,22 @@ module.exports = function(app) {
       }
     });
   });
+
+  app.get('/profiles', function(req, res) {
+    var criterias = {
+      minAge : req.param('minAge'),
+      maxAge : req.param('maxAge'),
+      ethnicity : req.param('ethnicity'),
+      gender : req.param('gender')
+    }
+    console.log("log from routes minAge: " + criterias.minAge + " " + criterias.maxAge + " " + criterias.ethnicity + " " + criterias.gender);
+    PM.getProfiles(criterias, function(e, profiles) {
+      if (e) {
+        res.send('error in searching for profiles');
+      }
+      else {
+        res.send(profiles);
+      }
+    });
+  });
 };
