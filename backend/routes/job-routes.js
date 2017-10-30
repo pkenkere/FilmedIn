@@ -1,6 +1,6 @@
 var path = require('path');
 
-module.exports = function(app, db) {
+module.exports = function(app) {
 
 	var controller = require(path.join(__dirname, '..', 'modules', 'job-controller'));
 
