@@ -1,23 +1,25 @@
 {
-    "name": "filmedin",
-    "description": "Connecting Film Socials",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js"
-    },
-    "dependencies": {
-        "body-parser": "1.14.1",
-        "connect-mongo": "0.8.2",
-        "cookie-parser": "1.4.0",
-        "emailjs": "^1.0.4",
-        "errorhandler": "1.4.2",
-        "express": "4.13.3",
-        "express-session": "1.11.3",
-        "jade": "1.11.0",
-        "moment": "2.10.3",
-        "mongodb": "2.0.45",
-        "mongoose": "^4.9.8",
-        "nodemon": "^1.11.0",
-        "stylus": "0.52.4"
-    }
+  "name": "filmedin",
+  "description": "Connecting Film Socials",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "connect-mongo": "0.8.2",
+    "cookie-parser": "1.4.0",
+    "emailjs": "^1.0.4",
+    "errorhandler": "1.4.2",
+    "express": "4.13.3",
+    "express-session": "1.11.3",
+    "jade": "1.11.0",
+    "moment": "2.10.3",
+    "mongodb": "2.0.45",
+    "mongoose": "^4.9.8",
+    "nodemailer": "^4.3.1",
+    "nodemon": "^1.11.0",
+    "sendgrid": "^5.2.3",
+    "stylus": "0.52.4"
+  }
 }

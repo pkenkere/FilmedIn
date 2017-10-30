@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var MongoStore = require('connect-mongo')(session);
 var cons = require('consolidate');
 var path = require('path');
+global.appRoot = path.resolve(__dirname) + '/';
 
 var app = express();
 
@@ -43,6 +44,8 @@ app.use(session({
 
 require('./backend/routes/loginRoutes')(app);
 require('./backend/routes/profileRoutes')(app);
+require('./backend/routes/job-routes')(app);
+require('./backend/routes/announcement-routes')(app);
 require('./backend/routes/equipmentRoutes')(app);
 
 
