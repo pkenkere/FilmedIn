@@ -14,6 +14,7 @@ fetch(url+"/reset-password", resetPasswordData)
 .then(function(res){
     if(res.ok){
         //reset password
+        location.href = "index.html?user="+loginEmail.value;
         console.log("password reset");
     }
     else{

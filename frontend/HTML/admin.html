@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
+  <script type="text/javascript" language="javascript" src="../JS/admin.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+  </div>
+</head>
+<body>
+  <div class="tab">
+  <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
+  <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
+  <button class="tablinks" id = "tab3" onclick="">Add/Delete Equipment from Inventory</button>
+  <button class="tablinks" id = "tab4" onclick="">Add/Delete announcements from newsfeed</button>
+  <button class="tablinks" id = "tab5" onclick="">Add/Delete Equipment from Inventory</button>
+  </div>
+
+  <div id = "AddAdmin"class="tabcontent">
+      <h4 id = "">Add new admin</h4>
+    <form>
+    <div class="form-group">
+      <label>Name of user</label>
+      <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
+    </div>
+    <div class="form-group">
+      <label>User email ID</label>
+      <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
+    </div>
+    <div class="form-group">
+      <label>Re-enter password</label>
+      <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
+    </div>
+  </form>
+  </div>
+</body>
+</html>
