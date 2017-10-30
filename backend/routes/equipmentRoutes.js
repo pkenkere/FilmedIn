@@ -26,7 +26,7 @@ module.exports = function(app) {
         EM.updateEquipment({
           name : req.param('name'),
           category : req.param('category'),
-          available : req.param('available')
+          available : req.param('available'),
         }, function(e, o) {
           if (e)
             res.status(400).send('error updating equipment');

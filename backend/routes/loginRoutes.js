@@ -56,9 +56,9 @@ module.exports = function(app) {
         var newData = {
           name    : req.param('name'),
           email   : req.param('email'),
-          //user    : req.param('user'),
-          pass    : req.param('pass')
-          //isAdmin : req.param('isAdmin')
+          user    : req.param('user'),
+          pass    : req.param('pass'),
+          isAdmin : req.param('isAdmin'),
           //country : req.param('country'),
         };
         console.log(newData);
