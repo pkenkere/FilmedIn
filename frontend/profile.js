@@ -1,4 +1,4 @@
-// var count = 0;
+var count = 0;
 
 function body_onload() {
   // getAccounts();
@@ -11,7 +11,14 @@ function body_onload() {
   // document.getElementById('LogoutBtn').onclick = logout_onclick;
   //   document.getElementById('ProfBtn').onclick = findTalent_onclick;
   //     document.getElementById('JobsBtn').onclick = opportunities_onclick;
+  renderProfile();
   LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentEquipment_onclick;
+}
+
+function renderProfile(){
+  profileGet();
+  
 }
 
 //create body onload
@@ -33,6 +40,10 @@ function logout_onclick() {
   // localStorage.removeItem("loggedInId");
   // location.href = "splash.html";
   logoutPost();
+}
+
+function rentEquipment_onclick(){
+  location.href = "";
 }
 
 function updateJ(divName) {

@@ -1,9 +1,10 @@
-var infoAccounts = new Array();
+//var infoAccounts = new Array();
 
 function body_onload() {
   //accounts = new Array();
-  getProfileInfo();
-  document.getElementById('submitInfo').onclick = submitInfo_onclick;
+  //getProfileInfo();
+  //document.getElementById('submitInfo').onclick = submitInfo_onclick;
+  submitInfo.onclick = submitInfo_onclick;
 }
 function submitInfo_onclick() {
   var age = document.getElementById('age').value;
@@ -24,22 +25,22 @@ function submitInfo_onclick() {
     Ethnicity : ethnicity,
     Gender : gender
   };
-
-  infoAccounts.push(infoAccount);
-  saveProfileInfo();
-  location.href = "profile.html";
+  permInfo(infoAccount);
+  //infoAccounts.push(infoAccount);
+  //saveProfileInfo();
+  //location.href = "profile.html";
 }
 
-function saveProfileInfo() {
-  var json = JSON.stringify(infoAccounts);
-  localStorage.setItem("infoProfiles", json);
-}
+// function saveProfileInfo() {
+//   var json = JSON.stringify(infoAccounts);
+//   localStorage.setItem("infoProfiles", json);
+// }
 
-function getProfileInfo() {
-  infoAccounts = new Array();
-  var json = localStorage.getItem("infoProfiles");
-  if (json == null)
-    return;
+// function getProfileInfo() {
+//   infoAccounts = new Array();
+//   var json = localStorage.getItem("infoProfiles");
+//   if (json == null)
+//     return;
 
-  infoAccounts = JSON.parse(json);
-}
+//   infoAccounts = JSON.parse(json);
+// }

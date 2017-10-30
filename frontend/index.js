@@ -26,7 +26,7 @@ function signUp_onclick() {
   var account = JSON.stringify({
     Email : eml,
     Password : pas,
-    Name : fname+lname,
+    Name : fname+" "+lname,
   });
   signupPost(account);
 }

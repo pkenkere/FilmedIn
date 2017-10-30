@@ -7,7 +7,7 @@ function loginPost(email, password) {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          user: email,
+          email: email,
           pass: password
       })
   }
@@ -16,6 +16,7 @@ function loginPost(email, password) {
       if(res.ok){
           //login to profile
           location.href = "profile.html?user="+email;
+        //   profileGet(email);
           console.log("login success!");
       }
       else{
@@ -30,7 +31,10 @@ function loginPost(email, password) {
 }
 
 function logoutPost(){
-    fetch(url+"/logout")
+    var logoutMethod = {
+        method: "POST",
+    }
+    fetch(url+"/logout", logoutMethod)
     .then(function(res){
         if(res.ok){
             console.log("successfully logged out!");
@@ -44,3 +48,18 @@ function logoutPost(){
         console.log("POST request failed", err);        
     });
 }
+
+// function profileGet(email){
+//     var a = {
+//         method: "GET",
+//         headers:{
+//             'content-type': 'application/json'
+//         },
+//         body: JSON.stringify(email)
+//     }
+//     fetch(url+"/profile", a)
+//     .then(function(res){
+        
+
+//     })
+// }

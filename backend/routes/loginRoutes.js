@@ -26,14 +26,14 @@ module.exports = function(app) {
     });
 
     app.post('/', function(req, res){
-        AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
+        AM.manualLogin(req.param('email'), req.param('pass'), function(e, o){
             if (!o){
                 //console.log("MAA KIIII CHHUUUTTTTTT!!!!!");
                 res.status(400).send(e);
             }   else{
                 req.session.user = o;
                 if (req.body['remember-me'] == 'true'){
-                    res.cookie('user', o.user, { maxAge: 900000 });
+                    res.cookie('email', o.user, { maxAge: 900000 });
                     res.cookie('pass', o.pass, { maxAge: 900000 });
                 }
                 res.status(200).send(o);
@@ -56,11 +56,12 @@ module.exports = function(app) {
         var newData = {
           name    : req.param('name'),
           email   : req.param('email'),
-          user    : req.param('user'),
-          pass    : req.param('pass'),
-          isAdmin : req.param('isAdmin');
+          //user    : req.param('user'),
+          pass    : req.param('pass')
+          //isAdmin : req.param('isAdmin')
           //country : req.param('country'),
         };
+        console.log(newData);
         AM.addNewAccount(newData, function(e){
             if (e){
                 res.status(400).send(e);
@@ -142,7 +143,8 @@ module.exports = function(app) {
 
     app.post('/reset', function(req, res) {
         AM.delAllRecords(function(){
-            res.redirect('/print');
+            //res.redirect('/print');
+            res.send('ok');
         });
     });
 
