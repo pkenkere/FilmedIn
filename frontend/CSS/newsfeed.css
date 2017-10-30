@@ -64,15 +64,74 @@
    border: 1px dotted black;
 }
 
+.image_box2 {
+  height: 100px;
+  width: 98%;
+  border: 1px dotted black;
+  padding: 20px;
+}
+
+.image_box3 {
+  height: 68%;
+  width: 98%;
+  border: 1px dotted black;
+  padding: 20px;
+}
 #news1 {
   width: 40%;
   height : 57%;
   margin-top:1%;
-  margin-left:1%;
+  margin-left:2%;
+  overflow: scroll;
 }
 
+#news2 {
+  height: 10%;
+  width: 50%;
+  margin-left: 2%;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 1%;
+  overflow: scroll;
+}
+
+#pic1 {
+  width: 110%;
+   height: 100px;
+   margin-top:-5%;
+   margin-left:-5%;
+}
+
+#pic2 {
+  width: 108%;
+   height: 100px;
+   margin-top:-4%;
+   margin-left:-4%;
+}
+
+#news3 {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  right: 0.5%;
+  top: 10%;
+  bottom: 90%;
+  margin-top:2%;
+  margin-left:1%;
+  overflow: scroll;
+}
+
+#pic3 {
+  width: 108%;
+   height: 107px;
+   margin-bottom: -6%;
+   margin-top:-4%;
+   margin-left:-4%;
+}
 .box {
-  height: 27%;
+  height: 10%;
   width: 100%;
   border: 2px solid black;
   position: absolute;
@@ -82,10 +141,4 @@
 
 h4 {
   text-align: center;
-}
-
-#news2 {
-  margin-left: 50%;
-  margin-top: -12%;
-  width: 46%;
 }
