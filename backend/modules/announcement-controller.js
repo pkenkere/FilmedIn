@@ -34,7 +34,8 @@ var announcements = db.collection('announcements');
 
 exports.addAnnouncement = function(annData, callback)
 {
-	announcements.insert(annData, function(e,o){
+  annData.dateCreated = moment().format('MMMM Do YYYY, h:mm:ss a');
+  announcements.insert(annData, function(e,o){
 		if(e) callback(e);
 		else callback(null, annData);
 	});
@@ -47,6 +48,10 @@ exports.getAllAnnouncements  = function(callback)
 							if (e) callback(e)
 							else callback(null, res)
 					});
+}
+
+exports.delAllAnnouncements = function(callback){
+  announcements.remove({},callback);
 }
 
 /*exports.announcementController = function(db) {

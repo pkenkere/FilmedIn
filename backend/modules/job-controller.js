@@ -43,7 +43,7 @@ exports.getAllJobs = function(callback)
 
 exports.delAllJobs = function(callback)
 {
-    jobs.remove({}, callback); // reset accounts collection for testing //
+    jobs.remove({}, callback); // reset job list for testing //
 }
 
 exports.addJob = function (jobData,callback)

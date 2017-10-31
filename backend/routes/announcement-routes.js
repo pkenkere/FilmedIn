@@ -11,11 +11,21 @@ module.exports = function(app) {
 	});
 
 	app.post('/announcements', function(req, res) {
-    controller.addAnnouncement(req.body, function(err,o) {
+    controller.addAnnouncement({
+			headline : req.body.headline,
+			desc : req.body.desc
+		}, function(err,o) {
       if(err) res.status(400).send("error-adding-annoucement");
       else {
         res.status(200).send('ok, announcement added');
       }
     });
 	});
+
+	app.post('/announcements/delete', function(req, res) {
+		controller.delAllAnnouncements(function(){
+			res.redirect('/announcements');
+		});
+	});
+
 };
