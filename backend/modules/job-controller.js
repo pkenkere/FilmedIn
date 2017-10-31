@@ -54,3 +54,63 @@ exports.addJob = function (jobData,callback)
       else callback(null, jobData);
     });
 }
+
+exports.searchByGender = function(gender, callback) {
+  jobs.find({"roles.gender" : gender}).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
+exports.searchByEthnicity = function(ethnicity, callback) {
+  jobs.find({"roles.ethnicity" : ethnicity}).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
+exports.searchByRoleType = function(roleType, callback) {
+  jobs.find({"roles.roleType" : roleType}).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
+exports.searchByAge = function(ageRange, callback) {
+  jobs.find({"roles.age" : {$lte : ageRange.min , $gte : ageRange.max}}).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
+exports.searchByProdType = function(type, callback) {
+  jobs.find({"prodDet.type" : type}).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
