@@ -48,6 +48,7 @@ exports.delAllJobs = function(callback)
 
 exports.addJob = function (jobData,callback)
 {
+  jobData.dateCreated = moment().format('MMMM Do YYYY, h:mm:ss');
     jobs.save(jobData,function(e) {
       if(e) callback(e);
       else callback(null, jobData);
