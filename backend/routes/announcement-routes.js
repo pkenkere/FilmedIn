@@ -22,12 +22,14 @@ module.exports = function(app) {
     });
 	});
 
+	//Delete all announcements for testing
 	app.post('/announcements/deleteall', function(req, res) {
 		controller.delAllAnnouncements(function(){
 			res.redirect('/announcements');
 		});
 	});
 
+	//Delete specific announcements
 	app.post('/announcements/delete', function (req, res) {
 		controller.deleteAnnouncement(req.body.id, function(err, o){
 			if(!err){

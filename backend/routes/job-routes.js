@@ -75,11 +75,21 @@ module.exports = function(app) {
 	});
 
 	//Route to delete all jobs for testing
-	app.post('/jobs/delete', function(req, res) {
+	app.post('/jobs/deleteall', function(req, res) {
 		controller.delAllJobs(function(){
 			res.redirect('/jobs')
 		});
 	});
 
-
+	//Delete specific jobs
+	app.post('/jobs/delete', function (req, res) {
+		controller.deleteJob(req.body.id, function(err, o){
+			if(!err){
+				res.status(200).send('job-deleted');
+			}
+			else{
+				res.status(400).send('job not found');
+			}
+		});
+	});
 };

@@ -37,6 +37,15 @@ var getObjectId = function(id)
     return new require('mongodb').ObjectID(id);
 }
 
+var findById = function(id, callback)
+{
+    announcements.findOne({_id: getObjectId(id)},
+            function(e, res) {
+                if (e) callback(e)
+                else callback(null, res)
+            });
+}
+
 exports.addAnnouncement = function(annData, callback)
 {
   annData.dateCreated = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -61,10 +70,15 @@ exports.delAllAnnouncements = function(callback){
 
 exports.deleteAnnouncement = function(id, callback)
 {
-    announcements.remove({_id: getObjectId(id)}, function(e,o){
-      if(e) callback(e);
-      else callback(null, o);
-    });
+  findById(id, function(e,o){
+    if(e || o == null) callback(1);
+    else {
+      announcements.remove({_id: getObjectId(id)}, function(e,o){
+        if(e) callback(e);
+        else callback(null, o);
+      });
+    }
+  });
 }
 
 /*exports.announcementController = function(db) {
