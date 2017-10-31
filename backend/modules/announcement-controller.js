@@ -32,6 +32,11 @@ db.open(function(e, d){
 
 var announcements = db.collection('announcements');
 
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
+}
+
 exports.addAnnouncement = function(annData, callback)
 {
   annData.dateCreated = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -52,6 +57,14 @@ exports.getAllAnnouncements  = function(callback)
 
 exports.delAllAnnouncements = function(callback){
   announcements.remove({},callback);
+}
+
+exports.deleteAnnouncement = function(id, callback)
+{
+    announcements.remove({_id: getObjectId(id)}, function(e,o){
+      if(e) callback(e);
+      else callback(null, o);
+    });
 }
 
 /*exports.announcementController = function(db) {

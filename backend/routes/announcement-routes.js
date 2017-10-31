@@ -22,9 +22,20 @@ module.exports = function(app) {
     });
 	});
 
-	app.post('/announcements/delete', function(req, res) {
+	app.post('/announcements/deleteall', function(req, res) {
 		controller.delAllAnnouncements(function(){
 			res.redirect('/announcements');
+		});
+	});
+
+	app.post('/announcements/delete', function (req, res) {
+		controller.deleteAnnouncement(req.body.id, function(err, o){
+			if(!err){
+				res.status(200).send('announcement-deleted');
+			}
+			else{
+				res.status(400).send('announcement not found');
+			}
 		});
 	});
 
