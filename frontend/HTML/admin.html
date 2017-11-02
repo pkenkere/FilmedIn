@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
   <script type="text/javascript" language="javascript" src="../JS/admin.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/admincontroller.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -19,6 +20,7 @@
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
   </div>
 </head>
+<body onload="body_onload()">
 <body>
   <div class="tab">
     <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
@@ -26,6 +28,10 @@
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
   <button class="tablinks" id = "tab4" onclick="">Add/Delete announcements from newsfeed</button>
   </div>
+
+  <div class="alert alert-success" id="SuccessAlert">
+<strong>Success!</strong> Indicates a successful or positive action.
+</div>
 
 <!-- <div id = "WelcomeAdmin" class="maintabcontent">
   <h4>Admin Page</h4>
@@ -64,20 +70,32 @@
   </ul>
 
   <div id="menu1" class="tab-pane fade">
+    <br>
         <label>Name of Equipment</label>
-        <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
+        <input type="text" class="form-control" id="equipmentName" placeholder="Enter name of equipment">
+        <br>
       <div class="form-group">
-        <label>User email ID</label>
-        <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
+        <label>Category</label><br>
+        <input type="radio" name="categoryname"/> Camera Kits
+          <input type="radio" name="categoryname"/> Camera Lenses
+          <input type="radio" name="categoryname"/> Audio Kits
+          <input type="radio" name="categoryname"/> Lighting Kits
+          <input type="radio" name="categoryname"/> Accessories
+          <input type="radio" name="categoryname"/> Stabilizers
+          <input type="radio" name="categoryname"/> Other
       </div>
-        <label>Re-enter password</label>
-        <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
+        <label>Availablity</label>
+        <br>
+        <input type="radio" id="available" name = "yesorno" /> Available
+        <input type="radio" name="yesorno" id="noavailsable"/> Unavailable
+        <br>
+        <button type="submit" class="btn" id ="addEquip">ADD!</button>
       </div>
     <div id="menu2" class="tab-pane fade">
     </div>
   </div>
 
 
-
+</div>
 </body>
 </html>

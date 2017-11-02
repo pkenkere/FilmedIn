@@ -108,3 +108,12 @@ h4 {
   position: absolute;
   right: 10%;
 }
+
+#addEquip {
+  right: 10%;
+  position: absolute;
+}
+
+#SuccessAlert{
+  display: none;
+}
