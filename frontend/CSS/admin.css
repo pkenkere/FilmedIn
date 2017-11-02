@@ -66,13 +66,6 @@
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
-
-/*.content {
-  width: auto;
-  height: 100%;
-
-}*/
-
 div.tab button {
     display: block;
     background-color: inherit;
@@ -103,8 +96,15 @@ div.tab button.active {
     margin-left: 5%;
     margin-top: 3%;
     height: 300px;
+    display: none;
 }
 
 h4 {
   text-align: center;
+}
+
+#AddAdminBtn {
+  margin-top: 5%;
+  position: absolute;
+  right: 10%;
 }

@@ -21,14 +21,21 @@
 </head>
 <body>
   <div class="tab">
+    <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
-  <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
-  <button class="tablinks" id = "tab3" onclick="">Add/Delete Equipment from Inventory</button>
+  <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
   <button class="tablinks" id = "tab4" onclick="">Add/Delete announcements from newsfeed</button>
-  <button class="tablinks" id = "tab5" onclick="">Add/Delete Equipment from Inventory</button>
   </div>
 
-  <div id = "AddAdmin"class="tabcontent">
+<!-- <div id = "WelcomeAdmin" class="maintabcontent">
+  <h4>Admin Page</h4>
+  <p4>If you are an admin, you have access to the following options:
+    <ul>
+      <li>Remove User Profile</li>
+      <li>Add Admin</li>
+    </ul>
+  </div> -->
+  <div id = "AddAdmin" class="tabcontent">
       <h4 id = "">Add new admin</h4>
     <form>
     <div class="form-group">
@@ -44,6 +51,33 @@
       <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
     </div>
   </form>
+        <button class="btn" id = "AddAdminBtn" type="button">Add Admin</button>
   </div>
+
+  <div id ="AddRemoveEquipment" class="tabcontent">
+    <ul class="nav nav-tabs">
+    <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
+    <li><a data-toggle="tab" href="#menu1">Add Equipment</a></li>
+    <li><a data-toggle="tab" href="#menu2">Remove Equipment</a></li>
+  </ul>
+
+  <div id="menu1" class="tab-pane fade">
+        <label>Name of Equipment</label>
+        <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
+      <div class="form-group">
+        <label>User email ID</label>
+        <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
+      </div>
+        <label>Re-enter password</label>
+        <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
+      </div>
+    <div id="menu2" class="tab-pane fade">
+    </div>
+  </div>
+
+
+
 </body>
 </html>
