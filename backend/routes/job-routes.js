@@ -27,21 +27,17 @@ module.exports = function(app) {
 			controller.addJob()
 		}*/
 		var job = {
-			prodDet : {
-				title : req.body.prodDet.title,
-				type : req.body.prodDet.type,
-				desc : req.body.prodDet.desc,
-				prodDates : req.body.prodDet.prodDates,
-				expDate : req.body.prodDet.expDate,
-				paid : req.body.prodDet.paid
-			}
+				title : req.body.title,
+				type : req.body.type,
+				desc : req.body.desc,
+				prodDates : req.body.prodDates,
+				expDate : req.body.expDate,
+				paid : req.body.paid,
+				specialInstr : req.body.specialInstr,
+				audStartDate : req.body.audStartDate,
+				audEndDate : req.body.audEndDate
 		};
 		job.roles = req.body.roles;
-		job.auditions = {
-			specialInstr : req.body.auditions.specialInstr,
-			audStartDate : req.body.auditions.audStartDate,
-			audEndDate : req.body.auditions.audEndDate
-		};
 		controller.addJob(job, function(e, o){
 				if(e) {
 					res.status(400).send('error-adding-job');
@@ -55,15 +51,21 @@ module.exports = function(app) {
 //Route to get specific jobs
 	app.get('/jobs/search', function(req, res) {
 		var criterias = {};
-		if(req.query.ethnicity != null) criterias.ethnicity = req.query.ethnicity;
-		if(req.query.gender != undefined) criterias.gender = req.query.gender;
-		if(req.query.prodType != null) criterias.prodType = req.query.prodType;
-		if(req.query.roleType != null) criterias.roleType = req.query.roleType;
-		if(req.query.minAge != null) criterias.minAge = req.query.minAge;
-		if(req.query.maxAge != null) criterias.maxAge = req.query.maxAge;
-		console.log(criterias);
+		if(req.query.ethnicity != null) criterias["roles.ethnicity"] = req.query.ethnicity;
+		if(req.query.gender != null) criterias["roles.gender"] = req.query.gender;
+		if(req.query.type != null) criterias.type = req.query.type;
+		if(req.query.roleType != null) criterias["roles.type"] = req.query.roleType;
+		if(req.query.minAge != null){
+			criterias["roles.age"] = criterias["roles.age"] || {};
+			criterias["roles.age"]["$gte"] = req.query.minAge;
+		}
+		if(req.query.maxAge != null){
+			criterias["roles.age"] = criterias["roles.age"] || {};
+			criterias["roles.age"]["$lte"] = req.query.maxAge;
+		}
+		//console.log(criterias);
 
-		controller.searchByGender(req.query.gender, function(err, jobs){
+		controller.search(criterias, function(err, jobs){
 				if(!err){
 					//console.log(jobs[jobs.length - 1].roles[0].gender);
 					res.send(jobs);
