@@ -12,7 +12,7 @@ module.exports = function(app) {
       } else {
           PM.getProfileByEmail(req.param('email'), function(err, o) {
             if (!o) {
-              res.status(400).send(e);
+              res.status(400).send(err);
             }
             else {
               res.send(o);
@@ -97,4 +97,14 @@ module.exports = function(app) {
       }
     });
   });
+
+  app.post('/deleteProfile', function(req, res) {
+    PM.deleteProfile(req.param('email'), function(e) {
+      if (e)
+        callback('error while deleting profile');
+      else
+        res.status(200).send('profile deleted');
+    })
+  });
+
 };
