@@ -54,3 +54,7 @@ function updateJ(divName) {
     document.getElementById(divName).appendChild(newdiv);
     count++;
 }
+
+function updateEdit(divName) {
+
+}
