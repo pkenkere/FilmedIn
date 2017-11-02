@@ -44,6 +44,24 @@
   border: none;
 }
 
+.btn-postJob {
+  background-color: red;
+  /*background-color: rgba(199, 168, 41, 0.5);*/
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1000px;
+}
+
+.btn-logout{
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}
+
 div #container {
   width: 100%;
   margin: 0 auto;
@@ -97,11 +115,12 @@ div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
   width: 55%;
 }
 
-#range {
+#rangeBtn {
   margin-left: -0.5%;
-  position: absolute;
-  top: 40%;
   font-size: 15px;
+  margin-top: -19%;
+  /*padding-top: 1%;
+  padding-bottom: -6%;*/  
 }
 
 #slider {
@@ -110,5 +129,5 @@ div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
 
 #btnSrch {
   float: right;
-  margin-top: 2%;
+  margin-top: 5%;
 }

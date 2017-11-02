@@ -7,16 +7,19 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="jobsearch.css">
-  <script type="text/javascript" language="javascript" src="searchJobs.js"></script>
+  <script type="text/javascript" language="javascript" src="findTalent.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
     <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
   </div>
 </head>
-<body>
+<body onload="body_onload()">
   <div id = "container">
     <h1>Filter Results</h1>
     <div class = "content">
@@ -30,19 +33,19 @@
       <div id="box">
       <div class="box-top2">Gender</div>
         <div class="box-panel2">
-          <div class="checkbox" onchange="enable()">
-              <label><input type="checkbox" value="">Male</label>
-              <label><input type="checkbox" value="">Female</label>
-              <label><input type="checkbox" value="">Other</label>
-              <label><input type="checkbox" value="">Any</label>
-           </div>
+          <form class="checkbox" onchange="enable()">
+              <label><input  id = "chck1" type="checkbox" value="">Male</label>
+              <label><input id = "chck2" type="checkbox" value="">Female</label>
+              <label><input id = "chck3" type="checkbox" value="">Other</label>
+              <label><input id = "chck4" type="checkbox" value="">Any</label>
+           </form>
          </div>
        </div>
       <div id="box">
        <div class="box-top3">Age</div>
         <div class="box-panel3">
           <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
-          <button id="range">0</button>
+          <button id="rangeBtn">0</button>
           <script type="text/javascript">
             function showValue(newValue)
               {
