@@ -83,9 +83,9 @@ exports.getAllProfiles = function(callback) {
 exports.getProfiles = function(criterias, callback) {
   console.log("log from manager minAge: " + criterias.minAge);
   profiles.find({
-    age: { $gt : criterias.minAge, $lt : criterias.maxAge }
-    //ethnicity : criterias.ethnicity,
-    //gender : criterias.gender
+    age: { $gt : criterias.minAge, $lt : criterias.maxAge },
+    ethnicity : criterias.ethnicity,
+    gender : criterias.gender
   }).toArray(
     function(e, res) {
       if (e)
@@ -97,6 +97,6 @@ exports.getProfiles = function(criterias, callback) {
   );
 }
 
-/*exports.deleteProfile = function(email, callback) {
-  profiles.remove({});
-}*/
+exports.deleteProfile = function(email, callback) {
+  profiles.remove({email: email}, callback);
+}
