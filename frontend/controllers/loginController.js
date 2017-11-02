@@ -15,7 +15,7 @@ function loginPost(email, password) {
   .then(function(res){
       if(res.ok){
           //login to profile
-          location.href = "profile.html?user="+email;
+          location.href = "../HTML/profile.html?user="+email;
         //   profileGet(email);
           console.log("login success!");
       }
@@ -38,7 +38,7 @@ function logoutPost(){
     .then(function(res){
         if(res.ok){
             console.log("successfully logged out!");
-            location.href = "index.html";
+            location.href = "../HTML/index.html";
         }
         else{
             console.log("failed to log out");

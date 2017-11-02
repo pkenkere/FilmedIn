@@ -6,11 +6,12 @@ function profileGet(){
     }
     fetch(url+"/profile", profile)
     .then(function(res){
-        if(res.ok){
-
+        if(res){
+            //var profileDet = JSON.parse(res);
+            console.log(res);
         }
         else{
-
+            console.log("no profile found");
         }
     })
     .catch(function(err){

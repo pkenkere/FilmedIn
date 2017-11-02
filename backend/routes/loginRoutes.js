@@ -12,7 +12,7 @@ module.exports = function(app) {
         // check if the user's credentials are saved in a cookie //
         console.log(req.cookies.user, req.cookies.pass);
         if (req.cookies.user == undefined || req.cookies.pass == undefined){
-            res.render('login', { title: 'FilmedIn' });
+            res.render('index', { title: 'FilmedIn' });
         }   else{
             // attempt automatic login //
             AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
@@ -20,7 +20,7 @@ module.exports = function(app) {
                     req.session.user = o;
                     res.redirect('/home');
                 }   else{
-                    res.render('login', { title: 'FilmedIn' });
+                    res.render('index', { title: 'FilmedIn' });
                 }
             });
         }

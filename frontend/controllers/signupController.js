@@ -18,7 +18,7 @@ function signupPost(acc){
     .then(function(res){
         if(res.ok){
             console.log("signed up!");
-            location.href = "permInfo.html?user="+a.Email;
+            location.href = "../HTML/permInfo.html?user="+a.Email;
         }
         else{
             console.log("signup failed");
@@ -54,7 +54,7 @@ function permInfo(info){
             window.alert(info.Gender);
             window.alert(info.Ethnicity);
             console.log("Saved additional info to the database!");
-            location.href = "profile.html?user="+el[1];
+            location.href = "../HTML/profile.html?user="+el[1];
         }
         else{
             console.log("Failed to store the information provided");
