@@ -109,10 +109,15 @@ h4 {
   right: 10%;
 }
 
-#addEquip {
+#addEquip, #addNews {
   right: 10%;
   position: absolute;
 }
+
+/*#addNews {
+  position: absolute;
+  right: 10%;
+}*/
 
 #SuccessAlert{
   display: none;

@@ -26,7 +26,7 @@
     <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
-  <button class="tablinks" id = "tab4" onclick="">Add/Delete announcements from newsfeed</button>
+  <button class="tablinks" id = "tab4" onclick="displayChoice(event, 'AddRemoveNews')">Add/Delete announcements from newsfeed</button>
   </div>
 
   <div class="alert alert-success" id="SuccessAlert">
@@ -92,6 +92,30 @@
         <button type="submit" class="btn" id ="addEquip">ADD!</button>
       </div>
     <div id="menu2" class="tab-pane fade">
+    </div>
+  </div>
+
+  <div id ="AddRemoveNews" class="tabcontent">
+    <ul class="nav nav-tabs">
+    <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
+    <li><a data-toggle="tab" href="#AddMenu">Add News Item</a></li>
+    <li><a data-toggle="tab" href="#RemoveMenu">Remove News</a></li>
+  </ul>
+
+  <div id="AddMenu" class="tab-pane fade">
+    <br>
+        <label>News Headline</label>
+        <input type="text" class="form-control" id="NewsName" placeholder="Enter headline of news article">
+        <br>
+        <label>News Description</label>
+        <br>
+        <textarea></textarea>
+        <br>
+        <button type="submit" class="btn" id ="addNews">ADD!</button>
+      </div>
+    <div id="RemoveMenu" class="tab-pane fade">
     </div>
   </div>
 
