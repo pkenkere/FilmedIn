@@ -12,7 +12,7 @@ module.exports = function(app) {
         // check if the user's credentials are saved in a cookie //
         console.log(req.cookies.user, req.cookies.pass);
         if (req.cookies.user == undefined || req.cookies.pass == undefined){
-            res.render('login', { title: 'FilmedIn' });
+            res.render('index', { title: 'FilmedIn' });
         }   else{
             // attempt automatic login //
             AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
@@ -20,21 +20,21 @@ module.exports = function(app) {
                     req.session.user = o;
                     res.redirect('/home');
                 }   else{
-                    res.render('login', { title: 'FilmedIn' });
+                    res.render('index', { title: 'FilmedIn' });
                 }
             });
         }
     });
 
     app.post('/', function(req, res){
-        AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
+        AM.manualLogin(req.param('email'), req.param('pass'), function(e, o){
             if (!o){
                 //console.log("MAA KIIII CHHUUUTTTTTT!!!!!");
                 res.status(400).send(e);
             }   else{
                 req.session.user = o;
                 if (req.body['remember-me'] == 'true'){
-                    res.cookie('user', o.user, { maxAge: 900000 });
+                    res.cookie('email', o.user, { maxAge: 900000 });
                     res.cookie('pass', o.pass, { maxAge: 900000 });
                 }
                 res.status(200).send(o);
@@ -62,6 +62,7 @@ module.exports = function(app) {
           isAdmin : req.param('isAdmin'),
           //country : req.param('country'),
         };
+        console.log(newData);
         AM.addNewAccount(newData, function(e){
             if (e){
                 res.status(400).send(e);
@@ -143,7 +144,8 @@ module.exports = function(app) {
 
     app.post('/reset', function(req, res) {
         AM.delAllRecords(function(){
-            res.redirect('/printUsers');
+            //res.redirect('/print');
+            res.send('ok');
         });
     });
 

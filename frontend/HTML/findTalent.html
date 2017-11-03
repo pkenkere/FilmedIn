@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../CSS/jobsearch.css">
+  <script type="text/javascript" language="javascript" src="../JSfindTalent.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+  </div>
+</head>
+<body onload="body_onload()">
+  <div id = "container">
+    <h1>Filter Results</h1>
+    <div class = "content">
+  <!-- Everything goes inside the boxs -->
+  <div id="box">
+  <div class="box-top1">Search by Name</div>
+   <div class="box-panel1">
+       <input id = "name" type="text" onchange="enable()">
+   </div>
+ </div>
+      <div id="box">
+      <div class="box-top2">Gender</div>
+        <div class="box-panel2">
+          <form class="checkbox" onchange="enable()">
+              <label><input  id = "chck1" type="checkbox" value="">Male</label>
+              <label><input id = "chck2" type="checkbox" value="">Female</label>
+              <label><input id = "chck3" type="checkbox" value="">Other</label>
+              <label><input id = "chck4" type="checkbox" value="">Any</label>
+           </form>
+         </div>
+       </div>
+      <div id="box">
+       <div class="box-top3">Age</div>
+        <div class="box-panel3">
+          <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
+          <button id="rangeBtn">0</button>
+          <script type="text/javascript">
+            function showValue(newValue)
+              {
+                document.getElementById("range").innerHTML=newValue;
+                document.getElementById("btnSrch").disabled = false;
+              }
+          </script>
+        </div>
+    </div>
+     <div id="box">
+     <div class="box-top4">Ethnicity</div>
+      <div class="box-panel4">
+        <select id = "ethnicity" onchange="enable()">
+            <option value="All Ethnicities">All Ethnicities</option>
+            <option value="Caucasian">Caucasian</option>
+            <option value="African American">African American</option>
+            <option value="Latino/Hispanic">Latino/Hispanic</option>
+            <option value="Asian">Asian</option>
+            <option value="South Asian">South Asian</option>
+            <option value="Middle Eastern">Middle Eastern</option>
+          </select>
+      </div>
+   </div>
+    <button type="submit" class="btn" id="btnSrch" disabled="true">Search</button>
+   </div>
+  </div>
+  <script>
+    function enable() {
+      document.getElementById("btnSrch").disabled = false;
+      // document.getElementById("btnSrch").style.backgroundColor= green;
+    }
+  </script>
+  </body>
+  </html>

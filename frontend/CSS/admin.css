@@ -1,0 +1,135 @@
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}
+
+.btn-postJob {
+  background-color: red;
+  /*background-color: rgba(199, 168, 41, 0.5);*/
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1000px;
+}
+
+.btn-logout{
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}
+
+
+.tab {
+  width: 20%;
+  height: 100%;
+  float: left;
+  padding-bottom: 100%;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+div.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    /*transition: 0.3s;*/
+}
+
+/* Change background color of buttons on hover */
+ div.tab button:hover {
+    background-color: #ddd;
+}
+
+div.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    float: left;
+    padding: 1px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 3%;
+    height: 100%;
+    overflow-y: scroll;
+    display: none;
+}
+
+#WelcomeAdmin{
+    float: left;
+    padding: 1px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 3%;
+    height: 100%;
+    overflow-y: scroll;
+    display: block;
+}
+
+
+h4 {
+  text-align: center;
+}
+
+#addAdminBtn {
+  margin-top: 5%;
+  position: absolute;
+  right: 10%;
+}
+
+#addEquip, #addNewsBtn {
+  right: 10%;
+  margin-top: 2%;
+  position: absolute;
+}
+
+
+#SuccessAlert{
+  display: none;
+}

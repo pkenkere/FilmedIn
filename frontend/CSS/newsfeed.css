@@ -1,0 +1,144 @@
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}
+
+.btn-postJob {
+  background-color: red;
+  /*background-color: rgba(199, 168, 41, 0.5);*/
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1000px;
+}
+
+.btn-logout{
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}
+
+.image_box {
+  width: 98%;
+   height: 100px;
+   padding: 20px;
+   border: 1px dotted black;
+}
+
+.image_box2 {
+  height: 100px;
+  width: 98%;
+  border: 1px dotted black;
+  padding: 20px;
+}
+
+.image_box3 {
+  height: 68%;
+  width: 98%;
+  border: 1px dotted black;
+  padding: 20px;
+}
+#news1 {
+  width: 40%;
+  height : 57%;
+  margin-top:1%;
+  margin-left:2%;
+  overflow: scroll;
+}
+
+#news2 {
+  height: 10%;
+  width: 50%;
+  margin-left: 2%;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 1%;
+  overflow: scroll;
+}
+
+#pic1 {
+  width: 110%;
+   height: 100px;
+   margin-top:-5%;
+   margin-left:-5%;
+}
+
+#pic2 {
+  width: 108%;
+   height: 100px;
+   margin-top:-4%;
+   margin-left:-4%;
+}
+
+#news3 {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  right: 0.5%;
+  top: 10%;
+  bottom: 90%;
+  margin-top:2%;
+  margin-left:1%;
+  overflow: scroll;
+}
+
+#pic3 {
+  width: 108%;
+   height: 107px;
+   margin-bottom: -6%;
+   margin-top:-4%;
+   margin-left:-4%;
+}
+.box {
+  height: 10%;
+  width: 100%;
+  border: 2px solid black;
+  position: absolute;
+  bottom: 10%;
+  top: 90%;
+}
+
+h4 {
+  text-align: center;
+}

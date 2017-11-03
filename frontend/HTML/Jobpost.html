@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../CSS/jobpost.css">
+  <script language="javascript" type="text/javascript" src="../JS/jobpost.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+  </div>
+</head>
+<body onload="body_onload()">
+  <h2>Post a Job</h2>
+<div class="panels">
+  <div class="panel-group">
+    <div class="panel">
+      <div class="panel-body">
+        <div class="container1">
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Production Details</a>
+              </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+              <div class="panel-body"
+                <label>Title of Production</label>
+                  <br>
+                <input type="text">
+                <br><br>
+
+              <label>Production Type</label>
+                <br>
+              <select id = "productionTypes">
+                <option value="" disabled selected>Select a type of production</option>
+                <option value="Theatre">Theatre</option>
+                <option value="Film">Film</option>
+                <option value="Commercials">Commercials</option>
+                <option value="Events and Presentations">Events and Presentations</option>
+              </select>
+                  <br><br>
+
+                <label>Production Description</label>
+                <br>
+                <textarea></textarea>
+                <br><br>
+                <label>Production Dates and Locations</label>
+                <br>
+                <textarea></textarea>
+                <br><br>
+                <label>Job posting expires on</label>
+                <br>
+
+                <input type="date">
+                <br><br>
+                <label>Will talent be paid</label>
+                <br>
+                <label><input type="checkbox" value=""> Yes</label>
+                <label><input type="checkbox" value=""> No</label>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Roles</a>
+              </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <button type="button" id ="RoleBtn" class="btn btn-info" data-toggle="modal" data-target="#role">+ Add roles</button>
+                <div class="roles-container" id="dynamicInput">
+                <div class="panel-group" id="role-accordion">
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Auditions</a>
+              </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <label>Any Special Submission Instructions</label> <br>
+                <textarea rows = "4" cols = "50" placeholder="Mention here if candidate must upload cover letter, or a video"></textarea>
+                <br>
+                <label>Date of audition</label><br>
+                <label>from<input type="date"></label>
+                <label>to<input type="date"></label>
+                <br>
+
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- close panel group -->
+        </div> <!-- Close container 1 -->
+        <button id = "SubmitJobBtn" type="button" class="btn btn-info btn-lg">Post Job</button>
+      </div> <!-- close container-body -->
+    </div> <!-- close main panel -->
+  </div> <!-- close panel groups -->
+</div>
+
+
+<div class="modal fade" id="role" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">About The Role</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+     </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Name of Role:</label>
+        <br>
+        <input id="rolename" type="text">
+      </div>
+      <div class="form-group">
+        <label>Role Type</label>
+        <br>
+        <select id = "RoleTypes">
+          <option value="" disabled selected>Select type of role</option>
+          <option value="Lead Actor">Lead Actor</option>
+          <option value="Producer">Producer</option>
+          <option value="Film Editor">Film Editor</option>
+          <option value="Script Writer">Script Writer</option>
+          <option value="Cinematographer">Cinematographer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Gender:</label>
+        <br>
+        <form action="#n">
+          <input type="radio" name="gender" value="male">Male</label>
+          <input type="radio" name="gender" value="female">Female</label>
+          <input type="radio" name="gender" value="other">Other</label>
+        </form>
+      </div>
+
+      <div class="form-group">
+        <label>Age:</label>
+      <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)" />
+      <button id="range">0</button>
+      <script type="text/javascript">
+        function showValue(newValue)
+          {
+            document.getElementById("range").innerHTML=newValue;
+          }
+      </script>
+      <br>
+      <label>Ethnicity</label>
+      <br>
+      <select id = "ethnicity">
+        <option value="" disabled selected>Select a type of production</option>
+        <option value="Caucasian">Caucasian</option>
+        <option value="African American">African American</option>
+        <option value="Latino/Hispanic">Latino/Hispanic</option>
+        <option value="Asian">Asian</option>
+        <option value="South Asian">South Asian</option>
+        <option value="Middle Eastern">Middle Eastern</option>
+      </select>
+    </div>
+
+      <div class="form-group">
+        <label>Role Description</label>
+        <br>
+    <input id="roledesc">
+    </div>
+</div>
+<div class="modal-footer">
+  <button id="addRole" type="submit" class="btn" onclick="updateR('dynamicInput');" data-dismiss="modal">Save Role</button>
+</div>
+</div> <!--Close modal-content -->
+</div> <!-- Close modal dialog -->
+</div> <!-- Close modal fade -->
+</body>
+</html>

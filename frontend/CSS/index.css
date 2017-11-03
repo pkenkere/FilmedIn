@@ -1,0 +1,93 @@
+h1 {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  color: white;
+  font-size: 100px;
+  font-style: italic;
+  font-family: fantasy;
+  transform: translate(-50%, -50%);
+}
+
+html {
+/* background: url("background.png") no-repeat center fixed; */
+
+background: url("../assets/backgroundfinal.png") no-repeat center fixed;
+  /*background: url("/Users/shreyashankar/Desktop/FilmedIn/frontend/assets/background.png") no-repeat center fixed;*/
+background-size: cover;
+  overflow-y: auto;
+}
+
+#JobsBtn {
+  color: white;
+  background-color: rgba(199, 168, 41, 0.5);
+  position: absolute;
+  border: 2px solid rgb(229, 198, 71);
+  width: 280px;
+  left: 40%;
+  margin-right: 55%;
+  top: 65%;
+}
+
+#NewsBtn {
+  color: white;
+  background-color: rgba(199, 168, 41, 0.5);
+  position: absolute;
+  font-size: 20px;
+  border: 2px solid rgb(229, 198, 71);
+  top: 55%;
+  left: 40%;
+  margin-right: 55%;
+  width: 280px;
+}
+
+#SignUpBtn { /*Sign Up button*/
+  color: white;
+  position: absolute;
+  background-color: rgba(199, 168, 41, 0.5);
+  border: 2px solid rgb(229, 198, 71);
+  top: 500px;
+  right: 300px;
+  left: 200px;
+}
+
+#LoginBtn { /*Login button*/
+  color: white;
+  position: absolute;
+  background-color: rgba(199, 168, 41, 0.5);
+  top: 500px;
+  border: 2px solid rgb(229, 198, 71);
+  right: 200px;
+  left: 900px;
+}
+
+.modal-header {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+.modal-body {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+
+.modal-footer {
+  background-color: rgba(199, 168, 41, 0.5);
+}
+
+.btn-forgotPass {
+  position: absolute;
+  align-self: flex-end;
+  left: 30px;
+}
+
+p {
+  color: red;
+}
+
+#strongErrorAlert{
+  display: none;
+}
+
+#errorMsg{
+  display: none;
+}
