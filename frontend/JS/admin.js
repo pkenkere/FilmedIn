@@ -2,6 +2,7 @@ function body_onload() {
   addEquip.onclick = addEquipment;
   addAdminBtn.onclick = addAdmin;
   addNewsBtn.onclick = addNews;
+  ok.onclick = updateColor;
 }
 
 function displayChoice (evt, option) {
@@ -43,4 +44,11 @@ function addNews() {
 
 function addAdmin() {
   addNewAdmin(emailInput, true);
+}
+
+function updateColor() {
+  var color = document.querySelector('input[name="radioBtn"]:checked').value;
+  console.log(color);
+  var panel = document.getElementById("TopPanel").style.backgroundColor = color;
+
 }

@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-.btn-home { //jobs button
+.btn-home {
   color: white;
   font: Helvetica;
   font-size: 40px;
@@ -120,7 +120,7 @@ div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
   font-size: 15px;
   margin-top: -19%;
   /*padding-top: 1%;
-  padding-bottom: -6%;*/  
+  padding-bottom: -6%;*/
 }
 
 #slider {
