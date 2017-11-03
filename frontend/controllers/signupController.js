@@ -18,6 +18,7 @@ function signupPost(acc){
     .then(function(res){
         if(res.ok){
             console.log("signed up!");
+            sessionStorage.setItem("email", a.Email);
             location.href = "../HTML/permInfo.html?user="+a.Email;
         }
         else{
@@ -25,7 +26,7 @@ function signupPost(acc){
         }
     })
     .catch(function(err){
-        console.log("POST request failed", err);        
+        console.log("POST request failed", err);
     });
 }
 
@@ -49,10 +50,10 @@ function permInfo(info){
     fetch(url+"/profile", additionalInfo)
     .then(function(res){
         if(res.ok){
-            window.alert(el[1]);
-            window.alert(info.Age);
-            window.alert(info.Gender);
-            window.alert(info.Ethnicity);
+            // window.alert(el[1]);
+            // window.alert(info.Age);
+            // window.alert(info.Gender);
+            // window.alert(info.Ethnicity);
             console.log("Saved additional info to the database!");
             location.href = "../HTML/profile.html?user="+el[1];
         }
