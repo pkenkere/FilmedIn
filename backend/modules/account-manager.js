@@ -69,12 +69,12 @@ exports.manualLogin = function(email, pass, callback)
 
 exports.addNewAccount = function(newData, callback)
 {
-    console.log("from modules newData email: " + newData.email);
+    //console.log("from modules newData email: " + newData.email);
     accounts.findOne({email:newData.email}, function(e, o) {
         if (o){
             callback('email-taken');
         }   else{
-            console.log("trying to add user");
+            //console.log("trying to add user");
             saltAndHash(newData.pass, function(hash){
                 newData.pass = hash;
                 // append date stamp when record was created //
@@ -83,7 +83,7 @@ exports.addNewAccount = function(newData, callback)
             });
         }
     });
-    
+
 }
 
 exports.updateAccount = function(newData, callback)

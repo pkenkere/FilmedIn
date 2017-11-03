@@ -62,7 +62,7 @@ module.exports = function(app) {
           isAdmin : req.param('isAdmin'),
           //country : req.param('country'),
         };
-        console.log(newData);
+        //console.log(newData);
         AM.addNewAccount(newData, function(e){
             if (e){
                 res.status(400).send(e);
