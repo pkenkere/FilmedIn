@@ -1,7 +1,6 @@
 var count = 0;
 
 function body_onload() {
-<<<<<<< HEAD
   // getAccounts();
   // var id = parseInt(localStorage.getItem("loggedInId"));
   // var account = accounts[id];
@@ -21,18 +20,6 @@ function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
   
-=======
-  getAccounts();
-  var id = parseInt(localStorage.getItem("loggedInId"));
-  var account = accounts[id];
-  var fname = account.FirstName;
-  var lname = account.LastName;
-  $('#proName').html(fname + " " + lname);
-  document.getElementById('PostJobBtn').onclick = postJob_onclick;
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-    document.getElementById('ProfBtn').onclick = findTalent_onclick;
-      document.getElementById('JobsBtn').onclick = opportunities_onclick;
->>>>>>> 82f565f36b3f413c84537c79c2c37602d2100793
 }
 
 //create body onload
