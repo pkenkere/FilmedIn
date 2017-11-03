@@ -3,15 +3,24 @@ function enable(){
 }
 
 function verify(divName) {
-  var newdiv = document.createElement('div');
-  newdiv.innerHTML = '';
-
-  var inputElements = document.getElementsByClassName('checkbox');
+  var node;
+  var textnode;
+  var inputElements = document.getElementsByTagName('input');
   for(var i=0; inputElements[i]; ++i){
-      if(inputElements[i].checked){
-           newdiv.innerHTML = newdiv.innerHTML + (inputElements[i].value) + '</br>';
+      if(inputElements[i].checked == true){
+        node = document.createElement('LI');
+        textnode = document.createTextNode(inputElements[i].value);
+        node.appendChild(textnode);
+        document.getElementById(divName).appendChild(node);
       }
-    }
-    document.getElementById(divName).appendChild(newdiv);
-    document.getElementById("myModal").style.display = "block";
+  }
+  $('#myModal').modal('show');
+}
+
+function sub() {
+  var inEl = document.getElementsByTagName('input');
+  for(var i=0; inEl[i]; ++i) {
+    inEl[i].checked = false;
+  }
+    document.getElementById("btnVer").disabled = true;
 }

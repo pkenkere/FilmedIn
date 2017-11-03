@@ -20,7 +20,7 @@ div#box{
 }
 
 div#box .box-top1 {
-   background-color: rgba(0, 0, 0, 0.1);
+   background-color: rgba(0, 0, 0, 0.3);
     /*background-color: #2980b9;*/
    color: #2980b9;
     border: none;
@@ -38,7 +38,7 @@ div#box .panel-collapse {
 }
 
 div#box .box-top2, .box-top3, .box-top4, .box-top5, .box-top6, .box-top7 {
-   background-color: rgba(0, 0, 0, 0.1);
+   background-color: rgba(0, 0, 0, 0.3);
     /*background-color: #2980b9;*/
    color: #2980b9;
     border: none;
