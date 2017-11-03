@@ -37,7 +37,7 @@ module.exports = function(app) {
                     res.cookie('email', o.user, { maxAge: 900000 });
                     res.cookie('pass', o.pass, { maxAge: 900000 });
                 }
-                res.status(200).send(o);
+                res.status(200).send(JSON.stringify(o));
             }
         });
     });
@@ -53,13 +53,37 @@ module.exports = function(app) {
         res.render('signup', {  title: 'Signup', countries : CT });
     });*/
 
+    app.post('/updateAdmin', function(req, res) {
+        var email = req.param('email');
+        AM.getAccountByEmail(email, function(o) {
+            if (o) {
+                AM.updateAccount({
+                   name : o.name,
+                   email : o.email,
+                   isAdmin : true,
+                   pass : '',
+                }, function(e, o) {
+                    if (!o)
+                        res.status(400).send(e);
+                    else {
+                        res.status(200).send('ok');
+                    }
+                });
+            }
+            else {
+                res.status(400).send('email was not found');
+            }
+        });
+        
+    });
+
     app.post('/signup', function(req, res){
         var newData = {
           name    : req.param('name'),
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
-          isAdmin : req.param('isAdmin'),
+          isAdmin : false,
           //country : req.param('country'),
         };
         console.log(newData);

@@ -27,7 +27,8 @@ function renderProfile(){
 // get item from localStorage of with Key = "loggedInId"
 // get info id
 function postJob_onclick() {
-  location.href = "Jobpost.html";
+ // location.href = "Jobpost.html";
+  location.href = "admin.html"
 }
 function opportunities_onclick() {
   location.href = "searchJobs.html";

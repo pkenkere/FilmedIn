@@ -14,11 +14,17 @@ function loginPost(email, password) {
   fetch(url+"/", loginCredentials)
   .then(function(res){
       if(res.ok){
+          res.json().then(function(data) {
+            sessionStorage.setItem("email", email);            
+            if (data.isAdmin == true)
+                location.href = "../HTML/admin.html?user="+email;
+            else            
+                location.href = "../HTML/profile.html?user="+email;
+          //   profileGet(email);
+            console.log("login success!");
+          });
           //login to profile
-          sessionStorage.setItem("email", email);
-          location.href = "../HTML/profile.html?user="+email;
-        //   profileGet(email);
-          console.log("login success!");
+          
       }
       else{
           //alert incorrect
