@@ -20,7 +20,7 @@ background-size: cover;
   overflow-y: auto;
 }
 
-#JobsBtn { //jobs button
+#JobsBtn {
   color: white;
   background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
@@ -31,7 +31,7 @@ background-size: cover;
   top: 65%;
 }
 
-#NewsBtn { //news button
+#NewsBtn {
   color: white;
   background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
