@@ -7,7 +7,6 @@ function body_onload() {
 }
 
 function signUp_onclick() {
-<<<<<<< HEAD
   var fname = firstname.value;
   var lname = lastname.value;
   var eml = email.value;
@@ -32,38 +31,6 @@ function signUp_onclick() {
     Name : fname+" "+lname,
   });
   signupPost(account);
-=======
-  // var pass = document.getElementById('pass').value;
-  // var rePass = document.getElementById('rePass').value;
-  //
-  // if (pass !== rePass) {
-  //   alert("Passwords don't match");
-  //   return;
-  // }
-  // var email = document.getElementById('email').value;
-  // var firstname = document.getElementById('firstname').value;
-  // var lastname = document.getElementById('lastname').value;
-  // if (email == null || firstname == null || lastname == null) {
-  //   alert("Please enter all information");
-  //   return;
-  // }
-  // if (email == "" || firstname == "" || lastname == "") {
-  //   alert("Please enter all information");
-  //   return;
-  // }
-  // var account = {
-  //   Email : email,
-  //   Password : pass,
-  //   FirstName : firstname,
-  //   LastName : lastname
-  // };
-  //
-  // accounts.push(account);
-  // saveAccounts();
-  //
-  // localStorage.setItem("loggedInId", accounts.length - 1);
-  // location.href = "permInfo.html";
->>>>>>> 82f565f36b3f413c84537c79c2c37602d2100793
 }
 
 function login_onclick() {
