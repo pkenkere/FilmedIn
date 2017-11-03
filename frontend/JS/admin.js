@@ -3,6 +3,7 @@ function body_onload() {
   addAdminBtn.onclick = addAdmin;
   addNewsBtn.onclick = addNews;
   ok.onclick = updateColor;
+  okay.onclick = redirect;
 }
 
 function displayChoice (evt, option) {
@@ -50,5 +51,8 @@ function updateColor() {
   var color = document.querySelector('input[name="radioBtn"]:checked').value;
   console.log(color);
   var panel = document.getElementById("TopPanel").style.backgroundColor = color;
+}
 
+function redirect() {
+  /*location.href = "../HTML/404notfound.html";*/
 }

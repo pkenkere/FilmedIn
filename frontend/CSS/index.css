@@ -4,7 +4,7 @@ h1 {
   top: 40%;
   left: 50%;
   margin-right: -50%;
-  color: white;
+  color: red;
   font-size: 100px;
   font-style: italic;
   font-family: fantasy;
@@ -12,35 +12,33 @@ h1 {
 }
 
 html {
-/* background: url("background.png") no-repeat center fixed; */
-
-background: url("../assets/backgroundfinal.png") no-repeat center fixed;
-  /*background: url("/Users/shreyashankar/Desktop/FilmedIn/frontend/assets/background.png") no-repeat center fixed;*/
-background-size: cover;
-  overflow-y: auto;
+  /*background-image: /Users/shreyashankar/Desktop/FilmedIn/frontend/backgroundfinal.jpg;*/
+  background: url("background.png") no-repeat center fixed;
+  background-size: cover;
+  /*overflow-y: auto;*/
 }
 
-#JobsBtn {
+#JobsBtn { //jobs button
   color: white;
   background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   border: 2px solid rgb(229, 198, 71);
+  top: 350px;
   width: 280px;
-  left: 40%;
-  margin-right: 55%;
-  top: 65%;
+  right: 530px;
+  left: 450px;
 }
 
-#NewsBtn {
+#NewsBtn { //news button
   color: white;
   background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   font-size: 20px;
   border: 2px solid rgb(229, 198, 71);
-  top: 55%;
-  left: 40%;
-  margin-right: 55%;
+  top: 410px;
   width: 280px;
+  right: 550px;
+  left: 450px;
 }
 
 #SignUpBtn { /*Sign Up button*/

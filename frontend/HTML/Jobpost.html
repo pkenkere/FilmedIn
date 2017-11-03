@@ -110,7 +110,6 @@
 
         </div> <!-- close panel group -->
         </div> <!-- Close container 1 -->
-        <button id = "SubmitJobBtn" type="button" class="btn btn-info btn-lg">Post Job</button>
       </div> <!-- close container-body -->
     </div> <!-- close main panel -->
   </div> <!-- close panel groups -->
@@ -158,7 +157,7 @@
 
       <div class="form-group">
         <label>Age:</label>
-      <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)" />
+      <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)" />
       <button id="range">0</button>
       <script type="text/javascript">
         function showValue(newValue)
@@ -170,7 +169,7 @@
       <label>Ethnicity</label>
       <br>
       <select id = "ethnicity">
-        <option value="" disabled selected>Select a type of production</option>
+        <option value="All Ethnicities">All Ethnicities</option>
         <option value="Caucasian">Caucasian</option>
         <option value="African American">African American</option>
         <option value="Latino/Hispanic">Latino/Hispanic</option>

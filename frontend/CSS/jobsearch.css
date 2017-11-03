@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-.btn-home {
+.btn-home { //jobs button
   color: white;
   font: Helvetica;
   font-size: 40px;

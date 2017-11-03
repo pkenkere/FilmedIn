@@ -22,6 +22,7 @@
 </head>
 <body onload="body_onload()">
   <div class="tab">
+  <button class = "tablinks" id = "tab5" onclick = "displayChoice(event,'WelcomeAdmin')">Home</button>
   <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
@@ -32,7 +33,7 @@
 <strong>Success!</strong> Added Successfully!
 </div>
 
-<div id = "WelcomeAdmin">
+<div id = "WelcomeAdmin" class="tabcontent">
     <label>Choose color Scheme of the page </label>
     <div class="radio">
     <label><input type="radio" name="radioBtn" value="rgb(229, 198, 71)">Gold</label>
@@ -43,9 +44,10 @@
   <button class="btn" id ="ok" type="button">OK!</button>
   <div class="form-group">
     <label>Click OK to take the site offline</label>
-    <input type="checkbox" name="offlineBtn"/> OK
+    <button class="btn" id ="okay" type="button">OK!</button>
   </div>
   </div>
+
   <div id = "AddAdmin" class="tabcontent">
       <h4 id = "">Add new admin</h4>
     <form>

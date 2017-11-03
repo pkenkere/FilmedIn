@@ -1,6 +1,7 @@
 var count = 0;
 
 function body_onload() {
+<<<<<<< HEAD
   // getAccounts();
   // var id = parseInt(localStorage.getItem("loggedInId"));
   // var account = accounts[id];
@@ -20,6 +21,18 @@ function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
   
+=======
+  getAccounts();
+  var id = parseInt(localStorage.getItem("loggedInId"));
+  var account = accounts[id];
+  var fname = account.FirstName;
+  var lname = account.LastName;
+  $('#proName').html(fname + " " + lname);
+  document.getElementById('PostJobBtn').onclick = postJob_onclick;
+  document.getElementById('LogoutBtn').onclick = logout_onclick;
+    document.getElementById('ProfBtn').onclick = findTalent_onclick;
+      document.getElementById('JobsBtn').onclick = opportunities_onclick;
+>>>>>>> 82f565f36b3f413c84537c79c2c37602d2100793
 }
 
 //create body onload
@@ -38,9 +51,8 @@ function findTalent_onclick() {
 }
 
 function logout_onclick() {
-  // localStorage.removeItem("loggedInId");
-  // location.href = "splash.html";
-  logoutPost();
+  localStorage.removeItem("loggedInId");
+  location.href = "splash.html";
 }
 
 function rentEquipment_onclick(){
@@ -48,6 +60,12 @@ function rentEquipment_onclick(){
 }
 
 function updateJ(divName) {
+  var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
+  $('#result').html("Major: " + major);
+  var year = $('#userYear').val() == '' ? '---' : $('#userYear').val();
+  $('#resultY').html("Year: " + year);
+  var interest = $('#userInterests').val() == '' ? '---' : $('#userInterests').val();
+  $('#resultI').html("Interests: " + interest);
   var jobN = $('#userJobN').val() == '' ? '---' : $('#userJobN').val();
   var jobD = $('#userJobD').val() == '' ? '---' : $('#userJobD').val();
     var newdiv = document.createElement('div');
@@ -63,18 +81,6 @@ function updateJ(divName) {
     count++;
 }
 
-$( document ).ready(function() {
-    $('.my-input').each(function() {
-        $(this).on('keyup', function() {
-            var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
-            $('#result').html("Major: " + major);
-            var year = $('#userYear').val() == '' ? '---' : $('#userYear').val();
-            $('#resultY').html("Year: " + year);
-            var interest = $('#userInterests').val() == '' ? '---' : $('#userInterests').val();
-            $('#resultI').html("Interests: " + interest);
-            /*document.getElementById("result").innerHTML="Major: " + major;
-            var userVer = $('#result').innerHTML;
-            localStorage.userMajorEdit = userVer;*/
-        });
-    });
-});
+function updateEdit(divName) {
+
+}

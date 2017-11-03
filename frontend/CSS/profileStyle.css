@@ -32,6 +32,12 @@ h1 {
   font-size: 50px;
 }
 
+#edit {
+  position: absolute;
+  top:15%;
+  left: 84%;
+}
+
 .profileCircle {
     border-radius: 50%;
     /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
