@@ -21,26 +21,30 @@
   </div>
 </head>
 <body onload="body_onload()">
-<body>
   <div class="tab">
-    <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
+  <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
   <button class="tablinks" id = "tab4" onclick="displayChoice(event, 'AddRemoveNews')">Add/Delete announcements from newsfeed</button>
   </div>
 
   <div class="alert alert-success" id="SuccessAlert">
-<strong>Success!</strong> Indicates a successful or positive action.
+<strong>Success!</strong> Added Successfully!
 </div>
 
-<!-- <div id = "WelcomeAdmin" class="maintabcontent">
-  <h4>Admin Page</h4>
-  <p4>If you are an admin, you have access to the following options:
-    <ul>
-      <li>Remove User Profile</li>
-      <li>Add Admin</li>
-    </ul>
-  </div> -->
+<div id = "WelcomeAdmin">
+    <label>Choose color Scheme of the page </label>
+    <div class="checkbox">
+    <label><input type="checkbox">Gold</label>
+  </div>
+  <div class="checkbox disabled">
+    <label><input type="checkbox">Black</label>
+  </div>
+  <div class="form-group">
+    <label>Click OK to take the site offline</label>
+    <input type="checkbox" name="offlineBtn"/> OK
+  </div>
+  </div>
   <div id = "AddAdmin" class="tabcontent">
       <h4 id = "">Add new admin</h4>
     <form>
@@ -49,15 +53,11 @@
       <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
     </div>
     <div class="form-group">
-      <label>User email ID</label>
+      <label>Admin email ID</label>
       <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
     </div>
-    <div class="form-group">
-      <label>Re-enter password</label>
-      <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
-    </div>
   </form>
-        <button class="btn" id = "AddAdminBtn" type="button">Add Admin</button>
+        <button class="btn" id = "addAdminBtn" type="button">Add Admin</button>
   </div>
 
   <div id ="AddRemoveEquipment" class="tabcontent">
@@ -69,7 +69,7 @@
     <li><a data-toggle="tab" href="#menu2">Remove Equipment</a></li>
   </ul>
 
-  <div id="menu1" class="tab-pane fade">
+  <div id="menu1" class="tab-pane fade in active">
     <br>
         <label>Name of Equipment</label>
         <input type="text" class="form-control" id="equipmentName" placeholder="Enter name of equipment">
@@ -90,36 +90,31 @@
         <input type="radio" name="yesorno" id="noavailsable"/> Unavailable
         <br>
         <button type="submit" class="btn" id ="addEquip">ADD!</button>
-      </div>
+    </div>
     <div id="menu2" class="tab-pane fade">
+
     </div>
   </div>
 
   <div id ="AddRemoveNews" class="tabcontent">
     <ul class="nav nav-tabs">
-    <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
-    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
     <li><a data-toggle="tab" href="#AddMenu">Add News Item</a></li>
     <li><a data-toggle="tab" href="#RemoveMenu">Remove News</a></li>
   </ul>
 
-  <div id="AddMenu" class="tab-pane fade">
+  <div id="AddMenu" class="tab-pane fade in active">
     <br>
         <label>News Headline</label>
-        <input type="text" class="form-control" id="NewsName" placeholder="Enter headline of news article">
+        <input type="text" class="form-control" id="newsName" placeholder="Enter headline of news article">
         <br>
         <label>News Description</label>
         <br>
-        <textarea></textarea>
+        <textarea id = "descriptionNews"></textarea>
         <br>
-        <button type="submit" class="btn" id ="addNews">ADD!</button>
-      </div>
+        <button type="submit" class="btn" id ="addNewsBtn">ADD!</button>
+  </div>
     <div id="RemoveMenu" class="tab-pane fade">
     </div>
   </div>
-
-
-</div>
 </body>
 </html>
