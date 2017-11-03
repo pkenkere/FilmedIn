@@ -1,3 +1,63 @@
+div #rent-container {
+  width: 100%;
+  margin: 0 auto;
+}
+.content {
+  width: auto;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 5%;
+  padding: 15px;
+  margin-right: 15px;
+}
+
+div#box{
+  margin-top: 5px;
+  display: flex;
+  height: 50px;
+}
+
+div#box .box-top1 {
+   background-color: rgba(0, 0, 0, 0.3);
+   color: #2980b9;
+    border: none;
+    padding: 15px;
+    width: 45%;
+    font-size: 25px;
+}
+
+div#box .panel-collapse {
+  height:fit-content;
+  padding: 15px;
+  background-color: #fff;
+  width: 50%;
+  flex-grow: 1;
+}
+
+div#box .box-top2, .box-top3, .box-top4, .box-top5, .box-top6, .box-top7 {
+   background-color: rgba(0, 0, 0, 0.3);
+   color: #2980b9;
+    border: none;
+    padding: 15px;
+    width: 45%;
+    font-size: 25px;
+}
+/*
+div#box .panel-collapse {
+  padding: 15px;
+  background-color: #fff;
+  width: 55%;
+}*/
+
+
+#btnSubmit {
+  float: right;
+  margin-top: 5%;
+}
+
+
+
+
 .btn-home { //jobs button
   color: white;
   font: Helvetica;
@@ -41,7 +101,6 @@
 
 .btn-postJob {
   background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
   color: white;
   position: absolute;
   top: 30px;
@@ -55,60 +114,4 @@
   top: 30px;
   left: 1200px;
   border: none;
-}
-
-.panels {
-  position: absolute;
-  width: 1000px;
-  top: 160px;
-  left: 170px;
-  border: none;
-}
-
-.panels .panel-group {
-  border: none;
-}
-.panels .panel-group .panel-heading {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: none;
-  color: black;
-}
-
-.panels .panel-group .panel-heading .btn-edit-Ed {
-  position: absolute;
-  left: 950px;
-}
-
-.panels .panel-group .panel {
-  border: none;
-}
-
-.panel-body {
-  height:fit-content;
-}
-
-.deleteMe{
-    background: rgba(0, 0, 0, 0.1);
-    color: red;
-    font-style: bold;
-    float: right;
-}
-
-/*#RoleBtn {
-  top: 130px;
-  left: 350px;
-  position: absolute;
-  border: blue;
-  color: black;
-}*/
-
-
-#range {
-  left: 100px;
-  top: 210px;
-  position: absolute;
-}
-
-h2 {
-  margin-left: 20px;
 }
