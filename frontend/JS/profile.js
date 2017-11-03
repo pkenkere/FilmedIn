@@ -17,7 +17,8 @@ function body_onload() {
 }
 
 function renderProfile(){
-  profileGet();
+  var e = sessionStorage.getItem("email");
+  profileGet(e);
   
 }
 

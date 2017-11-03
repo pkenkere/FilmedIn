@@ -66,13 +66,6 @@
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
-
-/*.content {
-  width: auto;
-  height: 100%;
-
-}*/
-
 div.tab button {
     display: block;
     background-color: inherit;
@@ -102,9 +95,41 @@ div.tab button.active {
     width: 70%;
     margin-left: 5%;
     margin-top: 3%;
-    height: 300px;
+    height: 100%;
+    overflow-y: scroll;
+    display: none;
 }
+
+#WelcomeAdmin{
+    float: left;
+    padding: 1px 12px;
+    border: 1px solid #ccc;
+    width: 70%;
+    margin-left: 5%;
+    margin-top: 3%;
+    height: 100%;
+    overflow-y: scroll;
+    display: block;
+}
+
 
 h4 {
   text-align: center;
+}
+
+#addAdminBtn {
+  margin-top: 5%;
+  position: absolute;
+  right: 10%;
+}
+
+#addEquip, #addNewsBtn {
+  right: 10%;
+  margin-top: 2%;
+  position: absolute;
+}
+
+
+#SuccessAlert{
+  display: none;
 }

@@ -1,5 +1,12 @@
+function body_onload() {
+  addEquip.onclick = addEquipment;
+  addAdminBtn.onclick = addAdmin;
+  addNewsBtn.onclick = addNews;
+}
+
 function displayChoice (evt, option) {
   var tabcontent = document.getElementsByClassName("tabcontent");
+    document.getElementById("WelcomeAdmin").style.display = "none";
   //get all elements whose clas name is tabcontent and hide them
   // console.log(tabcontent[i].id);
   var i;
@@ -13,5 +20,27 @@ for (i = 0; i < tablinks.length; i++) {
 }
 
 document.getElementById(option).style.display = "block";
+
 evt.currentTarget.className += " active";
+}
+
+function displaySuccess() {
+  SuccessAlert.style.display = "block";
+}
+
+function addEquipment() {
+  var category = document.querySelector('input[name="categoryname"]:checked').value;
+  var availability = document.querySelector('input[name="yesorno"]:checked').value;
+    addEquipmentPost(equipmentName.value, category, availability);
+}
+
+function addNews() {
+  var headline = newsName.value;
+  var description = descriptionNews.value;
+  //console.log(headline);
+  addNewsPost(headline,description);
+}
+
+function addAdmin() {
+  addNewAdmin(emailInput, true);
 }

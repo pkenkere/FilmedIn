@@ -15,6 +15,7 @@ function loginPost(email, password) {
   .then(function(res){
       if(res.ok){
           //login to profile
+          sessionStorage.setItem("email", email);
           location.href = "../HTML/profile.html?user="+email;
         //   profileGet(email);
           console.log("login success!");
@@ -37,6 +38,7 @@ function logoutPost(){
     fetch(url+"/logout", logoutMethod)
     .then(function(res){
         if(res.ok){
+            sessionStorage.removeItem("email");
             console.log("successfully logged out!");
             location.href = "../HTML/index.html";
         }

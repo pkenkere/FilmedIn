@@ -1,14 +1,27 @@
 "use strict";
 var url = "http://localhost:5000";
-function profileGet(){
+function profileGet(e){
+    console.log("email: " + e);
     var profile = {
-        method: "GET"
+        method: "POST",
+        headers:{
+             'content-type': 'application-json'
+        },
+        body: {
+             email: e
+        }
     }
     fetch(url+"/profile", profile)
     .then(function(res){
-        if(res){
+        console.log("idhar pohcha bhenchod!!!");
+        console.log("res.ok: " + res.ok);
+        console.log("object name: " + res);  
+        if(res.ok){
             //var profileDet = JSON.parse(res);
-            console.log(res);
+            // res.json().then(function(data){
+            //     console.log(data);
+            // });
+            console.log("res: " + JSON.parse(res));
         }
         else{
             console.log("no profile found");

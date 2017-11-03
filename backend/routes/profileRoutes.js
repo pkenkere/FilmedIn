@@ -15,7 +15,8 @@ module.exports = function(app) {
               res.status(400).send(e);
             }
             else {
-              res.send(o);
+              res.setHeader('Content-Type', 'application/json');
+              res.status(200).send(JSON.stringify(o));
             }
         });
       }
@@ -49,6 +50,7 @@ module.exports = function(app) {
               });
             }
             else {
+              console.log("hello: " + req.param('email'));
               PM.updateProfile(req.param('email'), {
                 email : req.param('email'),
                 name : req.param('name'),
@@ -61,7 +63,7 @@ module.exports = function(app) {
                   res.status(400).send('error-updating-account');
                 }
                 else {
-                  res.status(200).send('ok, account updated');
+                  res.status(200).send(o);
                 }
               });
             }

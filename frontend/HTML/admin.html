@@ -8,6 +8,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../CSS/admin.css">
   <script type="text/javascript" language="javascript" src="../JS/admin.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/admincontroller.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -19,16 +20,32 @@
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
   </div>
 </head>
-<body>
+<body onload="body_onload()">
   <div class="tab">
-  <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
   <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
-  <button class="tablinks" id = "tab3" onclick="">Add/Delete Equipment from Inventory</button>
-  <button class="tablinks" id = "tab4" onclick="">Add/Delete announcements from newsfeed</button>
-  <button class="tablinks" id = "tab5" onclick="">Add/Delete Equipment from Inventory</button>
+  <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
+  <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
+  <button class="tablinks" id = "tab4" onclick="displayChoice(event, 'AddRemoveNews')">Add/Delete announcements from newsfeed</button>
   </div>
 
-  <div id = "AddAdmin"class="tabcontent">
+  <div class="alert alert-success" id="SuccessAlert">
+<strong>Success!</strong> Added Successfully!
+</div>
+
+<div id = "WelcomeAdmin">
+    <label>Choose color Scheme of the page </label>
+    <div class="checkbox">
+    <label><input type="checkbox">Gold</label>
+  </div>
+  <div class="checkbox disabled">
+    <label><input type="checkbox">Black</label>
+  </div>
+  <div class="form-group">
+    <label>Click OK to take the site offline</label>
+    <input type="checkbox" name="offlineBtn"/> OK
+  </div>
+  </div>
+  <div id = "AddAdmin" class="tabcontent">
       <h4 id = "">Add new admin</h4>
     <form>
     <div class="form-group">
@@ -36,14 +53,68 @@
       <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
     </div>
     <div class="form-group">
-      <label>User email ID</label>
+      <label>Admin email ID</label>
       <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
     </div>
-    <div class="form-group">
-      <label>Re-enter password</label>
-      <input type="text" class="form-control" id="NewPassword2" placeholder="Re-enter new password">
-    </div>
   </form>
+        <button class="btn" id = "addAdminBtn" type="button">Add Admin</button>
+  </div>
+
+  <div id ="AddRemoveEquipment" class="tabcontent">
+    <ul class="nav nav-tabs">
+    <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
+    <li><a data-toggle="tab" href="#menu1">Add Equipment</a></li>
+    <li><a data-toggle="tab" href="#menu2">Remove Equipment</a></li>
+  </ul>
+
+  <div id="menu1" class="tab-pane fade in active">
+    <br>
+        <label>Name of Equipment</label>
+        <input type="text" class="form-control" id="equipmentName" placeholder="Enter name of equipment">
+        <br>
+      <div class="form-group">
+        <label>Category</label><br>
+        <input type="radio" name="categoryname"/> Camera Kits
+          <input type="radio" name="categoryname"/> Camera Lenses
+          <input type="radio" name="categoryname"/> Audio Kits
+          <input type="radio" name="categoryname"/> Lighting Kits
+          <input type="radio" name="categoryname"/> Accessories
+          <input type="radio" name="categoryname"/> Stabilizers
+          <input type="radio" name="categoryname"/> Other
+      </div>
+        <label>Availablity</label>
+        <br>
+        <input type="radio" id="available" name = "yesorno" /> Available
+        <input type="radio" name="yesorno" id="noavailsable"/> Unavailable
+        <br>
+        <button type="submit" class="btn" id ="addEquip">ADD!</button>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+
+    </div>
+  </div>
+
+  <div id ="AddRemoveNews" class="tabcontent">
+    <ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#AddMenu">Add News Item</a></li>
+    <li><a data-toggle="tab" href="#RemoveMenu">Remove News</a></li>
+  </ul>
+
+  <div id="AddMenu" class="tab-pane fade in active">
+    <br>
+        <label>News Headline</label>
+        <input type="text" class="form-control" id="newsName" placeholder="Enter headline of news article">
+        <br>
+        <label>News Description</label>
+        <br>
+        <textarea id = "descriptionNews"></textarea>
+        <br>
+        <button type="submit" class="btn" id ="addNewsBtn">ADD!</button>
+  </div>
+    <div id="RemoveMenu" class="tab-pane fade">
+    </div>
   </div>
 </body>
 </html>
