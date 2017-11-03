@@ -70,27 +70,31 @@ module.exports = function(app) {
 
             }
             else {
-              // var name;
-              // AM.getAccountByEmail(req.param('email'), function(o) {
-              //   if (o)
-              //     name = o.name;
-              // });
-              console.log("going to update profile");
-              PM.updateProfile(req.param('email'), {
-                email : req.param('email'),
-                name : name,
-                age : req.param('age'),
-                gender : req.param('gender'),
-                ethnicity : req.param('ethnicity'),
-                education : req.param('education'),
-              }, function (e, o) {
-                if (e) {
-                  res.status(400).send('error-updating-account');
-                }
-                else {
-                  res.status(200).send('new profile added');
-                }
-              });
+               //var name;
+               AM.getAccountByEmail(req.param('email'), function(o) {
+                 if (o) {
+                    //name = o.name;
+                    console.log("going to update profile");
+                    PM.updateProfile(req.param('email'), {
+                      email : req.param('email'),
+                      name : o.name,
+                      age : req.param('age'),
+                      gender : req.param('gender'),
+                      ethnicity : req.param('ethnicity'),
+                      education : req.param('education'),
+                    }, function (e, o) {
+                      if (e) {
+                        res.status(400).send('error-updating-account');
+                      }
+                      else {
+                        res.status(200).send('new profile added');
+                      }
+                    });
+                  }
+                else
+                  res.status(400).send('email-not-found');
+               });
+
             }
            });
     //}

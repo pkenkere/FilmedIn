@@ -47,7 +47,7 @@ function logoutPost(){
         }
     })
     .catch(function(err){
-        console.log("POST request failed", err);        
+        console.log("POST request failed", err);
     });
 }
 
@@ -61,7 +61,7 @@ function logoutPost(){
 //     }
 //     fetch(url+"/profile", a)
 //     .then(function(res){
-        
+
 
 //     })
 // }
