@@ -44,7 +44,7 @@ function addNews() {
 }
 
 function addAdmin() {
-  addNewAdmin(emailInput, true);
+  addNewAdmin(emailInput);
 }
 
 function updateColor() {
@@ -54,5 +54,5 @@ function updateColor() {
 }
 
 function redirect() {
-  /*location.href = "../HTML/404notfound.html";*/
+  location.href = "../HTML/404notfound.html";
 }
