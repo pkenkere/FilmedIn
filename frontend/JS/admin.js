@@ -44,7 +44,7 @@ function addNews() {
 }
 
 function addAdmin() {
-  addNewAdmin(emailInput);
+  addNewAdmin(emailInput.value);
 }
 
 function updateColor() {
