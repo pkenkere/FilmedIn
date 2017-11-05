@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.btn-home { //jobs button
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 300px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 500px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 700px;
+  border: none;
+}
+
+.btn-postJob {
+  background-color: red;
+  /*background-color: rgba(199, 168, 41, 0.5);*/
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1000px;
+}
+
+.btn-logout{
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}
+
+div #container {
+  width: 100%;
+  margin: 0 auto;
+}
+.content {
+  width: auto;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: #95a5a6;*/
+  margin-left: 5%;
+  padding: 15px;
+  margin-right: 15px;
+}
+
+div#box{
+  margin-top: 5px;
+  display: flex;
+  height: 50px;
+}
+
+div#box .box-top1 {
+   background-color: rgba(0, 0, 0, 0.1);
+    /*background-color: #2980b9;*/
+   color: #2980b9;
+    border: none;
+    padding: 15px;
+    width: 45%;
+    font-size: 25px;
+}
+
+div#box .box-panel1 {
+  padding: 15px;
+  background-color: #fff;
+  width: 50%;
+  flex-grow: 1;
+}
+
+div#box .box-top2, .box-top3, .box-top4, .box-top5 {
+   background-color: rgba(0, 0, 0, 0.1);
+    /*background-color: #2980b9;*/
+   color: #2980b9;
+    border: none;
+    padding: 15px;
+    width: 45%;
+    font-size: 25px;
+}
+
+div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
+  padding: 15px;
+  background-color: #fff;
+  width: 55%;
+}
+
+#rangeBtn {
+  margin-left: -0.5%;
+  font-size: 15px;
+  margin-top: -19%;
+  /*padding-top: 1%;
+  padding-bottom: -6%;*/
+}
+
+#slider {
+  margin-left: 2%;
+}
+
+#btnSrch {
+  float: right;
+  margin-top: 5%;
+}

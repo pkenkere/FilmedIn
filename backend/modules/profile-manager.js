@@ -11,8 +11,6 @@ db.open(function(e, d){
     if (e) {
         console.log(e);
     } else {
-        //console.log(process.env.DB_USER);
-        //console.log(process.env.DB_PASS);
         if (process.env.NODE_ENV == 'live') {
             db.authenticate(process.env.DB_USER, process.env.DB_PASS, function(e, res) {
                 if (e) {
@@ -32,12 +30,15 @@ var profiles = db.collection('profiles');
 var accounts = db.collection('accounts');
 
 exports.addProfileInfo = function(email, newData, callback) {
+  console.log("from profile-manager modules, adding new profile");
   accounts.findOne({email:email}, function(e, o) {
     if (o == null) {
       callback('user-not-found');
     } else {
-      newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
+
+      newData.date = moment().format('MMMM Do YYYY, h:mm:ss');
       profiles.insert(newData, {safe: true}, callback);
+      console.log("from modules, added new profile");
     }
   });
 }
@@ -82,6 +83,23 @@ exports.getAllProfiles = function(callback) {
     });
 }
 
-/*exports.deleteProfile = function(email, callback) {
-  profiles.remove({});
-}*/
+exports.getProfiles = function(criterias, callback) {
+  console.log("log from manager minAge: " + criterias.minAge);
+  profiles.find({
+    age: { $gt : criterias.minAge, $lt : criterias.maxAge },
+    ethnicity : criterias.ethnicity,
+    gender : criterias.gender
+  }).toArray(
+    function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+    }
+  );
+}
+
+exports.deleteProfile = function(email, callback) {
+  profiles.remove({email: email}, callback);
+}
