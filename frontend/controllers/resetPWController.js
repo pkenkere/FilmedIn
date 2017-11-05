@@ -6,7 +6,7 @@ var resetPasswordData = {
         'content-type': 'application/json'
     },
     body: JSON.stringify({
-        user: loginEmail.value
+        user: loginEmail.value,
         pass: passLogin.value
     })
 }

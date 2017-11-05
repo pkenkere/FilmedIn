@@ -36,11 +36,10 @@ function addNewAdmin(email, isAdmin) {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          email: email,
-          isAdmin: isAdmin
+          email: email
       })
   }
-  fetch(url+"/updateProfile", AdminDetails)
+  fetch(url+"/updateAdmin", AdminDetails)
   .then(function(res){
       if(res.ok){
           //login to profile
