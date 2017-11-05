@@ -32,7 +32,9 @@ function displaySuccess() {
 
 function addEquipment() {
   var category = document.querySelector('input[name="categoryname"]:checked').value;
+  console.log(category);
   var availability = document.querySelector('input[name="yesorno"]:checked').value;
+  console.log(availability);
     addEquipmentPost(equipmentName.value, category, availability);
 }
 
@@ -44,7 +46,7 @@ function addNews() {
 }
 
 function addAdmin() {
-  addNewAdmin(emailInput);
+  addNewAdmin(emailInput.value);
 }
 
 function updateColor() {
