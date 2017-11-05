@@ -12,39 +12,42 @@ function body_onload() {
   //   document.getElementById('ProfBtn').onclick = findTalent_onclick;
   //     document.getElementById('JobsBtn').onclick = opportunities_onclick;
   renderProfile();
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
-  RentBtn.onclick = rentEquipment_onclick;
+  RentBtn.onclick = rentBtn_onclick;
 }
 
 function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
-  
 }
 
-//create body onload
-//getAccounts
-// get item from localStorage of with Key = "loggedInId"
-// get info id
-function postJob_onclick() {
- // location.href = "Jobpost.html";
-  location.href = "admin.html"
-}
-function opportunities_onclick() {
-  location.href = "searchJobs.html";
+function HomeBtn_onclick(){
+  location.href = "../HTML/newsfeed.html";
 }
 
-function findTalent_onclick() {
-  location.href = "findTalent.html";
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  location.href = "../HTML/Jobpost.html";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
 }
 
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
-}
-
-function rentEquipment_onclick(){
-  location.href = "";
 }
 
 function updateJ(divName) {
