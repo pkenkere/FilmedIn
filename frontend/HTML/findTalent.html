@@ -45,7 +45,11 @@
       <div id="box">
        <div class="box-top3">Age</div>
         <div class="box-panel3">
-          <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
+          <form onchange="enable()">
+          <label>From <input type="number" name="minRange" min="1" max="80"></label>
+            <label>To <input type="number" name="minRange" min="1" max="80"></label>
+        </form>
+          <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
           <button id="range">0</button>
           <script type="text/javascript">
             function showValue(newValue)
@@ -53,7 +57,7 @@
                 document.getElementById("range").innerHTML=newValue;
                 document.getElementById("btnSrch").disabled = false;
               }
-          </script>
+          </script> -->
         </div>
     </div>
      <div id="box">
