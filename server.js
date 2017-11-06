@@ -14,7 +14,7 @@ var app = express();
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 5000);
 app.engine('html', cons.swig);
-app.set('views', __dirname + '/frontend');
+app.set('views', __dirname + '/frontend/HTML');
 app.set('view engine', 'html');
 app.use(cookieParser());
 app.use(bodyParser.json());

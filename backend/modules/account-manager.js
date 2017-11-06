@@ -48,9 +48,9 @@ exports.autoLogin = function(user, pass, callback)
     });
 }
 
-exports.manualLogin = function(user, pass, callback)
+exports.manualLogin = function(email, pass, callback)
 {
-    accounts.findOne({email:user}, function(e, o) {
+    accounts.findOne({email:email}, function(e, o) {
         if (o == null){
             callback('user-not-found');
         }   else{
@@ -69,32 +69,29 @@ exports.manualLogin = function(user, pass, callback)
 
 exports.addNewAccount = function(newData, callback)
 {
-    //console.log(newData);
-    accounts.findOne({user:newData.user}, function(e, o) {
+    //console.log("from modules newData email: " + newData.email);
+    accounts.findOne({email:newData.email}, function(e, o) {
         if (o){
-            callback('username-taken');
+            callback('email-taken');
         }   else{
-            accounts.findOne({email:newData.email}, function(e, o) {
-                if (o){
-                    callback('email-taken');
-                }   else{
-                    saltAndHash(newData.pass, function(hash){
-                        newData.pass = hash;
-                        // append date stamp when record was created //
-                        newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
-                        accounts.insert(newData, {safe: true}, callback);
-                    });
-                }
+            //console.log("trying to add user");
+            saltAndHash(newData.pass, function(hash){
+                newData.pass = hash;
+                // append date stamp when record was created //
+                newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+                accounts.insert(newData, {safe: true}, callback);
             });
         }
     });
+
 }
 
 exports.updateAccount = function(newData, callback)
 {
-    accounts.findOne({_id:getObjectId(newData.id)}, function(e, o){
+    accounts.findOne({email:newData.email}, function(e, o){
         o.name      = newData.name;
         o.email     = newData.email;
+        o.isAdmin   = newData.isAdmin;
         //o.country   = newData.country;
         if (newData.pass == ''){
             accounts.save(o, {safe: true}, function(e) {

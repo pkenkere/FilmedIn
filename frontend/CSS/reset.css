@@ -1,27 +1,4 @@
 
-
-
-
-
-.Search-Box {
-  
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .btn-home { //jobs button
   color: white;
   font: Helvetica;
@@ -35,30 +12,17 @@
   margin:0;
   padding:0;
 }
-
-.btn-job {
+.btn-logout{
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 1200px;
   border: none;
 }
 
-.btn-prof {
-  background-color: rgba(199, 168, 41, 0.5);
-  color: white;
+#SubmitPassword {
   position: absolute;
-  top: 30px;
-  left: 500px;
-  border: none;
-}
-
-.btn-rent {
-  background-color: rgba(199, 168, 41, 0.5);
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 700px;
-  border: none;
+  right: 8%;
+  top: 50;
 }
