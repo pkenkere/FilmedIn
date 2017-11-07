@@ -28,6 +28,7 @@ function verify(divName) {
 
 function sub() {
   var inEl = document.getElementsByTagName('input');
+  getAllEquip();
   for(var i=0; inEl[i]; ++i) {
     inEl[i].checked = false;
   }

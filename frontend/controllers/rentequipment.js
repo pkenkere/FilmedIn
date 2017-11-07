@@ -84,3 +84,21 @@ function addNewsPost(headline, description) {
       console.log("POST request failed", err);
   });
 }
+
+function getAllEquip(){
+    var equip = {
+        method : "GET"
+    }
+    fetch(url+"/equipments", equip)
+    .then(function(res){
+        res.json().then(function(data){
+            console.log(data);
+            //var json = JSON.parse(data);
+            //console.log(json);
+            console.log(data[0].name);
+        })
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}
