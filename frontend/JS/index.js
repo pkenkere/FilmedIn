@@ -7,36 +7,30 @@ function body_onload() {
 }
 
 function signUp_onclick() {
-  // var pass = document.getElementById('pass').value;
-  // var rePass = document.getElementById('rePass').value;
-  //
-  // if (pass !== rePass) {
-  //   alert("Passwords don't match");
-  //   return;
-  // }
-  // var email = document.getElementById('email').value;
-  // var firstname = document.getElementById('firstname').value;
-  // var lastname = document.getElementById('lastname').value;
-  // if (email == null || firstname == null || lastname == null) {
-  //   alert("Please enter all information");
-  //   return;
-  // }
-  // if (email == "" || firstname == "" || lastname == "") {
-  //   alert("Please enter all information");
-  //   return;
-  // }
-  // var account = {
-  //   Email : email,
-  //   Password : pass,
-  //   FirstName : firstname,
-  //   LastName : lastname
-  // };
-  //
-  // accounts.push(account);
-  // saveAccounts();
-  //
-  // localStorage.setItem("loggedInId", accounts.length - 1);
-  // location.href = "permInfo.html";
+  var fname = firstname.value;
+  var lname = lastname.value;
+  var eml = email.value;
+  var pas = pass.value;
+  var rePas = rePass.value;
+
+  if (pas !== rePas) {
+    alert("Passwords don't match");
+    return;
+  }
+  if (eml == null || fname == null || lname == null) {
+    alert("Please enter all information");
+    return;
+  }
+  if (eml == "" || fname == "" || lname == "") {
+    alert("Please enter all information");
+    return;
+  }
+  var account = JSON.stringify({
+    Email : eml,
+    Password : pas,
+    Name : fname+" "+lname,
+  });
+  signupPost(account);
 }
 
 function login_onclick() {

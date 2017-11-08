@@ -1,17 +1,18 @@
 var path = require('path');
 
-var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
+//var CT = require(path.join(__dirname, '..', 'modules', 'country-list'));
 var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app) {
 
-    // main login page //
+	// main login page //
     app.get('/', function(req, res){
         // check if the user's credentials are saved in a cookie //
+        console.log(req.cookies.user, req.cookies.pass);
         if (req.cookies.user == undefined || req.cookies.pass == undefined){
-            res.render('login', { title: 'FilmedIn' });
+            res.render('index', { title: 'FilmedIn' });
         }   else{
             // attempt automatic login //
             AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
@@ -19,24 +20,24 @@ module.exports = function(app) {
                     req.session.user = o;
                     res.redirect('/home');
                 }   else{
-                    res.render('login', { title: 'FilmedIn' });
+                    res.render('index', { title: 'FilmedIn' });
                 }
             });
         }
     });
 
     app.post('/', function(req, res){
-        AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
+        AM.manualLogin(req.param('email'), req.param('pass'), function(e, o){
             if (!o){
                 //console.log("MAA KIIII CHHUUUTTTTTT!!!!!");
                 res.status(400).send(e);
             }   else{
                 req.session.user = o;
                 if (req.body['remember-me'] == 'true'){
-                    res.cookie('user', o.user, { maxAge: 900000 });
+                    res.cookie('email', o.user, { maxAge: 900000 });
                     res.cookie('pass', o.pass, { maxAge: 900000 });
                 }
-                res.status(200).send(o);
+                res.status(200).send(JSON.stringify(o));
             }
         });
     });
@@ -48,8 +49,32 @@ module.exports = function(app) {
     })
 
     // creating new accounts //
-    app.get('/signup', function(req, res) {
+    /*app.get('/signup', function(req, res) {
         res.render('signup', {  title: 'Signup', countries : CT });
+    });*/
+
+    app.post('/updateAdmin', function(req, res) {
+        var email = req.param('email');
+        AM.getAccountByEmail(email, function(o) {
+            if (o) {
+                AM.updateAccount({
+                   name : o.name,
+                   email : o.email,
+                   isAdmin : true,
+                   pass : '',
+                }, function(e, o) {
+                    if (!o)
+                        res.status(400).send(e);
+                    else {
+                        res.status(200).send('ok');
+                    }
+                });
+            }
+            else {
+                res.status(400).send('email was not found');
+            }
+        });
+        
     });
 
     app.post('/signup', function(req, res){
@@ -58,8 +83,10 @@ module.exports = function(app) {
           email   : req.param('email'),
           user    : req.param('user'),
           pass    : req.param('pass'),
+          isAdmin : false,
           //country : req.param('country'),
         };
+        //console.log(newData);
         AM.addNewAccount(newData, function(e){
             if (e){
                 res.status(400).send(e);
@@ -139,9 +166,10 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/reset', function(req, res) {
+    app.post('/reset', function(req, res) {
         AM.delAllRecords(function(){
-            res.redirect('/print');
+            //res.redirect('/print');
+            res.send('ok');
         });
     });
 

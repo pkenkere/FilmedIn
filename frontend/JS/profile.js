@@ -1,16 +1,25 @@
 var count = 0;
 
 function body_onload() {
-  getAccounts();
-  var id = parseInt(localStorage.getItem("loggedInId"));
-  var account = accounts[id];
-  var fname = account.FirstName;
-  var lname = account.LastName;
-  $('#proName').html(fname + " " + lname);
-  document.getElementById('PostJobBtn').onclick = postJob_onclick;
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-    document.getElementById('ProfBtn').onclick = findTalent_onclick;
-      document.getElementById('JobsBtn').onclick = opportunities_onclick;
+  // getAccounts();
+  // var id = parseInt(localStorage.getItem("loggedInId"));
+  // var account = accounts[id];
+  // var fname = account.FirstName;
+  // var lname = account.LastName;
+  // $('#proName').html(fname + " " + lname);
+  // document.getElementById('PostJobBtn').onclick = postJob_onclick;
+  // document.getElementById('LogoutBtn').onclick = logout_onclick;
+  //   document.getElementById('ProfBtn').onclick = findTalent_onclick;
+  //     document.getElementById('JobsBtn').onclick = opportunities_onclick;
+  renderProfile();
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentEquipment_onclick;
+}
+
+function renderProfile(){
+  var e = sessionStorage.getItem("email");
+  profileGet(e);
+  
 }
 
 //create body onload
@@ -18,7 +27,8 @@ function body_onload() {
 // get item from localStorage of with Key = "loggedInId"
 // get info id
 function postJob_onclick() {
-  location.href = "Jobpost.html";
+ // location.href = "Jobpost.html";
+  location.href = "admin.html"
 }
 function opportunities_onclick() {
   location.href = "searchJobs.html";
@@ -31,6 +41,10 @@ function findTalent_onclick() {
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "splash.html";
+}
+
+function rentEquipment_onclick(){
+  location.href = "";
 }
 
 function updateJ(divName) {
