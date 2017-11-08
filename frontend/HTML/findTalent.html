@@ -45,15 +45,19 @@
       <div id="box">
        <div class="box-top3">Age</div>
         <div class="box-panel3">
-          <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)"/>
-          <button id="rangeBtn">0</button>
+          <form onchange="enable()">
+          <label>From <input type="number" name="minRange" min="1" max="80"></label>
+            <label>To <input type="number" name="minRange" min="1" max="80"></label>
+        </form>
+          <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
+          <button id="range">0</button>
           <script type="text/javascript">
             function showValue(newValue)
               {
                 document.getElementById("range").innerHTML=newValue;
                 document.getElementById("btnSrch").disabled = false;
               }
-          </script>
+          </script> -->
         </div>
     </div>
      <div id="box">
@@ -83,7 +87,7 @@
   <div class="card">
     <img src="img.jpg" alt="John" style="width:100%">
     <h1>John Doe</h1>
-    <p class="title">CEO & Founder, Example</p>
+    <p class="title">CEO and Founder, Example</p>
     <p>Harvard University</p>
     <a href="#"><i class="fa fa-dribbble"></i></a>
     <a href="#"><i class="fa fa-twitter"></i></a>

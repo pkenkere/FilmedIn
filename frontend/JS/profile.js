@@ -40,7 +40,7 @@ function findTalent_onclick() {
 
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
-  location.href = "splash.html";
+  location.href = "../HTML/index.html";
 }
 
 function rentEquipment_onclick(){
