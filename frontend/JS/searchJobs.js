@@ -1,18 +1,33 @@
 function body_onload() {
-  document.getElementById('PostJobBtn').onclick = postJob_onclick;
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-  document.getElementById('ProfBtn').onclick = findTalent_onclick;
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  PostJobBtn.onclick = PostJobBtn_onclick;
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentBtn_onclick;
 }
 
-function postJob_onclick() {
-  location.href = "Jobpost.html";
+function HomeBtn_onclick(){
+  location.href = "../HTML/newsfeed.html";
+}
+
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  location.href = "../HTML/Jobpost.html";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
 }
 
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
-  location.href = "splash.html";
-}
-
-function findTalent_onclick() {
-  location.href = "findTalent.html";
+  location.href = "../HTML/index.html";
 }
