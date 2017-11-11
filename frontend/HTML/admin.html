@@ -21,7 +21,7 @@
   </div>
 </head>
 <body onload="body_onload()">
-  <div class="tab">
+  <div class="sidebar">
   <button class = "tablinks" id = "tab5" onclick = "displayChoice(event,'WelcomeAdmin')">Home</button>
   <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
@@ -52,11 +52,11 @@
       <h4 id = "">Add new admin</h4>
     <form>
     <div class="form-group">
-      <label>Name of user</label>
+      <label>Name of new admin</label>
       <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
     </div>
     <div class="form-group">
-      <label>Admin email ID</label>
+      <label>New Admin email ID</label>
       <input type="text" class="form-control" id="emailInput" placeholder="Enter email ID">
     </div>
   </form>
@@ -68,8 +68,8 @@
     <!-- <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
     <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
     <li><a data-toggle="tab" href="#menu3">Menu 3</a></li> -->
-    <li><a data-toggle="tab" href="#menu1">Add Equipment</a></li>
-    <li><a data-toggle="tab" href="#menu2">Remove Equipment</a></li>
+    <li><a data-toggle="tab" href="#menu1">Add/Update Equipment</a></li>
+    <li><a data-toggle="tab" onclick=getAllEquip() href="#menu2">Remove Equipment</a></li>
   </ul>
 
   <div id="menu1" class="tab-pane fade in active">
@@ -79,25 +79,28 @@
         <br>
       <div class="form-group">
         <label>Category</label><br>
-        <input type="radio" name="categoryname"/> Camera Kits
-          <input type="radio" name="categoryname"/> Camera Lenses
-          <input type="radio" name="categoryname"/> Audio Kits
-          <input type="radio" name="categoryname"/> Lighting Kits
-          <input type="radio" name="categoryname"/> Accessories
-          <input type="radio" name="categoryname"/> Stabilizers
-          <input type="radio" name="categoryname"/> Other
+        <!-- <input type="radio" name="radioBtn" value="rgb(229, 198, 71)">Gold -->
+        <input type="radio" name="categoryname" value="Camera Kits"> Camera Kits
+          <input type="radio" name="categoryname" value="Camera Lenses"> Camera Lenses
+          <input type="radio" name="categoryname" value="Audio Kits"> Audio Kits
+          <input type="radio" name="categoryname" value="Lighting Kits"> Lighting Kits
+          <input type="radio" name="categoryname" value="Accessories"> Accessories
+          <input type="radio" name="categoryname" value="Stabilizers"> Stabilizers
+          <input type="radio" name="categoryname" value="Other"> Other
       </div>
         <label>Availablity</label>
         <br>
-        <input type="radio" id="available" name = "yesorno" /> Available
-        <input type="radio" name="yesorno" id="noavailsable"/> Unavailable
+        <input type="radio" id="available" name = "yesorno" value="true" /> Available
+        <input type="radio" name="yesorno" id="noavailsable" value="false"/> Unavailable
         <br>
         <button type="submit" class="btn" id ="addEquip">ADD!</button>
     </div>
-    <div id="menu2" class="tab-pane fade">
 
+    <div id="menu2" class="tab-pane fade">
+          <div id = "All">
+          </div>
+        <button type="submit" class="btn" id ="removeEq">REMOVE!</button>
     </div>
-  </div>
 
   <div id ="AddRemoveNews" class="tabcontent">
     <ul class="nav nav-tabs">

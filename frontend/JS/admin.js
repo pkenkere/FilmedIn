@@ -1,15 +1,20 @@
+var edata;
 function body_onload() {
   addEquip.onclick = addEquipment;
   addAdminBtn.onclick = addAdmin;
   addNewsBtn.onclick = addNews;
   ok.onclick = updateColor;
   okay.onclick = redirect;
+<<<<<<< HEAD
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+=======
+  removeEq.onclick = removeEquipment;
+>>>>>>> 36cf12970e5eb617c25aba542e94dc04fbdb65d0
 }
 
 function displayChoice (evt, option) {
@@ -38,7 +43,9 @@ function displaySuccess() {
 
 function addEquipment() {
   var category = document.querySelector('input[name="categoryname"]:checked').value;
+  console.log(category);
   var availability = document.querySelector('input[name="yesorno"]:checked').value;
+  console.log(availability);
     addEquipmentPost(equipmentName.value, category, availability);
 }
 
@@ -50,7 +57,7 @@ function addNews() {
 }
 
 function addAdmin() {
-  addNewAdmin(emailInput);
+  addNewAdmin(emailInput.value);
 }
 
 function updateColor() {
@@ -86,4 +93,15 @@ function rentBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function fillDiv(a) {
+  document.getElementById('All').innerHTML = "hbbhbibububybvgva";
+  document.getElementById('All').innerHTML = a.name;
+  console.log(a);
+}
+
+function removeEquipment() {
+
+
 }
