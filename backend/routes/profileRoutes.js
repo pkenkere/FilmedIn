@@ -7,7 +7,7 @@ var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 module.exports = function(app) {
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
-      console.log("MAA KI CHHUUUTTTTTT!!!");
+      //console.log("MAA KI CHHUUUTTTTTT!!!");
       //if (req.session.user == null){
           // if user is not logged-in redirect back to login page //
         //  res.redirect('/');
@@ -41,11 +41,6 @@ module.exports = function(app) {
               //var name;
               AM.getAccountByEmail(req.param('email'), function(o) {
                 if (o) {
-                  // console.log("TRYING TO GIVE A NAME");
-                  // console.log("name: " + o.name);
-                  // name = o.name;
-                  console.log("name of the new profile: " + o.name);
-                  console.log("going to add new profile");
                   PM.addProfileInfo(req.param('email'), {
                     email : req.param('email'),
                     name : o.name,
@@ -70,24 +65,26 @@ module.exports = function(app) {
 
             }
             else {
-               //var name;
                AM.getAccountByEmail(req.param('email'), function(o) {
                  if (o) {
-                    //name = o.name;
-                    console.log("going to update profile");
                     PM.updateProfile(req.param('email'), {
                       email : req.param('email'),
-                      name : o.name,
-                      age : req.param('age'),
-                      gender : req.param('gender'),
-                      ethnicity : req.param('ethnicity'),
-                      education : req.param('education'),
+                      //name : o.name,
+                      //age : req.param('age'),
+                      //gender : req.param('gender'),
+                      //ethnicity : req.param('ethnicity'),
+                      //education : req.param('education'),
+                      major : req.param('major'),
+                      year : req.param('year'),
+                      interest : req.param('interest'),
+                      // TODO : JOB updates
                     }, function (e, o) {
                       if (e) {
                         res.status(400).send('error-updating-account');
                       }
                       else {
-                        res.status(200).send('new profile added');
+                        console.log('new profile added');
+                        res.status(200).send(o);
                       }
                     });
                   }
@@ -113,10 +110,10 @@ module.exports = function(app) {
 
   app.get('/profiles', function(req, res) {
     var criterias = {
-      minAge : req.param('minAge'),
-      maxAge : req.param('maxAge'),
-      ethnicity : req.param('ethnicity'),
-      gender : req.param('gender')
+       minAge : req.param('minAge'),
+      // maxAge : req.param('maxAge'),
+      // ethnicity : req.param('ethnicity'),
+      // gender : req.param('gender')
     }
     console.log("log from routes minAge: " + criterias.minAge + " " + criterias.maxAge + " " + criterias.ethnicity + " " + criterias.gender);
     PM.getProfiles(criterias, function(e, profiles) {

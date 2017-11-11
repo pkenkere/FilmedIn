@@ -42,6 +42,7 @@ module.exports = function(app) {
       if (e)
         res.send('error in getting all equipments');
       else {
+        //res.setHeader('Content-Type', 'application/json');
         res.send(o);
       }
     });

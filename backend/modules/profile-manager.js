@@ -50,11 +50,17 @@ exports.updateProfile = function(email, newData, callback) {
     }
     else {
       o.email = newData.email;
-      o.name  = newData.name;
-      o.age = newData.age;
-      o.gender = newData.gender;
-      o.ethnicity = newData.ethnicity;
-      o.education = newData.education;
+      //o.name  = newData.name;
+      //o.age = newData.age;
+      //o.gender = newData.gender;
+      //o.ethnicity = newData.ethnicity;
+      //o.education = newData.education;
+      if (newData.major != '')
+        o.major = newData.major;
+      if (newData.year != '')
+        o.year = newData.year;
+      if (newData.interest != '')
+        o.interest = newData.interest;
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
