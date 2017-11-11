@@ -58,7 +58,7 @@
 }
 
 
-.tab {
+.sidebar {
   width: 20%;
   height: 100%;
   float: left;
@@ -66,7 +66,7 @@
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
-div.tab button {
+div.sidebar button {
     display: block;
     background-color: inherit;
     color: black;
@@ -80,11 +80,11 @@ div.tab button {
 }
 
 /* Change background color of buttons on hover */
- div.tab button:hover {
+ div.sidebar button:hover {
     background-color: #ddd;
 }
 
-div.tab button.active {
+div.sidebar button.active {
     background-color: #ccc;
 }
 

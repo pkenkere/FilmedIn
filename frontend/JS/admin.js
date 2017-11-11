@@ -1,9 +1,11 @@
+var edata;
 function body_onload() {
   addEquip.onclick = addEquipment;
   addAdminBtn.onclick = addAdmin;
   addNewsBtn.onclick = addNews;
   ok.onclick = updateColor;
   okay.onclick = redirect;
+  removeEq.onclick = removeEquipment;
 }
 
 function displayChoice (evt, option) {
@@ -57,4 +59,15 @@ function updateColor() {
 
 function redirect() {
   location.href = "../HTML/404notfound.html";
+}
+
+function fillDiv(a) {
+  document.getElementById('All').innerHTML = "hbbhbibububybvgva";
+  document.getElementById('All').innerHTML = a.name;
+  console.log(a);
+}
+
+function removeEquipment() {
+
+
 }

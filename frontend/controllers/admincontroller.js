@@ -85,19 +85,25 @@ function addNewsPost(headline, description) {
 }
 
 
-// function getAllEquip(){
-//   var equip= {
-//     method: "GET"
-//   }
-//   fetch(url+"/equipment", equip)
-//   .then(function(res){
-//     if(res.ok){
-//       res.json().then(function(data){
-//         console.log(data);
-//       })
-//     })
-//   }
-//   else {
-//     console.log("");
-//   }
-// }
+function getAllEquip() {
+  var equip = {
+    method: "GET"
+  }
+  fetch(url+"/equipments", equip)
+  .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+          //console.log(data);
+        //  edata = data;
+        fillDiv(data);
+        })
+  }
+      else{
+          //alert incorrect
+          console.log("incorrect username/password");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  });
+  }
