@@ -70,6 +70,21 @@ function testCheckbox(oCheckbox) {
     }
 }
 
+function displayProfs() {
+  var box = document.getElementById("talentCont");
+  for (var i = 0; i < gTalent.length; i++) {
+    var person = gTalent[i];
+    var newdiv = document.createElement('div');
+    newdiv.innerHTML = '<div class="card" style="width:400px">' +
+      '<img class="card-img-top" src=' + person.image + 'alt="Card image" style="width:100%">' +
+      '<div class="card-body">' +
+      '<h4 class="card-title">' + person.Name + '</h4>' +
+      '<p class="card-title">Brief Description</p>' +
+      '<a href="#" class="btn btn-primary">See Profile</a>' +
+      '</div></div>';
+    box.appendChild(newdiv);
+  }
+
 function HomeBtn_onclick(){
   location.href = "../HTML/newsfeed.html";
 }
