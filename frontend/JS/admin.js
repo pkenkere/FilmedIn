@@ -5,16 +5,13 @@ function body_onload() {
   addNewsBtn.onclick = addNews;
   ok.onclick = updateColor;
   okay.onclick = redirect;
-<<<<<<< HEAD
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
-=======
   removeEq.onclick = removeEquipment;
->>>>>>> 36cf12970e5eb617c25aba542e94dc04fbdb65d0
 }
 
 function displayChoice (evt, option) {
