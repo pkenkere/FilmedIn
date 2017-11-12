@@ -97,15 +97,14 @@
     </div>
 
     <div id="menu2" class="tab-pane fade">
-          <div id = "All">
-          </div>
-        <button type="submit" class="btn" id ="removeEq">REMOVE!</button>
+          <div id = "All"></div>
+        <!-- <button type="submit" class="btn" id ="removeEq">REMOVE!</button> -->
     </div>
-
+  </div>
   <div id ="AddRemoveNews" class="tabcontent">
     <ul class="nav nav-tabs">
     <li><a data-toggle="tab" href="#AddMenu">Add News Item</a></li>
-    <li><a data-toggle="tab" href="#RemoveMenu">Remove News</a></li>
+    <li><a data-toggle="tab" onclick="getAllAnnounce()" href="#RemoveMenu">Remove News</a></li>
   </ul>
 
   <div id="AddMenu" class="tab-pane fade in active">
@@ -120,6 +119,8 @@
         <button type="submit" class="btn" id ="addNewsBtn">ADD!</button>
   </div>
     <div id="RemoveMenu" class="tab-pane fade">
+      <div id="dispNews"></div>
+      <!-- <button type="submit" class="btn" id="removeNews">REMOVE</button> -->
     </div>
   </div>
 </body>

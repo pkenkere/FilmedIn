@@ -93,17 +93,88 @@ function getAllEquip() {
   .then(function(res){
       if(res.ok){
          res.json().then(function(data) {
-          //console.log(data);
-        //  edata = data;
-        fillDiv(data);
+            //console.log(data);
+            //  edata = data;
+            fillDiv(data);
         })
   }
       else{
           //alert incorrect
-          console.log("incorrect username/password");
+          console.log("res.ok == false");
       }
   })
   .catch(function(err){
       console.log("POST request failed", err);
   });
   }
+
+  function deleteEquip(a){
+      var d = {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'            
+        },
+        body: JSON.stringify({
+            name: a
+        })
+      }
+      fetch(url+"/deleteEquipment", d)
+      .then(function(res){
+          if(res.ok){
+              getAllEquip();
+          }
+          else{
+              console.log("delete failed");
+          }
+      })
+      .catch(function(err){
+          console.log("POST request failed", err);
+      })
+  }
+
+function getAllAnnounce() {
+    var announce = {
+      method: "GET"
+    }
+    fetch(url+"/announcements", announce)
+    .then(function(res){
+        if(res.ok){
+           res.json().then(function(data) {
+              //console.log(data);
+              //  edata = data;
+              fillDivAnnounce(data);
+          })
+    }
+        else{
+            //alert incorrect
+            console.log("res.ok == false");
+        }
+    })
+    .catch(function(err){
+        console.log("POST request failed", err);
+    });
+    }
+
+function deleteAnnounce(a){
+        var d = {
+            method: "POST",
+            headers: {
+              'content-type': 'application/json'            
+          },
+          body: JSON.stringify({
+              name: a
+          })
+        }
+        fetch(url+"/deleteAnnouncement", d)  /////no route made?????
+        .then(function(res){
+            if(res.ok){
+                getAllAnnounce();
+            }
+            else{
+                console.log("delete failed");
+            }
+        })
+        .catch(function(err){
+            console.log("POST request failed", err);
+        })
+    }
