@@ -11,6 +11,7 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  Profile.onclick = Profile_onclick;
   //removeEq.onclick = removeEquipment;
   //removeNews.onclick = removeAnnouncement;
 }
@@ -91,6 +92,10 @@ function rentBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html"; //profile button takes you back to the admin page if you are an admin???
 }
 
 function fillDiv(a) {
