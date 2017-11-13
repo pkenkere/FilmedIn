@@ -92,6 +92,21 @@ module.exports = function(app) {
         });
     });
 
+    app.post('/sendMail', function(req, res){
+        // look up the user's account via their email //
+        var o = req.body;
+                EM.dispatchResetPasswordLink(o, function(e, m){
+                    // this callback takes a moment to return //
+                    //              // TODO add an ajax loader to give user feedback //
+                    if (!e){
+                        res.status(200).send('ok');
+                    }   else{
+                        for (k in e) console.log('ERROR : ', k, e[k]);
+                        res.status(400).send('unable to dispatch password reset');
+                    }
+                });
+    });
+
     app.get('/reset-password', function(req, res) {
         var email = req.query["e"];
         var passH = req.query["p"];
