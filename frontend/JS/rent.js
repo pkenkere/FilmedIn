@@ -59,3 +59,15 @@ function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
 }
+
+function displayEquip() {
+  for (var i = 0; i < gEquip.length; i++) {
+    var equip = gEquip[i];
+    var some = document.createElement("input");
+    some.setAttribute("type", "checkbox");
+    some.setAttribute("value", equip.Value);
+    some.innerHTML = equip.textDisplay;
+    var categ = document.getElementById(equip.categId);
+    categ.appendChild(some);
+  }
+}

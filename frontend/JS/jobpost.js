@@ -2,14 +2,13 @@ function body_onload() {
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
-  PostJobBtn.onclick = PostJobBtn_onclick;
+  jobPostBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
 }
 
 
 var count = 0;
-
 
 function updateR(divName) {
   var rolename = $('#rolename').val() == '' ? '---' : $('#rolename').val();
@@ -59,7 +58,13 @@ function ProfBtn_onclick(){
 }
 
 function PostJobBtn_onclick(){
-  location.href = "../HTML/Jobpost.html";
+  prodtype = document.querySelector('input[name="prodTypes"]:checked').value
+  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end)
+
+}
+
+function displaySuccess() {
+  SuccessAlert.style.display = "block";
 }
 
 function rentBtn_onclick(){

@@ -123,9 +123,9 @@ h4 {
   right: 10%;
 }
 
-#addEquip, #addNewsBtn {
+#addEquip{
   right: 10%;
-  margin-top: 2%;
+  margin-top: -4%;
   position: absolute;
 }
 
