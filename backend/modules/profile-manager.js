@@ -30,7 +30,7 @@ var profiles = db.collection('profiles');
 var accounts = db.collection('accounts');
 
 exports.addProfileInfo = function(email, newData, callback) {
-  console.log("from profile-manager modules, adding new profile");
+  //console.log("from profile-manager modules, adding new profile");
   accounts.findOne({email:email}, function(e, o) {
     if (o == null) {
       callback('user-not-found');
@@ -38,7 +38,7 @@ exports.addProfileInfo = function(email, newData, callback) {
 
       newData.date = moment().format('MMMM Do YYYY, h:mm:ss');
       profiles.insert(newData, {safe: true}, callback);
-      console.log("from modules, added new profile");
+      //console.log("from modules, added new profile");
     }
   });
 }

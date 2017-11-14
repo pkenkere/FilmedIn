@@ -20,6 +20,8 @@ EM.dispatchResetPasswordLink = function(account, callback)
       }, callback );
         }
 
+
+
 EM.composeEmail = function(o)
 {
     //var link = 'https://nodejs-login.herokuapp.com/reset-password?e='+o.email+'&p='+o.pass;
