@@ -73,12 +73,12 @@ db.open(function(e, d){
     }
 });
 
-require('./backend/routes/loginRoutes')(app);
-require('./backend/routes/profileRoutes')(app);
+require('./backend/routes/loginRoutes')(app,db);
+require('./backend/routes/profileRoutes')(app,db);
 require('./backend/routes/job-routes')(app,db);
 require('./backend/routes/announcement-routes')(app,db);
 require('./backend/routes/equipmentRoutes')(app,db);
-require('./backend/routes/feedbackRoutes')(app);
+require('./backend/routes/feedbackRoutes')(app,db);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
