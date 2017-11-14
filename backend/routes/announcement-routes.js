@@ -1,8 +1,10 @@
 var path = require('path');
 
-module.exports = function(app) {
+module.exports = function(app,db) {
 	var controller = require(path.join(__dirname, '..', 'modules', 'announcement-controller'));
-    app.get('/announcements', function(req, res) {
+	//Initialize the database
+	controller.init(db);
+		app.get('/announcements', function(req, res) {
     controller.getAllAnnouncements(function(err, announcements){
       if(!err){
         res.send(announcements);
