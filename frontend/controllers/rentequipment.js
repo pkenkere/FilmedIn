@@ -1,17 +1,17 @@
 "use strict";
 var url = "http://localhost:5000";
-function rentEquipmentPost(name, category) {
+function rentEquipmentPost(arr, email) {
   var equipdets = {
       method: "POST",
       headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          name: name,
-          category: category
+          arr: arr,
+          email: email
       })
   }
-  fetch(url+"...", equipdets)
+  fetch(url+"/equipment", equipdets)
   .then(function(res){
       if(res.ok){
           //login to profile
@@ -35,6 +35,16 @@ function getAllEquip(){
     fetch(url+"/equipments", equip)
     .then(function(res){
         res.json().then(function(data){
+          for (var i = 0; i < data.length; i++) {
+            var equip = data[i];
+            var some = document.createElement("input");
+            some.setAttribute("type", "checkbox");
+            some.setAttribute("value", equip.name);
+            some.setAttribute("id", equip.category);
+            some.innerHTML = equip.name;
+            var categ = document.getElementById(equip.category);
+            categ.appendChild(some);
+          }
             console.log(data);
             //var json = JSON.parse(data);
             //console.log(json);
