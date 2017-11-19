@@ -1,83 +1,26 @@
 "use strict";
 var url = "http://localhost:5000";
-function addEquipmentPost(name, category, available) {
-  var equipmentDetails = {
+function rentEquipmentPost(arr, email) {
+  var equipdets = {
       method: "POST",
       headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          name: name,
-          category: category,
-          available:available
+          arr: arr,
+          email: email
       })
   }
-  fetch(url+"/equipment", equipmentDetails)
+  fetch(url+"/equipment", equipdets)
   .then(function(res){
       if(res.ok){
           //login to profile
           displaySuccess();
-          console.log("equipment added!");
+          console.log("request sent!");
       }
       else{
           //alert incorrect
-          console.log("incorrect username/password");
-      }
-  })
-  .catch(function(err){
-      console.log("POST request failed", err);
-  });
-}
-
-function addNewAdmin(email, isAdmin) {
-  var AdminDetails = {
-      method: "POST",
-      headers: {
-          'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-          email: email,
-          isAdmin: isAdmin
-      })
-  }
-  fetch(url+"/updateProfile", AdminDetails)
-  .then(function(res){
-      if(res.ok){
-          //login to profile
-          displaySuccess();
-          console.log("admin added!");
-      }
-      else{
-          //alert incorrect
-          console.log("invalid");
-      }
-  })
-  .catch(function(err){
-      console.log("POST request failed", err);
-  });
-}
-
-function addNewsPost(headline, description) {
-  var newsDetails = {
-      method: "POST",
-      headers: {
-          'content-type': 'application/json'
-      },
-      body: JSON.stringify({
-          headline: headline,
-          description: description
-      })
-  }
-  fetch(url+"/announcements", newsDetails)
-  .then(function(res){
-      if(res.ok){
-          //login to profile
-          displaySuccess();
-          console.log("news added!");
-      }
-      else{
-          //alert incorrect
-          console.log("incorrect username/password");
+          console.log("incorrect");
       }
   })
   .catch(function(err){
@@ -92,6 +35,16 @@ function getAllEquip(){
     fetch(url+"/equipments", equip)
     .then(function(res){
         res.json().then(function(data){
+          for (var i = 0; i < data.length; i++) {
+            var equip = data[i];
+            var some = document.createElement("input");
+            some.setAttribute("type", "checkbox");
+            some.setAttribute("value", equip.name);
+            some.setAttribute("id", equip.category);
+            some.innerHTML = equip.name;
+            var categ = document.getElementById(equip.category);
+            categ.appendChild(some);
+          }
             console.log(data);
             //var json = JSON.parse(data);
             //console.log(json);
