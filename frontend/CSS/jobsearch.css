@@ -89,13 +89,15 @@ div#box .box-top1 {
     border: none;
     padding: 15px;
     width: 45%;
-    font-size: 25px;
+    font-size: 1.8vw;
+  /*overflow: hidden;*/
 }
 
 div#box .box-panel1 {
-  padding: 15px;
+  padding: 10px;
   background-color: #fff;
   width: 50%;
+  font-size: 1.8vw;
   flex-grow: 1;
 }
 
@@ -106,13 +108,15 @@ div#box .box-top2, .box-top3, .box-top4, .box-top5 {
     border: none;
     padding: 15px;
     width: 45%;
-    font-size: 25px;
+    font-size: 1.8vw;
+    text-align: justify;
 }
 
 div#box .box-panel2, div#box .box-panel3, .box-panel4, .box-panel5 {
-  padding: 15px;
+  padding: 13px;
   background-color: #fff;
   width: 55%;
+  font-size: 1.5vw;
 }
 
 #rangeBtn {
