@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FilmedIn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" href="jobpost.css"> -->
+  <link rel="stylesheet" type="text/css" href="../CSS/newsfeed.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../JS/announcements.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/announcementcontroller.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
+  </div>
+</head>
+<body onload="body_onload()">
+  <div class="card card-body" id = "news">
+    <a href="#" class="card-link"><h4>Headline of event</h4></a>
+    <p class="card-text" getAllAnnounce()>
+
+
+
+
+  </div>
+  <div class="box">
+    <h4>Application closes soon!</h4>
+    <marquee>
+    *Actors and vocalists needed for Production 1! Application deadlines close on 1st November 2017!
+    <br>
+  Apply by uploading profile. Call #89279892 for more details.
+  </marquee>
+  </div>
+  </body>
+  </html>
