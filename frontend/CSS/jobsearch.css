@@ -61,7 +61,9 @@
   left: 1200px;
   border: none;
 }
-
+body {
+  overflow: hidden;
+}
 div #container {
   width: 100%;
   margin: 0 auto;

@@ -57,6 +57,9 @@
   border: none;
 }
 
+body {
+  overflow:hidden;
+}
 .panels {
   position: absolute;
   width: 1000px;
