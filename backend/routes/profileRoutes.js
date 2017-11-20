@@ -51,6 +51,7 @@ module.exports = function(app) {
                     instagramLink : req.param('instagramLink');
                     facebookLink : req.param('facebookLink');
                     linkedInLink : req.param('linkedInLink');
+                    resumeLink : req.param('resumeLink');
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
@@ -83,6 +84,7 @@ module.exports = function(app) {
                       instagramLink : req.param('instagramLink');
                       facebookLink : req.param('facebookLink');
                       linkedInLink : req.param('linkedInLink');
+                      resumeLink : req.param('resumeLink');
                       // TODO : JOB updates
                     }, function (e, o) {
                       if (e) {

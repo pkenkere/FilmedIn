@@ -66,6 +66,8 @@ exports.updateProfile = function(email, newData, callback) {
         o.facebookLink = newData.facebookLink;
       if (newData.linkedInLink != '')
         o.linkedInLink = newData.linkedInLink;
+      if (newData.resumeLink != '')
+        o.resumeLink = newData.resumeLink;
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
