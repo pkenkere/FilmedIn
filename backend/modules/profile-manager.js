@@ -35,7 +35,6 @@ exports.addProfileInfo = function(email, newData, callback) {
     if (o == null) {
       callback('user-not-found');
     } else {
-
       newData.date = moment().format('MMMM Do YYYY, h:mm:ss');
       profiles.insert(newData, {safe: true}, callback);
       //console.log("from modules, added new profile");
@@ -61,6 +60,12 @@ exports.updateProfile = function(email, newData, callback) {
         o.year = newData.year;
       if (newData.interest != '')
         o.interest = newData.interest;
+      if (newData.instagramLink != '')
+        o.instagramLink = newData.instagramLink;
+      if (newData.facebookLink != '')
+        o.facebookLink = newData.facebookLink;
+      if (newData.linkedInLink != '')
+        o.linkedInLink = newData.linkedInLink;
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
