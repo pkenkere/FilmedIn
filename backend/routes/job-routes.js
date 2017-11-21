@@ -100,7 +100,7 @@ module.exports = function(app,db) {
 	app.post('/jobs/apply', function(req, res) {
 		var data = {
 			id : req.body.id,
-			user : req.body.user,
+			userEmail : req.body.userEmail,
 			role : req.body.role
 		};
 		controller.saveApplicant(data, function(err, o){

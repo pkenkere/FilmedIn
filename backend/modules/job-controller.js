@@ -72,7 +72,7 @@ exports.saveApplicant = function(data, callback)
     if(e || job == null) callback(1);
     else {
       var applicant = {
-  			user : data.user,
+  			userEmail : data.userEmail,
   			role : data.role
   		};
       job.applicants.push(applicant);
