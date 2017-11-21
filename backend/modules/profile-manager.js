@@ -30,15 +30,14 @@ var profiles = db.collection('profiles');
 var accounts = db.collection('accounts');
 
 exports.addProfileInfo = function(email, newData, callback) {
-  console.log("from profile-manager modules, adding new profile");
+  //console.log("from profile-manager modules, adding new profile");
   accounts.findOne({email:email}, function(e, o) {
     if (o == null) {
       callback('user-not-found');
     } else {
-
       newData.date = moment().format('MMMM Do YYYY, h:mm:ss');
       profiles.insert(newData, {safe: true}, callback);
-      console.log("from modules, added new profile");
+      //console.log("from modules, added new profile");
     }
   });
 }
@@ -50,11 +49,25 @@ exports.updateProfile = function(email, newData, callback) {
     }
     else {
       o.email = newData.email;
-      o.name  = newData.name;
-      o.age = newData.age;
-      o.gender = newData.gender;
-      o.ethnicity = newData.ethnicity;
-      o.education = newData.education;
+      //o.name  = newData.name;
+      //o.age = newData.age;
+      //o.gender = newData.gender;
+      //o.ethnicity = newData.ethnicity;
+      //o.education = newData.education;
+      if (newData.major != '')
+        o.major = newData.major;
+      if (newData.year != '')
+        o.year = newData.year;
+      if (newData.interest != '')
+        o.interest = newData.interest;
+      if (newData.instagramLink != '')
+        o.instagramLink = newData.instagramLink;
+      if (newData.facebookLink != '')
+        o.facebookLink = newData.facebookLink;
+      if (newData.linkedInLink != '')
+        o.linkedInLink = newData.linkedInLink;
+      if (newData.resumeLink != '')
+        o.resumeLink = newData.resumeLink;
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);

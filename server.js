@@ -47,7 +47,7 @@ require('./backend/routes/profileRoutes')(app);
 require('./backend/routes/job-routes')(app);
 require('./backend/routes/announcement-routes')(app);
 require('./backend/routes/equipmentRoutes')(app);
-
+require('./backend/routes/feedbackRoutes')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
