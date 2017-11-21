@@ -34,6 +34,7 @@ function getAllEquip(){
     }
     fetch(url+"/equipments", equip)
     .then(function(res){
+      if(res.ok) {
         res.json().then(function(data){
           for (var i = 0; i < data.length; i++) {
             var equip = data[i];
@@ -50,6 +51,10 @@ function getAllEquip(){
             //console.log(json);
             console.log(data[0].name);
         })
+      }
+      else {
+        console.log("incorrect username/password");
+      }
     })
     .catch(function(err){
         console.log("GET request failed", err);

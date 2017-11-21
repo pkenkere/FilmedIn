@@ -104,6 +104,37 @@ function getAllEquip() {
       }
   })
   .catch(function(err){
-      console.log("POST request failed", err);
+      console.log("GET request failed", err);
   });
   }
+
+  function getAllFeed() {
+    var feed = {
+      method: "GET"
+    }
+    fetch(url+"/getAllFeedbacks", feed)
+    .then(function(res){
+        if(res.ok){
+           res.json().then(function(data) {
+            for (var i = 0; i < data.length; i++) {
+              var feed = data[i];
+              var some = document.createElement("div");
+              // some.setAttribute("type","...");
+              some.innerHTML = feed.feedback;
+              // some.setAttribute("value", feed.feedback);
+              some.setAttribute("id", feed.email);
+              var categ = document.getElementById('seeFeedback');
+              categ.appendChild(some);
+            }
+
+          })
+    }
+        else{
+            //alert incorrect
+            console.log("incorrect username/password");
+        }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+    }
