@@ -115,3 +115,7 @@ div#box .panel-collapse {
   left: 1200px;
   border: none;
 }
+
+body {
+  overflow: hidden;
+}

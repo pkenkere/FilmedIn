@@ -11,7 +11,9 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
-  removeEq.onclick = removeEquipment;
+  Profile.onclick = Profile_onclick;
+  //removeEq.onclick = removeEquipment;
+  //removeNews.onclick = removeAnnouncement;
 }
 
 function displayChoice (evt, option) {
@@ -92,13 +94,71 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
+function Profile_onclick(){
+  location.href = "../HTML/profile.html"; //profile button takes you back to the admin page if you are an admin???
+}
+
 function fillDiv(a) {
-  document.getElementById('All').innerHTML = "hbbhbibububybvgva";
-  document.getElementById('All').innerHTML = a.name;
+  //document.getElementById('All').innerHTML = "hbbhbibububybvgva";
+  //document.getElementById('All').innerHTML = a[0].name;
   console.log(a);
+  var allEq = a;
+  var div = document.getElementById("All");
+  div.innerHTML = "";
+  for(var i = 0; i < allEq.length; i++){
+    var row = document.createElement("div");
+    var colName = document.createElement("div");
+    //var colDel = document.createElement("span");
+    //colDel.innerHTML = "&times;";
+    //colDel.ondblclick = "deleteEquip()";
+    row.onclick = delEquip;
+    row.Index = "delEq"+i;
+    row.value = allEq[i].name;
+    console.log(allEq[i].name);
+    colName.innerHTML = allEq[i].name + "<B>&times;</B>";
+
+    row.appendChild(colName);
+    //row.appendChild(colDel);
+
+    div.appendChild(row);
+  }
 }
 
 function removeEquipment() {
 
 
+}
+
+function delEquip(){
+  console.log("Came here with id="+this.value);
+  deleteEquip(this.value);
+}
+
+function delAnnounce(){
+  deleteAnnounce(this.value);
+}
+
+function fillDivAnnounce(a) {
+  //document.getElementById('All').innerHTML = "hbbhbibububybvgva";
+  //document.getElementById('All').innerHTML = a[0].name;
+  console.log(a);
+  var allAnn = a;
+  var div = document.getElementById("dispNews");
+  div.innerHTML = "";
+  for(var i = 0; i < allAnn.length; i++){
+    var row = document.createElement("div");
+    var colName = document.createElement("div");
+    //var colDel = document.createElement("span");
+    //colDel.innerHTML = "&times;";
+    //colDel.ondblclick = "deleteEquip()";
+    row.onclick = delAnnounce;
+    row.Index = "delAnnounce"+i;
+    row.value = allAnn[i].headline;
+    colName.innerHTML = allAnn[i].headline + "<B>&times;</B>";
+
+    row.appendChild(colName);
+    //row.appendChild(colDel);
+
+    div.appendChild(row);
+  }
 }

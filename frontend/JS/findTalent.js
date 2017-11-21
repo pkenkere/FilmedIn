@@ -86,7 +86,8 @@ function displayProfs() {
   }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
+  // location.href = "../HTML/newsfeed.html";
 }
 
 function JobsBtn_onclick(){
