@@ -6,7 +6,10 @@ var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var FM = require(path.join(__dirname, '..', 'modules', 'feedback-manager'));
 
-module.exports = function(app) {
+module.exports = function(app,db) {
+  AM.init(db);
+  PM.init(db);
+  FM.init(db);
   app.post('/feedback', function(req, res) {
     var email = req.body.email;
     var newData = {

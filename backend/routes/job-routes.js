@@ -1,9 +1,10 @@
 var path = require('path');
 
-module.exports = function(app) {
+module.exports = function(app,db) {
 
 	var controller = require(path.join(__dirname, '..', 'modules', 'job-controller'));
-
+	//Initialize the database
+	controller.init(db);
 		//View all jobs
 		app.get('/jobs', function(req, res) {
 		controller.getAllJobs( function(err, jobs){

@@ -4,7 +4,9 @@ var path = require('path');
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 
-module.exports = function(app) {
+module.exports = function(app,db) {
+  PM.init(db);
+  AM.init(db);
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
       //console.log("MAA KI CHHUUUTTTTTT!!!");

@@ -2,7 +2,9 @@ var path = require('path');
 
 var EM = require(path.join(__dirname, '..', 'modules', 'equipment-manager'));
 
-module.exports = function(app) {
+module.exports = function(app,db) {
+//Initialize the database
+  EM.init(db);
   app.post('/equipment', function(req, res) {
     EM.getEquipByName(req.param('name'), function(e, o) {
       if (e) {
