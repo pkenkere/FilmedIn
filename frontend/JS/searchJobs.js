@@ -34,12 +34,12 @@ function logout_onclick() {
 }
 
 function search(){
-  console.log(gender);
-  console.log(RoleTypes.value);
-  console.log(ageFrom.value);
-  console.log(ageTo.value);
-  console.log(ProductionTypes.value);
-  console.log(ethnicity.value);
+  // console.log(gender);
+  // console.log(RoleTypes.value);
+  // console.log(ageFrom.value);
+  // console.log(ageTo.value);
+  // console.log(ProductionTypes.value);
+  // console.log(ethnicity.value);
   var q = {
     //gender:,
     roleType: RoleTypes.value,
@@ -48,6 +48,22 @@ function search(){
     type: ProductionTypes.value,
     ethnicity: ethnicity.value
   }
-  var obj = JSON.stringify(q);
-
+  var obj = "/jobs/search?";
+  if(RoleTypes.value != null && RoleTypes.value != ""){
+    obj += "roleType="+RoleTypes.value+"&";
+  }
+  if(ageFrom.value != null && ageFrom.value != ""){
+    obj += "minAge="+ageFrom.value+"&";
+  }
+  if(ageTo.value != null && ageTo.value != ""){
+    obj += "maxAge="+ageTo.value+"&";
+  }
+  if(ProductionTypes.value != null && ProductionTypes.value != ""){
+    obj += "type="+ProductionTypes.value+"&";
+  }
+  if(ethnicity.value != null && ethnicity.value != ""){
+    obj += "ethnicity="+ethnicity.value+"&";
+  }
+  obj = obj.substring(0,obj.length-1);
+  console.log(obj);
 }
