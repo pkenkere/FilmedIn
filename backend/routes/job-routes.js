@@ -36,7 +36,8 @@ module.exports = function(app,db) {
 				paid : req.body.paid,
 				specialInstr : req.body.specialInstr,
 				audStartDate : req.body.audStartDate,
-				audEndDate : req.body.audEndDate
+				audEndDate : req.body.audEndDate,
+				applicants : []
 		};
 		job.roles = req.body.roles;
 		controller.addJob(job, function(e, o){
@@ -92,6 +93,22 @@ module.exports = function(app,db) {
 			}
 			else{
 				res.status(400).send('job not found');
+			}
+		});
+	});
+
+	app.post('/jobs/apply', function(req, res) {
+		var data = {
+			id : req.body.id,
+			user : req.body.user,
+			role : req.body.role
+		};
+		controller.saveApplicant(data, function(err, o){
+			if(!err){
+				res.status(200).send('applicant added');
+			}
+			else{
+				res.status(400).send('could not add applicant');
 			}
 		});
 	});
