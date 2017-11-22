@@ -30,7 +30,7 @@
     <div id="box">
     <div class="box-top1">Gender</div>
       <div class="box-panel1">
-        <form class="checkbox" onchange="enable()">
+        <form id="gender" class="checkbox" onchange="enable()">
             <label><input type="checkbox" id="chck1" value="">Male</label>
             <label><input type="checkbox" id="chck2" value="">Female</label>
             <label><input type="checkbox" id="chck3" value="">Other</label>
@@ -55,8 +55,8 @@
    <div class="box-top3">Age</div>
     <div class="box-panel3">
       <form onchange="enable()">
-      <label>From <input type="number" name="minRange" min="1" max="80"></label>
-        <label>To <input type="number" name="minRange" min="1" max="80"></label>
+      <label>From <input id="ageFrom" type="number" name="minRange" min="1" max="80"></label>
+        <label>To <input id="ageTo" type="number" name="minRange" min="1" max="80"></label>
     </form>
       <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
       <button id="range">0</button>
@@ -85,7 +85,7 @@
 <div class="box-top5">Ethnicity</div>
  <div class="box-panel5">
    <select id = "ethnicity" onchange="enable()">
-       <option value="All Ethnicities">All Ethnicities</option>
+       <option value="" disabled selected>All Ethnicities</option>
        <option value="Caucasian">Caucasian</option>
        <option value="African American">African American</option>
        <option value="Latino/Hispanic">Latino/Hispanic</option>
@@ -98,5 +98,11 @@
   <button type="submit" class="btn" id="btnSrch" disabled>Search</button>
  </div>
 </div>
+<script>
+    function enable() {
+      document.getElementById("btnSrch").disabled = false;
+      // document.getElementById("btnSrch").style.backgroundColor= green;
+    }
+  </script>
 </body>
 </html>
