@@ -59,7 +59,7 @@ function ProfBtn_onclick(){
 
 function PostJobBtn_onclick(){
   prodtype = document.querySelector('input[name="prodTypes"]:checked').value
-  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end)
+  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end);
 
 }
 
