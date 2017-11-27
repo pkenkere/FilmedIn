@@ -65,3 +65,21 @@ exports.deleteJob = function(id, callback)
     }
   });
 }
+
+exports.saveApplicant = function(data, callback)
+{
+  findById(data.id, function(e,job) {
+    if(e || job == null) callback(1);
+    else {
+      var applicant = {
+  			userEmail : data.userEmail,
+  			role : data.role
+  		};
+      job.applicants.push(applicant);
+      jobs.save(job, {safe: true}, function(e) {
+        if (e) callback(e);
+        else callback(null, job);
+      })
+    }
+  });
+}
