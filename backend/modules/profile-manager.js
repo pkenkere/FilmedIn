@@ -50,8 +50,12 @@ exports.updateProfile = function(email, newData, callback) {
         o.resumeLink = newData.resumeLink;
       if (newData.jobPosted != '')
         o.jobsPosted.push(newData.jobPosted);
-      if (newData.equipments != '')
-        o.equipments.push(newData.equipments);
+      if (newData.equipments != '') {
+        if (newData.flag == false)
+          o.equipments.push(newData.equipments);
+        else
+          o.equipments = newData.equipments;
+      }
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
