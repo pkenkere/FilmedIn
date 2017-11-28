@@ -60,7 +60,7 @@ module.exports = function(app,db) {
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
-                      res.status(400).send('error adding profile');
+                      res.status(500).send('error adding profile');
                     }
                     else {
                       console.log('new profile added: ' + req.param('email'));

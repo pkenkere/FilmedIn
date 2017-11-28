@@ -17,6 +17,14 @@ exports.addReport = function(email, newData, callback) {
       reports.insert(newData, {safe: true}, callback);
     }
   });
+}
 
-  // send email to the admin about the report
+exports.getAllReports = function(callback) {
+  reports.find().toArray(function(e, res) {
+      if (e)
+        callback(e);
+      else {
+        callback(null, res);
+      }
+  });
 }
