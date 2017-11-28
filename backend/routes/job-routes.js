@@ -1,6 +1,8 @@
 var path = require('path');
 
 var controller = require(path.join(__dirname, '..', 'modules', 'job-controller'));
+var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
+
 //Initialize the database
 
 module.exports = function(app,db) {
@@ -46,7 +48,20 @@ module.exports = function(app,db) {
 					res.status(400).send('error-adding-job');
 				}
 				else {
-					res.status(200).send('ok, job added');
+					//res.status(200).send('ok, job added');
+					var newData = {
+						jobPosted : job
+					};
+					PM.updateProfile(req.body.ownerEmail,newData,
+						function (e, o) {
+							if (e) {
+								res.status(400).send('error adding job to account');
+							}
+							else {
+								console.log('new job added');
+								res.status(200).send(o);
+							}
+						});
 				}
 		});
 	});

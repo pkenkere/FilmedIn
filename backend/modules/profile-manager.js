@@ -27,7 +27,7 @@ exports.updateProfile = function(email, newData, callback) {
       callback('user-not-found');
     }
     else {
-      o.email = newData.email;
+      //o.email = newData.email;
       //o.name  = newData.name;
       //o.age = newData.age;
       //o.gender = newData.gender;
@@ -47,6 +47,8 @@ exports.updateProfile = function(email, newData, callback) {
         o.linkedInLink = newData.linkedInLink;
       if (newData.resumeLink != '')
         o.resumeLink = newData.resumeLink;
+      if (newData.jobPosted != '')
+          o.jobsPosted.push(newData.jobPosted);
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
