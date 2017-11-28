@@ -2,10 +2,12 @@ var path = require('path');
 
 var EM = require(path.join(__dirname, '..', 'modules', 'equipment-manager'));
 var ED = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
+var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
 module.exports = function(app,db) {
   //Initialize the database
   EM.init(db);
+  PM.init(db);
 
   app.post('/equipment', function(req, res) {
     EM.getEquipByName(req.param('name'), function(e, o) {
@@ -71,10 +73,23 @@ module.exports = function(app,db) {
     checkoutReq.equipments = req.body.equipments;
 
     // Update Profile!!!
-    
     ED.dispatchEquipmentCheckout(checkoutReq, function(e){
       if (!e) {
-        res.status(200).send('ok, email was dispatched to admin about the equipment request');
+        //res.status(200).send('ok, email was dispatched to admin about the equipment request');
+        var newData = {
+          equipments : req.body.equipments
+        };
+
+        PM.updateProfile(req.body.user, newData,
+          function (e, o) {
+            if (e) {
+              res.status(400).send('error adding checked out equipments to account');
+            }
+            else {
+              console.log('new checkout equipments added');
+              res.status(200).send(o);
+            }
+          });
       }
       else {
         res.status(400).send('unable to dispatch equipment request email');

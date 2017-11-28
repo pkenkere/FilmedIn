@@ -1,4 +1,4 @@
-var moment      = require('moment');
+var moment = require('moment');
 
 var profiles;
 var accounts;
@@ -33,6 +33,7 @@ exports.updateProfile = function(email, newData, callback) {
       //o.gender = newData.gender;
       //o.ethnicity = newData.ethnicity;
       //o.education = newData.education;
+      //console.log(o);
       if (newData.major != '')
         o.major = newData.major;
       if (newData.year != '')
@@ -48,7 +49,9 @@ exports.updateProfile = function(email, newData, callback) {
       if (newData.resumeLink != '')
         o.resumeLink = newData.resumeLink;
       if (newData.jobPosted != '')
-          o.jobsPosted.push(newData.jobPosted);
+        o.jobsPosted.push(newData.jobPosted);
+      if (newData.equipments != '')
+        o.equipments.push(newData.equipments);
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
         if (e) callback(e);
