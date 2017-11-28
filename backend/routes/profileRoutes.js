@@ -56,7 +56,8 @@ module.exports = function(app,db) {
                     facebookLink : req.param('facebookLink'),
                     linkedInLink : req.param('linkedInLink'),
                     resumeLink : req.param('resumeLink'),
-                    jobsPosted : []
+                    jobsPosted : [],
+                    equipments: [] //array of arrays of equipments checked out
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
