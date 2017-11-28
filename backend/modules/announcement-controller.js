@@ -53,6 +53,15 @@ exports.deleteAnnouncement = function(id, callback)
   });
 }
 
+exports.getAnnouncement = function(id, callback){
+  findById(id, function(e,o){
+    if(e) callback(e);
+    else {
+      callback(null, o)
+    }
+  });
+}
+
 /*exports.announcementController = function(db) {
 	this.announcements = db.collection('announcements');
 
