@@ -6,5 +6,6 @@ function body_onload() {
 
 function yes_onclick() {
   console.log("clicked");
-  document.getElementsByClassName("tickmark1").style.display="block";
+  // document.getElementsByClassName("tickmark1").style.display="block";
+//  document.getElementById('YESBtn').style.backgroundColor = "green";
 }
