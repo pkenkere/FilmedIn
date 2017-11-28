@@ -1,5 +1,5 @@
 "use strict";
-var url = "localhost:5000";
+var url = "http://localhost:5000";
 function sendEmail(email) {
 var resetPasswordData = {
     method: "POST",
