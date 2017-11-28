@@ -19,7 +19,7 @@ module.exports = function(app, db) {
       }
       else {
         console.log('report saved!!');
-
+        res.status(200).send('ok');
         //send an email to the admin about the report
       }
     });
