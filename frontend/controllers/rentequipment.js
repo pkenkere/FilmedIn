@@ -38,18 +38,25 @@ function getAllEquip(){
         res.json().then(function(data){
           for (var i = 0; i < data.length; i++) {
             var equip = data[i];
-            var some = document.createElement("input");
-            some.setAttribute("type", "checkbox");
-            some.setAttribute("value", equip.name);
-            some.setAttribute("id", equip.category);
-            some.innerHTML = equip.name;
-            var categ = document.getElementById(equip.category);
-            categ.appendChild(some);
+            var label= document.createElement("label");
+            var description = document.createTextNode(equip.name);
+            var checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";    // make the element a checkbox
+            checkbox.id = i;      // give it id
+            checkbox.value = equip.name;         // make its value
+
+            label.appendChild(checkbox);   // add the box to the element
+            label.appendChild(description);// add the description to the element
+
+            // add the label element to your div
+            document.getElementById(equip.category).appendChild(label);
+            console.log(label);
           }
-            console.log(data);
+            //console.log(data);
             //var json = JSON.parse(data);
             //console.log(json);
-            console.log(data[0].name);
+            //console.log(data[0].name);
         })
       }
       else {
