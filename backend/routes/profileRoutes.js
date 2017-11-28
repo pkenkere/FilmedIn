@@ -4,11 +4,11 @@ var path = require('path');
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 
-PM.init(db);
-AM.init(db);
 
 module.exports = function(app,db) {
 
+  PM.init(db);
+  AM.init(db);
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
       //console.log("MAA KI CHHUUUTTTTTT!!!");
@@ -52,10 +52,11 @@ module.exports = function(app,db) {
                     gender : req.param('gender'),
                     ethnicity : req.param('ethnicity'),
                     education : req.param('education'),
-                    instagramLink : req.param('instagramLink');
-                    facebookLink : req.param('facebookLink');
-                    linkedInLink : req.param('linkedInLink');
-                    resumeLink : req.param('resumeLink');
+                    instagramLink : req.param('instagramLink'),
+                    facebookLink : req.param('facebookLink'),
+                    linkedInLink : req.param('linkedInLink'),
+                    resumeLink : req.param('resumeLink'),
+                    jobsPosted : []
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
@@ -85,10 +86,10 @@ module.exports = function(app,db) {
                       major : req.param('major'),
                       year : req.param('year'),
                       interest : req.param('interest'),
-                      instagramLink : req.param('instagramLink');
-                      facebookLink : req.param('facebookLink');
-                      linkedInLink : req.param('linkedInLink');
-                      resumeLink : req.param('resumeLink');
+                      instagramLink : req.param('instagramLink'),
+                      facebookLink : req.param('facebookLink'),
+                      linkedInLink : req.param('linkedInLink'),
+                      resumeLink : req.param('resumeLink')
                       // TODO : JOB updates
                     }, function (e, o) {
                       if (e) {

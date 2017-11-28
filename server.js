@@ -79,7 +79,7 @@ require('./backend/routes/job-routes')(app,db);
 require('./backend/routes/announcement-routes')(app,db);
 require('./backend/routes/equipmentRoutes')(app,db);
 require('./backend/routes/feedbackRoutes')(app,db);
-require('./backend/routes/reports-routes')(app,db);
+//require('./backend/routes/reports-routes')(app,db);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));

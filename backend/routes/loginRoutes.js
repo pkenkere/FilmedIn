@@ -5,11 +5,9 @@ var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
-AM.init(db);
-PM.init(db);
-
 module.exports = function(app,db) {
-
+  AM.init(db);
+  PM.init(db);
 	// main login page //
     app.get('/', function(req, res){
         // check if the user's credentials are saved in a cookie //
