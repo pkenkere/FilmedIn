@@ -9,6 +9,7 @@ module.exports = function(app, db) {
 
   app.post('/report', function(req, res) {
     RM.addReport(req.body.email, {
+      announcementID : req.body.AnnID,
       reporter: req.body.email,
       title: req.body.title,
       description: req.body.description,
@@ -18,8 +19,19 @@ module.exports = function(app, db) {
         res.status(500).send('error adding report');
       }
       else {
-        console.log('report saved!!');
-        res.status(200).send('ok');
+        var report = {
+          email : req.body.email,
+          title : req.body.title,
+          report : req.body.description
+        }
+        EM.dispatchReport(report, function(e){
+          if (!e) {
+            res.status(200).send('ok, email was dispatched to admin about the report');
+          }
+          else {
+            res.status(400).send('unable to dispatch report email');
+          }
+        });
         //send an email to the admin about the report
       }
     });

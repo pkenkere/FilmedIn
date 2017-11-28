@@ -5,7 +5,20 @@ var controller = require(path.join(__dirname, '..', 'modules', 'announcement-con
 module.exports = function(app,db) {
 	//Initialize the database
 	controller.init(db);
-		app.get('/announcements', function(req, res) {
+
+	app.get('/announcement', function(req, res){
+		controller.getAnnouncement(req.param.id, function(e,o){
+			if(!e){
+				console.log("Annoucement found");
+				res.status(200).send("Annoucement found");
+			}
+			else{
+				res.status(400).send("Annoucement not found");
+			}
+		});
+	});
+
+	app.get('/announcementsall', function(req, res) {
     controller.getAllAnnouncements(function(err, announcements){
       if(!err){
         res.send(announcements);
