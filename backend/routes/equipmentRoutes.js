@@ -70,6 +70,9 @@ module.exports = function(app,db) {
       size : req.body.size
     };
     checkoutReq.equipments = req.body.equipments;
+
+    // Update Profile!!!
+    
     ED.dispatchEquipmentCheckout(checkoutReq, function(e){
       if (!e) {
         res.status(200).send('ok, email was dispatched to admin about the equipment request');
