@@ -5,8 +5,9 @@ var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
-module.exports = function(app) {
-
+module.exports = function(app,db) {
+  AM.init(db);
+  PM.init(db);
 	// main login page //
     app.get('/', function(req, res){
         // check if the user's credentials are saved in a cookie //
@@ -74,7 +75,7 @@ module.exports = function(app) {
                 res.status(400).send('email was not found');
             }
         });
-        
+
     });
 
     app.post('/signup', function(req, res){
@@ -115,6 +116,21 @@ module.exports = function(app) {
                 res.status(400).send('email-not-found');
             }
         });
+    });
+
+    app.post('/sendMail', function(req, res){
+        // look up the user's account via their email //
+        var o = req.body;
+                EM.dispatchResetPasswordLink(o, function(e, m){
+                    // this callback takes a moment to return //
+                    //              // TODO add an ajax loader to give user feedback //
+                    if (!e){
+                        res.status(200).send('ok');
+                    }   else{
+                        for (k in e) console.log('ERROR : ', k, e[k]);
+                        res.status(400).send('unable to dispatch password reset');
+                    }
+                });
     });
 
     app.get('/reset-password', function(req, res) {

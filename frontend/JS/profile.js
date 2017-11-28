@@ -51,7 +51,7 @@ function logout_onclick() {
 }
 
 function updateJ(divName) {
-  var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
+  /*var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
   $('#result').html("Major: " + major);
   var year = $('#userYear').val() == '' ? '---' : $('#userYear').val();
   $('#resultY').html("Year: " + year);
@@ -69,7 +69,22 @@ function updateJ(divName) {
       '<div class="panel-body"> ' + jobD + '</div>' +
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
-    count++;
+    count++;*/
+
+    var email = sessionStorage.getItem("email");
+
+    var profile = {
+      email : email,
+      major : userMajor.value,
+      year : userYear.value,
+      interest : userInterests.value,
+      job : {
+        job_name : userJobN.value,
+        job_desc : userJobD.value
+      }
+    };
+
+    updateProfile(email, profile);
 }
 
 function updateEdit(divName) {
