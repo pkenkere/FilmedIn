@@ -11,7 +11,7 @@ function feedbackPost(email, feedback) {
           feedback: feedback
       })
   }
-  fetch(url+"/", feedbackData)
+  fetch(url+"/feedback", feedbackData)
   .then(function(res){
       if(res.ok){
           res.json().then(function(data) {

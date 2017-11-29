@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../CSS/feedbackform.css">
   <script type="text/javascript" language="javascript" src="../JS/feedbackform.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/feedbackcontroller.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -30,6 +31,10 @@
       <div class="box-top1"></div>
       <form>
         <div class="form-group">
+          <label>Enter your email ID</label>
+          <input type="email" id="emailF" class="form-control" placeholder="Enter email ID" required/>
+        </div>
+        <div class="form-group">
           <label>Is this the first time you have visited the website? </label>
           <br>
           <label><input type="radio" name="radioBtn" value="Yes">Yes</label>
@@ -51,12 +56,9 @@
         <div class="form-group">
           <label>Did you achieve your goal?</label>
           <br>
-          <button class="btn" id = "YESBtn">Yes
-           <span class="tickmark1">&#10004;</span> </button>
-          <button class="btn" id = "PARTIALLYBtn">Partially
-          <span class="tickmark2">&#10004;</span> </button>
-          <button class="btn" id="NOBtn">No
-            <span class="tickmark3">&#10004;</span> </button>
+          <button class="btn" type="button" id = "YESBtn">Yes</button>
+          <button class="btn" type="button" id = "PARTIALLYBtn">Partially</button>
+          <button class="btn" type="button" id="NOBtn">No</button>
         </div>
 
         <div class="form-group" id = "optionalQ">
@@ -104,7 +106,7 @@
           <label>Please add any comments you have for improving the website.<label>
             <br>  <textarea rows="4" cols="50" name="comment"></textarea>
     </div>
+    <button type="button" class="btn btn-primary btn-lg" id="sendFeedbackBtn">Send Feedback</button>
 </div>
-<button type="button" class="btn btn-primary btn-lg" id="sendFeedbackBtn">Send Feedback</button>
 </body>
 <html>

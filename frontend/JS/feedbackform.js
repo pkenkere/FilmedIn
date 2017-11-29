@@ -2,24 +2,27 @@ var buttonclicked;
 function body_onload() {
   YESBtn.onclick = yes_onclick;
   PARTIALLYBtn.onclick = partially_onclick;
-   NOBtn.onlick = no_onclick;
+   NOBtn.onclick = no_onclick;
   sendFeedbackBtn.onclick = send_onclick;
 }
 
 function yes_onclick() {
   console.log("clicked");
+  document.getElementById("YESBtn").style.backgroudColor = "green";
 // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Yes";
 }
 
 function no_onclick() {
-  console.log("clicked");
+  console.log("clicked no");
+ document.getElementById("NOBtn").style.backgroundColor = "red";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "No";
 }
 
 function partially_onclick() {
-  console.log("clicked");
+  console.log("clicked partially");
+   document.getElementById("PARTIALLYBtn").style.backgroundColor = "yellow";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Partially";
 }
@@ -32,7 +35,7 @@ function send_onclick() {
   var list2 = document.getElementById('options');
   var ans = list2.options[list2.selectedIndex].value;
   var profStr, infoStr, vpStr;
-  var prof = document.querySelector('input[name="professionalscale"]:checked').value;
+  var prof = document.querySelector('input[name="Professionalscale"]:checked').value;
   if(prof == '1')
     profStr = "Below Expectations";
   else if(prof == '2')
@@ -61,5 +64,5 @@ function send_onclick() {
                 "Informative" + infoStr +
                 "Visually Pleasing" + vpStr +
                 text;
-feedbackPost(email, feedbackStr);
+feedbackPost(emailF.value, feedbackStr);
 }
