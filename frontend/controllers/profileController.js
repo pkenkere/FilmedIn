@@ -7,6 +7,10 @@ function profileGet(e){
     };
     fetch(url+"/profile?email=" + e)
     .then(function(res){
+<<<<<<< HEAD
+=======
+        // console.log("res.ok: " + res.ok);
+>>>>>>> bc517879eb0deb73bded1b57e8ca5bd9a99c4917
         console.log("object name: " + res);
         if(res.ok){
              res.json().then(function(data){

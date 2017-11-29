@@ -29,6 +29,7 @@
   <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
   <button class="tablinks" id = "tab4" onclick="displayChoice(event, 'AddRemoveNews')">Add/Delete announcements from newsfeed</button>
+  <button class="tablinks" id = "tab5" onclick="displayChoice(event, 'seeFeedback')">See User Feedback</button>
   </div>
 
   <div class="alert alert-success" id="SuccessAlert">
@@ -103,8 +104,6 @@
       </div>
     </div>
   </div>
-
-
   <div id ="AddRemoveNews" class="tabcontent">
     <ul class="nav nav-tabs">
     <li><a data-toggle="tab" href="#AddMenu">Add News Item</a></li>
@@ -126,6 +125,12 @@
       <div id="dispNews"></div>
       <!-- <button type="submit" class="btn" id="removeNews">REMOVE</button> -->
     </div>
+  </div>
+
+  <div id ="seeFeedback" class="tabcontent">
+    <label>Here are the feedbacks from the users</label>
+  </br></br></br></br></br></br></br></br></br></br>
+    <!-- This is where the user feedback data must be populated -->
   </div>
 </body>
 </html>

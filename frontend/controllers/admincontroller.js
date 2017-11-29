@@ -104,7 +104,7 @@ function getAllEquip() {
       }
   })
   .catch(function(err){
-      console.log("POST request failed", err);
+      console.log("GET request failed", err);
   });
   }
 
@@ -112,7 +112,7 @@ function getAllEquip() {
       var d = {
           method: "POST",
           headers: {
-            'content-type': 'application/json'            
+            'content-type': 'application/json'
         },
         body: JSON.stringify({
             name: a
@@ -143,10 +143,6 @@ function getAllAnnounce() {
               //console.log(data);
               //  edata = data;
               fillDivAnnounce(data);
-          })
-    }
-        else{
-            //alert incorrect
             console.log("res.ok == false");
         }
     })
@@ -159,7 +155,7 @@ function deleteAnnounce(a){
         var d = {
             method: "POST",
             headers: {
-              'content-type': 'application/json'            
+              'content-type': 'application/json'
           },
           body: JSON.stringify({
               name: a
@@ -178,3 +174,33 @@ function deleteAnnounce(a){
             console.log("POST request failed", err);
         })
     }
+
+function getAllFeed() {
+  var feed = {
+    method: "GET"
+  }
+  fetch(url+"/getAllFeedbacks", feed)
+    .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+           for (var i = 0; i < data.length; i++) {
+              var feed = data[i];
+              var some = document.createElement("div");
+              // some.setAttribute("type","...");
+              some.innerHTML = feed.feedback;
+              // some.setAttribute("value", feed.feedback);
+              some.setAttribute("id", feed.email);
+              var categ = document.getElementById('seeFeedback');
+              categ.appendChild(some);
+            }
+        })
+      }
+      else{
+        //alert incorrect
+        console.log("incorrect username/password");
+      }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}

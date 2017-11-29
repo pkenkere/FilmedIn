@@ -21,6 +21,8 @@
   <span>Change Image</span>
 </div>
 
+<button id="info" class = "btn-Info" data-toggle="modal" data-target="#ShowInfo">Info</button>
+
 <h1 id="proName">First Last</h1>
 
 <div class="tabs">
@@ -73,9 +75,24 @@
       </div>
     </div>
 
+    <div class="panel linkedIn">
+      <div class="panel-heading">LinkedIn Link</div>
+      <div class="panel-body">Link:</div>
+    </div>
+
+    <div class="panel facebook">
+      <div class="panel-heading">Facebook Link</div>
+      <div class="panel-body">Link:</div>
+    </div>
+
+    <div class="panel instagram">
+      <div class="panel-heading">Instagram Link</div>
+      <div class="panel-body">Link:</div>
+    </div>
+
     <div class="panel resume">
-      <div class="panel-heading">Resume</div>
-      <div class="panel-body">Panel Content</div>
+      <div class="panel-heading">Resume Link</div>
+      <div class="panel-body">Link:</div>
     </div>
   </div>
 </div>
@@ -108,6 +125,25 @@
     </div>
   </div>
  </div>
+
+ <div class="modal fade" id="ShowInfo" role="dialog">
+   <div class="modal-dialog">
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <h2 class="modal-title">Information</h2>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body" id="info-Body">
+         Gender: </br></br>
+         Age: </br></br>
+         Ethnicity: </br></br>
+       </div>
+     </div>
+   </div>
+  </div>
 
 <div id="TopPanel"
   style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
