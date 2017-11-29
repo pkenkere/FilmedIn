@@ -142,7 +142,8 @@ module.exports = function(app,db) {
             } else{
                 // save the user's email in a session instead of sending to the client //
                 req.session.reset = { email:email, passHash:passH };
-                res.render('reset', { title : 'Reset Password' });
+                res.render('ResetPW', { title : 'Reset Password' });
+                //res.render('index', { title: 'FilmedIn' });
             }
         })
     });
