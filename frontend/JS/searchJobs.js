@@ -6,10 +6,16 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   btnSrch.onclick = search;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 
 function HomeBtn_onclick(){
   location.href = "../HTML/newsfeed.html";
+}
+
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
 }
 
 function JobsBtn_onclick(){

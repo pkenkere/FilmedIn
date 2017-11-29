@@ -6,8 +6,6 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
 }
-
-
 var count = 0;
 var arr = new Array();
 arr.length = 0;
@@ -88,7 +86,6 @@ function PostJobBtn_onclick(){
   var end = document.getElementById("endAud").value;
   var email = sessionStorage.getItem("email");
   jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
-
 }
 
 function displaySuccess() {

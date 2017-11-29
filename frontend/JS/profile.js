@@ -18,11 +18,16 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 
 function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
+}
+
+function feedbackBtn_onclick() {
+  location.href = "../HTML/feedbackform.html";
 }
 
 function HomeBtn_onclick(){
@@ -78,13 +83,13 @@ function updateJ(divName) {
       major : userMajor.value,
       year : userYear.value,
       interest : userInterests.value,
-      job : {
+      /*job : {
         job_name : userJobN.value,
         job_desc : userJobD.value
-      }
+      }*/
     };
 
-    updateProfile(email, profile);
+    profileUpdate(email, profile);
 }
 
 function updateEdit(divName) {

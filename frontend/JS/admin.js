@@ -124,6 +124,11 @@ function fillDiv(a) {
   }
 }
 
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
+}
+
 function removeEquipment() {
 
 

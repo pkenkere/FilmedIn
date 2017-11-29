@@ -7,19 +7,27 @@ function profileGet(e){
     };
     fetch(url+"/profile?email=" + e)
     .then(function(res){
-        // console.log("res.ok: " + res.ok);
-        console.log("object name: " + res);
-        if(res.ok){
+        //console.log("object name: " + res);
+        if(res.ok) {
              res.json().then(function(data){
-                 console.log("data name: " + data.name);
+                 //console.log("data name: " + data.name);
 
                  var nameDisplay = document.getElementById("proName");
                  nameDisplay.innerHTML = data.name;
+
+                 var major = document.getElementById("result");
+                 major.innerHTML = "Major: " + data.major;
+
+                 var year = document.getElementById("resultY");
+                 year.innerHTML = "Year: " + data.year;
+
+                 var interest = document.getElementById("resultI");
+                 interest.innerHTML = "Interest: " + data.interest;
              });
-            console.log("res: " + res);
+            //console.log("res: " + res);
         }
         else{
-            console.log("no profile found");
+            location.href = "../HTML/404notfound.html";
         }
     })
     .catch(function(err){
@@ -38,6 +46,13 @@ function profileUpdate(email, profile) {
 
   fetch(url + "/profile", profileData)
     .then(function(res) {
-
+      if (res.ok) {
+        res.json().then(function(data) {
+          location.href = "../HTML/profile.html?email=" + data.email;
+        });
+      }
+      else {
+        location.href = "../HTML/404notfound.html";
+      }
     })
 }

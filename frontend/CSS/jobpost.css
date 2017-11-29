@@ -12,14 +12,33 @@
   padding:0;
 }
 
-.btn-job {
+.btn-feedback {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 1050px;
   border: none;
 }
+
+.btn-feedback {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1050px;
+  border: none;
+}
+
+.btn-postJob {
+  background-color: red;
+  /*background-color: rgba(199, 168, 41, 0.5);*/
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 900px;
+}
+
 
 .btn-prof {
   background-color: rgba(199, 168, 41, 0.5);
@@ -39,14 +58,6 @@
   border: none;
 }
 
-.btn-postJob {
-  background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 1000px;
-}
 
 .btn-logout{
   background-color: rgba(199, 168, 41, 0.5);
