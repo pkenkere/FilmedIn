@@ -1,8 +1,12 @@
 var path = require('path');
 
 var EM = require(path.join(__dirname, '..', 'modules', 'equipment-manager'));
+var ED = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 
-module.exports = function(app) {
+module.exports = function(app,db) {
+  //Initialize the database
+  EM.init(db);
+
   app.post('/equipment', function(req, res) {
     EM.getEquipByName(req.param('name'), function(e, o) {
       if (e) {
@@ -55,6 +59,25 @@ module.exports = function(app) {
       }
       else {
         res.status(200).send('ok, equipment deleted');
+      }
+    });
+  });
+
+  app.post('/equipment/checkout', function(req, res) {
+    var checkoutReq = {
+      user : req.body.user,
+      size : req.body.size
+    };
+    checkoutReq.equipments = req.body.equipments;
+
+    // Update Profile!!!
+    
+    ED.dispatchEquipmentCheckout(checkoutReq, function(e){
+      if (!e) {
+        res.status(200).send('ok, email was dispatched to admin about the equipment request');
+      }
+      else {
+        res.status(400).send('unable to dispatch equipment request email');
       }
     });
   });

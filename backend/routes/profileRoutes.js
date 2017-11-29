@@ -4,7 +4,11 @@ var path = require('path');
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var AM = require(path.join(__dirname, '..', 'modules', 'account-manager'));
 
-module.exports = function(app) {
+
+module.exports = function(app,db) {
+
+  PM.init(db);
+  AM.init(db);
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
       //console.log("MAA KI CHHUUUTTTTTT!!!");
@@ -52,10 +56,14 @@ module.exports = function(app) {
                     facebookLink : req.param('facebookLink'),
                     linkedInLink : req.param('linkedInLink'),
                     resumeLink : req.param('resumeLink'),
+<<<<<<< HEAD
+=======
+                    jobsPosted : []
+>>>>>>> 3d93000ed5413cf90d74e824772a46631a848f62
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
-                      res.status(400).send('error adding profile');
+                      res.status(500).send('error adding profile');
                     }
                     else {
                       console.log('new profile added: ' + req.param('email'));
@@ -84,7 +92,7 @@ module.exports = function(app) {
                       instagramLink : req.param('instagramLink'),
                       facebookLink : req.param('facebookLink'),
                       linkedInLink : req.param('linkedInLink'),
-                      resumeLink : req.param('resumeLink'),
+                      resumeLink : req.param('resumeLink')
                       // TODO : JOB updates
                     }, function (e, o) {
                       if (e) {

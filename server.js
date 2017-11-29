@@ -7,6 +7,9 @@ var cookieParser = require('cookie-parser');
 var MongoStore = require('connect-mongo')(session);
 var cons = require('consolidate');
 var path = require('path');
+var MongoDB     = require('mongodb').Db;
+var Server      = require('mongodb').Server;
+var moment      = require('moment');
 global.appRoot = path.resolve(__dirname) + '/';
 
 var app = express();
@@ -42,12 +45,41 @@ app.use(session({
     store: new MongoStore({ url: dbURL })
 }));
 
-require('./backend/routes/loginRoutes')(app);
-require('./backend/routes/profileRoutes')(app);
-require('./backend/routes/job-routes')(app);
-require('./backend/routes/announcement-routes')(app);
-require('./backend/routes/equipmentRoutes')(app);
-require('./backend/routes/feedbackRoutes')(app);
+/*
+ *  ESTABLISH DATABASE CONNECTION
+ *  */
+
+var dbName = process.env.DB_NAME || 'filmedIn';
+var dbHost = process.env.DB_HOST || 'localhost'
+var dbPort = process.env.DB_PORT || 27017;
+
+var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
+db.open(function(e, d){
+    if (e) {
+        console.log(e);
+    } else {
+        if (process.env.NODE_ENV == 'live') {
+            db.authenticate(process.env.DB_USER, process.env.DB_PASS, function(e, res) {
+                if (e) {
+                    console.log('mongo :: error: not authenticated', e);
+                }
+                else {
+                    console.log('mongo :: authenticated and connected to database :: "'+dbName+'"');
+                }
+            });
+        }   else{
+            console.log('mongo :: connected to database :: "'+dbName+'"');
+        }
+    }
+});
+
+require('./backend/routes/loginRoutes')(app,db);
+require('./backend/routes/profileRoutes')(app,db);
+require('./backend/routes/job-routes')(app,db);
+require('./backend/routes/announcement-routes')(app,db);
+require('./backend/routes/equipmentRoutes')(app,db);
+require('./backend/routes/feedbackRoutes')(app,db);
+require('./backend/routes/reports-routes')(app,db);
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
