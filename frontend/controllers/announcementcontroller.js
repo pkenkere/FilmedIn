@@ -1,16 +1,16 @@
 "use strict";
+var entries;
 var url = "http://localhost:5000";
 function getAllAnnounce() {
+  entries = new Array();
     var announce = {
       method: "GET"
     }
-    fetch(url+"/announcements", announce)
+    fetch(url+"/announcementsall", announce)
     .then(function(res){
         if(res.ok){
            res.json().then(function(data) {
-              //console.log(data);
-              //  edata = data;
-              fillDivAnnounce(data);
+             entries = data;
           })
     }
         else{

@@ -29,7 +29,7 @@ function addEquipmentPost(name, category, available) {
   });
 }
 
-function addNewAdmin(email, isAdmin) {
+function addNewAdmin(email) {
   var AdminDetails = {
       method: "POST",
       headers: {
@@ -144,8 +144,12 @@ function getAllAnnounce() {
               //  edata = data;
               fillDivAnnounce(data);
             console.log("res.ok == false");
-        }
-    })
+        })
+    }
+    else {
+      console.log("incorrect username/password");
+    }
+  })
     .catch(function(err){
         console.log("POST request failed", err);
     });
