@@ -150,11 +150,9 @@ module.exports = function(app,db) {
     });
 
     app.post('/reset-password', function(req, res) {
-        var nPass = req.body['pass'];
-        // retrieve the user's email from the session to lookup their account and reset password //
-        var email = req.session.reset.email;
-        // destory the session immediately after retrieving the stored email //
-        req.session.destroy();
+        var nPass = req.body.pass;
+        var email = req.body.email;
+
         AM.updatePassword(email, nPass, function(e, o){
             if (o){
                 res.status(200).send('ok');
