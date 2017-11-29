@@ -5,8 +5,13 @@ function body_onload(){
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+<<<<<<< HEAD
    getAllEquip();
   //displayEquip()
+=======
+  FeedbackBtn.onclick = feedbackBtn_onclick;
+  getAllEquip()
+>>>>>>> 5c05ea534843ebee96cd3bd236dd9941b08d5411
 }
 
 function enable(){
@@ -85,6 +90,11 @@ function PostJobBtn_onclick(){
 
 function rentBtn_onclick(){
   location.href = "../HTML/rentequip.html";
+}
+
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
 }
 
 function logout_onclick() {

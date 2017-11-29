@@ -9,6 +9,7 @@
   <script language="javascript" type="text/javascript" src="../JS/index.js"></script>
   <script language="javascript" type="text/javascript" src="../controllers/loginController.js"></script>
   <script language="javascript" type="text/javascript" src="../controllers/signupController.js"></script>
+    <script language="javascript" type="text/javascript" src="../controllers/sendEmailForgotPWController.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -41,11 +42,11 @@
           <p id="errorMsg">That's not the right password. Please try again or click 'Forgot Password to request for a new one'</p>
         </div>
         <div class="form-group">
-          <input type="password" id="passLogin" class="form-control" placeholder="Password" ng-model="login.password" required/>
+          <input type="password" id="passLogin" class="form-control" placeholder="Password" required/>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="loginButton" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Login</button>
+        <button type="button" id="loginButton" class="btn" ng-click="doLogin(login)">Login</button>
         <button id = "ForgotPassBtn" type="button" class="btn-forgotPass" data-toggle="modal" data-target = "#ForgotPassModal">Forgot Your Password</button>
       </div>
     </div>
@@ -64,11 +65,11 @@
        </div>
        <div class="modal-body">
          <div class="form-group">
-           <input type="email" class="form-control" placeholder="Email" name="email" ng-model="login.email" required focus/>
+           <input type="email" id = "email1" class="form-control" placeholder="Email" name="email" required focus/>
          </div>
        </div>
        <div class="modal-footer">
-         <button type="button" class="btn" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">Reset Password</button>
+         <button type="button" class="btn" id="resetBtn">Reset Password</button>
        </div>
      </div>
    </div>

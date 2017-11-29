@@ -18,11 +18,16 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 
 function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
+}
+
+function feedbackBtn_onclick() {
+  location.href = "../HTML/feedbackform.html";
 }
 
 function HomeBtn_onclick(){

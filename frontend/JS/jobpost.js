@@ -6,8 +6,6 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
 }
-
-
 var count = 0;
 
 function updateR(divName) {
@@ -59,7 +57,7 @@ function ProfBtn_onclick(){
 
 function PostJobBtn_onclick(){
   prodtype = document.querySelector('input[name="prodTypes"]:checked').value
-  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end)
+  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end);
 
 }
 
