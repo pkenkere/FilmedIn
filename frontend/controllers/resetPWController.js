@@ -1,5 +1,6 @@
 "use strict";
 var url = "localhost:5000";
+function resetPW(user,pass) {
 var resetPasswordData = {
     method: "POST",
     headers: {
@@ -25,3 +26,4 @@ fetch(url+"/reset-password", resetPasswordData)
 .catch(function(err){
     console.log("POST request failed", err);
 });
+}
