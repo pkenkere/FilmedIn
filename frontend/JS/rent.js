@@ -30,11 +30,11 @@ function verify(divName) {
   //   inputElements[i].checked = false;
   // }
   arr.length = 0;
-  // var date = document.getElementById('dateToRent');
-  // node = document.createElement('LI');
-  // textnode = document.createTextNode('DATE: ' + (date.value));
-  // node.appendChild(textnode);
-  // document.getElementById(divName).appendChild(node);
+  var date = document.getElementById('dateToRent');
+  node = document.createElement('LI');
+  textnode = document.createTextNode('DATE: ' + (date.value));
+  node.appendChild(textnode);
+  document.getElementById(divName).appendChild(node);
   for(var i=0; i<inputElements.length; i++){
       if(inputElements[i].checked == true){
         node = document.createElement('LI');
