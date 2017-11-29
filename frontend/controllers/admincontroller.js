@@ -143,13 +143,17 @@ function getAllAnnounce() {
               //console.log(data);
               //  edata = data;
               fillDivAnnounce(data);
-            console.log("res.ok == false");
-        }
+              console.log("res.ok == false");
+        })
+    }
+    else {
+      console.log("incorrect username/password");
+    }
     })
     .catch(function(err){
         console.log("POST request failed", err);
     });
-    }
+}
 
 function deleteAnnounce(a){
         var d = {
