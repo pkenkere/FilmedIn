@@ -83,6 +83,10 @@ function updateJ(divName) {
       major : userMajor.value,
       year : userYear.value,
       interest : userInterests.value,
+      linkedInLink : userLinked.value,
+      facebookLink : userFace.value,
+      instagramLink : userInsta.value,
+      resumeLink : userResume.value
       /*job : {
         job_name : userJobN.value,
         job_desc : userJobD.value
