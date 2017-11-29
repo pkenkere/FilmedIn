@@ -20,7 +20,7 @@ function jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPai
       rolesArray: arr
       })
   }
-  fetch(url+"/", productionCredentials)
+  fetch(url+"/jobs", productionCredentials)
   .then(function(res){
       if(res.ok){
           res.json().then(function(data) {

@@ -5,13 +5,8 @@ function body_onload(){
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
-<<<<<<< HEAD
-   getAllEquip();
-  //displayEquip()
-=======
   FeedbackBtn.onclick = feedbackBtn_onclick;
   getAllEquip()
->>>>>>> 5c05ea534843ebee96cd3bd236dd9941b08d5411
 }
 
 function enable(){
