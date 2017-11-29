@@ -16,6 +16,7 @@
     <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
     <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
     <button id = "LogoutBtn" type="button" class="btn-logout">
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
@@ -34,6 +35,19 @@
           <label><input type="radio" name="radioBtn" value="Yes">Yes</label>
         <label><input type="radio" name="radioBtn" value="No">No</label>
       </div>
+
+      <div class="form-group" id = "optionalQ">
+        <label>What was the primary reason for visiting this website?</label>
+        <br>
+        <select id = "answers">
+          <option name ="option1" value="" disabled selected>Select one of the reasons below</option>
+          <option name ="option2" value="wrong">Look up the news and announcements.</option>
+          <option name ="option3" value="missingInfo">Post details about an upcoming production.</option>
+          <option name ="option4" value="navigation">Search for possible candidates.</option>
+          <option name ="option5" value="navigation">Search for possible opportunities to paricipate in productions.</option>
+          <option name ="option6" value="navigation">Rent equipment from the inventory</option>
+        </select>
+      </div>
         <div class="form-group">
           <label>Did you achieve your goal?</label>
           <br>
@@ -43,8 +57,19 @@
           <span class="tickmark2">&#10004;</span> </button>
           <button class="btn" id="NOBtn">No
             <span class="tickmark3">&#10004;</span> </button>
-
         </div>
+
+        <div class="form-group" id = "optionalQ">
+          <label>What was the reason for you to not achieve your goal?</label>
+          <br>
+          <select id = "options">
+            <option name ="option1" value="" disabled selected>Select one of the reasons below</option>
+            <option name ="option2" value="wrong">Something went wrong with the website</option>
+            <option name ="option3" value="missingInfo">There is incorrect or missing information</option>
+            <option name ="option4" value="navigation">Hard to navigate through the system</option>
+          </select>
+        </div>
+
         <div class="form-group">
           <label>What is your overall impression of the site?</label>
           <table class="table table-bordered">
@@ -75,16 +100,11 @@
     </tbody>
   </table>
         </div>
-        <div class="form-group" id = "optionalQ">
-          <label>What was the reason for you to not achieve your goal?</label>
-          <br>
-          <select id = "options">
-            <option name ="option1" value="" disabled selected>Select one of the reasons below</option>
-            <option name ="option2" value="wrong">Something went wrong with the website</option>
-            <option name ="option3" value="missingInfo">There is incorrect or missing information</option>
-            <option name ="option4" value="navigation">Hard to navigate through the system</option>
-          </select>
-        </div>
+
+        <div class="form-group" id="comments">
+          <label>Please add any comments you have for improving the website. We welcome suggestions on specific areas for improvements,
+            features you would like to see added to the site, and examples of what you consider good websites.<label>
+              <textarea rows="4" cols="50" name="comment"></textarea>
     </div>
 
 </body>

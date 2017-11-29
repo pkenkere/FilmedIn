@@ -6,8 +6,6 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
 }
-
-
 var count = 0;
 
 function updateR(divName) {

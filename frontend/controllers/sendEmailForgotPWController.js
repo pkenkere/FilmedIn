@@ -7,7 +7,7 @@ var resetPasswordData = {
         'content-type': 'application/json'
     },
     body: JSON.stringify({
-        user: email,
+        email: email,
     })
 }
 fetch(url+"/lost-password", resetPasswordData)

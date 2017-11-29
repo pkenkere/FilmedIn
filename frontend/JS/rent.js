@@ -5,6 +5,7 @@ function body_onload(){
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
   getAllEquip()
 }
 
@@ -67,6 +68,11 @@ function PostJobBtn_onclick(){
 
 function rentBtn_onclick(){
   location.href = "../HTML/rentequip.html";
+}
+
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
 }
 
 function logout_onclick() {
