@@ -102,6 +102,7 @@ module.exports = function(app,db) {
         // look up the user's account via their email //
         AM.getAccountByEmail(req.param('email'), function(o){
             if (o){
+                o.host = req.headers.host;
                 EM.dispatchResetPasswordLink(o, function(e, m){
                     // this callback takes a moment to return //
                     //              // TODO add an ajax loader to give user feedback //

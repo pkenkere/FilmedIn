@@ -92,12 +92,12 @@ EM.composeFeedBack = function (acc) {
 
 EM.composeEmail = function(o)
 {
-    var link = 'https://localhost:5000/reset-password';
+    var link = 'http://' + o.host + '/reset-password/';
     var glink = 'https://www.google.com';
     var text = "Hi " + o.name + ",\n\nYour username is " + o.user + "\n\n" + link +
             " Click here to reset your password.\n\n"+
             "Sincerely,\nFilemdIn Team"
-    return  text;
+    return text;
 }
 
 EM.composeEquipmentEmail = function(o)
