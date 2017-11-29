@@ -69,7 +69,7 @@ function sub() {
   document.getElementById("btnVer").disabled = true;
   var email = sessionStorage.getItem("email");
   var date = document.getElementById('dateToRent').value;
-  rentEquipmentPost(arr, email);
+  rentEquipmentPost(arr, email, date);
 }
 
 function HomeBtn_onclick(){
