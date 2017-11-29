@@ -39,12 +39,12 @@
               <div class="panel-body">
                 <label>Title of Production</label>
                   <br>
-                <input type="text">
+                <input id= "title" type="text">
                 <br><br>
 
               <label>Production Type</label>
                 <br>
-              <select id = "productionTypes">
+              <select id= "productionTypes">
                 <option name = "prodTypes" value="" disabled selected>Select a type of production</option>
                 <option name = "prodTypes" value="Theatre">Theatre</option>
                 <option name = "prodTypes" value="Film">Film</option>
@@ -55,21 +55,21 @@
 
                 <label>Production Description</label>
                 <br>
-                <textarea></textarea>
+                <textarea id="desc"></textarea>
                 <br><br>
                 <label>Production Dates and Locations</label>
                 <br>
-                <textarea></textarea>
+                <textarea id="datLoc"></textarea>
                 <br><br>
                 <label>Job posting expires on</label>
                 <br>
 
-                <input type="date">
+                <input id="exp" type="date">
                 <br><br>
                 <label>Will talent be paid</label>
                 <br>
-                <label><input type="checkbox" value=""> Yes</label>
-                <label><input type="checkbox" value=""> No</label>
+                <label><input class="paid" type="checkbox" value="Yes"> Yes</label>
+                <label><input class="paid" type="checkbox" value="No"> No</label>
               </div>
             </div>
           </div>
@@ -99,11 +99,11 @@
             <div id="collapse3" class="panel-collapse collapse">
               <div class="panel-body">
                 <label>Any Special Submission Instructions</label> <br>
-                <textarea rows = "4" cols = "50" placeholder="Mention here if candidate must upload cover letter, or a video"></textarea>
+                <textarea id="spcl" rows = "4" cols = "50" placeholder="Mention here if candidate must upload cover letter, or a video"></textarea>
                 <br>
                 <label>Date of audition</label><br>
-                <label>from<input type="date"></label>
-                <label>to<input type="date"></label>
+                <label>from<input id="startAud" type="date"></label>
+                <label>to<input id="endAud" type="date"></label>
                 <br>
               </div>
             </div>

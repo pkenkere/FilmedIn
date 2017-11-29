@@ -71,7 +71,23 @@ function ProfBtn_onclick(){
 
 function PostJobBtn_onclick(){
   prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
-  jobPost(title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
+  var title = document.getElementById("title").value;
+  var prodDescrip = document.getElementById("desc").value;
+  var DateAndLoc = document.getElementById("datLoc").value;
+  var expDate = document.getElementById("exp").value;
+  var checks = document.getElementsByClassName("paid");
+  var isPaid;
+  for(var i=0; checks[i]; ++i) {
+    if (checks[i].checked === true) {
+      isPaid = checks[i].value;
+      break;
+    }
+  }
+  var spcl = document.getElementById("spcl").value;
+  var start = document.getElementById("startAud").value;
+  var end = document.getElementById("endAud").value;
+  var email = sessionStorage.getItem("email");
+  jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
 
 }
 
