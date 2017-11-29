@@ -1,20 +1,14 @@
 function body_onload() {
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-    document.getElementById('ProfBtn').onclick = findTalent_onclick;
-}
-
-function logout_onclick() {
-  localStorage.removeItem("loggedInId");
-  location.href = "splash.html";
-}
-
-function findTalent_onclick() {
-  location.href = "findTalent.html";
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  jobPostBtn.onclick = PostJobBtn_onclick;
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentBtn_onclick;
 }
 
 
 var count = 0;
-
 
 function updateR(divName) {
   var rolename = $('#rolename').val() == '' ? '---' : $('#rolename').val();
@@ -49,4 +43,35 @@ function updateR(divName) {
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
     count++;
+}
+
+function HomeBtn_onclick(){
+  location.href = "../HTML/newsfeed.html";
+}
+
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  prodtype = document.querySelector('input[name="prodTypes"]:checked').value
+  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end)
+
+}
+
+function displaySuccess() {
+  SuccessAlert.style.display = "block";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
+}
+
+function logout_onclick() {
+  localStorage.removeItem("loggedInId");
+  location.href = "../HTML/index.html";
 }

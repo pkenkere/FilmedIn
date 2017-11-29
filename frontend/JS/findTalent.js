@@ -1,21 +1,11 @@
 function body_onload() {
-  document.getElementById('PostJobBtn').onclick = postJob_onclick;
-  document.getElementById('LogoutBtn').onclick = logout_onclick;
-  document.getElementById('JobsBtn').onclick = opportunities_onclick;
   document.getElementById('btnSrch').onclick = btnSrch_onclick;
-}
-
-function postJob_onclick() {
-  location.href = "Jobpost.html";
-}
-
-function logout_onclick() {
-  localStorage.removeItem("loggedInId");
-  location.href = "splash.html";
-}
-
-function opportunities_onclick() {
-  location.href = "searchJobs.html";
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  PostJobBtn.onclick = PostJobBtn_onclick;
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentBtn_onclick;
 }
 
 function btnSrch_onclick(){
@@ -78,4 +68,45 @@ function testCheckbox(oCheckbox) {
     else{
       return false;
     }
+}
+
+function displayProfs() {
+  var box = document.getElementById("talentCont");
+  for (var i = 0; i < gTalent.length; i++) {
+    var person = gTalent[i];
+    var newdiv = document.createElement('div');
+    newdiv.innerHTML = '<div class="card" style="width:400px">' +
+      '<img class="card-img-top" src=' + person.image + 'alt="Card image" style="width:100%">' +
+      '<div class="card-body">' +
+      '<h4 class="card-title">' + person.Name + '</h4>' +
+      '<p class="card-title">Brief Description</p>' +
+      '<a href="#" class="btn btn-primary">See Profile</a>' +
+      '</div></div>';
+    box.appendChild(newdiv);
+  }
+
+function HomeBtn_onclick(){
+  location.href = "../HTML/announcements.html";
+  // location.href = "../HTML/newsfeed.html";
+}
+
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  location.href = "../HTML/Jobpost.html";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
+}
+
+function logout_onclick() {
+  localStorage.removeItem("loggedInId");
+  location.href = "../HTML/index.html";
 }

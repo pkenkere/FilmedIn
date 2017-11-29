@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../JS/news.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -19,9 +20,11 @@
     <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
     <button id = "LogoutBtn" type="button" class="btn-logout">
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
   </div>
 </head>
-<body>
+<body onload="body_onload()">
   <div class="card card-body" id = "news1">
     <a href="#" class="card-link"><h4>Headline of event</h4></a>
     <div class="image_box">
@@ -43,7 +46,7 @@
     by William Shakespeare <br>
     Directed by Richard Sullivan Lee</h4></a>
       <div class="image_box3">
-          <img id = "pic3" src="../assets/pic3.jpg" alt="Picture3"> 
+          <img id = "pic3" src="../assets/pic3.jpg" alt="Picture3">
       </div>
     <p class="card-text">
   A group of strangers is stranded in a boarding house during a snow storm, one of whom is a murderer. The suspects include the newly married couple who run the house, and the suspicions in their minds nearly wreck their perfect marriage. Others are a spinster with a curious background, an architect who seems better equipped to be a chef, a retired Army major, a strange little man who claims his car has overturned in a drift, and a jurist who makes life miserable for everyone.To get to the rationale of the murderer's pattern, the policeman probes the background of everyone present, and rattles a lot of skeletons. Another famous Agatha Christie switch finish!.</p>

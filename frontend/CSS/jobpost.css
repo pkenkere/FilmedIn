@@ -57,6 +57,9 @@
   border: none;
 }
 
+body {
+  overflow:hidden;
+}
 .panels {
   position: absolute;
   width: 1000px;
@@ -94,13 +97,10 @@
     float: right;
 }
 
-/*#RoleBtn {
-  top: 130px;
-  left: 350px;
+#jobPostBtn {
+  left: 90%;
   position: absolute;
-  border: blue;
-  color: black;
-}*/
+}
 
 
 #range {

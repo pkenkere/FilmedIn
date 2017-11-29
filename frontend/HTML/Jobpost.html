@@ -17,6 +17,8 @@
     <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
     <button id = "LogoutBtn" type="button" class="btn-logout">
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
   </div>
 </head>
 <body onload="body_onload()">
@@ -43,11 +45,11 @@
               <label>Production Type</label>
                 <br>
               <select id = "productionTypes">
-                <option value="" disabled selected>Select a type of production</option>
-                <option value="Theatre">Theatre</option>
-                <option value="Film">Film</option>
-                <option value="Commercials">Commercials</option>
-                <option value="Events and Presentations">Events and Presentations</option>
+                <option name = "prodTypes" value="" disabled selected>Select a type of production</option>
+                <option name = "prodTypes" value="Theatre">Theatre</option>
+                <option name = "prodTypes" value="Film">Film</option>
+                <option name = "prodTypes" value="Commercials">Commercials</option>
+                <option name = "prodTypes" value="Events and Presentations">Events and Presentations</option>
               </select>
                   <br><br>
 
@@ -103,16 +105,15 @@
                 <label>from<input type="date"></label>
                 <label>to<input type="date"></label>
                 <br>
-
               </div>
             </div>
           </div>
-
         </div> <!-- close panel group -->
         </div> <!-- Close container 1 -->
       </div> <!-- close container-body -->
     </div> <!-- close main panel -->
   </div> <!-- close panel groups -->
+    <button type="button" id="jobPostBtn" class="btn-success">Post Job</button>
 </div>
 
 
