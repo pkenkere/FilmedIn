@@ -89,3 +89,20 @@
 .tickmark1, .tickmark2, .tickmark3 {
   display: none;
 }
+
+#YESBtn:active {
+  background: green;
+}
+
+#NOBtn:active {
+  background: red;
+}
+
+#PARTIALLYBtn:active {
+  background: yellow;
+}
+
+#sendFeedbackBtn {
+    left: 85%;
+    position: absolute;
+}
