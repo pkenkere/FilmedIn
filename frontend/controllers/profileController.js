@@ -33,18 +33,34 @@ function profileGet(e){
                  var gender = document.getElementById("gender");
                  gender.innerHTML = "Gender: " + data.gender;
 
-                 var linkedLink = document.getElementById("linkedLink");
-                 linkedLink.innerHTML = "Link: " + data.linkedInLink;
-
-                 var faceLink = document.getElementById("faceLink");
-                 faceLink.innerHTML = "Link: " + data.facebookLink;
-
-                 var instaLink = document.getElementById("instaLink");
-                 instaLink.innerHTML = "Link: " + data.instagramLink;
-
-                 var resLink = document.getElementById("resLink");
-                 resLink.innerHTML = "Link: " + data.resumeLink;
-
+                 var linkedInLink = document.getElementById("linkedInLink");
+                 if (data.linkedInLink == null) {
+                  linkedInLink.innerHTML = "";
+                 }
+                 else {
+                   linkedInLink.innerHTML = "Link: " + '<a href="' + data.linkedInLink+ '" target="_blank">' + data.linkedInLink + '</a>';
+                 }
+                 var facebookLink = document.getElementById("facebookLink");
+                 if (data.facebookLink == null) {
+                  facebookLink.innerHTML = "";
+                 }
+                 else {
+                   facebookLink.innerHTML = "Link: " + '<a href="' + data.facebookLink+ '" target="_blank">' + data.facebookLink + '</a>';
+                 }
+                 var instagramLink = document.getElementById("instagramLink");
+                 if (data.instagramLink == null) {
+                  instagramLink.innerHTML = "";
+                 }
+                 else {
+                   instagramLink.innerHTML = "Link: " + '<a href="' + data.instagramLink+ '" target="_blank">' + data.instagramLink + '</a>';
+                 }
+                 var resumeLink = document.getElementById("resumeLink");
+                 if (data.resumeLink == null) {
+                  resumeLink.innerHTML = "";
+                 }
+                 else {
+                   resumeLink.innerHTML = "Link: " + '<a href="' + data.resumeLink+ '" target="_blank">' + data.resumeLink + '</a>';
+                 }
              });
             //console.log("res: " + res);
         }
