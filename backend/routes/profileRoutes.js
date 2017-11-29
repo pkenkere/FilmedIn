@@ -56,10 +56,7 @@ module.exports = function(app,db) {
                     facebookLink : req.param('facebookLink'),
                     linkedInLink : req.param('linkedInLink'),
                     resumeLink : req.param('resumeLink'),
-<<<<<<< HEAD
-=======
                     jobsPosted : []
->>>>>>> 3d93000ed5413cf90d74e824772a46631a848f62
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
