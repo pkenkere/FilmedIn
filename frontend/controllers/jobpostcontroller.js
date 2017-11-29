@@ -9,7 +9,7 @@ function jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPai
       body: JSON.stringify({
       email: email,
       title : title,
-      type : prodType,
+      type : prodtype,
       desc : prodDescrip,
       prodDates : DateAndLoc,
       expDate : expDate,

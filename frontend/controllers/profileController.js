@@ -23,6 +23,28 @@ function profileGet(e){
 
                  var interest = document.getElementById("resultI");
                  interest.innerHTML = "Interest: " + data.interest;
+
+                 var ethnicity = document.getElementById("eth");
+                 eth.innerHTML = "Ethnicity: " + data.ethnicity;
+
+                 var age = document.getElementById("age");
+                 age.innerHTML = "Age: " + data.age;
+
+                 var gender = document.getElementById("gender");
+                 gender.innerHTML = "Gender: " + data.gender;
+
+                 var linkedLink = document.getElementById("linkedLink");
+                 linkedLink.innerHTML = "Link: " + data.linkedInLink;
+
+                 var faceLink = document.getElementById("faceLink");
+                 faceLink.innerHTML = "Link: " + data.facebookLink;
+
+                 var instaLink = document.getElementById("instaLink");
+                 instaLink.innerHTML = "Link: " + data.instagramLink;
+
+                 var resLink = document.getElementById("resLink");
+                 resLink.innerHTML = "Link: " + data.resumeLink;
+
              });
             //console.log("res: " + res);
         }
