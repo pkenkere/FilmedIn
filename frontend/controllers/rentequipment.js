@@ -8,7 +8,8 @@ function rentEquipmentPost(arr, email) {
       },
       body: JSON.stringify({
           arr: arr,
-          email: email
+          email: email,
+          date: date
       })
   }
   fetch(url+"/equipment", equipdets)
