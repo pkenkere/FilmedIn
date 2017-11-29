@@ -33,3 +33,22 @@ function profileGet(e){
         console.log("GET request failed", err);
     });
 }
+
+function resumePost(r){
+  var res = {
+    method: "POST",
+    headers:{
+         'content-type': 'application-json'
+    },
+    body: {
+         resume: r
+    }
+  }
+  fetch(/*RESUME ROUTE*/)
+  .then(function(res){
+
+  })
+  .catch(function(err){
+      console.log("GET request failed", err);
+  });
+}
