@@ -1,6 +1,6 @@
 "use strict";
 var url = "http://localhost:5000";
-function rentEquipmentPost(arr, email) {
+function rentEquipmentPost(arr, email, date) {
   var equipdets = {
       method: "POST",
       headers: {

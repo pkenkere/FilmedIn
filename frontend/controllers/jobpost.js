@@ -1,6 +1,6 @@
 "use strict";
 var url = "http://localhost:5000";
-function jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end) {
+function jobPost(title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr) {
   var productionCredentials = {
       method: "POST",
       headers: {
@@ -15,7 +15,8 @@ function jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, 
       paid : isPaid,
       specialInstr : spcl,
       audStartDate : start,
-      audEndDate : end
+      audEndDate : end,
+      rolesArray: arr
       })
   }
   fetch(url+"/", productionCredentials)

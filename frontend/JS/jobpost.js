@@ -9,7 +9,8 @@ function body_onload() {
 
 
 var count = 0;
-
+var arr = new Array();
+arr.length = 0;
 function updateR(divName) {
   var rolename = $('#rolename').val() == '' ? '---' : $('#rolename').val();
 
@@ -25,7 +26,18 @@ function updateR(divName) {
 
   var roledesc = $('#roledesc').val() == '' ? '---' : $('#roledesc').val();
 
-    var newdiv = document.createElement('div');
+  var obj = {
+    name: rolename,
+    type: roletype,
+    gender: gender,
+    age: age,
+    ethnicity: ethnicity,
+    description: roledesc
+  };
+
+  arr.push(obj);
+
+  var newdiv = document.createElement('div');
     newdiv.innerHTML = '<div class="panel panel-default">' +
       '<div class="panel-heading">' +
       '<h4 class="panel-title">' +
@@ -58,8 +70,8 @@ function ProfBtn_onclick(){
 }
 
 function PostJobBtn_onclick(){
-  prodtype = document.querySelector('input[name="prodTypes"]:checked').value
-  jobPost(title, prodtype,prodDescrip, DateAndLoc, expDate, isPaid,spcl, start,end)
+  prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
+  jobPost(title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
 
 }
 
