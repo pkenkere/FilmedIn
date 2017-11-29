@@ -48,9 +48,9 @@ exports.updateProfile = function(email, newData, callback) {
         o.linkedInLink = newData.linkedInLink;
       if (newData.resumeLink != '')
         o.resumeLink = newData.resumeLink;
-      if (newData.jobPosted != '')
+      if (newData.jobPosted != '' || newData.jobPosted != null)
         o.jobsPosted.push(newData.jobPosted);
-      if (newData.equipments != '') {
+      if (newData.equipments != '' || newData.equipments != null) {
         if (newData.flag == false)
           o.equipments.push(newData.equipments);
         else

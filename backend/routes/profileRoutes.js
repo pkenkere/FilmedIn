@@ -11,31 +11,18 @@ module.exports = function(app,db) {
   AM.init(db);
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
-      //console.log("MAA KI CHHUUUTTTTTT!!!");
-      //if (req.session.user == null){
-          // if user is not logged-in redirect back to login page //
-        //  res.redirect('/');
-      //} else {
-          console.log("email received in the backend: " + req.query.email)
           PM.getProfileByEmail(req.query.email, function(err, o) {
             if (!o) {
-              console.log("HERE!!!!");
               res.status(400).send(err);
             }
             else {
-              console.log("I SHOULD BE HERE!!!!");
               res.setHeader('Content-Type', 'application/json');
               res.status(200).send(JSON.stringify(o));
             }
         });
-      //}
   });
 
   app.post('/profile', function(req, res) {
-    //if (req.session.user == null){
-      //  res.redirect('/');
-    //}
-    //else {
         PM.getProfileByEmail(req.param('email'),
           function (e, o) {
             if (e) {
@@ -79,11 +66,6 @@ module.exports = function(app,db) {
                  if (o) {
                     PM.updateProfile(req.param('email'), {
                       email : req.param('email'),
-                      //name : o.name,
-                      //age : req.param('age'),
-                      //gender : req.param('gender'),
-                      //ethnicity : req.param('ethnicity'),
-                      //education : req.param('education'),
                       major : req.param('major'),
                       year : req.param('year'),
                       interest : req.param('interest'),
@@ -108,7 +90,6 @@ module.exports = function(app,db) {
 
             }
            });
-    //}
   });
 
   app.get('/printProfiles', function(req, res) {

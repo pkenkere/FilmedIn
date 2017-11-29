@@ -83,13 +83,13 @@ function updateJ(divName) {
       major : userMajor.value,
       year : userYear.value,
       interest : userInterests.value,
-      job : {
+      /*job : {
         job_name : userJobN.value,
         job_desc : userJobD.value
-      }
+      }*/
     };
 
-    updateProfile(email, profile);
+    profileUpdate(email, profile);
 }
 
 function updateEdit(divName) {
