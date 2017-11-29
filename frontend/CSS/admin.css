@@ -1,4 +1,4 @@
-.btn-home {
+  .btn-home {
   color: white;
   font: Helvetica;
   font-size: 40px;
@@ -56,7 +56,11 @@
   left: 1200px;
   border: none;
 }
-
+/*
+body {
+  overflow: hidden;
+}
+}*/
 
 .sidebar {
   width: 20%;

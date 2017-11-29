@@ -6,6 +6,7 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 
 function btnSrch_onclick(){
@@ -70,8 +71,24 @@ function testCheckbox(oCheckbox) {
     }
 }
 
+function displayProfs() {
+  var box = document.getElementById("talentCont");
+  for (var i = 0; i < gTalent.length; i++) {
+    var person = gTalent[i];
+    var newdiv = document.createElement('div');
+    newdiv.innerHTML = '<div class="card" style="width:400px">' +
+      '<img class="card-img-top" src=' + person.image + 'alt="Card image" style="width:100%">' +
+      '<div class="card-body">' +
+      '<h4 class="card-title">' + person.Name + '</h4>' +
+      '<p class="card-title">Brief Description</p>' +
+      '<a href="#" class="btn btn-primary">See Profile</a>' +
+      '</div></div>';
+    box.appendChild(newdiv);
+  }
+
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
+  // location.href = "../HTML/newsfeed.html";
 }
 
 function JobsBtn_onclick(){
@@ -88,6 +105,11 @@ function PostJobBtn_onclick(){
 
 function rentBtn_onclick(){
   location.href = "../HTML/rentequip.html";
+}
+
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
 }
 
 function logout_onclick() {

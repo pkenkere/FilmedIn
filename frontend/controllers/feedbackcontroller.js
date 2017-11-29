@@ -1,26 +1,27 @@
 "use strict";
 var url = "http://localhost:5000";
-function resetPW(user,pass) {
-  var resetPasswordData = {
+function feedbackPost(email, feedback) {
+  var feedbackData = {
       method: "POST",
       headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          email: user,
-          pass: pass
+          email: email,
+          feedback: feedback
       })
   }
-  fetch(url+"/reset-password", resetPasswordData)
+  fetch(url+"/feedback", feedbackData)
   .then(function(res){
       if(res.ok){
-          //reset password
-          location.href = "../HTML/index.html";
-          console.log("password reset done");
+          res.json().then(function(data) {
+            console.log("feedback sent!");
+          });
+          //login to profile
       }
       else{
           //alert incorrect
-          console.log("incorrect email/password");
+          console.log("incorrect posting");
       }
   })
   .catch(function(err){

@@ -18,11 +18,16 @@ function body_onload() {
   PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 
 function renderProfile(){
   var e = sessionStorage.getItem("email");
   profileGet(e);
+}
+
+function feedbackBtn_onclick() {
+  location.href = "../HTML/feedbackform.html";
 }
 
 function HomeBtn_onclick(){
@@ -51,7 +56,7 @@ function logout_onclick() {
 }
 
 function updateJ(divName) {
-  var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
+  /*var major = $('#userMajor').val() == '' ? '---' : $('#userMajor').val();
   $('#result').html("Major: " + major);
   var year = $('#userYear').val() == '' ? '---' : $('#userYear').val();
   $('#resultY').html("Year: " + year);
@@ -69,7 +74,22 @@ function updateJ(divName) {
       '<div class="panel-body"> ' + jobD + '</div>' +
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
-    count++;
+    count++;*/
+
+    var email = sessionStorage.getItem("email");
+
+    var profile = {
+      email : email,
+      major : userMajor.value,
+      year : userYear.value,
+      interest : userInterests.value,
+      /*job : {
+        job_name : userJobN.value,
+        job_desc : userJobD.value
+      }*/
+    };
+
+    profileUpdate(email, profile);
 }
 
 function updateEdit(divName) {

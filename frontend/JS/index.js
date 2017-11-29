@@ -4,6 +4,7 @@ function body_onload() {
   //getAccounts();
   signUp.onclick = signUp_onclick;
   loginButton.onclick = login_onclick;
+  resetBtn.onclick = sendEmail_onclick;
 }
 
 function signUp_onclick() {
@@ -51,6 +52,10 @@ function login_onclick() {
   //     }
   //   }
   // }
+}
+
+function sendEmail_onclick() {
+  sendEmail(email1.value);
 }
 
 function incorrectCredentials() {

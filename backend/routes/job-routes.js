@@ -1,8 +1,12 @@
 var path = require('path');
 
-module.exports = function(app) {
+var controller = require(path.join(__dirname, '..', 'modules', 'job-controller'));
+var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 
-	var controller = require(path.join(__dirname, '..', 'modules', 'job-controller'));
+//Initialize the database
+
+module.exports = function(app,db) {
+		controller.init(db);
 
 		//View all jobs
 		app.get('/jobs', function(req, res) {
@@ -35,7 +39,8 @@ module.exports = function(app) {
 				paid : req.body.paid,
 				specialInstr : req.body.specialInstr,
 				audStartDate : req.body.audStartDate,
-				audEndDate : req.body.audEndDate
+				audEndDate : req.body.audEndDate,
+				applicants : []
 		};
 		job.roles = req.body.roles;
 		controller.addJob(job, function(e, o){
@@ -43,7 +48,20 @@ module.exports = function(app) {
 					res.status(400).send('error-adding-job');
 				}
 				else {
-					res.status(200).send('ok, job added');
+					//res.status(200).send('ok, job added');
+					var newData = {
+						jobPosted : job
+					};
+					PM.updateProfile(req.body.ownerEmail,newData,
+						function (e, o) {
+							if (e) {
+								res.status(400).send('error adding job to account');
+							}
+							else {
+								console.log('new job added');
+								res.status(200).send(o);
+							}
+						});
 				}
 		});
 	});
@@ -91,6 +109,22 @@ module.exports = function(app) {
 			}
 			else{
 				res.status(400).send('job not found');
+			}
+		});
+	});
+
+	app.post('/jobs/apply', function(req, res) {
+		var data = {
+			id : req.body.id,
+			userEmail : req.body.userEmail,
+			role : req.body.role
+		};
+		controller.saveApplicant(data, function(err, o){
+			if(!err){
+				res.status(200).send('applicant added');
+			}
+			else{
+				res.status(400).send('could not add applicant');
 			}
 		});
 	});
