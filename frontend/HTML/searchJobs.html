@@ -100,9 +100,66 @@
   <button type="submit" class="btn" id="btnSrch" disabled>Search</button>
  </div>
 </div>
-<div id="srchResults">
-    WORKS?!?!
-</div>
+<!-- <div>
+  <div id="srchResults"></div>
+</div> -->
+
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Role</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="srchResults">
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" id="info-Modal">
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Job Details</h4>
+        </div>
+        <div class="modal-body">
+          <p>Title: <span id="mdlTitle"></span></p>
+          <br>
+          <p>Type: <span id="mdlType"></span></p>
+          <br>
+          <p>Desciption: <span id="mdlDesc"></span></p>
+          <br>
+          <p>Employer email: <span id="mdlEmployer"></span></p>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" id="submitInfo" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="myRoleModal" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" id="role-Modal">
+          <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Job Details</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="submit" id="submitInfo" class="btn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 <script>
     function enable() {
       document.getElementById("btnSrch").disabled = false;

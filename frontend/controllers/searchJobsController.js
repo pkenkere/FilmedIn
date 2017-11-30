@@ -8,7 +8,8 @@ function searchPost(ext){
     .then(function(res){
       res.json().then(function(data) {
         //postSearchResults(data);
-        console.log(data);
+        //console.log(data);
+        fillJobs(data);
       })
     })
     // else{
@@ -18,5 +19,25 @@ function searchPost(ext){
     // })
     .catch(function(err){
         console.log("GET request failed", err);
+    });
+}
+
+function jobApplyPost(){
+    var obj = {
+        method: "POST",
+        header: {
+            'content-type': 'application-json'
+       },
+       body: JSON.stringify({
+
+       })
+    }
+
+    fetch(url+"/jobs/apply", obj)
+    .then(function(res){
+
+    })
+    .catch(function(err){
+        console.log("POST request failed", err);
     });
 }
