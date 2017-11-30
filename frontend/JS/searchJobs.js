@@ -10,7 +10,7 @@ function body_onload() {
 }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function feedbackBtn_onclick(){
@@ -81,12 +81,12 @@ function fillJobs(jobs){
   srchResults.innerHTML = "";
   for(var i = 0; i < jobs.length; i++){
     //var row = document.createElement("tr");
-    var row = srchResults.insertRow(i);    
+    var row = srchResults.insertRow(i);
     var col1 = document.createElement("td");
     var col2 = document.createElement("td");
     var col3 = document.createElement("td");
     var col4 = document.createElement("button");
-    
+
     //row.info = jobs[i];
     //row.onclick = row_onclickFunc;
     col1.innerHTML = jobs[i].title;

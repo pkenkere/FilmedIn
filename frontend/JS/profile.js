@@ -27,7 +27,7 @@ function feedbackBtn_onclick() {
 }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function JobsBtn_onclick(){
@@ -51,12 +51,12 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
-cancel_onclick() {
+function cancel_onclick() {
   var email = sessionStorage.getItem("email");
   var equipment = equipmentGet(email);
-  cancelReservation(email, equipment, size??); 
-
+  cancelReservation(email, equipment, size);
 }
+
 function updateJ(divName) {
     var email = sessionStorage.getItem("email");
 

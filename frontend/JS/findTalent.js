@@ -85,6 +85,7 @@ function displayProfs() {
       '</div></div>';
     box.appendChild(newdiv);
   }
+}
 
 function HomeBtn_onclick(){
   location.href = "../HTML/announcements.html";
@@ -108,7 +109,6 @@ function rentBtn_onclick(){
 }
 
 function feedbackBtn_onclick(){
-  console.log('clicked');
   location.href = "../HTML/feedbackform.html";
 }
 

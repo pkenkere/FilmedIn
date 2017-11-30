@@ -234,15 +234,16 @@ function cancelReservation(email, equipment, size) {
     },
     body: JSON.stringify({
         email: email,
-        size = size,
+        size : size,
         equipments: equipment
-  };
+      })
+  }
     fetch(url + '/cancelEquipment', equipmentData)
     .then(function(res) {
       if(res.ok){
           res.json().then(function(data) {
             console.log("feedback sent!");
-            location.href()"../HTML/profile.html?email=" + email);
+            location.href("../HTML/profile.html?email=" + email);
           });
           //login to profile
       }

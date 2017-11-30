@@ -5,6 +5,7 @@ function body_onload() {
   jobPostBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 var count = 0;
 var arr = new Array();
@@ -61,8 +62,11 @@ function printArray() {
   }
 }
 
+function feedbackBtn_onclick(){
+  location.href = "../HTML/feedbackform.html";
+}
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function JobsBtn_onclick(){
