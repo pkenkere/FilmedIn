@@ -75,6 +75,7 @@ function profileGet(e){
                  else {
                    linkedInLink.innerHTML = "Link: " + '<a href="' + data.linkedInLink+ '" target="_blank">' + data.linkedInLink + '</a>';
                  }
+                 console.log(linkedInLink);
                  var facebookLink = document.getElementById("facebookLink");
                  if (data.facebookLink == null) {
                   facebookLink.innerHTML = "";
@@ -207,6 +208,7 @@ function getAllJobs(){
                 for(var j = 0; j < data[i].applicants.length; j++) {
                    var divA = document.createElement('div');
                    divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].name + '</div>';
+                   //divA.innerHTML = "Applicant: " + '<a href="' + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
                    document.getElementById("interested").appendChild(divA);
                 }
                 document.getElementById("showJobsID").appendChild(newdiv);
