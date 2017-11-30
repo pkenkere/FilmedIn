@@ -47,7 +47,7 @@ function search(){
   // console.log(ProductionTypes.value);
   // console.log(ethnicity.value);
   var q = {
-    //gender:,
+    //gender:,  ASK MEEEENNNUUU <<<<<<<--------------------------
     roleType: RoleTypes.value,
     minAge: ageFrom.value,
     maxAge: ageTo.value,
@@ -74,4 +74,87 @@ function search(){
   console.log(obj);
   console.log(encodeURI(obj));
   searchPost(encodeURI(obj));
+}
+
+function fillJobs(jobs){
+  console.log(jobs);
+  srchResults.innerHTML = "";
+  for(var i = 0; i < jobs.length; i++){
+    //var row = document.createElement("tr");
+    var row = srchResults.insertRow(i);    
+    var col1 = document.createElement("td");
+    var col2 = document.createElement("td");
+    var col3 = document.createElement("td");
+    var col4 = document.createElement("button");
+    
+    //row.info = jobs[i];
+    //row.onclick = row_onclickFunc;
+    col1.innerHTML = jobs[i].title;
+    col2.innerHTML = jobs[i].type;
+    col3.innerHTML = "<B>+</B>";
+    col4.innerHTML = "Apply";
+    col4.onclick = applyJob;
+    col4.info = jobs[i];
+
+    col3.info = jobs[i];
+    col3.onclick = row_onclickFunc;
+
+    //col4.onclick = applyJob;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
+
+    //row.insertCell(0);
+
+    //srchResults.innerHTML = row;
+    // var col1 = row.insertCell(0);
+    // col1.innerHTML = jobs[i].title;
+  }
+}
+
+function row_onclickFunc(){
+  console.log(this.info);
+  //Disp a Modal that shows all the details of the job
+  mdlTitle.innerHTML = this.info.title;
+  mdlType.innerHTML = this.info.type;
+  mdlDesc.innerHTML = this.info.desc;
+  mdlEmployer.innerHTML = this.info.email;
+  $('#myModal').modal();
+}
+
+function applyJob(){
+  console.log(this.info);
+  var j = this.info;
+  //Confirm with which role they want to apply
+  var allRoles = j.roles;
+  for(var i = 0; i < allRoles.length; i++){
+    var row = document.createElement("div");
+    var type = document.createElement("div");
+    var slct = document.createElement("button");
+
+    type.innerHTML = allRoles[i].type;
+
+    slct.innerHTML = "Apply";
+    slct.onclick = role_onclick;
+    slct.id = j._id;
+    slct.rl = allRoles[i];
+
+    row.appendChild(type);
+    row.appendChild(slct);
+
+    roleBody.appendChild(row);
+  }
+  $('#myRoleModal').modal();
+}
+
+function role_onclick(){
+  console.log("here!");
+  var obj = {
+    id: this.id,
+    userEmail: localStorage.getItem("email"),
+    role: this.rl
+  }
+  jobApplyPost(obj);
 }
