@@ -42,6 +42,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Production Details</a>
               </h4>
             </div>
+            <form id="prodDescription">
             <div id="collapse1" class="panel-collapse collapse">
               <div class="panel-body">
                 <label>Title of Production</label>
@@ -79,6 +80,7 @@
                 <label><input class="paid" type="checkbox" value="No"> No</label>
               </div>
             </div>
+          </form>
           </div>
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -103,6 +105,7 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Auditions</a>
               </h4>
             </div>
+            <form id="auditions">
             <div id="collapse3" class="panel-collapse collapse">
               <div class="panel-body">
                 <label>Any Special Submission Instructions</label> <br>
@@ -114,6 +117,7 @@
                 <br>
               </div>
             </div>
+          </form>
           </div>
         </div> <!-- close panel group -->
         </div> <!-- Close container 1 -->
@@ -134,6 +138,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
      </div>
+     <form id="roleInfo">
     <div class="modal-body">
       <div class="form-group">
         <label>Name of Role:</label>
@@ -193,6 +198,7 @@
     <input id="roledesc">
     </div>
 </div>
+</form>
 <div class="modal-footer">
   <button id="addRole" type="submit" class="btn" onclick="updateR('dynamicInput');" data-dismiss="modal">Save Role</button>
 </div>
