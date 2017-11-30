@@ -2,7 +2,7 @@ var count = 0;
 
 function body_onload() {
   renderProfile();
-  renderEquipments();
+  // renderEquipments();
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
@@ -10,6 +10,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  cancelBtn = cancel_onclick;
 }
 
 function renderProfile(){
@@ -50,6 +51,12 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
+cancel_onclick() {
+  var email = sessionStorage.getItem("email");
+  var equipment = equipmentGet(email);
+  cancelReservation(email, equipment, size??); 
+
+}
 function updateJ(divName) {
     var email = sessionStorage.getItem("email");
 

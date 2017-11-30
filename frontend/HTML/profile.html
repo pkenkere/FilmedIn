@@ -32,9 +32,10 @@
     <li><a data-toggle="tab" href="#menu2">My Jobs</a></li>
     <li><a data-toggle="tab" href="#menu3">My Rented Equipment</a></li>
   </ul>
+
   <div class="tab-content">
     <div id="menu1" class="tab-pane fade in active">
-      <button id = "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
+      <button id= "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
       <div class="panels">
         <div class="panel-group">
           <div class="panel education">
@@ -45,7 +46,7 @@
           </div>
 
           <div class = "panel education">
-            <div class = "panel-heading">Education</div>
+            <div class = "panel-heading">Year</div>
             <div class="panel-body">
               <div id="resultY">Year:  </div>
             </div>
@@ -90,10 +91,23 @@
         </div>
       </div>
     </div>
-    <div id="menu2" class="tab-pane fade">
-
+    <div id="menu2" onclick="getAllJobs();" class="tab-pane fade">
+      <div class="panels">
+        <div class="panel-group">
+          <div class="panel jobs">
+            <div class="panel-heading">Jobs I have Posted</div>
+            <div class="panel-body">
+              <div class="roles-container" id="showJobsID">
+              <div class="panel-group" id="job-accordion">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="menu3" class="tab-pane fade">
+  </div>
+</div>
+
+<div id="menu3" onclick="renderEquipments()"class="tab-pane fade">
       <div class="panels">
         <div class="panel-group">
           <div class="panel equipment">
@@ -109,7 +123,6 @@
 </div>
 </div>
 </div>
-
 
 <div class="modal fade" id="AddJobModal" role="dialog">
   <div class="modal-dialog">
