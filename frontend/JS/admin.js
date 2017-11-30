@@ -53,7 +53,6 @@ function addEquipment() {
 function addNews() {
   var headline = newsName.value;
   var description = descriptionNews.value;
-  //console.log(headline);
   addNewsPost(headline,description);
 }
 
@@ -72,7 +71,8 @@ function redirect() {
 }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
+  //location.href = "../HTML/newsfeed.html";
 }
 
 function JobsBtn_onclick(){
@@ -147,8 +147,6 @@ function delAnnounce(){
 }
 
 function fillDivAnnounce(a) {
-  //document.getElementById('All').innerHTML = "hbbhbibububybvgva";
-  //document.getElementById('All').innerHTML = a[0].name;
   console.log(a);
   var allAnn = a;
   var div = document.getElementById("dispNews");

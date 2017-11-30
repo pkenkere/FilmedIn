@@ -4,8 +4,7 @@
   <title>FilmedIn</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" type="text/css" href="jobpost.css"> -->
-  <link rel="stylesheet" type="text/css" href="../CSS/newsfeed.css">
+  <link rel="stylesheet" type="text/css" href="../CSS/announcements.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -26,21 +25,41 @@
   </div>
 </head>
 <body onload="body_onload()">
-  <div class="card card-body" id = "news">
-    <a href="#" class="card-link"><h4>Headline of event</h4></a>
-    <p class="card-text" getAllAnnounce()>
-
-
-
-
+  <div id="divEntriesHead">
+      <div id="divEntriesHead1" class="divEntriesCol1">Headline</div>
+      <div id="divEntriesHead2" class="divEntriesCol2">Description</div>
+      <div id="divEntriesHead3" class="divEntriesCol3"></div>
   </div>
-  <div class="box">
-    <h4>Application closes soon!</h4>
-    <marquee>
-    *Actors and vocalists needed for Production 1! Application deadlines close on 1st November 2017!
-    <br>
-  Apply by uploading profile. Call #89279892 for more details.
-  </marquee>
+
+  <div id="divEntriesList">
   </div>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Tell us more!</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="email" id="reporter" class="form-control" placeholder="Enter your email ID" name="email"/>
+        </div>
+        <div class="form-group">
+          <input type="text" id="titleR" class="form-control" placeholder="Enter title" required/>
+        </div>
+        <div class="form-group" id="comments">
+          <label>Please describe why you think the announcement is inappropriate.<label>
+            <br>  <textarea rows="4" cols="50" id="description" name="comment"></textarea>
+    </div>
+      <div class="modal-footer">
+        <button id = "SubmitRep" type="button" class="btn btn-info" data-toggle="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+ </div>
   </body>
   </html>

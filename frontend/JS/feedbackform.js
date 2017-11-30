@@ -8,7 +8,9 @@ function body_onload() {
 
 function yes_onclick() {
   console.log("clicked");
-  document.getElementById("YESBtn").style.backgroudColor = "green";
+  document.getElementById("YESBtn").style.backgroundColor = "green";
+  document.getElementById("NOBtn").style.backgroundColor = "white";
+  document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
 // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Yes";
 }
@@ -16,6 +18,8 @@ function yes_onclick() {
 function no_onclick() {
   console.log("clicked no");
  document.getElementById("NOBtn").style.backgroundColor = "red";
+ document.getElementById("YESBtn").style.backgroundColor = "white";
+ document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "No";
 }
@@ -23,6 +27,8 @@ function no_onclick() {
 function partially_onclick() {
   console.log("clicked partially");
    document.getElementById("PARTIALLYBtn").style.backgroundColor = "yellow";
+   document.getElementById("NOBtn").style.backgroundColor = "white";
+   document.getElementById("YESBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Partially";
 }

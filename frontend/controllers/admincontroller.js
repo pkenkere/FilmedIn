@@ -29,7 +29,7 @@ function addEquipmentPost(name, category, available) {
   });
 }
 
-function addNewAdmin(email, isAdmin) {
+function addNewAdmin(email) {
   var AdminDetails = {
       method: "POST",
       headers: {
@@ -64,7 +64,7 @@ function addNewsPost(headline, description) {
       },
       body: JSON.stringify({
           headline: headline,
-          description: description
+          desc: description
       })
   }
   fetch(url+"/announcements", newsDetails)
@@ -132,28 +132,28 @@ function getAllEquip() {
       })
   }
 
-function getAllAnnounce() {
-    var announce = {
-      method: "GET"
-    }
-    fetch(url+"/announcementsall", announce)
-    .then(function(res){
-        if(res.ok){
-           res.json().then(function(data) {
-              //console.log(data);
-              //  edata = data;
-              fillDivAnnounce(data);
-              console.log("res.ok == false");
-        })
-    }
-    else {
-      console.log("incorrect username/password");
-    }
-    })
-    .catch(function(err){
-        console.log("POST request failed", err);
-    });
-}
+  function getAllAnnounce() {
+      var announce = {
+        method: "GET"
+      }
+      fetch(url+"/announcementsall", announce)
+      .then(function(res){
+          if(res.ok){
+             res.json().then(function(data) {
+                //console.log(data);
+                //  edata = data;
+                fillDivAnnounce(data);
+                console.log("res.ok == false");
+          })
+      }
+      else {
+        console.log("incorrect username/password");
+      }
+      })
+      .catch(function(err){
+          console.log("POST request failed", err);
+      });
+  }
 
 function deleteAnnounce(a){
         var d = {
