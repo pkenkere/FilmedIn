@@ -8,7 +8,6 @@ function body_onload() {
 }
 var count = 0;
 var arr = new Array();
-arr.length = 0;
 function updateR(divName) {
   var rolename = $('#rolename').val() == '' ? '---' : $('#rolename').val();
 
@@ -68,6 +67,7 @@ function ProfBtn_onclick(){
 }
 
 function PostJobBtn_onclick(){
+  console.log("job post button clicked");
   // prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
   var e = document.getElementById("productionTypes");
   var prodtype = e.options[e.selectedIndex].value;
@@ -87,6 +87,7 @@ function PostJobBtn_onclick(){
   var start = document.getElementById("startAud").value;
   var end = document.getElementById("endAud").value;
   var email = sessionStorage.getItem("email");
+
   jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
 }
 
