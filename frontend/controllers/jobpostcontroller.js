@@ -17,7 +17,7 @@ function jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPai
       specialInstr : spcl,
       audStartDate : start,
       audEndDate : end,
-      rolesArray: arr
+      roles: arr
       })
   }
   console.log("inside job controller");
