@@ -112,3 +112,14 @@ function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
 }
+
+$(document).ready(function () {
+    $("#RoleBtn").click(function () {
+        $("input[type=text]").val("");
+        $("textarea").val("");
+    });
+    $("#jobPostBtn").click(function () {
+        $("input[type=text]").val("");
+        $("textarea").val("");
+    })
+});
