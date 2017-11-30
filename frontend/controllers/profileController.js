@@ -226,15 +226,44 @@ function getAllJobs(){
     });
 }
 
-function profGetName(e) {
-  var obj = {
-    method: "GET",
+function cancelReservation(email, equipment, size) {
+  var equipmentData = {
+    method : "POST",
+    headers:{
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        email: email,
+        size : size,
+        equipments: equipment
+      })
   }
-  fetch(url+"/profile?email=" + e, obj)
-  .then(function(res){
-    console.log(res);
+    fetch(url + '/cancelEquipment', equipmentData)
+    .then(function(res) {
+      if(res.ok){
+          res.json().then(function(data) {
+            console.log("feedback sent!");
+            location.href("../HTML/profile.html?email=" + email);
+          });
+          //login to profile
+      }
+      else{
+          //alert incorrect
+          console.log("incorrect posting");
+      }
   })
   .catch(function(err){
-    console.log("GET request failed", err);
+      console.log("POST request failed", err);
+
+      function profGetName(e) {
+        var obj = {
+          method: "GET",
+        }
+        fetch(url+"/profile?email=" + e, obj)
+        .then(function(res){
+          console.log(res);
+        })
+        .catch(function(err){
+          console.log("GET request failed", err);
   });
 }

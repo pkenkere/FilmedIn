@@ -7,6 +7,7 @@ function body_onload() {
   RentBtn.onclick = rentBtn_onclick;
   SuccessAlert.style.display = "none";
   document.getElementById("rangeDis").disabled = true;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
 }
 var count = 0;
 var arr = new Array();
@@ -66,8 +67,11 @@ function printArray() {
   }
 }
 
+function feedbackBtn_onclick(){
+  location.href = "../HTML/feedbackform.html";
+}
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function JobsBtn_onclick(){

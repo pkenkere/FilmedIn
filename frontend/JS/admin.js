@@ -13,6 +13,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   Profile.onclick = Profile_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
   displayFeedbacks();
   //removeEq.onclick = removeEquipment;
   //removeNews.onclick = removeAnnouncement;
@@ -40,6 +41,11 @@ evt.currentTarget.className += " active";
 
 function displaySuccess() {
   SuccessAlert.style.display = "block";
+}
+
+function feedbackBtn_onclick(){
+  console.log('clicked');
+  location.href = "../HTML/feedbackform.html";
 }
 
 function addEquipment() {
