@@ -32,6 +32,8 @@ module.exports = function(app,db) {
               //var name;
               AM.getAccountByEmail(req.param('email'), function(o) {
                 if (o) {
+                  var jobsPosted = new Array();
+                  var equips = new Array();
                   PM.addProfileInfo(req.param('email'), {
                     email : req.param('email'),
                     name : o.name,
@@ -43,8 +45,8 @@ module.exports = function(app,db) {
                     facebookLink : req.param('facebookLink'),
                     linkedInLink : req.param('linkedInLink'),
                     resumeLink : req.param('resumeLink'),
-                    jobsPosted : [],
-                    equipments: [] //array of arrays of equipments checked out
+                    jobsPosted : jobsPosted,
+                    equipments: equips //array of arrays of equipments checked out
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
@@ -122,12 +124,18 @@ module.exports = function(app,db) {
   });
 
   app.post('/deleteProfile', function(req, res) {
-    PM.deleteProfile(req.param('email'), function(e) {
+    PM.deleteProfile(req.body.id, function(e) {
       if (e)
-        callback('error while deleting profile');
+        res.status(400).send('error while deleting profile');
       else
         res.status(200).send('profile deleted');
     })
+  });
+
+  app.post('/resetProfiles', function(req, res) {
+    PM.delAllRecords(function(){
+      res.send('ok');
+    });
   });
 
 };

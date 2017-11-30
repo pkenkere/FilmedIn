@@ -20,11 +20,12 @@ function jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPai
       rolesArray: arr
       })
   }
+  console.log("inside job controller");
   fetch(url+"/jobs", productionCredentials)
   .then(function(res){
       if(res.ok){
           res.json().then(function(data) {
-          displaySuccess();
+            displaySuccess();
             console.log("login success!");
           });
           //login to profile
