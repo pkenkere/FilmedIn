@@ -150,10 +150,12 @@ function applyJob(){
 }
 
 function role_onclick(){
-  console.log("here!");
+  console.log(this.id);
+  console.log(sessionStorage.getItem("email"));
+  console.log(this.rl);
   var obj = {
     id: this.id,
-    userEmail: localStorage.getItem("email"),
+    userEmail: sessionStorage.getItem("email"),
     role: this.rl
   }
   jobApplyPost(obj);
