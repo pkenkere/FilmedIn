@@ -137,3 +137,7 @@ h4 {
 #SuccessAlert{
   display: none;
 }
+
+#card {
+  border-style: solid;
+}
