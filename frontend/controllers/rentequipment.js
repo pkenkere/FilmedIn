@@ -52,7 +52,6 @@ function getAllEquip(){
 
             // add the label element to your div
             document.getElementById(equip.category).appendChild(label);
-            console.log(label);
           }
             //console.log(data);
             //var json = JSON.parse(data);
