@@ -13,7 +13,7 @@ function profileGet(e){
                  //console.log("data name: " + data.name);
 
                  var nameDisplay = document.getElementById("proName");
-                 if (data.nameDisplay == null) {
+                 if (data.name == null) {
                    nameDisplay.innerHTML = "";
                  }
                  else {
