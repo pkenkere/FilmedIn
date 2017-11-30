@@ -1,4 +1,5 @@
 var edata;
+
 function body_onload() {
   addEquip.onclick = addEquipment;
   addAdminBtn.onclick = addAdmin;
@@ -12,6 +13,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   Profile.onclick = Profile_onclick;
+  displayFeedbacks();
   //removeEq.onclick = removeEquipment;
   //removeNews.onclick = removeAnnouncement;
 }
@@ -166,4 +168,8 @@ function fillDivAnnounce(a) {
 
     div.appendChild(row);
   }
+}
+
+function displayFeedbacks() {
+  getAllFeed();
 }

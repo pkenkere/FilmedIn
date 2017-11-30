@@ -183,19 +183,18 @@ function getAllFeed() {
   var feed = {
     method: "GET"
   }
-  fetch(url+"/getAllFeedbacks", feed)
+  fetch(url+"/printFeedbacks", feed)
     .then(function(res){
       if(res.ok){
          res.json().then(function(data) {
            for (var i = 0; i < data.length; i++) {
               var feed = data[i];
-              var some = document.createElement("div");
-              // some.setAttribute("type","...");
-              some.innerHTML = feed.feedback;
-              // some.setAttribute("value", feed.feedback);
-              some.setAttribute("id", feed.email);
+              console.log("feedback email: " + feed.email);
+              var child = document.createElement("div");
+              child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>From: ' + feed.email + '</h4><p class=' + '"card-text"' + '>' + feed.feedback + '</p></div></div>';
+
               var categ = document.getElementById('seeFeedback');
-              categ.appendChild(some);
+              categ.appendChild(child);
             }
         })
       }

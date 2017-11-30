@@ -13,25 +13,60 @@ function profileGet(e){
                  //console.log("data name: " + data.name);
 
                  var nameDisplay = document.getElementById("proName");
-                 nameDisplay.innerHTML = data.name;
+                 if (data.name == null) {
+                   nameDisplay.innerHTML = "";
+                 }
+                 else {
+                   nameDisplay.innerHTML = data.name;
+                 }
 
                  var major = document.getElementById("result");
-                 major.innerHTML = "Major: " + data.major;
+                 if (data.major == null) {
+                   major.innerHTML = "";
+                 }
+                 else {
+                   major.innerHTML = "Major: " + data.major;
+                 }
 
                  var year = document.getElementById("resultY");
-                 year.innerHTML = "Year: " + data.year;
+                 if (data.year == null) {
+                   year.innerHTML = "";
+                 }
+                 else {
+                   year.innerHTML = "Year: " + data.year;
+                 }
 
                  var interest = document.getElementById("resultI");
-                 interest.innerHTML = "Interest: " + data.interest;
+                 if (data.interest == null) {
+                   interest.innerHTML = "";
+                 }
+                 else {
+                   interest.innerHTML = "Interest: " + data.interest;
+                 }
 
                  var ethnicity = document.getElementById("eth");
-                 eth.innerHTML = "Ethnicity: " + data.ethnicity;
+                 if (data.ethnicity == null) {
+                   ethnicity.innerHTML = "";
+                 }
+                 else {
+                   ethnicity.innerHTML = "Ethnicity: " + data.ethnicity;
+                 }
 
                  var age = document.getElementById("age");
-                 age.innerHTML = "Age: " + data.age;
+                 if (data.age == null) {
+                   age.innerHTML = "";
+                 }
+                 else {
+                   age.innerHTML = "Age: " + data.age;
+                 }
 
                  var gender = document.getElementById("gender");
-                 gender.innerHTML = "Gender: " + data.gender;
+                 if (data.gender == null) {
+                   gender.innerHTML = "";
+                 }
+                 else {
+                   gender.innerHTML = "Gender: " + data.gender;
+                 }
 
                  var linkedInLink = document.getElementById("linkedInLink");
                  if (data.linkedInLink == null) {

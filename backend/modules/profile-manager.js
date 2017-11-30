@@ -36,21 +36,21 @@ exports.updateProfile = function(email, newData, callback) {
       //console.log(o);
       console.log("name: " + o.name);
       console.log("email: " + o.email);
-      if (newData.major != '')
+      if (newData.major != '' && newData.major != null)
         o.major = newData.major;
-      if (newData.year != '')
+      if (newData.year != '' && newData.year != null)
         o.year = newData.year;
-      if (newData.interest != '')
+      if (newData.interest != '' && newData.interest != null)
         o.interest = newData.interest;
-      if (newData.instagramLink != '')
+      if (newData.instagramLink != '' && newData.instagramLink != null)
         o.instagramLink = newData.instagramLink;
-      if (newData.facebookLink != '')
+      if (newData.facebookLink != '' && newData.facebookLink != null)
         o.facebookLink = newData.facebookLink;
-      if (newData.linkedInLink != '')
+      if (newData.linkedInLink != '' && newData.linkedInLink != null)
         o.linkedInLink = newData.linkedInLink;
-      if (newData.resumeLink != '')
+      if (newData.resumeLink != '' && newData.resumeLink != null)
         o.resumeLink = newData.resumeLink;
-      if (newData.jobPosted != '' || newData.jobPosted != null) {
+      if (newData.jobPosted != '' && newData.jobPosted != null) {
         console.log("jobs posted: " + o.jobsPosted);
         var jobs = o.jobsPosted;
         jobs.push(newData.jobPosted);
@@ -58,9 +58,9 @@ exports.updateProfile = function(email, newData, callback) {
       }
       if (newData.equipments != '' || newData.equipments != null) {
         if (newData.flag == false) {
-          var equips = o.equipments;
-          equips.push(newData.equipments);
-          o.equipments = equips;
+          // var equips = o.equipments;
+          // equips.push(newData.equipments);
+          o.equipments = newData.equipments;
         }
         else
           o.equipments = newData.equipments;

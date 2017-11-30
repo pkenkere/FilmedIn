@@ -72,4 +72,6 @@ function search(){
   }
   obj = obj.substring(0,obj.length-1);
   console.log(obj);
+  console.log(encodeURI(obj));
+  searchPost(encodeURI(obj));
 }
