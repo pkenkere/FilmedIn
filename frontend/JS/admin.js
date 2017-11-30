@@ -140,7 +140,8 @@ function delEquip(){
 }
 
 function delAnnounce(){
-  deleteAnnounce(this.value);
+  console.log(this.idVal);
+  deleteAnnounce(this.idVal);
 }
 
 function fillDivAnnounce(a) {
@@ -159,6 +160,7 @@ function fillDivAnnounce(a) {
     row.onclick = delAnnounce;
     row.Index = "delAnnounce"+i;
     row.value = allAnn[i].headline;
+    row.idVal = allAnn[i]._id;
     colName.innerHTML = allAnn[i].headline + "<B>&times;</B>";
 
     row.appendChild(colName);

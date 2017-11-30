@@ -73,6 +73,25 @@ function profileGet(e){
     });
 }
 
+function resumePost(r){
+  var res = {
+    method: "POST",
+    headers:{
+         'content-type': 'application-json'
+    },
+    body: {
+         resume: r
+    }
+  }
+  fetch(/*RESUME ROUTE*/)
+  .then(function(res){
+
+  })
+  .catch(function(err){
+      console.log("GET request failed", err);
+  });
+}
+  
 function profileUpdate(email, profile) {
   var profileData = {
     method : "POST",
@@ -82,9 +101,9 @@ function profileUpdate(email, profile) {
     body: JSON.stringify(profile)
   };
 
-  fetch(url + "/profile", profileData)
+    fetch(url + "/profile", profileData)
     .then(function(res) {
-      if (res.ok) {
+        if (res.ok) {
         res.json().then(function(data) {
           location.href = "../HTML/profile.html?email=" + data.email;
         });
@@ -92,5 +111,5 @@ function profileUpdate(email, profile) {
       else {
         location.href = "../HTML/404notfound.html";
       }
-    })
+    });
 }
