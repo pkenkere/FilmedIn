@@ -34,6 +34,8 @@ exports.updateProfile = function(email, newData, callback) {
       //o.ethnicity = newData.ethnicity;
       //o.education = newData.education;
       //console.log(o);
+      console.log("name: " + o.name);
+      console.log("email: " + o.email);
       if (newData.major != '')
         o.major = newData.major;
       if (newData.year != '')
@@ -48,11 +50,18 @@ exports.updateProfile = function(email, newData, callback) {
         o.linkedInLink = newData.linkedInLink;
       if (newData.resumeLink != '')
         o.resumeLink = newData.resumeLink;
-      if (newData.jobPosted != '' || newData.jobPosted != null)
-        o.jobsPosted.push(newData.jobPosted);
+      if (newData.jobPosted != '' || newData.jobPosted != null) {
+        console.log("jobs posted: " + o.jobsPosted);
+        var jobs = o.jobsPosted;
+        jobs.push(newData.jobPosted);
+        o.jobsPosted = jobs;
+      }
       if (newData.equipments != '' || newData.equipments != null) {
-        if (newData.flag == false)
-          o.equipments.push(newData.equipments);
+        if (newData.flag == false) {
+          var equips = o.equipments;
+          equips.push(newData.equipments);
+          o.equipments = equips;
+        }
         else
           o.equipments = newData.equipments;
       }
@@ -101,6 +110,16 @@ exports.getProfiles = function(criterias, callback) {
   );
 }
 
-exports.deleteProfile = function(email, callback) {
-  profiles.remove({email: email}, callback);
+exports.deleteProfile = function(id, callback) {
+  profiles.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllRecords = function(callback)
+{
+    profiles.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
 }

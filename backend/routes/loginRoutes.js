@@ -135,18 +135,18 @@ module.exports = function(app,db) {
     });
 
     app.get('/reset-password', function(req, res) {
-        var email = req.query["e"];
-        var passH = req.query["p"];
-        AM.validateResetLink(email, passH, function(e){
-            if (e != 'ok'){
-                res.redirect('/');
-            } else{
-                // save the user's email in a session instead of sending to the client //
-                req.session.reset = { email:email, passHash:passH };
-                res.render('ResetPW', { title : 'Reset Password' });
+        // var email = req.query["e"];
+        // var passH = req.query["p"];
+        // AM.validateResetLink(email, passH, function(e){
+        //     if (e != 'ok'){
+        //         res.redirect('/');
+        //     } else{
+        //         // save the user's email in a session instead of sending to the client //
+        //         req.session.reset = { email:email, passHash:passH };
+        res.render('ResetPW', { title : 'Reset Password' });
                 //res.render('index', { title: 'FilmedIn' });
-            }
-        })
+        //     }
+        // })
     });
 
     app.post('/reset-password', function(req, res) {
@@ -173,9 +173,7 @@ module.exports = function(app,db) {
     app.post('/delete', function(req, res){
         AM.deleteAccount(req.body.id, function(e, obj){
             if (!e){
-                res.clearCookie('user');
-                res.clearCookie('pass');
-                req.session.destroy(function(e){ res.status(200).send('ok'); });
+                res.status(200).send('ok');
             }   else{
                 res.status(400).send('record not found');
             }
