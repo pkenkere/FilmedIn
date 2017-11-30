@@ -22,20 +22,24 @@ function searchPost(ext){
     });
 }
 
-function jobApplyPost(){
+function jobApplyPost(temp){
     var obj = {
         method: "POST",
         header: {
             'content-type': 'application-json'
        },
-       body: JSON.stringify({
-
-       })
+       body: JSON.stringify(temp)
     }
 
     fetch(url+"/jobs/apply", obj)
     .then(function(res){
-
+        if(res.ok){
+            console.log("applied!");
+            location.href = "../HTML/profile.html";
+        }
+        else{
+            console.log("failed");
+        }
     })
     .catch(function(err){
         console.log("POST request failed", err);
