@@ -207,8 +207,8 @@ function getAllJobs(){
                   '</div></div></br>';
                 for(var j = 0; j < data[i].applicants.length; j++) {
                    var divA = document.createElement('div');
-                   divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].name + '</div>';
-                   divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
+                   divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].userEmail + '</div>';
+                  // divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
                    document.getElementById("interested").appendChild(divA);
                 }
                 document.getElementById("showJobsID").appendChild(newdiv);
@@ -224,4 +224,17 @@ function getAllJobs(){
     .catch(function(err){
         console.log("GET request failed", err);
     });
+}
+
+function profGetName(e) {
+  var obj = {
+    method: "GET",
+  }
+  fetch(url+"/profile?email=" + e, obj)
+  .then(function(res){
+    console.log(res);
+  })
+  .catch(function(err){
+    console.log("GET request failed", err);
+  });
 }
