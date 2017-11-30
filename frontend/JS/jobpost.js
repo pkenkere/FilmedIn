@@ -17,7 +17,7 @@ function updateR(divName) {
 
   var gender = document.querySelector('input[name="gender"]:checked').value;
 
-  var age = document.getElementById("range").value;
+  var age = document.getElementById("slider").value;
 
   var eI= document.getElementById('ethnicity');
   var ethnicity = eI.options[eI.selectedIndex].value;
@@ -68,9 +68,26 @@ function ProfBtn_onclick(){
 }
 
 function PostJobBtn_onclick(){
-  prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
-  jobPost(title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
-
+  // prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
+  var e = document.getElementById("productionTypes");
+  var prodtype = e.options[e.selectedIndex].value;
+  var title = document.getElementById("title").value;
+  var prodDescrip = document.getElementById("desc").value;
+  var DateAndLoc = document.getElementById("datLoc").value;
+  var expDate = document.getElementById("exp").value;
+  var checks = document.getElementsByClassName("paid");
+  var isPaid;
+  for(var i=0; checks[i]; ++i) {
+    if (checks[i].checked === true) {
+      isPaid = checks[i].value;
+      break;
+    }
+  }
+  var spcl = document.getElementById("spcl").value;
+  var start = document.getElementById("startAud").value;
+  var end = document.getElementById("endAud").value;
+  var email = sessionStorage.getItem("email");
+  jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
 }
 
 function displaySuccess() {
