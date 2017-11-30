@@ -12,6 +12,7 @@ function body_onload() {
   //   document.getElementById('ProfBtn').onclick = findTalent_onclick;
   //     document.getElementById('JobsBtn').onclick = opportunities_onclick;
   renderProfile();
+  renderEquipments();
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
@@ -26,6 +27,10 @@ function renderProfile(){
   profileGet(e);
 }
 
+function renderEquipments() {
+  var e = sessionStorage.getItem("email");
+  equipmentGet(e);
+}
 function feedbackBtn_onclick() {
   location.href = "../HTML/feedbackform.html";
 }

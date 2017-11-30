@@ -73,6 +73,33 @@ function profileGet(e){
     });
 }
 
+function equipmentGet(e) {
+  var profile = {
+      method : "GET",
+  };
+  fetch(url+"/profile?email=" + e)
+  .then(function(res){
+    if(res.ok) {
+         res.json().then(function(data){
+           var equipobj = document.getElementById('Equip');
+           if (data.equipments == null) {
+             console.log("equipments " + data.equipments);
+            equipobj.innerHTML = "";
+           }
+           else {
+             equipobj.innerHTML = "Equipment Reservation" + data.equipments;
+           }
+       });
+  }
+  else{
+      location.href = "../HTML/404notfound.html";
+  }
+})
+.catch(function(err){
+  console.log("GET request failed", err);
+});
+}
+
 function resumePost(r){
   var res = {
     method: "POST",
