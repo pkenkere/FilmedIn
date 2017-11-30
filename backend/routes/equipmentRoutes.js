@@ -108,10 +108,13 @@ module.exports = function(app,db) {
 
   app.post('/equipment/checkout', function(req, res) {
     var checkoutReq = {
-      user : req.body.user,
-      size : req.body.size
+      email : req.body.email,
+      //size : req.body.size
+      equipments : req.body.equipments,
+      dateFrom : req.body.dateFrom,
+      dateTo : req.body.dateTo
     };
-    checkoutReq.equipments = req.body.equipments;
+    //checkoutReq.equipments = req.body.equipments;
 
     // Update Profile!!!
     ED.dispatchEquipmentCheckout(checkoutReq, function(e){
@@ -122,7 +125,7 @@ module.exports = function(app,db) {
           equipments : req.body.equipments
         };
 
-        PM.updateProfile(req.body.user, newData,
+        PM.updateProfile(req.body.email, newData,
           function (e, o) {
             if (e) {
               res.status(400).send('error adding checked out equipments to account');
@@ -138,4 +141,20 @@ module.exports = function(app,db) {
       }
     });
   });
+
+  app.post('/deleteEquipment', function(req, res) {
+    EM.deleteEquipment(req.body.id, function(e) {
+      if (e)
+        res.status(400).send('error while deleting equipment');
+      else
+        res.status(200).send('equipment deleted');
+    });
+  });
+
+  app.post('/resetEquipments', function(req, res) {
+    EM.delAllRecords(function(){
+      res.send('ok');
+    });
+  });
+
 };

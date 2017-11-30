@@ -30,11 +30,18 @@ function verify(divName) {
   //   inputElements[i].checked = false;
   // }
   arr.length = 0;
-  var date = document.getElementById('dateToRent');
+  var dateFrom = document.getElementById('dateFrom');
   node = document.createElement('LI');
-  textnode = document.createTextNode('DATE: ' + (date.value));
+  textnode = document.createTextNode('DATE FROM: ' + (dateFrom.value));
   node.appendChild(textnode);
   document.getElementById(divName).appendChild(node);
+
+  var dateTo = document.getElementById('dateTo');
+  node = document.createElement('LI');
+  textnode = document.createTextNode('DATE TO: ' + (dateTo.value));
+  node.appendChild(textnode);
+  document.getElementById(divName).appendChild(node);
+
   for(var i=0; i<inputElements.length; i++){
       if(inputElements[i].checked == true){
         node = document.createElement('LI');
@@ -63,8 +70,9 @@ function sub() {
   }
   document.getElementById("btnVer").disabled = true;
   var email = sessionStorage.getItem("email");
-  var date = document.getElementById('dateToRent').value;
-  rentEquipmentPost(arr, email, date);
+  var dateFrom = document.getElementById('dateFrom').value;
+  var dateTo = document.getElementById('dateTo').value;
+  rentEquipmentPost(arr, email, dateFrom, dateTo);
 }
 
 function HomeBtn_onclick(){

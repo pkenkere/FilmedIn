@@ -48,3 +48,17 @@ exports.getAllEquipments = function(callback) {
     callback(null, res);
   });
 }
+
+exports.deleteEquipment = function(id, callback) {
+  equipments.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllRecords = function(callback)
+{
+    equipments.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
+}
