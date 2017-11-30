@@ -42,8 +42,9 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Production Details</a>
               </h4>
             </div>
-            <form id="prodDescription">
+
             <div onclick="hideSuccess();" id="collapse1" class="panel-collapse collapse">
+              <form id="prodDescription">
               <div class="panel-body">
                 <label>Title of Production</label>
                   <br>
@@ -79,8 +80,8 @@
                 <label><input class="paid" type="checkbox" value="Yes"> Yes</label>
                 <label><input class="paid" type="checkbox" value="No"> No</label>
               </div>
+              </form>
             </div>
-          </form>
           </div>
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -105,9 +106,10 @@
                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Auditions</a>
               </h4>
             </div>
-            <form id="auditions">
+
             <div id="collapse3" class="panel-collapse collapse">
               <div class="panel-body">
+                <form id="auditions">
                 <label>Any Special Submission Instructions</label> <br>
                 <textarea id="spcl" rows = "4" cols = "50" placeholder="Mention here if candidate must upload cover letter, or a video"></textarea>
                 <br>
@@ -115,9 +117,9 @@
                 <label>from<input id="startAud" type="date"></label>
                 <label>to<input id="endAud" type="date"></label>
                 <br>
+                </form>
               </div>
             </div>
-          </form>
           </div>
         </div> <!-- close panel group -->
         </div> <!-- Close container 1 -->
@@ -138,8 +140,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
      </div>
-     <form id="roleInfo">
+
     <div class="modal-body">
+      <form id="roleInfo">
       <div class="form-group">
         <label>Name of Role:</label>
         <br>
@@ -171,11 +174,11 @@
       <div class="form-group">
         <label>Age:</label>
       <input id = "slider" type="range" min="0" max="80" value="0" step="5" onchange="showValue(this.value)" />
-      <button id="range">0</button>
+      <button id="rangeDis">0</button>
       <script type="text/javascript">
         function showValue(newValue)
           {
-            document.getElementById("range").innerHTML=newValue;
+            document.getElementById("rangeDis").innerHTML=newValue;
           }
       </script>
       <br>
@@ -197,8 +200,9 @@
         <br>
     <input id="roledesc">
     </div>
+    </form>
 </div>
-</form>
+
 <div class="modal-footer">
   <button id="addRole" type="submit" class="btn" onclick="updateR('dynamicInput');" data-dismiss="modal">Save Role</button>
 </div>

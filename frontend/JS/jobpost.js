@@ -6,7 +6,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   SuccessAlert.style.display = "none";
-  document.getElementById("range").disabled = true;
+  document.getElementById("rangeDis").disabled = true;
 }
 var count = 0;
 var arr = new Array();
@@ -54,8 +54,8 @@ function updateR(divName) {
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
     count++;
-    document.getElementById("range").value = 0;
-    document.getElementById("range").innerHTML= "0";
+    document.getElementById("slider").value = 0;
+    document.getElementById("rangeDis").innerHTML= "0";
     document.getElementById("roleInfo").reset();
 }
 
