@@ -136,7 +136,7 @@ function getAllAnnounce() {
     var announce = {
       method: "GET"
     }
-    fetch(url+"/announcements", announce)
+    fetch(url+"/announcementsall", announce)
     .then(function(res){
         if(res.ok){
            res.json().then(function(data) {
@@ -162,10 +162,10 @@ function deleteAnnounce(a){
               'content-type': 'application/json'
           },
           body: JSON.stringify({
-              name: a
+              id: a
           })
         }
-        fetch(url+"/deleteAnnouncement", d)  /////no route made?????
+        fetch(url+"/announcements/delete", d)  /////no route made?????
         .then(function(res){
             if(res.ok){
                 getAllAnnounce();

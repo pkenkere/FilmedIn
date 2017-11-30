@@ -90,6 +90,7 @@ function resumePost(r){
   .catch(function(err){
       console.log("GET request failed", err);
   });
+}
   
 function profileUpdate(email, profile) {
   var profileData = {
@@ -100,9 +101,9 @@ function profileUpdate(email, profile) {
     body: JSON.stringify(profile)
   };
 
-  fetch(url + "/profile", profileData)
+    fetch(url + "/profile", profileData)
     .then(function(res) {
-      if (res.ok) {
+        if (res.ok) {
         res.json().then(function(data) {
           location.href = "../HTML/profile.html?email=" + data.email;
         });
@@ -110,5 +111,5 @@ function profileUpdate(email, profile) {
       else {
         location.href = "../HTML/404notfound.html";
       }
-    })
+    });
 }
