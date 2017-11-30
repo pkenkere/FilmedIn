@@ -112,7 +112,7 @@ function resumePost(r){
   var res = {
     method: "POST",
     headers:{
-         'content-type': 'application-json'
+         'content-type': 'application/json'
     },
     body: {
          resume: r

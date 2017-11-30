@@ -25,8 +25,8 @@ function searchPost(ext){
 function jobApplyPost(temp){
     var obj = {
         method: "POST",
-        header: {
-            'content-type': 'application-json'
+        headers: {
+            'content-type': 'application/json'
        },
        body: JSON.stringify(temp)
     }
