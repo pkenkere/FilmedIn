@@ -117,15 +117,23 @@ function equipmentGet(e) {
   .then(function(res){
     if(res.ok) {
          res.json().then(function(data){
-           var equipobj = document.getElementById('Equip');
+           /*var equipobj = document.getElementById('Equip');
            if (data.equipments == null) {
              console.log("equipments " + data.equipments);
-            equipobj.innerHTML = "";
+             equipobj.innerHTML = "";
            }
            else {
              equipobj.innerHTML = "Equipment Reservation" + data.equipments;
-           }
-       });
+           }*/
+
+          var equipList = document.getElementById('equipList');
+          for (var i = 0; i < data.equipments.length; i++) {
+            var child = document.createElement("div");
+            child.id = "Equip";
+            child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+            equipList.appendChild(child);
+          }
+        });
   }
   else{
       location.href = "../HTML/404notfound.html";

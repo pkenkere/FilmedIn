@@ -257,3 +257,9 @@ h1 {
 
 #cancelBtn {
 }
+
+#Equip {
+  border-style: solid;
+  margin: 5px 0px;
+  padding-left: 5px;
+}
