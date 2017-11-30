@@ -1,22 +1,24 @@
 "use strict";
 var url = "http://localhost:5000";
-function rentEquipmentPost(arr, email, date) {
+function rentEquipmentPost(arr, email, dateFrom, dateTo) {
   var equipdets = {
       method: "POST",
       headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          arr: arr,
-          email: email,
-          date: date
+          equipments : arr,
+          email : email,
+          dateFrom : dateFrom,
+          dateTo : dateTo
       })
   }
   fetch(url+"/equipment/checkout", equipdets)
   .then(function(res){
       if(res.ok){
           //login to profile
-          displaySuccess();
+          //displaySuccess();
+          location.href = "../HTML/profile.html?email=" + email;
           console.log("request sent!");
       }
       else{
@@ -44,15 +46,16 @@ function getAllEquip(){
             var checkbox = document.createElement("input");
 
             checkbox.type = "checkbox";    // make the element a checkbox
-            checkbox.id = i;      // give it id
-            checkbox.value = equip.name;         // make its value
+            checkbox.id = i;               // give it id
+            checkbox.value = equip.name;   // make its value
 
             label.appendChild(checkbox);   // add the box to the element
             label.appendChild(description);// add the description to the element
 
+            console.log("" + equip.category);
+
             // add the label element to your div
-            document.getElementById(equip.category).appendChild(label);
-            console.log(label);
+            document.getElementById("" + equip.category).appendChild(label);
           }
             //console.log(data);
             //var json = JSON.parse(data);

@@ -129,7 +129,7 @@ module.exports = function(app,db) {
         res.status(400).send('error while deleting profile');
       else
         res.status(200).send('profile deleted');
-    })
+    });
   });
 
   app.post('/resetProfiles', function(req, res) {

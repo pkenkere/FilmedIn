@@ -26,10 +26,14 @@
 </head>
 <body onload="body_onload()">
   <h1>Rent Equipment</h1>
-  <form>
-    Date:
-    <input type="date" id="dateToRent">
-  </form></br>
+  <div id="dateForm">
+    <form>
+      Date From:
+      <input type="date" id="dateFrom">
+      Date To:
+      <input type="date" id="dateTo">
+    </form>
+  </div>
   <div id = "rent-container" class="panel">
     <div class="content">
       <div class="panel-group" id="accordion">

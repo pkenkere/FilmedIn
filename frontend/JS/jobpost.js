@@ -54,6 +54,13 @@ function updateR(divName) {
     count++;
 }
 
+function printArray() {
+  for (var i = 0; i < arr.length; i++) {
+    var entry = arr[i];
+    console.log(entry.name);
+  }
+}
+
 function HomeBtn_onclick(){
   location.href = "../HTML/newsfeed.html";
 }
@@ -68,6 +75,8 @@ function ProfBtn_onclick(){
 
 function PostJobBtn_onclick(){
   console.log("job post button clicked");
+  printArray();
+
   // prodtype = document.querySelector('input[name="prodTypes"]:checked').value;
   var e = document.getElementById("productionTypes");
   var prodtype = e.options[e.selectedIndex].value;
@@ -103,3 +112,14 @@ function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
 }
+
+$(document).ready(function () {
+    $("#RoleBtn").click(function () {
+        $("input[type=text]").val("");
+        $("textarea").val("");
+    });
+    $("#jobPostBtn").click(function () {
+        $("input[type=text]").val("");
+        $("textarea").val("");
+    })
+});

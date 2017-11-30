@@ -102,11 +102,11 @@ EM.composeEmail = function(o)
 
 EM.composeEquipmentEmail = function(o)
 {
-  var text = "The following user has rented out equipment:\n\nUser: " +
-              o.user + "\n\nEquipment rented:\n\n";
-  for (var i = 0; i < o.size; i++) {
+  var text = "The following user has requested to rent out equipment from " + o.dateFrom + " to " + o.dateTo + "\n\nUser: " +
+              o.email + "\n\nEquipment rented:\n\n";
+  for (var i = 0; i < o.equipments.length; i++) {
 
-    text+=o.equipments[i].name + " ==> Category: " + o.equipments[i].category + "\n";
+    text += o.equipments[i].name + " ==> Category: " + o.equipments[i].category + "\n";
   }
   return text;
 }
