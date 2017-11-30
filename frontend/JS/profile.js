@@ -2,6 +2,7 @@ var count = 0;
 
 function body_onload() {
   renderProfile();
+  renderEquipments();
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
   ProfBtn.onclick = ProfBtn_onclick;
@@ -16,6 +17,10 @@ function renderProfile(){
   profileGet(e);
 }
 
+function renderEquipments() {
+  var e = sessionStorage.getItem("email");
+  equipmentGet(e);
+}
 function feedbackBtn_onclick() {
   location.href = "../HTML/feedbackform.html";
 }
