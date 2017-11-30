@@ -64,7 +64,7 @@ function addNewsPost(headline, description) {
       },
       body: JSON.stringify({
           headline: headline,
-          description: description
+          desc: description
       })
   }
   fetch(url+"/announcements", newsDetails)

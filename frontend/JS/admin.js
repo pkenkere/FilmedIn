@@ -51,7 +51,6 @@ function addEquipment() {
 function addNews() {
   var headline = newsName.value;
   var description = descriptionNews.value;
-  //console.log(headline);
   addNewsPost(headline,description);
 }
 

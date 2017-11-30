@@ -1,8 +1,6 @@
 "use strict";
-var entries;
 var url = "http://localhost:5000";
 function getAllAnnounce() {
-  entries = new Array();
     var announce = {
       method: "GET"
     }
@@ -10,7 +8,7 @@ function getAllAnnounce() {
     .then(function(res){
         if(res.ok){
            res.json().then(function(data) {
-             entries = data;
+             displayEntries(data);
           })
     }
         else{
@@ -21,4 +19,4 @@ function getAllAnnounce() {
     .catch(function(err){
         console.log("POST request failed", err);
     });
-    }
+  }

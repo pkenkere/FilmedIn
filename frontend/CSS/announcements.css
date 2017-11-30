@@ -1,4 +1,4 @@
-/*#divEntriesHead {
+#divEntriesHead {
 	position:absolute;
 	left:17%;
 	top:25%;
@@ -9,8 +9,8 @@
     border-color:rgba(0,0,0,.15);
     font-family:sans-serif;
     font-size:16px;
-}*/
-#divEntriesHead {
+}
+/*#divEntriesHead {
 	position:absolute;
 	left:10px;
 	top:240px;
@@ -21,8 +21,8 @@
     border-color:rgba(0,0,0,.15);
     font-family:sans-serif;
     font-size:16px;
-}
-.divEntriesCol1 {
+}*/
+/*.divEntriesCol1 {
     position:absolute;
     left:0px;
     width:120px;
@@ -46,9 +46,9 @@
     border-right:1px solid #cdcdcd;
     border-color:rgba(0,0,0,.15);
     cursor: pointer;
-}
+}*/
 
-/*.divEntriesCol1 {
+.divEntriesCol1 {
     position:absolute;
     left:0px;
     width:40%;
@@ -62,16 +62,29 @@
 
 .divEntriesCol2 {
   position:absolute;
-  left:360px;
+  left:120px;
   width:60%;
   height:30px;
   display:flex;
   padding-left:10%;
+	justify-content:center;
   align-items:center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}*/
+	border-right:1px solid #cdcdcd;
+	border-color:rgba(0,0,0,.15);
+}
+
+.divEntriesCol3 {
+    position:absolute;
+    left:360px;
+    width:400px;
+    height:30px;
+    display:flex;
+    padding-left:40%;
+    align-items:center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 /*#divEntriesList {
 	position:absolute;
@@ -88,28 +101,26 @@
     font-family:sans-serif;
     font-size:16px;
 }*/
-#divEntriesList {
-	position:absolute;
-	left:10px;
-	top:272px;
-	width:800px;
-	height:400px;
-	background-color:#FFFFFF;
-	overflow-y:scroll;
-    border-left:1px solid #cdcdcd;
-    border-right:1px solid #cdcdcd;
-    border-bottom:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    font-family:sans-serif;
-    font-size:16px;
-}
-
-
 .divEntriesRow {
     height:30px;
-    width:780px;
+    width:800px;
     border-bottom:1px solid #cdcdcd;
     border-color:rgba(0,0,0,.15);
+}
+
+#divEntriesList {
+	position:absolute;
+	left:17%;
+	top:29%;
+	height:300px;
+	width:800px;
+		background-color:#FFFFFF;
+		border:1px solid #cdcdcd;
+		border-color:rgba(0,0,0,.15);
+		border-bottom:1px solid #cdcdcd;
+		font-family:sans-serif;
+		font-size:16px;
+		overflow-y: scroll;
 }
 
 .btn-home {
