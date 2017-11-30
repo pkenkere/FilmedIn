@@ -132,36 +132,28 @@ function getAllEquip() {
       })
   }
 
-function getAllAnnounce() {
-    var announce = {
-      method: "GET"
-    }
-    fetch(url+"/announcementsall", announce)
-    .then(function(res){
-        if(res.ok){
-           res.json().then(function(data) {
-              //console.log(data);
-              //  edata = data;
-              fillDivAnnounce(data);
-<<<<<<< HEAD
-            console.log("res.ok == false");
-=======
-              console.log("res.ok == false");
->>>>>>> 0cda3f3fa086423f2e603af975fd620af8de290e
-        })
-    }
-    else {
-      console.log("incorrect username/password");
-    }
-<<<<<<< HEAD
-  })
-=======
-    })
->>>>>>> 0cda3f3fa086423f2e603af975fd620af8de290e
-    .catch(function(err){
-        console.log("POST request failed", err);
-    });
-}
+  function getAllAnnounce() {
+      var announce = {
+        method: "GET"
+      }
+      fetch(url+"/announcementsall", announce)
+      .then(function(res){
+          if(res.ok){
+             res.json().then(function(data) {
+                //console.log(data);
+                //  edata = data;
+                fillDivAnnounce(data);
+                console.log("res.ok == false");
+          })
+      }
+      else {
+        console.log("incorrect username/password");
+      }
+      })
+      .catch(function(err){
+          console.log("POST request failed", err);
+      });
+  }
 
 function deleteAnnounce(a){
         var d = {
