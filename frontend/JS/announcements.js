@@ -2,18 +2,17 @@
 
 function body_onload() {
   getAllAnnounce();
+  SubmitRep.onclick = submitReport;
+
 //  displayEntries();
   console.log("Crossed");
 }
-
+var annid;
 function displayEntries(entries) {
         console.log("entered");
         divEntriesList.innerHTML = "";
-        console.log(entries.length);
         for (var i = 0; i < entries.length; i++) {
-          console.log(entries.length);
             var entry = entries[i];
-            console.log(entry);
             var row = document.createElement("div");
             var col1 = document.createElement("div");
             var col2 = document.createElement("div");
@@ -24,10 +23,31 @@ function displayEntries(entries) {
             col3.className = "divEntriesCol3";
             col1.innerHTML = entry.headline;
             col2.innerHTML = entry.desc;
-            col3.innerHTML = '<button type="button" id="News'+i+'" class="btn btn-info"><span class="glyphicon glyphicon-thumbs-down"></span>Report</button>';
+            var j = entry._id;
+            console.log(j);
+            col3.innerHTML = '<button type="button" id="' + j + '" class="btn btn-info"><span class="glyphicon glyphicon-thumbs-down"></span>Report</button>';
             row.appendChild(col1);
             row.appendChild(col2);
             row.appendChild(col3);
             divEntriesList.appendChild(row);
+
+            var btn = document.getElementById("" + j);
+            btn.onclick = openmodal;
         }
 }
+
+function openmodal() {
+  $("#myModal").modal();
+  console.log(this.id);
+//  onclick = "openmodal('+entry._id+')
+  //SubmitRep.onclick = submitReport(this.id);
+  annid = this.id;
+}
+
+ function submitReport() {
+  console.log("enter submit");
+var email = reporter.value;
+var title = titleR.value;
+var text = document.getElementById('description').value;
+reportInappropriate(email, annid, title, text);
+ }
