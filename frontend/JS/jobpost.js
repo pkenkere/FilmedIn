@@ -5,6 +5,8 @@ function body_onload() {
   jobPostBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  SuccessAlert.style.display = "none";
+  document.getElementById("range").disabled = true;
 }
 var count = 0;
 var arr = new Array();
@@ -52,7 +54,8 @@ function updateR(divName) {
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
     count++;
-    document.getElementById("range").innerHTML = 0;
+    document.getElementById("range").value = 0;
+    document.getElementById("range").innerHTML= "0";
     document.getElementById("roleInfo").reset();
 }
 
@@ -109,6 +112,10 @@ function PostJobBtn_onclick(){
 
 function displaySuccess() {
   SuccessAlert.style.display = "block";
+}
+
+function hideSuccess() {
+  SuccessAlert.style.display = "none";
 }
 
 function rentBtn_onclick(){
