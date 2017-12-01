@@ -2,7 +2,7 @@ var count = 0;
 
 function body_onload() {
   renderProfile();
-  //renderEquipments();
+  renderEquipments();
   getAllJobs();
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
