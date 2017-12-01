@@ -43,6 +43,10 @@ function displaySuccess() {
   SuccessAlert.style.display = "block";
 }
 
+function hideSuccess() {
+  SuccessAlert.style.display = "none";
+}
+
 function feedbackBtn_onclick(){
   console.log('clicked');
   location.href = "../HTML/feedbackform.html";
