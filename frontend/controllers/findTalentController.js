@@ -1,26 +1,22 @@
+"use strict";
 var url = "http://localhost:5000";
-function talentPost(...) {
+function talentGet(ext) {
   var TalentFilters = {
-    method: "POST",
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify({
-      ...
-    })
+    method: "GET"
   }
-  fetch(url+"/", TalentFilters)
+  fetch(url+ext, TalentFilters)
   .then(function(res){
     if (res.ok) {
       res.json().then(function(data) {
-        ...
+        //console.log(data);
+        fillTalent(data);
       });
     }
     else {
-      console.log("error");
+      console.log("failed to get the profiles");
     }
   })
   .catch(function(err){
-     console.log("POST request failed", err);
+     console.log("GET request failed", err);
   });
 }

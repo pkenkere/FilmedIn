@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../CSS/jobsearch.css">
   <script type="text/javascript" language="javascript" src="../JS/findTalent.js"></script>
+  <script type="text/javascript" language="javascript" src="../Controllers/findTalentController.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -47,8 +48,8 @@
        <div class="box-top3">Age</div>
         <div class="box-panel3">
           <form onchange="enable()">
-          <label>From <input type="number" name="minRange" min="1" max="80"></label>
-            <label>To <input type="number" name="minRange" min="1" max="80"></label>
+          <label>From <input id="ageFrom" type="number" name="minRange" min="1" max="80"></label>
+            <label>To <input id="ageTo" type="number" name="minRange" min="1" max="80"></label>
         </form>
           <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
           <button id="range">0</button>
@@ -96,7 +97,7 @@
     <a href="#"><i class="fa fa-facebook"></i></a>
     <p><button>Contact</button></p>
   </div> -->
-<div id = "talentCont" class="TalentContainer">
+<!-- <div id = "talentCont" class="TalentContainer">
   <div class="card" style="width:400px">
     <img class="card-img-top" src="img_avatar1.png" alt="Card image" style="width:100%">
     <div class="card-body">
@@ -105,9 +106,19 @@
       <a href="#" class="btn btn-primary">See Profile</a>
     </div>
   </div>
-</div>
-<style>
+</div> -->
 
-</style>
-  </body>
-  </html>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <!-- <th></th> -->
+      </tr>
+    </thead>
+    <tbody id="srchTalent">
+    </tbody>
+</table>
+</body>
+</html>

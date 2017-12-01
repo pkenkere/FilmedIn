@@ -10,81 +10,50 @@ function body_onload() {
 }
 
 function btnSrch_onclick(){
-  var eth = document.getElementById("ethnicity").value;
-  var age = parseInt(document.getElementById("range").innerHTML);
-  var name = document.getElementById("name").value;
-  var json = localStorage.getItem("infoProfiles");
-  console.log(json);
-  var allUsers = new Array();
-  allUsers = JSON.parse(json);
-  var filtered = new Array();
-  filtered = allUsers;
-  console.log(eth);
-  console.log(allUsers);
-  if (name !== null && name !== "") {
-    for (var i = 0; i < filtered.length; i++) {
-      if (!(filtered[i].name.contains(name))) {
-          filtered.splice(i, 1);
-          i--;
-      }
-    }
+  var q = {
+    //gender:,  ASK MEEEENNNUUU <<<<<<<--------------------------
+    name: name.value,
+    minAge: ageFrom.value,
+    maxAge: ageTo.value,
+    ethnicity: ethnicity.value
   }
-  if (age != 0) {
-    for (var i = 0; i < filtered.length; i++) {
-      if (filtered[i].age !== age) {
-          filtered.splice(i, 1);
-          i--;
-      }
-    }
+  var obj = "/profiles?";
+  if(name.value != null && name.value != ""){
+    obj += "name="+name.value+"&";
   }
-  if (eth != null || eth != "") {
-    for (var j = 0; j < filtered.length; j++) {
-      if (filtered[j].ethnicity !== eth) {
-          filtered.splice(j, 1);
-          j--;
-      }
-    }
+  if(ageFrom.value != null && ageFrom.value != ""){
+    obj += "minAge="+ageFrom.value+"&";
   }
-  for (var i = 0; i < 3; i++) {
-    if (testCheckbox("chck"+i)) {
-      for (var i = 0; i < filtered.length; i++) {
-        if (filtered[i].gender !== gender) {
-            filtered.splice(i,1);
-            i--;
-        }
-      }
-    }
+  if(ageTo.value != null && ageTo.value != ""){
+    obj += "maxAge="+ageTo.value+"&";
   }
-
-  for (var i = 0; i < filtered.length; i++) {
-    console.log(filtered[i]);
+  // if(ProductionTypes.value != null && ProductionTypes.value != ""){
+  //   obj += "type="+ProductionTypes.value+"&";
+  // }
+  if(ethnicity.value != null && ethnicity.value != ""){
+    obj += "ethnicity="+ethnicity.value+"&";
   }
+  obj = obj.substring(0,obj.length-1);
+  console.log(obj);
+  console.log(encodeURI(obj));
+  talentGet(encodeURI(obj));
 }
 
-function testCheckbox(oCheckbox) {
-    var checkbox_val = oCheckbox.value;
-    if (oCheckbox.checked == true){
-        return true;
-    }
-    else{
-      return false;
-    }
-}
-
-function displayProfs() {
-  var box = document.getElementById("talentCont");
-  for (var i = 0; i < gTalent.length; i++) {
-    var person = gTalent[i];
-    var newdiv = document.createElement('div');
-    newdiv.innerHTML = '<div class="card" style="width:400px">' +
-      '<img class="card-img-top" src=' + person.image + 'alt="Card image" style="width:100%">' +
-      '<div class="card-body">' +
-      '<h4 class="card-title">' + person.Name + '</h4>' +
-      '<p class="card-title">Brief Description</p>' +
-      '<a href="#" class="btn btn-primary">See Profile</a>' +
-      '</div></div>';
-    box.appendChild(newdiv);
-  }
+// function displayProfs() {
+//   var box = document.getElementById("talentCont");
+//   for (var i = 0; i < gTalent.length; i++) {
+//     var person = gTalent[i];
+//     var newdiv = document.createElement('div');
+//     newdiv.innerHTML = '<div class="card" style="width:400px">' +
+//       '<img class="card-img-top" src=' + person.image + 'alt="Card image" style="width:100%">' +
+//       '<div class="card-body">' +
+//       '<h4 class="card-title">' + person.Name + '</h4>' +
+//       '<p class="card-title">Brief Description</p>' +
+//       '<a href="#" class="btn btn-primary">See Profile</a>' +
+//       '</div></div>';
+//     box.appendChild(newdiv);
+//   }
+// }
 
 function HomeBtn_onclick(){
   location.href = "../HTML/announcements.html";
@@ -115,4 +84,17 @@ function feedbackBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function fillTalent(talent){
+  for(var i = 0; i<talent.length; i++){
+    var row = srchTalent.insertRow(i);
+    var col1 = document.createElement("td");
+    var col2 = document.createElement("td");
+    var col3 = document.createElement("td");
+
+    col1.innerHTML = "<a href='../HTML/userProfile.html/profile="+talent[i].email+"'>"+talent.name+"<a>";
+    col2.innerHTML = talent[i].age;
+    col3.innerHTML = talent[i].gender;
+  }
 }
