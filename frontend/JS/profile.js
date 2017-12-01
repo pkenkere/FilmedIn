@@ -53,17 +53,29 @@ function logout_onclick() {
 }
 
 function cancel_onclick() {
+  //console.log("inside cancel onclick");
   var email = sessionStorage.getItem("email");
   var equipments = new Array();
   var profile = {
       method : "GET",
   };
-
+  var dateFrom;
     fetch(url+"/profile?email=" + email)
       .then(function(res){
         if(res.ok) {
              res.json().then(function(data){
                equipments = data.equipments;
+               dateFrom = data.dateFrom;
+
+               if (((new Date() - new Date(dateFrom)) / (1000 * 60 * 60)) < 24) {
+                 alert("You can't cancel checkout for equipments less than 24 hrs in advance");
+                 return;
+               }
+
+               if (equipments.length == 0)
+                 return;
+
+               cancelReservation(email, equipments);
             });
       }
       else{
@@ -74,10 +86,7 @@ function cancel_onclick() {
       console.log("GET request failed", err);
     });
   //var equipment = equipmentGet(email);
-  if (equipments.length == 0)
-    return;
-  
-  cancelReservation(email, equipments);
+
 }
 
 function updateJ(divName) {

@@ -110,6 +110,7 @@ function profileGet(e){
 }
 
 function equipmentGet(e) {
+
   var profile = {
       method : "GET",
   };
@@ -117,6 +118,14 @@ function equipmentGet(e) {
   .then(function(res){
     if(res.ok) {
          res.json().then(function(data){
+          var currRes = document.getElementById('currRes');
+          if (data.dateFrom == '' || data.dateFrom == null) {
+            currRes.innerHTML = "Current Reservation";
+          }
+          else {
+            currRes.innerHTML = "Current Reservation \t\t\t From: " + data.dateFrom + " \t\t\t To: " + data.dateTo;
+          }
+
           var equipList = document.getElementById('equipList');
 
           if (data.equipments.length == 0) {

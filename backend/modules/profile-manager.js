@@ -57,13 +57,16 @@ exports.updateProfile = function(email, newData, callback) {
         o.jobsPosted = jobs;
       }
       if (newData.equipments != '' || newData.equipments != null) {
+        o.dateFrom = newData.dateFrom;
+        o.dateTo = newData.dateTo;
         if (newData.flag == false) {
           // var equips = o.equipments;
           // equips.push(newData.equipments);
           o.equipments = newData.equipments;
         }
-        else
+        else {
           o.equipments = newData.equipments;
+        }
       }
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {

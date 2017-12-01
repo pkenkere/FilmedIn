@@ -85,7 +85,9 @@ module.exports = function(app,db) {
             //equips.splice(req.body.index, 1);
             var newData = {
               flag : true,
-              equipments : new Array()
+              equipments : new Array(),
+              dateFrom : '',
+              dateTo : ''
             }
 
             PM.updateProfile(req.body.email, newData, function(e, o) {
@@ -121,6 +123,8 @@ module.exports = function(app,db) {
         //res.status(200).send('ok, email was dispatched to admin about the equipment request');
         var newData = {
           flag : false,
+          dateFrom : req.body.dateFrom,
+          dateTo : req.body.dateTo,
           equipments : req.body.equipments
         };
 
