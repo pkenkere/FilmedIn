@@ -39,13 +39,22 @@
   border: none;
 }
 
+.btn-feedback {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1050px;
+  border: none;
+}
+
 .btn-postJob {
   background-color: red;
   /*background-color: rgba(199, 168, 41, 0.5);*/
   color: white;
   position: absolute;
   top: 30px;
-  left: 1000px;
+  left: 900px;
 }
 
 .btn-logout{
