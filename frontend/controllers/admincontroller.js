@@ -115,7 +115,7 @@ function getAllEquip() {
             'content-type': 'application/json'
         },
         body: JSON.stringify({
-            name: a
+            id: a
         })
       }
       fetch(url+"/deleteEquipment", d)

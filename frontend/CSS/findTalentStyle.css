@@ -96,3 +96,11 @@ button:hover, a:hover {
   left: 700px;
   border: none;
 }
+
+.btn-myProf {
+  background-color: rgba(199, 168, 41, 0.5);
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}
