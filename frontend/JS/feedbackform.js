@@ -11,7 +11,16 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   Profile.onclick = Profile_onclick;
+  SuccessAlert.style.display = "none";
 }
+
+ function displaySuccess() {
+   SuccessAlert.style.display = "block";
+ }
+
+ function hideSuccess() {
+   SuccessAlert.style.display = "none";
+ }
 
 function yes_onclick() {
   console.log("clicked");
@@ -81,6 +90,7 @@ function send_onclick() {
                 "Informative: " + infoStr + '\n' +
                 "Visually Pleasing: " + vpStr + '\n' +
                 "Comments: " + text;
+
 feedbackPost(emailF.value, feedbackStr);
 }
 

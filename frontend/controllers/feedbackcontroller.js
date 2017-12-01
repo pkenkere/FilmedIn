@@ -14,9 +14,13 @@ function feedbackPost(email, feedback) {
   fetch(url+"/feedback", feedbackData)
   .then(function(res){
       if(res.ok){
-          res.json().then(function(data) {
+          document.getElementById("YESBtn").style.backgroundColor = "white";
+          document.getElementById("NOBtn").style.backgroundColor = "white";
+          document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
+          document.getElementById("optionalQ").style.display = "none";
+            document.getElementById("feedForm").reset();
+            displaySuccess();
             console.log("feedback sent!");
-          });
           //login to profile
       }
       else{
