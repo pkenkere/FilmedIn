@@ -18,6 +18,7 @@ function yes_onclick() {
   document.getElementById("YESBtn").style.backgroundColor = "green";
   document.getElementById("NOBtn").style.backgroundColor = "white";
   document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
+  document.getElementById("optionalQ").style.display = "none";
 // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Yes";
 }
@@ -29,6 +30,7 @@ function no_onclick() {
  document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "No";
+  document.getElementById("optionalQ").style.display = "block";
 }
 
 function partially_onclick() {
@@ -36,6 +38,7 @@ function partially_onclick() {
    document.getElementById("PARTIALLYBtn").style.backgroundColor = "yellow";
    document.getElementById("NOBtn").style.backgroundColor = "white";
    document.getElementById("YESBtn").style.backgroundColor = "white";
+   document.getElementById("optionalQ").style.display = "block";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Partially";
 }
@@ -69,14 +72,15 @@ function send_onclick() {
     vpStr = "Meets Expectations";
   else if(vp == '3')
     vpStr = "Exceeds Expectations"
-  var text = document.getElementById('comments').value;
-  feedbackStr = "First time: " + bool + '\n'
-                "Primary Reason: " + selected + '\n'
-                "Was Goal Achieved: " + buttonclicked + '\n'
-                "Professionalism: " + profStr + '\n'
-                "Informative: " + infoStr + '\n'
-                "Visually Pleasing: " + vpStr + '\n'
-                text;
+  var text = document.getElementById('comment').value;
+  console.log(text);
+  feedbackStr = "First time: " + bool + '\n' +
+                "Primary Reason: " + selected + '\n' +
+                "Was Goal Achieved: " + buttonclicked + '\n' +
+                "Professionalism: " + profStr + '\n' +
+                "Informative: " + infoStr + '\n' +
+                "Visually Pleasing: " + vpStr + '\n' +
+                "Comments: " + text;
 feedbackPost(emailF.value, feedbackStr);
 }
 

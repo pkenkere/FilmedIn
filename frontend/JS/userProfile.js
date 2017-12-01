@@ -1,5 +1,3 @@
-var count = 0;
-
 function body_onload() {
   renderProfile();
   HomeBtn.onclick = HomeBtn_onclick;
