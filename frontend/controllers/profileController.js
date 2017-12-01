@@ -211,12 +211,13 @@ function getAllJobs(){
           var count = 0;
           var email = sessionStorage.getItem("email");
           for(var i = 0; i < data.length; i++) {
-            if (email === data[i].email) {
+            if (email === data[i].email && data[i].title != null && data[i].title != undefined && data[i].title != '') {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
                   '<h4 class="panel-title">' +
                   '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a></h4>' +
+                  //'<button type="button" class="close" onclick="deleteJob(' + data[i].title + ');" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                   '</div>' +
                   '<div id="col' + (count) + '" class="panel-collapse collapse">' +
                    '<div id="' + data[i].title + '" class="panel-body">' +
@@ -254,7 +255,31 @@ function getAllJobs(){
     });
 }
 
-function cancelReservation(email, equipments) {
+function deleteJob(a){
+    var d = {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          name: a
+      })
+    }
+    fetch(url+"/jobs/delete", d)
+    .then(function(res){
+        if(res.ok){
+            getAllJobs();
+        }
+        else{
+            console.log("delete failed");
+        }
+    })
+    .catch(function(err){
+        console.log("POST request failed", err);
+    })
+}
+
+function cancelReservation(email, equipment, size) {
   var equipmentData = {
     method : "POST",
     headers:{

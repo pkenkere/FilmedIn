@@ -199,7 +199,7 @@ h1 {
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 250px;
   border: none;
 }
 
@@ -208,7 +208,7 @@ h1 {
   color: white;
   position: absolute;
   top: 30px;
-  left: 500px;
+  left: 400px;
   border: none;
 }
 
@@ -217,34 +217,35 @@ h1 {
   color: white;
   position: absolute;
   top: 30px;
-  left: 700px;
+  left: 550px;
   border: none;
 }
+
 .btn-feedback {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 1050px;
+  left: 900px;
   border: none;
 }
 
 .btn-postJob {
-  background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 900px;
-}
-
-
-.btn-logout{
+  /*background-color: red;*/
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 1200px;
+  left: 750px;
+  border: none;
+}
+
+.btn-logout {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1080px;
   border: none;
 }
 
@@ -252,7 +253,8 @@ h1 {
   background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   top: 30px;
-  left: 1300px;
+  left: 1200px;
+  border: none;
 }
 .fa {
   padding: 20px;
