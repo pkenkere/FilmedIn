@@ -73,7 +73,8 @@ function profileGet(e){
                   linkedInLink.innerHTML = "";
                  }
                  else {
-                   linkedInLink.innerHTML = "Link: " + '<a href="' + data.linkedInLink+ '" target="_blank">' + data.linkedInLink + '</a>';
+                   linkedInLink.innerHTML = "<a href = '"+data.linkedInLink+ "' target='_blank' class= 'fa fa-linkedin' </a>"
+                  //linkedInLink.innerHTML = "Link: " + '<a href="' + data.linkedInLink+ '" target="_blank">' + data.linkedInLink + '</a>';
                  }
                  console.log(linkedInLink);
                  var facebookLink = document.getElementById("facebookLink");
@@ -81,14 +82,16 @@ function profileGet(e){
                   facebookLink.innerHTML = "";
                  }
                  else {
-                   facebookLink.innerHTML = "Link: " + '<a href="' + data.facebookLink+ '" target="_blank">' + data.facebookLink + '</a>';
+                 facebookLink.innerHTML = "<a href='"+data.facebookLink+"' target='_blank' class='fa fa-facebook'</a>"
+                  // facebookLink.innerHTML = "Link: " + '<a href="' + data.facebookLink+ '" target="_blank">' + data.facebookLink + '</a>';
                  }
                  var instagramLink = document.getElementById("instagramLink");
                  if (data.instagramLink == null) {
                   instagramLink.innerHTML = "";
                  }
                  else {
-                   instagramLink.innerHTML = "Link: " + '<a href="' + data.instagramLink+ '" target="_blank">' + data.instagramLink + '</a>';
+                   instagramLink.innerHTML =  "<a href='"+data.instagramLink+"' target='_blank' class='fa fa-instagram' </a>"
+                   //instagramLink.innerHTML = "Link: " + '<a href="' + data.instagramLink+ '" target="_blank">' + data.instagramLink + '</a>';
                  }
                  var resumeLink = document.getElementById("resumeLink");
                  if (data.resumeLink == null) {
