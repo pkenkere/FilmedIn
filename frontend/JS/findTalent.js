@@ -7,6 +7,11 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 function btnSrch_onclick(){
