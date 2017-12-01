@@ -66,7 +66,7 @@ function cancel_onclick() {
              res.json().then(function(data){
                equipments = data.equipments;
                dateFrom = data.dateFrom;
-               console.log(((new Date() - new Date(dateFrom)) / (1000 * 60 * 60)));
+               console.log(((new Date(dateFrom) - new Date()) / (1000 * 60 * 60)));
                if (((new Date(dateFrom) - new Date()) / (1000 * 60 * 60)) < 24) {
                  alert("You can't cancel checkout for equipments less than 24 hrs in advance");
                  return;

@@ -211,7 +211,7 @@ function getAllJobs(){
           var count = 0;
           var email = sessionStorage.getItem("email");
           for(var i = 0; i < data.length; i++) {
-            if (email === data[i].email && data[i].title != null && data[i].title != undefined && data[i].title != '') {
+            if (email === data[i].email) {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
@@ -287,7 +287,7 @@ function cancelReservation(email, equipment, size) {
     },
     body: JSON.stringify({
         email: email,
-        equipments: equipments
+        equipments: equipment
       })
   }
     fetch(url + '/cancelEquipment', equipmentData)
@@ -318,7 +318,7 @@ function profGetName(e, id) {
                var divA = document.createElement('div');
                //divA.innerHTML = '<div>Applicant: ' + data.name + '</div>';
                //divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data.name + '>' + data.name + '</a>';
-               divA.innerHTML = "Link: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
+               divA.innerHTML = "Link: " + '<a href="../HTML/userProfile.html?profile=' + data.email + '" target="_blank">' + data.name + '</a>';
                document.getElementById(id).appendChild(divA);
              });
         }

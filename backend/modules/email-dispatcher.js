@@ -63,7 +63,7 @@ EM.dispatchReport = function (account, callback) {
   server.send({
               from         : process.env.EMAIL_FROM || 'feedback.filmedin@gmail.com',
               to           : 'feedback.filmedin@gmail.com',
-              subject      : 'Annoucement reported: ' + account.title,
+              subject      : 'Report received: ' + account.title,
               text         :  EM.composeReport(account)
             }, callback );
 }
@@ -113,9 +113,9 @@ EM.composeEquipmentEmail = function(o)
 
 EM.composeReport = function (acc) {
   var text = "You have received a report from " + acc.email + ":\n\n";
-  text += "The annoucement reported is " + acc.headline + ":\n\n";
-  text += acc.description;
-  text += "\n\nReport:\n'" + acc.report + "'.\n";
+  text += "The annoucement reported is " + acc.title + ":\n\n";
+  text += acc.title;
+  text += "\n\nReport:\n'" + acc.desc + "'.\n";
   return text;
 }
 
