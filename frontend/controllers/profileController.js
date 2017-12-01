@@ -68,6 +68,9 @@ function profileGet(e){
                    gender.innerHTML = "Gender: " + data.gender;
                  }
 
+                 var email = document.getElementById("email");
+                 email.innerHTML = "Email: " + sessionStorage.getItem("email");
+
                  var linkedInLink = document.getElementById("linkedInLink");
                  if (data.linkedInLink == null) {
                   linkedInLink.innerHTML = "";
@@ -207,7 +210,7 @@ function getAllJobs(){
         res.json().then(function(data){
           var count = 0;
           var email = sessionStorage.getItem("email");
-          for(var i = 0; data.length; i++) {
+          for(var i = 0; i < data.length; i++) {
             if (email === data[i].email) {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
@@ -216,7 +219,7 @@ function getAllJobs(){
                   '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a></h4>' +
                   '</div>' +
                   '<div id="col' + (count) + '" class="panel-collapse collapse">' +
-                   '<div id="interested" class="panel-body">' +
+                   '<div id="' + data[i].title + '" class="panel-body">' +
                    // '<div>Role Name: Hello</div>' +
                    // '<div>Role Type: hello</div>' +
                    // '<div>Role Gender: 12</div>' +
@@ -225,17 +228,22 @@ function getAllJobs(){
                    // '<div>Role Description: sdafasdfasdfasdfasdf</div>' +
                   '</div>' +
                   '</div></div></br>';
-                for(var j = 0; j < data[i].applicants.length; j++) {
-                   var divA = document.createElement('div');
-                   divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].name + '</div>';
-                   divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
-                   document.getElementById("interested").appendChild(divA);
-                }
                 document.getElementById("showJobsID").appendChild(newdiv);
                 count++;
+              }
             }
-          }
-        })
+            for(var i = 0; i < data.length; i++) {
+              if (email === data[i].email) {
+                for(var j = 0; j < data[i].applicants.length; j++) {
+                  profGetName(data[i].applicants[j].userEmail, data[i].title);
+                  // var divA = document.createElement('div');
+                  // divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].userEmail + '</div>';
+                  // // divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
+                  // document.getElementById(data[i].title).appendChild(divA);
+                }
+              }
+            }
+          })
       }
       else {
         console.log("incorrect username/password");
@@ -270,5 +278,30 @@ function cancelReservation(email, equipments) {
   })
   .catch(function(err){
       console.log("POST request failed", err);
-  });
+    });
+  }
+
+
+function profGetName(e, id) {
+    var obj = {
+      method: "GET",
+    }
+    fetch(url+"/profile?email=" + e, obj)
+      .then(function(res){
+        if(res.ok) {
+             res.json().then(function(data){
+               var divA = document.createElement('div');
+               //divA.innerHTML = '<div>Applicant: ' + data.name + '</div>';
+               //divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data.name + '>' + data.name + '</a>';
+               divA.innerHTML = "Link: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
+               document.getElementById(id).appendChild(divA);
+             });
+        }
+        else {
+          console.log("error getting name");
+        }
+      })
+      .catch(function(err){
+        console.log("GET request failed", err);
+      });
 }
