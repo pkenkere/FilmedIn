@@ -126,6 +126,7 @@ function fillDiv(a) {
     row.onclick = delEquip;
     row.Index = "delEq"+i;
     row.value = allEq[i].name;
+    row.id = allEq[i]._id;
     console.log(allEq[i].name);
     colName.innerHTML = allEq[i].name + "<B>&times;</B>";
 
@@ -147,8 +148,8 @@ function removeEquipment() {
 }
 
 function delEquip(){
-  console.log("Came here with id="+this.value);
-  deleteEquip(this.value);
+  console.log("Came here with id="+this.id);
+  deleteEquip(this.id);
 }
 
 function delAnnounce(){
