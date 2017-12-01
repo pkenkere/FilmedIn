@@ -28,7 +28,7 @@ function feedbackBtn_onclick() {
 }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function JobsBtn_onclick(){
@@ -86,7 +86,6 @@ function cancel_onclick() {
       console.log("GET request failed", err);
     });
   //var equipment = equipmentGet(email);
-
 }
 
 function updateJ(divName) {
