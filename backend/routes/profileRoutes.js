@@ -107,6 +107,8 @@ module.exports = function(app,db) {
 
   app.get('/profiles', function(req, res) {
     var criterias = {};
+    if (req.query.name != null && req.query.name != undefined)
+      criterias.name = req.query.name;
     if (req.query.ethnicity != null && req.query.ethnicity != undefined)
       criterias.ethnicity = req.query.ethnicity;
     if (req.query.gender != null  && req.query.gender != undefined)
