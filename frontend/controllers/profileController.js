@@ -75,6 +75,7 @@ function profileGet(e){
                  else {
                    linkedInLink.innerHTML = "Link: " + '<a href="' + data.linkedInLink+ '" target="_blank">' + data.linkedInLink + '</a>';
                  }
+                 console.log(linkedInLink);
                  var facebookLink = document.getElementById("facebookLink");
                  if (data.facebookLink == null) {
                   facebookLink.innerHTML = "";
@@ -106,6 +107,50 @@ function profileGet(e){
     .catch(function(err){
         console.log("GET request failed", err);
     });
+}
+
+function equipmentGet(e) {
+
+  var profile = {
+      method : "GET",
+  };
+  fetch(url+"/profile?email=" + e)
+  .then(function(res){
+    if(res.ok) {
+         res.json().then(function(data){
+          var currRes = document.getElementById('currRes');
+          if (data.dateFrom == '' || data.dateFrom == null) {
+            currRes.innerHTML = "Current Reservation";
+          }
+          else {
+            currRes.innerHTML = "Current Reservation \t\t\t From: " + data.dateFrom + " \t\t\t To: " + data.dateTo;
+          }
+
+          var equipList = document.getElementById('equipList');
+
+          if (data.equipments.length == 0) {
+            var child = document.createElement("div");
+            //child.id = "";
+            child.innerHTML = "No equipments rented currently";
+            equipList.appendChild(child);
+          }
+          else {
+            for (var i = 0; i < data.equipments.length; i++) {
+              var child = document.createElement("div");
+              child.id = "Equip";
+              child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+              equipList.appendChild(child);
+            }
+          }
+        });
+      }
+  else{
+      location.href = "../HTML/404notfound.html";
+  }
+})
+.catch(function(err){
+  console.log("GET request failed", err);
+});
 }
 
 function resumePost(r){
@@ -147,4 +192,80 @@ function profileUpdate(email, profile) {
         location.href = "../HTML/404notfound.html";
       }
     });
+}
+
+function getAllJobs(){
+    var job = {
+        method : "GET"
+    }
+    fetch(url+"/jobs", job)
+    .then(function(res){
+      if(res.ok) {
+        res.json().then(function(data){
+          var count = 0;
+          var email = sessionStorage.getItem("email");
+          for(var i = 0; data.length; i++) {
+            if (email === data[i].email) {
+              var newdiv = document.createElement('div');
+                newdiv.innerHTML = '<div class="panel panel-default">' +
+                  '<div class="panel-heading">' +
+                  '<h4 class="panel-title">' +
+                  '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a></h4>' +
+                  '</div>' +
+                  '<div id="col' + (count) + '" class="panel-collapse collapse">' +
+                   '<div id="interested" class="panel-body">' +
+                   // '<div>Role Name: Hello</div>' +
+                   // '<div>Role Type: hello</div>' +
+                   // '<div>Role Gender: 12</div>' +
+                   // '<div>Role Age: 1231</div>' +
+                   // '<div>Role Ethnicity: asdsgafg</div>' +
+                   // '<div>Role Description: sdafasdfasdfasdfasdf</div>' +
+                  '</div>' +
+                  '</div></div></br>';
+                for(var j = 0; j < data[i].applicants.length; j++) {
+                   var divA = document.createElement('div');
+                   divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].name + '</div>';
+                   //divA.innerHTML = "Applicant: " + '<a href="' + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
+                   document.getElementById("interested").appendChild(divA);
+                }
+                document.getElementById("showJobsID").appendChild(newdiv);
+                count++;
+            }
+          }
+        })
+      }
+      else {
+        console.log("incorrect username/password");
+      }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}
+
+function cancelReservation(email, equipments) {
+  var equipmentData = {
+    method : "POST",
+    headers:{
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        email: email,
+        equipments: equipments
+      })
+  }
+    fetch(url + '/cancelEquipment', equipmentData)
+    .then(function(res) {
+      if(res.ok){
+        console.log("cancellation sent!");
+        location.href = "../HTML/profile.html?email=" + email;
+      }
+      else{
+          //alert incorrect
+          console.log("incorrect posting");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  });
 }

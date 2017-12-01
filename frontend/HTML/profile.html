@@ -25,90 +25,15 @@
 
 <h1 id="proName">First Last</h1>
 
-<!-- <div id="ProfileHub" class="tabcontent">
 <div class="container">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info">My Info</a></li>
-    <li><a data-toggle="tab" href="#jobs">My Jobs</a></li>
-    <li><a data-toggle="tab" href="#equips">My Rented Equipment</a></li>
-  </ul>
-  <div class="tab-content">
-    <div id="info" class="tab-pane fade in active">
-      <button id = "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
-      <div class="panels">
-        <div class="panel-group">
-          <div class="panel education">
-            <div class="panel-heading">Education</div>
-            <div class="panel-body">
-              <div id="result">Major:  </div>
-            </div>
-          </div>
-
-          <div class = "panel education">
-            <div class = "panel-heading">Education</div>
-            <div class="panel-body">
-              <div id="resultY">Year:  </div>
-            </div>
-          </div>
-
-          <div class="panel interests">
-            <div class="panel-heading">Interests</div>
-            <div class="panel-body">
-              <div id="resultI">Interests: </div>
-            </div>
-          </div>
-
-          <div class="panel past-jobs">
-            <div class="panel-heading">Past Jobs</div>
-            <div class="panel-body">
-              <div class="job-container" id="dynamicInput">
-              <div class="panel-group" id="accordion">
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel linkedIn">
-            <div class="panel-heading">LinkedIn Link</div>
-            <div class="panel-body" id="linkedInLink">Link:</div>
-          </div>
-
-          <div class="panel facebook">
-            <div class="panel-heading">Facebook Link</div>
-            <div class="panel-body" id="facebookLink">Link:</div>
-          </div>
-
-          <div class="panel instagram">
-            <div class="panel-heading">Instagram Link</div>
-            <div class="panel-body" id="instagramLink">Link:</div>
-          </div>
-
-          <div class="panel resume">
-            <div class="panel-heading">Resume Link</div>
-            <div class="panel-body" id="resumeLink">Link:</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="jobs" class="tab-pane fade">
-
-    </div>
-    <div id="equips" class="tab-pane fade">
-
-    </div>
-</div>
-</div>
-</div> -->
-
-<div class="container">
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info">My Info</a></li>
-    <li><a data-toggle="tab" href="#jobs">My Jobs</a></li>
-    <li><a data-toggle="tab" href="#equips">My Rented Equipment</a></li>
+    <li><a class="active" data-toggle="tab" href="#menu1">My Info</a></li>
+    <li><a data-toggle="tab" href="#menu2">My Jobs</a></li>
+    <li><a data-toggle="tab" href="#menu3">My Rented Equipment</a></li>
   </ul>
 
   <div class="tab-content">
-    <div id="info" class="tab-pane fade in active">
+    <div id="menu1" class="tab-pane fade in active">
       <button id= "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
       <div class="panels">
         <div class="panel-group">
@@ -165,11 +90,32 @@
         </div>
       </div>
     </div>
-    <div id="jobs" class="tab-pane fade">
-
+    <div id="menu2" class="tab-pane fade">
+      <div class="panels">
+        <div class="panel-group">
+          <div class="panel jobs">
+            <div class="panel-heading">Jobs I have Posted</div>
+            <div class="panel-body">
+              <div class="roles-container" id="showJobsID">
+              <div class="panel-group" id="job-accordion"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="equips" class="tab-pane fade">
-
+    <div id="menu3" class="tab-pane fade">
+      <div class="panels" id="listequips">
+        <div class="panel-group">
+          <div class="panel equipment">
+            <div class="panel-heading" id="currRes">Current Reservation</div>
+            <div class="panel-body" id="equipList">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="cancelBtn" class="btn btn-primary">Click to cancel reservation</button>
+    </div>
     </div>
   </div>
 </div>

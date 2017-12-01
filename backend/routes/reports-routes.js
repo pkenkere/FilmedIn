@@ -2,6 +2,7 @@ var path = require('path');
 
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var RM = require(path.join(__dirname, '..', 'modules', 'report-manager'));
+var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 
 module.exports = function(app, db) {
   PM.init(db);

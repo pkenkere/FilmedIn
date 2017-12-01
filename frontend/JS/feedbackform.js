@@ -8,7 +8,9 @@ function body_onload() {
 
 function yes_onclick() {
   console.log("clicked");
-  document.getElementById("YESBtn").style.backgroudColor = "green";
+  document.getElementById("YESBtn").style.backgroundColor = "green";
+  document.getElementById("NOBtn").style.backgroundColor = "white";
+  document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
 // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Yes";
 }
@@ -16,6 +18,8 @@ function yes_onclick() {
 function no_onclick() {
   console.log("clicked no");
  document.getElementById("NOBtn").style.backgroundColor = "red";
+ document.getElementById("YESBtn").style.backgroundColor = "white";
+ document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "No";
 }
@@ -23,6 +27,8 @@ function no_onclick() {
 function partially_onclick() {
   console.log("clicked partially");
    document.getElementById("PARTIALLYBtn").style.backgroundColor = "yellow";
+   document.getElementById("NOBtn").style.backgroundColor = "white";
+   document.getElementById("YESBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Partially";
 }
@@ -56,13 +62,13 @@ function send_onclick() {
     vpStr = "Meets Expectations";
   else if(vp == '3')
     vpStr = "Exceeds Expectations"
-  var text = document.getElementById('comments');
-  feedbackStr = "First time " + bool +
-                "Primary Reason" + selected +
-                "Was Goal Achieved" + buttonclicked +
-                "Professionalism" + profStr +
-                "Informative" + infoStr +
-                "Visually Pleasing" + vpStr +
+  var text = document.getElementById('comments').value;
+  feedbackStr = "First time: " + bool + '\n'
+                "Primary Reason: " + selected + '\n'
+                "Was Goal Achieved: " + buttonclicked + '\n'
+                "Professionalism: " + profStr + '\n'
+                "Informative: " + infoStr + '\n'
+                "Visually Pleasing: " + vpStr + '\n'
                 text;
 feedbackPost(emailF.value, feedbackStr);
 }

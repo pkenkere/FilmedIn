@@ -49,7 +49,7 @@ function verify(divName) {
         node.appendChild(textnode);
         document.getElementById(divName).appendChild(node);
         var obj = {
-        	name: inputElements[i].innerHTML,
+        	name: inputElements[i].value,
         	category: inputElements[i].id
         };
         arr.push(obj);

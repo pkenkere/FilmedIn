@@ -5,6 +5,8 @@ function body_onload() {
   jobPostBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
+  SuccessAlert.style.display = "none";
+  document.getElementById("rangeDis").disabled = true;
 }
 var count = 0;
 var arr = new Array();
@@ -52,6 +54,9 @@ function updateR(divName) {
       '</div></div></br>';
     document.getElementById(divName).appendChild(newdiv);
     count++;
+    document.getElementById("slider").value = 0;
+    document.getElementById("rangeDis").innerHTML= "0";
+    document.getElementById("roleInfo").reset();
 }
 
 function printArray() {
@@ -96,12 +101,21 @@ function PostJobBtn_onclick(){
   var start = document.getElementById("startAud").value;
   var end = document.getElementById("endAud").value;
   var email = sessionStorage.getItem("email");
-
+  document.getElementById("auditions").reset();
+  document.getElementById("prodDescription").reset();
+  var myNode = document.getElementById("dynamicInput");
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.firstChild);
+  }
   jobPost(email, title, prodtype, prodDescrip, DateAndLoc, expDate, isPaid, spcl, start, end, arr);
 }
 
 function displaySuccess() {
   SuccessAlert.style.display = "block";
+}
+
+function hideSuccess() {
+  SuccessAlert.style.display = "none";
 }
 
 function rentBtn_onclick(){
@@ -113,13 +127,18 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
-$(document).ready(function () {
-    $("#RoleBtn").click(function () {
-        $("input[type=text]").val("");
-        $("textarea").val("");
-    });
-    $("#jobPostBtn").click(function () {
-        $("input[type=text]").val("");
-        $("textarea").val("");
-    })
-});
+// $(document).ready(function () {
+//     $("#RoleBtn").click(function () {
+//         $("input[type=text]").val("");
+//         $("textarea").val("");
+//     });
+//     $("#jobPostBtn").click(function () {
+//         $("input[type=text]").val("");
+//         $("textarea").val("");
+//     })
+// });
+
+// function resetFeilds() {
+//   document.getElementById("auditions").reset();
+//   document.getElementById("prodDescription").reset();
+// }
