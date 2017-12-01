@@ -1,126 +1,20 @@
-#divEntriesHead {
-	position:absolute;
-	left:17%;
-	top:25%;
-	height:30px;
-	width:800px;
-	background-color:#D3D3D3;
-    border:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    font-family:sans-serif;
-    font-size:16px;
-}
-/*#divEntriesHead {
-	position:absolute;
-	left:10px;
-	top:240px;
-	height:30px;
-	width:800px;
-	background-color:#D3D3D3;
-    border:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    font-family:sans-serif;
-    font-size:16px;
-}*/
-/*.divEntriesCol1 {
-    position:absolute;
-    left:0px;
-    width:120px;
-    height:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-right:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    cursor: pointer;
+
+#card {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+	width: 700px;
 }
 
-.divEntriesCol2 {
-    position:absolute;
-    left:120px;
-    width:120px;
-    height:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-right:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    cursor: pointer;
-}*/
-
-.divEntriesCol1 {
-    position:absolute;
-    left:0px;
-    width:40%;
-    height:30px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-right:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
+#divid {
+	width: 700px;
+	margin-left: 20px;
+	margin-bottom: 10px;
 }
 
-.divEntriesCol2 {
-  position:absolute;
-  left:120px;
-  width:60%;
-  height:30px;
-  display:flex;
-  padding-left:10%;
-	justify-content:center;
-  align-items:center;
-	border-right:1px solid #cdcdcd;
-	border-color:rgba(0,0,0,.15);
-}
-
-.divEntriesCol3 {
-    position:absolute;
-    left:360px;
-    width:400px;
-    height:30px;
-    display:flex;
-    padding-left:40%;
-    align-items:center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/*#divEntriesList {
-	position:absolute;
-	left:17%;
-	top:272px;
-	width:800px;
-	height:400px;
-	background-color:#FFFFFF;
-	overflow-y:scroll;
-    border-left:1px solid #cdcdcd;
-    border-right:1px solid #cdcdcd;
-    border-bottom:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-    font-family:sans-serif;
-    font-size:16px;
-}*/
-.divEntriesRow {
-    height:30px;
-    width:800px;
-    border-bottom:1px solid #cdcdcd;
-    border-color:rgba(0,0,0,.15);
-}
-
-#divEntriesList {
-	position:absolute;
-	left:17%;
-	top:29%;
-	height:300px;
-	width:800px;
-		background-color:#FFFFFF;
-		border:1px solid #cdcdcd;
-		border-color:rgba(0,0,0,.15);
-		border-bottom:1px solid #cdcdcd;
-		font-family:sans-serif;
-		font-size:16px;
-		overflow-y: scroll;
+#btnId {
+	position: absolute;
+	float: right;
 }
 
 .btn-home {
@@ -142,7 +36,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 250px;
   border: none;
 }
 
@@ -151,7 +45,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 500px;
+  left: 400px;
   border: none;
 }
 
@@ -160,7 +54,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 700px;
+  left: 550px;
   border: none;
 }
 
@@ -169,22 +63,31 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 1050px;
+  left: 900px;
   border: none;
 }
 
 .btn-postJob {
-  background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
+  /*background-color: red;*/
+  background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 900px;
+  left: 750px;
+  border: none;
 }
 
 .btn-logout {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
+  position: absolute;
+  top: 30px;
+  left: 1080px;
+  border: none;
+}
+
+.btn-myProf {
+  background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   top: 30px;
   left: 1200px;

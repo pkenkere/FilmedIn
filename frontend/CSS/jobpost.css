@@ -12,39 +12,12 @@
   padding:0;
 }
 
-.btn-feedback {
-  background-color: rgba(199, 168, 41, 0.5);
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 1050px;
-  border: none;
-}
-
-.btn-feedback {
-  background-color: rgba(199, 168, 41, 0.5);
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 1050px;
-  border: none;
-}
-
-.btn-postJob {
-  background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
-  color: white;
-  position: absolute;
-  top: 30px;
-  left: 900px;
-}
-
 .btn-job {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 250px;
   border: none;
 }
 
@@ -53,7 +26,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 500px;
+  left: 400px;
   border: none;
 }
 
@@ -62,23 +35,46 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 700px;
+  left: 550px;
   border: none;
 }
 
-
-.btn-logout{
+.btn-feedback {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
+  position: absolute;
+  top: 30px;
+  left: 900px;
+  border: none;
+}
+
+.btn-postJob {
+  /*background-color: red;*/
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 750px;
+  border: none;
+}
+
+.btn-logout {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1080px;
+  border: none;
+}
+
+.btn-myProf {
+  background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   top: 30px;
   left: 1200px;
   border: none;
 }
 
-body {
-  overflow:hidden;
-}
 .panels {
   position: absolute;
   width: 1000px;
