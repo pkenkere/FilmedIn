@@ -106,23 +106,20 @@ module.exports = function(app,db) {
   });
 
   app.get('/profiles', function(req, res) {
-    var criterias = {
-       minAge : req.query.minAge,
-       maxAge : req.query.maxAge,
-    }
-    if (req.query.ethnicity != null)
+    var criterias = {};
+    if (req.query.ethnicity != null && req.query.ethinicity != undefined)
       criterias.ethnicity = req.query.ethinicity;
-    if (req.query.gender != null)
+    if (req.query.gender != null  && req.query.gender != undefined)
       criterias.gender = req.query.gender;
-    if(req.query.minAge != null){
+    if(req.query.minAge != null  && req.query.minAge != undefined) {
 			criterias["age"] = criterias["age"] || {};
 			criterias["age"]["$gte"] = req.query.minAge;
 		}
-		if(req.query.maxAge != null){
+		if(req.query.maxAge != null  && req.query.maxAge != undefined) {
 			criterias["age"] = criterias["age"] || {};
 			criterias["age"]["$lte"] = req.query.maxAge;
 		}
-    console.log("log from routes minAge: " + criterias.minAge + " " + criterias.maxAge + " " + criterias.ethnicity + " " + criterias.gender);
+    console.log("log from routes minAge: " + req.query.minAge + " " + req.query.maxAge + " " + req.query.ethnicity + " " + req.query.gender);
     PM.getProfiles(criterias, function(e, profiles) {
       if (e) {
         res.send('error in searching for profiles');
