@@ -17,7 +17,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 300px;
+  left: 250px;
   border: none;
 }
 
@@ -26,7 +26,7 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 500px;
+  left: 400px;
   border: none;
 }
 
@@ -35,22 +35,40 @@
   color: white;
   position: absolute;
   top: 30px;
-  left: 700px;
+  left: 550px;
+  border: none;
+}
+
+.btn-feedback {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 900px;
   border: none;
 }
 
 .btn-postJob {
-  background-color: red;
-  /*background-color: rgba(199, 168, 41, 0.5);*/
+  /*background-color: red;*/
+  background-color: rgba(199, 168, 41, 0.5);
   color: white;
   position: absolute;
   top: 30px;
-  left: 1000px;
+  left: 750px;
+  border: none;
 }
 
-.btn-logout{
+.btn-logout {
   background-color: rgba(199, 168, 41, 0.5);
   color: white;
+  position: absolute;
+  top: 30px;
+  left: 1080px;
+  border: none;
+}
+
+.btn-myProf {
+  background-color: rgba(199, 168, 41, 0.5);
   position: absolute;
   top: 30px;
   left: 1200px;
@@ -58,7 +76,7 @@
 }
 
 
-.tab {
+.sidebar {
   width: 20%;
   height: 100%;
   float: left;
@@ -66,7 +84,7 @@
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
-div.tab button {
+div.sidebar button {
     display: block;
     background-color: inherit;
     color: black;
@@ -80,11 +98,11 @@ div.tab button {
 }
 
 /* Change background color of buttons on hover */
- div.tab button:hover {
+ div.sidebar button:hover {
     background-color: #ddd;
 }
 
-div.tab button.active {
+div.sidebar button.active {
     background-color: #ccc;
 }
 
@@ -123,13 +141,20 @@ h4 {
   right: 10%;
 }
 
-#addEquip, #addNewsBtn {
+#addEquip{
   right: 10%;
-  margin-top: 2%;
+  margin-top: -4%;
   position: absolute;
 }
 
 
 #SuccessAlert{
   display: none;
+}
+
+#card {
+  border-style: solid;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
 }

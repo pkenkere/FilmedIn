@@ -12,6 +12,7 @@
   <script language="javascript" type="text/javascript" src="../controllers/profileController.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body onload="body_onload()">
 
@@ -21,65 +22,108 @@
   <span>Change Image</span>
 </div>
 
+<button id="info" class = "btn-Info" data-toggle="modal" data-target="#ShowInfo">Info</button>
+
 <h1 id="proName">First Last</h1>
 
-<div class="tabs">
+ <div id="ProfileHub" class="tabcontent">
+<div class="container">
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#info">My Info</a></li>
-    <li><a data-toggle="tab" href="#jobs">My Jobs</a></li>
+    <li><a class="active" data-toggle="tab" href="#menu1">My Info</a></li>
+    <li><a data-toggle="tab" href="#menu2">My Jobs</a></li>
+    <li><a data-toggle="tab" href="#menu3">My Rented Equipment</a></li>
   </ul>
-</div>
 
-<div class="tab-content">
-  <div id="info" class="tab-pane fade in active"></div>
-  <div id="jobs" class="tab-pane fade"></div>
-</div>
+  <div class="tab-content">
+    <div id="menu1" class="tab-pane fade in active">
+      <button id= "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
+      <div class="panels">
+        <div class="panel-group">
+          <div class="panel education">
+            <div class="panel-heading">Education</div>
+            <div class="panel-body">
+              <div id="result">Major:  </div>
+            </div>
+          </div>
 
-<button id = "edit" class = "btn-edit-Job" data-toggle="modal" data-target="#AddJobModal">Edit</button>
+          <div class = "panel education">
+            <div class = "panel-heading">Year</div>
+            <div class="panel-body">
+              <div id="resultY">Year:  </div>
+            </div>
+          </div>
 
-<style type="text/css"></style>
-<script src="../JS/profile.js"></script>
-<div class="panels">
-  <div class="panel-group">
-    <div class="panel education">
-      <div class="panel-heading">Education</div>
-      <div class="panel-body">
-        <div id="result">Major:  </div>
-      </div>
-    </div>
+          <div class="panel interests">
+            <div class="panel-heading">Interests</div>
+            <div class="panel-body">
+              <div id="resultI">Interests: </div>
+            </div>
+          </div>
 
-    <div class = "panel education">
-      <div class = "panel-heading">Education</div>
-      <div class="panel-body">
-        <div id="resultY">Year:  </div>
-      </div>
-    </div>
+          <div class="panel past-jobs">
+            <div class="panel-heading">Past Jobs</div>
+            <div class="panel-body">
+              <div class="job-container" id="dynamicInput">
+              <div class="panel-group" id="accordion">
+              </div>
+              </div>
+            </div>
+          </div>
 
-    <div class="panel interests">
-      <div class="panel-heading">Interests</div>
-      <div class="panel-body">
-        <div id="resultI">Interests: </div>
-      </div>
-    </div>
+          <div class="panel linkedIn">
+            <div class="panel-heading">LinkedIn Link</div>
+            <div class="panel-body" id="linkedInLink">
+              <a href="#" class="fa fa-linkedin"></a> Link:</div>
+          </div>
 
-    <div class="panel past-jobs">
-      <div class="panel-heading">Past Jobs</div>
-      <div class="panel-body">
-        <div class="job-container" id="dynamicInput">
-        <div class="panel-group" id="accordion">
+          <div class="panel facebook">
+            <div class="panel-heading">Facebook Link</div>
+            <div class="panel-body" id="facebookLink">
+              <a href="#" class="fa fa-facebook" id="fbicon"></a>  Link:</div>
+          </div>
+
+          <div class="panel instagram">
+            <div class="panel-heading">Instagram Link</div>
+            <div class="panel-body" id="instagramLink">
+              <a href="#" class="fa fa-instagram"></a> Link:</div>
+          </div>
+
+          <div class="panel resume">
+            <div class="panel-heading">Resume Link</div>
+            <div class="panel-body" id="resumeLink">Link:</div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <div class="panels">
+        <div class="panel-group">
+          <div class="panel jobs">
+            <div class="panel-heading">Jobs I have Posted</div>
+            <div class="panel-body">
+              <div class="roles-container" id="showJobsID">
+              <div class="panel-group" id="job-accordion"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="panel resume">
-      <div class="panel-heading">Resume</div>
-      <div class="panel-body">Panel Content</div>
+    <div id="menu3" class="tab-pane fade">
+      <div class="panels" id="listequips">
+        <div class="panel-group">
+          <div class="panel equipment">
+            <div class="panel-heading" id="currRes">Current Reservation</div>
+            <div class="panel-body" id="equipList">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" id="cancelBtn" class="btn btn-primary">Click to cancel reservation</button>
     </div>
-  </div>
 </div>
-
-
+</div>
+ </div>
 
 <div class="modal fade" id="AddJobModal" role="dialog">
   <div class="modal-dialog">
@@ -97,6 +141,12 @@
         Year: <input id="userYear" class="my-input"></br></br>
         Interests: <input id="userInterests" class="my-input"></br></br>
         </div>
+        <div id="socialMedia">
+          LinkedIn Link: <input id="userLinked" class="my-input"></br></br>
+          Facebook Link: <input id="userFace" class="my-input"></br></br>
+          Instagram Link: <input id="userInsta" class="my-input"></br></br>
+          Resume Link: <input id="userResume" class="my-input"></br></br>
+        </div>
         <h3>New Job</h3>
         Job Name: <input id="userJobN" class="myJ-input"></br></br>
         Job Description: <input id="userJobD" class="myJ-input">
@@ -108,6 +158,26 @@
   </div>
  </div>
 
+ <div class="modal fade" id="ShowInfo" role="dialog">
+   <div class="modal-dialog">
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <h2 class="modal-title">Information</h2>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <div id=email>Email: </div></br></br>
+         <div id="gender">Gender: </div></br></br>
+         <div id="age">Age: </div></br></br>
+         <div id="eth">Ethnicity: </div></br></br>
+       </div>
+     </div>
+   </div>
+  </div>
+
 <div id="TopPanel"
   style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
   <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -115,8 +185,11 @@
   <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
   <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
   <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+  <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
   <button id = "LogoutBtn" type="button" class="btn-logout">
       <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+  <button id = "Profile" type = "button" class="btn-myProf">
+    <span class="glyphicon glyphicon-user"></span></button>
 </div>
 
 

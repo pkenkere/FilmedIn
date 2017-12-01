@@ -7,7 +7,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../CSS/jobsearch.css">
-    <script language="javascript" type="text/javascript" src="../JS/searchJobs.js"></script>
+  <script language="javascript" type="text/javascript" src="../JS/searchJobs.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/searchJobsController.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -15,8 +16,11 @@
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
     <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
     <button id = "LogoutBtn" type="button" class="btn-logout">
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
 
   </div>
 </head>
@@ -28,7 +32,7 @@
     <div id="box">
     <div class="box-top1">Gender</div>
       <div class="box-panel1">
-        <form class="checkbox" onchange="enable()">
+        <form id="gender" class="checkbox" onchange="enable()">
             <label><input type="checkbox" id="chck1" value="">Male</label>
             <label><input type="checkbox" id="chck2" value="">Female</label>
             <label><input type="checkbox" id="chck3" value="">Other</label>
@@ -53,8 +57,8 @@
    <div class="box-top3">Age</div>
     <div class="box-panel3">
       <form onchange="enable()">
-      <label>From <input type="number" name="minRange" min="1" max="80"></label>
-        <label>To <input type="number" name="minRange" min="1" max="80"></label>
+      <label>From <input id="ageFrom" type="number" name="minRange" min="1" max="80"></label>
+        <label>To <input id="ageTo" type="number" name="minRange" min="1" max="80"></label>
     </form>
       <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
       <button id="range">0</button>
@@ -83,7 +87,7 @@
 <div class="box-top5">Ethnicity</div>
  <div class="box-panel5">
    <select id = "ethnicity" onchange="enable()">
-       <option value="All Ethnicities">All Ethnicities</option>
+       <option value="" disabled selected>All Ethnicities</option>
        <option value="Caucasian">Caucasian</option>
        <option value="African American">African American</option>
        <option value="Latino/Hispanic">Latino/Hispanic</option>
@@ -96,5 +100,71 @@
   <button type="submit" class="btn" id="btnSrch" disabled>Search</button>
  </div>
 </div>
+<!-- <div>
+  <div id="srchResults"></div>
+</div> -->
+
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Role</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="srchResults">
+    </tbody>
+</table>
+
+<div class="modal fade" id="myModal" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" id="info-Modal">
+        <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Job Details</h4>
+        </div>
+        <div class="modal-body">
+          <p>Title: <span id="mdlTitle"></span></p>
+          <br>
+          <p>Type: <span id="mdlType"></span></p>
+          <br>
+          <p>Desciption: <span id="mdlDesc"></span></p>
+          <br>
+          <p>Employer email: <span id="mdlEmployer"></span></p>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" id="submitInfo" class="btn" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="myRoleModal" role="dialog" data-backdrop="static" data-keyboard="false">
+      <div class="modal-dialog" id="role-Modal">
+          <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Job Details</h4>
+          </div>
+          <div class="modal-body" id="roleBody"></div>
+          <div class="modal-footer">
+            <button type="submit" id="submitInfo" class="btn" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<script>
+    function enable() {
+      document.getElementById("btnSrch").disabled = false;
+      // document.getElementById("btnSrch").style.backgroundColor= green;
+    }
+  </script>
 </body>
 </html>

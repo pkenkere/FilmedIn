@@ -9,6 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../CSS/jobsearch.css">
   <script type="text/javascript" language="javascript" src="../JS/findTalent.js"></script>
+  <script type="text/javascript" language="javascript" src="../Controllers/findTalentController.js"></script>
   <div id="TopPanel"
     style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
     <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
@@ -16,8 +17,11 @@
     <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
     <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
     <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
     <button id = "LogoutBtn" type="button" class="btn-logout">
         <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
   </div>
 </head>
 <body onload="body_onload()">
@@ -28,7 +32,7 @@
   <div id="box">
   <div class="box-top1">Search by Name</div>
    <div class="box-panel1">
-       <input id = "name" type="text" onchange="enable()">
+       <input id ="profName" type="text" onchange="enable()">
    </div>
  </div>
       <div id="box">
@@ -46,8 +50,8 @@
        <div class="box-top3">Age</div>
         <div class="box-panel3">
           <form onchange="enable()">
-          <label>From <input type="number" name="minRange" min="1" max="80"></label>
-            <label>To <input type="number" name="minRange" min="1" max="80"></label>
+          <label>From <input id="ageFrom" type="number" name="minRange" min="1" max="80"></label>
+            <label>To <input id="ageTo" type="number" name="minRange" min="1" max="80"></label>
         </form>
           <!-- <input id = "slider" type="range" min="0" max="80" value="0" step="1" onchange="showValue(this.value)"/>
           <button id="range">0</button>
@@ -84,7 +88,7 @@
     }
   </script>
 
-  <div class="card">
+  <!-- <div class="card">
     <img src="img.jpg" alt="John" style="width:100%">
     <h1>John Doe</h1>
     <p class="title">CEO and Founder, Example</p>
@@ -94,9 +98,29 @@
     <a href="#"><i class="fa fa-linkedin"></i></a>
     <a href="#"><i class="fa fa-facebook"></i></a>
     <p><button>Contact</button></p>
+  </div> -->
+<!-- <div id = "talentCont" class="TalentContainer">
+  <div class="card" style="width:400px">
+    <img class="card-img-top" alt="Card image" style="width:100%">
+    <div class="card-body">
+      <h4 class="card-title">John Doe</h4>
+      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
   </div>
-<style>
+</div> -->
 
-</style>
-  </body>
-  </html>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <!-- <th></th> -->
+      </tr>
+    </thead>
+    <tbody id="srchTalent">
+    </tbody>
+</table>
+</body>
+</html>

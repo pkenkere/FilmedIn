@@ -30,3 +30,18 @@ exports.getAllFeedbacks = function(callback) {
       callback(null, res);
   });
 }
+
+
+exports.deleteFeedback = function(id, callback) {
+  feedbacks.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllFeedbacks = function(callback)
+{
+    feedbacks.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
+}

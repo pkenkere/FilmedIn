@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FilmedIn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../CSS/feedbackform.css">
+  <script type="text/javascript" language="javascript" src="../JS/feedbackform.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/feedbackcontroller.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
+  </div>
+</head>
+<body onload="body_onload()">
+  <div class="alert alert-success" id="SuccessAlert">
+<strong>Success!</strong> Added Successfully!
+</div>
+  <div class="HeaderPanel" id="header">Send Us Your Feedback | 1-(800)-FILMEDN | feedback.filmedin@gmail.com</div>
+    <div class = "content">
+      <div class="box-top1"></div>
+      <form id="feedForm">
+        <div class="form-group">
+          <label>Enter your email ID</label>
+          <input onchange="hideSuccess();" type="email" id="emailF" class="form-control" placeholder="Enter email ID" required/>
+        </div>
+        <div class="form-group">
+          <label>Is this the first time you have visited the website? </label>
+          <br>
+          <label><input type="radio" name="radioBtn" value="Yes">Yes</label>
+        <label><input type="radio" name="radioBtn" value="No">No</label>
+      </div>
+
+      <div class="form-group">
+        <label>What was the primary reason for visiting this website?</label>
+        <br>
+        <select id = "answers">
+          <option name ="option1" value="" disabled selected>Select one of the reasons below</option>
+          <option name ="option2" value="Look up the news and announcements.">Look up the news and announcements.</option>
+          <option name ="option3" value="Post details about an upcoming production">Post details about an upcoming production.</option>
+          <option name ="option4" value="Search for possible candidates">Search for possible candidates.</option>
+          <option name ="option5" value="Search for possible opportunities to paricipate in productions.">Search for possible opportunities to paricipate in productions.</option>
+          <option name ="option6" value="Rent equipment from the inventory">Rent equipment from the inventory</option>
+        </select>
+      </div>
+        <div class="form-group">
+          <label>Did you achieve your goal?</label>
+          <br>
+          <button class="btn" type="button" id = "YESBtn">Yes</button>
+          <button class="btn" type="button" id = "PARTIALLYBtn">Partially</button>
+          <button class="btn" type="button" id="NOBtn">No</button>
+        </div>
+
+        <div class="form-group" id = "optionalQ">
+          <label>What was the reason for you to not achieve your goal?</label>
+          <br>
+          <select id = "options">
+            <option name ="option1" value="" disabled selected>Select one of the reasons below</option>
+            <option name ="option2" value="Something went wrong with the website<">Something went wrong with the website</option>
+            <option name ="option3" value="There is incorrect or missing information">There is incorrect or missing information</option>
+            <option name ="option4" value="Hard to navigate through the system">Hard to navigate through the system</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>What is your overall impression of the site?</label>
+          <table class="table table-bordered">
+    <thead>
+      <tr class="active">
+        <th> </th> <th>Below Expectations</th> <th>Meets Expectations</th> <th>Exceeds Expectations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Professional</td>
+        <td <label><input type="radio" name="Professionalscale" value="1"> 1</label></td>
+        <td <label><input type="radio" name="Professionalscale" value="2"> 2</label></td>
+        <td <label><input type="radio" name="Professionalscale" value="3"> 3</label></td>
+      </tr>
+      <tr class="active">
+        <td>Informative</td>
+        <td <label><input type="radio" name="Informativescale" value="1"> 1</label></td>
+        <td <label><input type="radio" name="Informativescale" value="2"> 2</label></td>
+        <td <label><input type="radio" name="Informativescale" value="3"> 3</label></td>
+      </tr>
+      <tr>
+        <td>Visually pleasing</td>
+        <td <label><input type="radio" name="VPscale" value="1"> 1</label></td>
+        <td <label><input type="radio" name="VPscale" value="2"> 2</label></td>
+        <td <label><input type="radio" name="VPscale" value="3"> 3</label></td>
+      </tr>
+    </tbody>
+  </table>
+        </div>
+        <div class="form-group" id="comments">
+          <label>Please add any comments you have for improving the website.<label>
+            <br>  <textarea rows="4" cols="50" id="comment"> </textarea>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg" id="sendFeedbackBtn">Send Feedback</button>
+  </form>
+</div>
+</body>
+</html>

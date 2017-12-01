@@ -29,7 +29,7 @@ function addEquipmentPost(name, category, available) {
   });
 }
 
-function addNewAdmin(email, isAdmin) {
+function addNewAdmin(email) {
   var AdminDetails = {
       method: "POST",
       headers: {
@@ -64,7 +64,7 @@ function addNewsPost(headline, description) {
       },
       body: JSON.stringify({
           headline: headline,
-          description: description
+          desc: description
       })
   }
   fetch(url+"/announcements", newsDetails)
@@ -85,19 +85,212 @@ function addNewsPost(headline, description) {
 }
 
 
-// function getAllEquip(){
-//   var equip= {
-//     method: "GET"
-//   }
-//   fetch(url+"/equipment", equip)
-//   .then(function(res){
-//     if(res.ok){
-//       res.json().then(function(data){
-//         console.log(data);
-//       })
-//     })
-//   }
-//   else {
-//     console.log("");
-//   }
-// }
+function getAllEquip() {
+  var equip = {
+    method: "GET"
+  }
+  fetch(url+"/equipments", equip)
+  .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+            //console.log(data);
+            //  edata = data;
+            fillDiv(data);
+        })
+  }
+      else{
+          //alert incorrect
+          console.log("res.ok == false");
+      }
+  })
+  .catch(function(err){
+      console.log("GET request failed", err);
+  });
+  }
+
+  function deleteEquip(a){
+      var d = {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: a
+        })
+      }
+      fetch(url+"/deleteEquipment", d)
+      .then(function(res){
+          if(res.ok){
+              getAllEquip();
+          }
+          else{
+              console.log("delete failed");
+          }
+      })
+      .catch(function(err){
+          console.log("POST request failed", err);
+      })
+  }
+
+  function getAllAnnounce() {
+      var announce = {
+        method: "GET"
+      }
+      fetch(url+"/announcementsall", announce)
+      .then(function(res){
+          if(res.ok){
+             res.json().then(function(data) {
+                //console.log(data);
+                //  edata = data;
+                fillDivAnnounce(data);
+                console.log("res.ok == false");
+          })
+      }
+      else {
+        console.log("incorrect username/password");
+      }
+      })
+      .catch(function(err){
+          console.log("POST request failed", err);
+      });
+  }
+
+function deleteAnnounce(a){
+        var d = {
+            method: "POST",
+            headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify({
+              id: a
+          })
+        }
+        fetch(url+"/announcements/delete", d)  /////no route made?????
+        .then(function(res){
+            if(res.ok){
+                getAllAnnounce();
+            }
+            else{
+                console.log("delete failed");
+            }
+        })
+        .catch(function(err){
+            console.log("POST request failed", err);
+        })
+    }
+
+function getAllFeed() {
+  var feed = {
+    method: "GET"
+  }
+  fetch(url+"/printFeedbacks", feed)
+    .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+           var categ = document.getElementById('seeFeedback');
+
+           for (var i = 0; i < data.length; i++) {
+              var feed = data[i];
+              console.log("feedback email: " + feed.email);
+              var child = document.createElement("div");
+              child.innerHTML = '<div class=' + '"card"' + '><div class = ' + '"card-header"' + '><button type=' + '"button"' + ' id="' + feed._id + '" class=' + '"btn btn-info"' + '><span id = ' + '"crossBtn"' + ' class=' + '"glyphicon glyphicon-remove">' + '</button>' + '</div><div class='
+               + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>From: ' + feed.email + '</h4><p class=' + '"card-text"' + '>' + feed.feedback + '</p></div></div>';
+
+              categ.appendChild(child);
+
+              var btn = document.getElementById("" + feed._id);
+              btn.onclick = removeFeedback;
+            }
+        })
+      }
+      else{
+        //alert incorrect
+        console.log("incorrect username/password");
+      }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}
+
+function removeFeedback() {
+  var d = {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: this.id
+    })
+  }
+  fetch(url+"/deleteFeedback", d)  /////no route made?????
+  .then(function(res){
+      if(res.ok){
+        var categ = document.getElementById('seeFeedback');
+        categ.innerHTML = "<strong>Here are the feedbacks from the users</strong>";
+        getAllFeed();
+      }
+      else{
+          console.log("delete failed");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  })
+}
+
+/*function getAllUsers() {
+  var profileData= {
+    method: "GET"
+  }
+  fetch(url+"/printProfiles", profileData)
+    .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+           for (var i = 0; i < data.length; i++) {
+              var profile = data[i];
+              var child = document.createElement("div");
+            //  var j = data[i].
+            //  child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '</h4><p class=' + '"card-text"' + '>' + profile.email + '</p></div></div>';
+                child.innerHTML = '<div class=' + '"panel panel-default"' + '><div class=' + '"panel-heading"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '\t\t\t' + '<span id = ' + '"crossBtn"' + 'class=' + '"glyphicon glyphicon-remove"' +'onclick=' + '"remove()"' + '></span></p></h4><h4 class=' + '"panel-body"' + '>' + 'Email: ' + 'profile.email + '</h4></div></div>';
+              var categ = document.getElementById('RemoveUser');
+              categ.appendChild(child);
+            }
+        })
+      }
+      else{
+        //alert incorrect
+        console.log("incorrect profileGet");
+      }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}*/
+
+/*function removeProfile(email) {
+  var reportData = {
+      method: "POST",
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          email: email,
+      })
+  }
+  fetch(url+'/deleteProfile', reportData)
+  .then(function(res){
+      if(res.ok){
+          //reset password
+          location.href = "../HTML/profile.html";
+          console.log("reporting done");
+      }
+      else{
+          //alert incorrect
+          console.log("incorrect report");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  });
+}*/

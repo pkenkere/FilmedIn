@@ -31,6 +31,7 @@ module.exports = function(app,db) {
 			controller.addJob()
 		}*/
 		var job = {
+				email : req.body.email,
 				title : req.body.title,
 				type : req.body.type,
 				desc : req.body.desc,
@@ -40,11 +41,12 @@ module.exports = function(app,db) {
 				specialInstr : req.body.specialInstr,
 				audStartDate : req.body.audStartDate,
 				audEndDate : req.body.audEndDate,
-				applicants : []
+				applicants : [],
+				roles : req.body.roles
 		};
-		job.roles = req.body.roles;
 		controller.addJob(job, function(e, o){
 				if(e) {
+					console.log("error");
 					res.status(400).send('error-adding-job');
 				}
 				else {
@@ -52,10 +54,11 @@ module.exports = function(app,db) {
 					var newData = {
 						jobPosted : job
 					};
-					PM.updateProfile(req.body.ownerEmail,newData,
+					PM.updateProfile(req.body.email,newData,
 						function (e, o) {
 							if (e) {
-								res.status(400).send('error adding job to account');
+								console.log("error updating job");
+								res.status(400).send('error updating job to account');
 							}
 							else {
 								console.log('new job added');

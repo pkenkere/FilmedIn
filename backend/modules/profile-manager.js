@@ -34,27 +34,39 @@ exports.updateProfile = function(email, newData, callback) {
       //o.ethnicity = newData.ethnicity;
       //o.education = newData.education;
       //console.log(o);
-      if (newData.major != '')
+      console.log("name: " + o.name);
+      console.log("email: " + o.email);
+      if (newData.major != '' && newData.major != null)
         o.major = newData.major;
-      if (newData.year != '')
+      if (newData.year != '' && newData.year != null)
         o.year = newData.year;
-      if (newData.interest != '')
+      if (newData.interest != '' && newData.interest != null)
         o.interest = newData.interest;
-      if (newData.instagramLink != '')
+      if (newData.instagramLink != '' && newData.instagramLink != null)
         o.instagramLink = newData.instagramLink;
-      if (newData.facebookLink != '')
+      if (newData.facebookLink != '' && newData.facebookLink != null)
         o.facebookLink = newData.facebookLink;
-      if (newData.linkedInLink != '')
+      if (newData.linkedInLink != '' && newData.linkedInLink != null)
         o.linkedInLink = newData.linkedInLink;
-      if (newData.resumeLink != '')
+      if (newData.resumeLink != '' && newData.resumeLink != null)
         o.resumeLink = newData.resumeLink;
-      if (newData.jobPosted != '')
-        o.jobsPosted.push(newData.jobPosted);
-      if (newData.equipments != '') {
-        if (newData.flag == false)
-          o.equipments.push(newData.equipments);
-        else
+      if (newData.jobPosted != '' && newData.jobPosted != null) {
+        console.log("jobs posted: " + o.jobsPosted);
+        var jobs = o.jobsPosted;
+        jobs.push(newData.jobPosted);
+        o.jobsPosted = jobs;
+      }
+      if (newData.equipments != '' || newData.equipments != null) {
+        o.dateFrom = newData.dateFrom;
+        o.dateTo = newData.dateTo;
+        if (newData.flag == false) {
+          // var equips = o.equipments;
+          // equips.push(newData.equipments);
           o.equipments = newData.equipments;
+        }
+        else {
+          o.equipments = newData.equipments;
+        }
       }
       o.date = moment().format('MMMM Do YYYY, h:mm:ss a');;
       profiles.save(o, {safe: true}, function (e) {
@@ -86,11 +98,7 @@ exports.getAllProfiles = function(callback) {
 
 exports.getProfiles = function(criterias, callback) {
   console.log("log from manager minAge: " + criterias.minAge);
-  profiles.find({
-    age: { $gt : criterias.minAge, $lt : criterias.maxAge },
-    ethnicity : criterias.ethnicity,
-    gender : criterias.gender
-  }).toArray(
+  profiles.find(criterias).toArray(
     function(e, res) {
       if (e)
         callback(e);
@@ -101,6 +109,16 @@ exports.getProfiles = function(criterias, callback) {
   );
 }
 
-exports.deleteProfile = function(email, callback) {
-  profiles.remove({email: email}, callback);
+exports.deleteProfile = function(id, callback) {
+  profiles.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllRecords = function(callback)
+{
+    profiles.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
 }

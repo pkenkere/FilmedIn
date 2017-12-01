@@ -11,31 +11,18 @@ module.exports = function(app,db) {
   AM.init(db);
   // logged-in user homepage //
   app.get('/profile', function(req, res) {
-      //console.log("MAA KI CHHUUUTTTTTT!!!");
-      //if (req.session.user == null){
-          // if user is not logged-in redirect back to login page //
-        //  res.redirect('/');
-      //} else {
-          console.log("email received in the backend: " + req.query.email)
           PM.getProfileByEmail(req.query.email, function(err, o) {
             if (!o) {
-              console.log("HERE!!!!");
               res.status(400).send(err);
             }
             else {
-              console.log("I SHOULD BE HERE!!!!");
               res.setHeader('Content-Type', 'application/json');
               res.status(200).send(JSON.stringify(o));
             }
         });
-      //}
   });
 
   app.post('/profile', function(req, res) {
-    //if (req.session.user == null){
-      //  res.redirect('/');
-    //}
-    //else {
         PM.getProfileByEmail(req.param('email'),
           function (e, o) {
             if (e) {
@@ -45,6 +32,8 @@ module.exports = function(app,db) {
               //var name;
               AM.getAccountByEmail(req.param('email'), function(o) {
                 if (o) {
+                  var jobsPosted = new Array();
+                  var equips = new Array();
                   PM.addProfileInfo(req.param('email'), {
                     email : req.param('email'),
                     name : o.name,
@@ -56,8 +45,8 @@ module.exports = function(app,db) {
                     facebookLink : req.param('facebookLink'),
                     linkedInLink : req.param('linkedInLink'),
                     resumeLink : req.param('resumeLink'),
-                    jobsPosted : [],
-                    equipments: [] //array of arrays of equipments checked out
+                    jobsPosted : jobsPosted,
+                    equipments: equips //array of arrays of equipments checked out
                   }, function (e, o) {
                     if (e) {
                       console.log('error adding new account');
@@ -79,11 +68,6 @@ module.exports = function(app,db) {
                  if (o) {
                     PM.updateProfile(req.param('email'), {
                       email : req.param('email'),
-                      //name : o.name,
-                      //age : req.param('age'),
-                      //gender : req.param('gender'),
-                      //ethnicity : req.param('ethnicity'),
-                      //education : req.param('education'),
                       major : req.param('major'),
                       year : req.param('year'),
                       interest : req.param('interest'),
@@ -108,7 +92,6 @@ module.exports = function(app,db) {
 
             }
            });
-    //}
   });
 
   app.get('/printProfiles', function(req, res) {
@@ -123,13 +106,22 @@ module.exports = function(app,db) {
   });
 
   app.get('/profiles', function(req, res) {
-    var criterias = {
-       minAge : req.param('minAge'),
-      // maxAge : req.param('maxAge'),
-      // ethnicity : req.param('ethnicity'),
-      // gender : req.param('gender')
-    }
-    console.log("log from routes minAge: " + criterias.minAge + " " + criterias.maxAge + " " + criterias.ethnicity + " " + criterias.gender);
+    var criterias = {};
+    if (req.query.name != null && req.query.name != undefined)
+      criterias.name = req.query.name;
+    if (req.query.ethnicity != null && req.query.ethnicity != undefined)
+      criterias.ethnicity = req.query.ethnicity;
+    if (req.query.gender != null  && req.query.gender != undefined)
+      criterias.gender = req.query.gender;
+    if(req.query.minAge != null  && req.query.minAge != undefined) {
+			criterias["age"] = criterias["age"] || {};
+			criterias["age"]["$gte"] = req.query.minAge;
+		}
+		if(req.query.maxAge != null  && req.query.maxAge != undefined) {
+			criterias["age"] = criterias["age"] || {};
+			criterias["age"]["$lte"] = req.query.maxAge;
+		}
+    console.log("log from routes minAge: " + req.query.minAge + " " + req.query.maxAge + " " + req.query.ethnicity + " " + req.query.gender);
     PM.getProfiles(criterias, function(e, profiles) {
       if (e) {
         res.send('error in searching for profiles');
@@ -141,12 +133,18 @@ module.exports = function(app,db) {
   });
 
   app.post('/deleteProfile', function(req, res) {
-    PM.deleteProfile(req.param('email'), function(e) {
+    PM.deleteProfile(req.body.id, function(e) {
       if (e)
-        callback('error while deleting profile');
+        res.status(400).send('error while deleting profile');
       else
         res.status(200).send('profile deleted');
-    })
+    });
+  });
+
+  app.post('/resetProfiles', function(req, res) {
+    PM.delAllRecords(function(){
+      res.send('ok');
+    });
   });
 
 };

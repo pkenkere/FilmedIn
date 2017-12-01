@@ -1,0 +1,95 @@
+
+#card {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+	width: 700px;
+}
+
+#divid {
+	width: 700px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+#btnId {
+	position: absolute;
+	float: right;
+}
+
+.btn-home {
+  color: white;
+  font: Helvetica;
+  font-size: 40px;
+  position: absolute;
+  top: 10px;
+  align-content: center;
+  align-self: flex-start;
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+}
+
+.btn-job {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 250px;
+  border: none;
+}
+
+.btn-prof {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 400px;
+  border: none;
+}
+
+.btn-rent {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 550px;
+  border: none;
+}
+
+.btn-feedback {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 900px;
+  border: none;
+}
+
+.btn-postJob {
+  /*background-color: red;*/
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 750px;
+  border: none;
+}
+
+.btn-logout {
+  background-color: rgba(199, 168, 41, 0.5);
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 1080px;
+  border: none;
+}
+
+.btn-myProf {
+  background-color: rgba(199, 168, 41, 0.5);
+  position: absolute;
+  top: 30px;
+  left: 1200px;
+  border: none;
+}

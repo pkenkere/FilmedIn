@@ -32,8 +32,8 @@ exports.updateEquipment = function(equipData, callback) {
   });
 }
 
-exports.deleteEquipment = function(name, callback) {
-  equipments.remove({name: name}, callback);
+exports.deleteEquipment = function(id, callback) {
+  equipments.remove({_id: getObjectId(id)}, callback);
 }
 
 exports.getEquipByName = function(name, callback) {
@@ -47,4 +47,18 @@ exports.getAllEquipments = function(callback) {
     else
     callback(null, res);
   });
+}
+
+exports.deleteEquipment = function(id, callback) {
+  equipments.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllRecords = function(callback)
+{
+    equipments.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
 }

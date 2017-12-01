@@ -2,6 +2,7 @@ var path = require('path');
 
 var PM = require(path.join(__dirname, '..', 'modules', 'profile-manager'));
 var RM = require(path.join(__dirname, '..', 'modules', 'report-manager'));
+var EM = require(path.join(__dirname, '..', 'modules', 'email-dispatcher'));
 
 module.exports = function(app, db) {
   PM.init(db);
@@ -22,7 +23,7 @@ module.exports = function(app, db) {
         var report = {
           email : req.body.email,
           title : req.body.title,
-          report : req.body.description
+          desc : req.body.description
         }
         EM.dispatchReport(report, function(e){
           if (!e) {

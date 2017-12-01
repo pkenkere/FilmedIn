@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>FilmedIn</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../CSS/announcements.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../JS/announcements.js"></script>
+  <script language="javascript" type="text/javascript" src="../controllers/announcementcontroller.js"></script>
+  <div id="TopPanel"
+    style="background-color:rgb(229, 198, 71);color:white;padding:40px;">
+    <button id = "HomeBtn" type = "button" class="btn-home">FilmedIn</button>
+    <button id = "JobsBtn" type = "button" class="btn-job">Opportunities</button>
+    <button id = "ProfBtn" type = "button" class="btn-prof">Finding Talent</button>
+    <button id = "RentBtn" type = "button" class="btn-rent">Rent Equipment</button>
+    <button id ="PostJobBtn" type = "btn" class="btn-postJob">Post a Job</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
+    <button id = "LogoutBtn" type="button" class="btn-logout">
+        <span class="glyphicon glyphicon-log-out"></span>Logout</button>
+    <button id = "FeedbackBtn" type = "button" class="btn-feedback">Send Feedback</button>
+    <button id = "Profile" type = "button" class="btn-myProf">
+        <span class="glyphicon glyphicon-user"></span></button>
+  </div>
+</head>
+<body onload="body_onload()">
+  <div id ="printAll">
+    <label>News and Announcements!</label>
+  </div>
+  <!-- <div id="divEntriesHead">
+      <div id="divEntriesHead1" class="divEntriesCol1">Headline</div>
+      <div id="divEntriesHead2" class="divEntriesCol2">Description</div>
+      <div id="divEntriesHead3" class="divEntriesCol3"></div>
+  </div>
+
+  <div id="divEntriesList">
+  </div> -->
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Tell us more!</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="email" id="reporter" class="form-control" placeholder="Enter your email ID" name="email"/>
+        </div>
+        <div class="form-group">
+          <input type="text" id="titleR" class="form-control" placeholder="Enter title" required/>
+        </div>
+        <div class="form-group" id="comments">
+          <label>Please describe why you think the announcement is inappropriate.<label>
+            <br>  <textarea rows="4" cols="50" id="description" name="comment"></textarea>
+    </div>
+      <div class="modal-footer">
+        <button id = "SubmitRep" type="button" class="btn btn-info" data-toggle="modal">Submit</button>
+      </div>
+    </div>
+  </div>
+ </div>
+  </body>
+  </html>
