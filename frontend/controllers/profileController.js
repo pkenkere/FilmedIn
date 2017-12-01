@@ -69,7 +69,7 @@ function profileGet(e){
                  }
 
                  var email = document.getElementById("email");
-                 email.innerHTML = "Email: " + sessionStorage.getItem("email");
+                 email.innerHTML = "Email: " + e;
 
                  var linkedInLink = document.getElementById("linkedInLink");
                  if (data.linkedInLink == null) {

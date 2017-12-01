@@ -129,6 +129,7 @@ function applyJob(){
   var j = this.info;
   //Confirm with which role they want to apply
   var allRoles = j.roles;
+  roleBody.innerHTML = "";
   for(var i = 0; i < allRoles.length; i++){
     var row = document.createElement("div");
     var type = document.createElement("div");
