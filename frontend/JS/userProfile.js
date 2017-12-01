@@ -18,7 +18,7 @@ function renderProfile(){
 }
 
 function HomeBtn_onclick(){
-  location.href = "../HTML/newsfeed.html";
+  location.href = "../HTML/announcements.html";
 }
 
 function JobsBtn_onclick(){

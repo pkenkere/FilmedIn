@@ -4,6 +4,13 @@ function body_onload() {
   PARTIALLYBtn.onclick = partially_onclick;
    NOBtn.onclick = no_onclick;
   sendFeedbackBtn.onclick = send_onclick;
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  PostJobBtn.onclick = PostJobBtn_onclick;
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentBtn_onclick;
+  Profile.onclick = Profile_onclick;
 }
 
 function yes_onclick() {
@@ -11,6 +18,7 @@ function yes_onclick() {
   document.getElementById("YESBtn").style.backgroundColor = "green";
   document.getElementById("NOBtn").style.backgroundColor = "white";
   document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
+  document.getElementById("optionalQ").style.display = "none";
 // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Yes";
 }
@@ -22,6 +30,7 @@ function no_onclick() {
  document.getElementById("PARTIALLYBtn").style.backgroundColor = "white";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "No";
+  document.getElementById("optionalQ").style.display = "block";
 }
 
 function partially_onclick() {
@@ -29,6 +38,7 @@ function partially_onclick() {
    document.getElementById("PARTIALLYBtn").style.backgroundColor = "yellow";
    document.getElementById("NOBtn").style.backgroundColor = "white";
    document.getElementById("YESBtn").style.backgroundColor = "white";
+   document.getElementById("optionalQ").style.display = "block";
   // document.getElementsByClassName("tickmark1").style.display="block";
   buttonclicked = "Partially";
 }
@@ -62,13 +72,44 @@ function send_onclick() {
     vpStr = "Meets Expectations";
   else if(vp == '3')
     vpStr = "Exceeds Expectations"
-  var text = document.getElementById('comments').value;
-  feedbackStr = "First time: " + bool + '\n'
-                "Primary Reason: " + selected + '\n'
-                "Was Goal Achieved: " + buttonclicked + '\n'
-                "Professionalism: " + profStr + '\n'
-                "Informative: " + infoStr + '\n'
-                "Visually Pleasing: " + vpStr + '\n'
-                text;
+  var text = document.getElementById('comment').value;
+  console.log(text);
+  feedbackStr = "First time: " + bool + '\n' +
+                "Primary Reason: " + selected + '\n' +
+                "Was Goal Achieved: " + buttonclicked + '\n' +
+                "Professionalism: " + profStr + '\n' +
+                "Informative: " + infoStr + '\n' +
+                "Visually Pleasing: " + vpStr + '\n' +
+                "Comments: " + text;
 feedbackPost(emailF.value, feedbackStr);
+}
+
+function HomeBtn_onclick(){
+  location.href = "../HTML/announcements.html";
+  //location.href = "../HTML/newsfeed.html";
+}
+
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  location.href = "../HTML/Jobpost.html";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
+}
+
+function logout_onclick() {
+  localStorage.removeItem("loggedInId");
+  location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html"; //profile button takes you back to the admin page if you are an admin???
 }
