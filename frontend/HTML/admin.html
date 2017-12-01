@@ -27,7 +27,7 @@
   <div class="sidebar">
   <button class = "tablinks" id = "tab5" onclick = "displayChoice(event,'WelcomeAdmin')">Home</button>
   <button class="tablinks" id = "tab2" onclick="displayChoice(event,'AddAdmin')">Add Admin User</button>
-  <button class="tablinks" id = "tab1" onclick="">Remove User Profile</button>
+  <button class="tablinks" id = "tab1" onclick="displayChoice(event, 'RemoveUser')">Remove User Profile</button>
   <button class="tablinks" id = "tab3" onclick="displayChoice(event, 'AddRemoveEquipment')">Add/Delete Equipment from Inventory</button>
   <button class="tablinks" id = "tab4" onclick="displayChoice(event, 'AddRemoveNews')">Add/Delete announcements from newsfeed</button>
   <button class="tablinks" id = "tab5" onclick="displayChoice(event, 'seeFeedback')">See User Feedback</button>
@@ -65,6 +65,9 @@
     </div>
   </form>
         <button class="btn" id = "addAdminBtn" type="button">Add Admin</button>
+  </div>
+
+  <div id="RemoveUser" class="tabcontent">
   </div>
 
   <div id ="AddRemoveEquipment" class="tabcontent">

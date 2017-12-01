@@ -15,6 +15,7 @@ function body_onload() {
   Profile.onclick = Profile_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
   displayFeedbacks();
+  displayUsers();
   //removeEq.onclick = removeEquipment;
   //removeNews.onclick = removeAnnouncement;
 }
@@ -178,4 +179,13 @@ function fillDivAnnounce(a) {
 
 function displayFeedbacks() {
   getAllFeed();
+}
+
+function displayUsers() {
+  getAllUsers();
+}
+
+function remove() {
+  removeProfileInappropriate();
+
 }
