@@ -107,11 +107,21 @@ module.exports = function(app,db) {
 
   app.get('/profiles', function(req, res) {
     var criterias = {
-       minAge : req.param('minAge'),
-      // maxAge : req.param('maxAge'),
-      // ethnicity : req.param('ethnicity'),
-      // gender : req.param('gender')
+       minAge : req.query.minAge,
+       maxAge : req.query.maxAge,
     }
+    if (req.query.ethnicity != null)
+      criterias.ethnicity = req.query.ethinicity;
+    if (req.query.gender != null)
+      criterias.gender = req.query.gender;
+    if(req.query.minAge != null){
+			criterias["age"] = criterias["age"] || {};
+			criterias["age"]["$gte"] = req.query.minAge;
+		}
+		if(req.query.maxAge != null){
+			criterias["age"] = criterias["age"] || {};
+			criterias["age"]["$lte"] = req.query.maxAge;
+		}
     console.log("log from routes minAge: " + criterias.minAge + " " + criterias.maxAge + " " + criterias.ethnicity + " " + criterias.gender);
     PM.getProfiles(criterias, function(e, profiles) {
       if (e) {
