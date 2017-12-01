@@ -79,7 +79,7 @@ EM.dispatchEquipmentCancellation = function (account, callback) {
   server.send({
               from         : process.env.EMAIL_FROM || 'feedback.filmedin@gmail.com',
               to           : 'feedback.filmedin@gmail.com',
-              subject      : 'Equipment Cancellation: ' + account.title,
+              subject      : 'Equipment Cancellation',
               text         :  EM.composeCancelEquipment(account)
             }, callback );
 }
