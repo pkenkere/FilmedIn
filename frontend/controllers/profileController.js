@@ -113,6 +113,7 @@ function profileGet(e){
 }
 
 function equipmentGet(e) {
+
   var profile = {
       method : "GET",
   };
@@ -120,16 +121,32 @@ function equipmentGet(e) {
   .then(function(res){
     if(res.ok) {
          res.json().then(function(data){
-           var equipobj = document.getElementById('Equip');
-           if (data.equipments == null) {
-             console.log("equipments " + data.equipments);
-            equipobj.innerHTML = "";
-           }
-           else {
-             equipobj.innerHTML = "Equipment Reservation" + data.equipments;
-           }
-       });
-  }
+          var currRes = document.getElementById('currRes');
+          if (data.dateFrom == '' || data.dateFrom == null) {
+            currRes.innerHTML = "Current Reservation";
+          }
+          else {
+            currRes.innerHTML = "Current Reservation \t\t\t From: " + data.dateFrom + " \t\t\t To: " + data.dateTo;
+          }
+
+          var equipList = document.getElementById('equipList');
+
+          if (data.equipments.length == 0) {
+            var child = document.createElement("div");
+            //child.id = "";
+            child.innerHTML = "No equipments rented currently";
+            equipList.appendChild(child);
+          }
+          else {
+            for (var i = 0; i < data.equipments.length; i++) {
+              var child = document.createElement("div");
+              child.id = "Equip";
+              child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+              equipList.appendChild(child);
+            }
+          }
+        });
+      }
   else{
       location.href = "../HTML/404notfound.html";
   }
@@ -267,18 +284,14 @@ function cancelReservation(email, equipment, size) {
     },
     body: JSON.stringify({
         email: email,
-        size : size,
-        equipments: equipment
+        equipments: equipments
       })
   }
     fetch(url + '/cancelEquipment', equipmentData)
     .then(function(res) {
       if(res.ok){
-          res.json().then(function(data) {
-            console.log("feedback sent!");
-            location.href("../HTML/profile.html?email=" + email);
-          });
-          //login to profile
+        console.log("cancellation sent!");
+        location.href = "../HTML/profile.html?email=" + email;
       }
       else{
           //alert incorrect

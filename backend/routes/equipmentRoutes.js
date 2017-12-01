@@ -72,21 +72,22 @@ module.exports = function(app,db) {
       }
       else {
         // send email for cancellation
-        var equips = o.equipments;
+        // var equips = o.equipments;
 
         var checkoutReq = {
           user: req.body.email,
-          size: req.body.size,
-          equipments: equips[parseInt(req.body.index)]
+          equipments: req.body.equipments
         };
 
         ED.dispatchEquipmentCancellation(checkoutReq, function(e){
           if (!e) {
             //res.status(200).send('ok, email was dispatched to admin about the equipment request');
-            equips.splice(req.body.index, 1);
+            //equips.splice(req.body.index, 1);
             var newData = {
               flag : true,
-              equipments : equips
+              equipments : new Array(),
+              dateFrom : '',
+              dateTo : ''
             }
 
             PM.updateProfile(req.body.email, newData, function(e, o) {
@@ -122,6 +123,8 @@ module.exports = function(app,db) {
         //res.status(200).send('ok, email was dispatched to admin about the equipment request');
         var newData = {
           flag : false,
+          dateFrom : req.body.dateFrom,
+          dateTo : req.body.dateTo,
           equipments : req.body.equipments
         };
 
