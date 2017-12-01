@@ -207,3 +207,60 @@ function getAllFeed() {
         console.log("GET request failed", err);
     });
 }
+
+
+function getAllUsers() {
+  var profileData= {
+    method: "GET"
+  }
+  fetch(url+"/printProfiles", profileData)
+    .then(function(res){
+      if(res.ok){
+         res.json().then(function(data) {
+           for (var i = 0; i < data.length; i++) {
+              var profile = data[i];
+              var child = document.createElement("div");
+            //  var j = data[i].
+            //  child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '</h4><p class=' + '"card-text"' + '>' + profile.email + '</p></div></div>';
+                child.innerHTML = '<div class=' + '"panel panel-default"' + '><div class=' + '"panel-heading"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '\t\t\t' + '<span id = ' + '"crossBtn"' + 'class=' + '"glyphicon glyphicon-remove"' +'onclick=' + '"remove()"' + '></span></p></h4><h4 class=' + '"panel-body"' + '>' + 'Email: ' + profile.email + '</h4></div></div>';
+              var categ = document.getElementById('RemoveUser');
+              categ.appendChild(child);
+            }
+        })
+      }
+      else{
+        //alert incorrect
+        console.log("incorrect profileGet");
+      }
+    })
+    .catch(function(err){
+        console.log("GET request failed", err);
+    });
+}
+
+function removeProfile(email) {
+  var reportData = {
+      method: "POST",
+      headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          email: email,
+      })
+  }
+  fetch(url+'/deleteProfile', reportData)
+  .then(function(res){
+      if(res.ok){
+          //reset password
+          location.href = "../HTML/profile.html";
+          console.log("reporting done");
+      }
+      else{
+          //alert incorrect
+          console.log("incorrect report");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  });
+}
