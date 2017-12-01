@@ -68,6 +68,9 @@ function profileGet(e){
                    gender.innerHTML = "Gender: " + data.gender;
                  }
 
+                 var email = document.getElementById("email");
+                 email.innerHTML = "Email: " + sessionStorage.getItem("email");
+
                  var linkedInLink = document.getElementById("linkedInLink");
                  if (data.linkedInLink == null) {
                   linkedInLink.innerHTML = "";
@@ -113,6 +116,7 @@ function profileGet(e){
 }
 
 function equipmentGet(e) {
+
   var profile = {
       method : "GET",
   };
@@ -120,16 +124,32 @@ function equipmentGet(e) {
   .then(function(res){
     if(res.ok) {
          res.json().then(function(data){
-           var equipobj = document.getElementById('Equip');
-           if (data.equipments == null) {
-             console.log("equipments " + data.equipments);
-            equipobj.innerHTML = "";
-           }
-           else {
-             equipobj.innerHTML = "Equipment Reservation" + data.equipments;
-           }
-       });
-  }
+          var currRes = document.getElementById('currRes');
+          if (data.dateFrom == '' || data.dateFrom == null) {
+            currRes.innerHTML = "Current Reservation";
+          }
+          else {
+            currRes.innerHTML = "Current Reservation \t\t\t From: " + data.dateFrom + " \t\t\t To: " + data.dateTo;
+          }
+
+          var equipList = document.getElementById('equipList');
+
+          if (data.equipments.length == 0) {
+            var child = document.createElement("div");
+            //child.id = "";
+            child.innerHTML = "No equipments rented currently";
+            equipList.appendChild(child);
+          }
+          else {
+            for (var i = 0; i < data.equipments.length; i++) {
+              var child = document.createElement("div");
+              child.id = "Equip";
+              child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+              equipList.appendChild(child);
+            }
+          }
+        });
+      }
   else{
       location.href = "../HTML/404notfound.html";
   }
@@ -190,16 +210,17 @@ function getAllJobs(){
         res.json().then(function(data){
           var count = 0;
           var email = sessionStorage.getItem("email");
-          for(var i = 0; data.length; i++) {
+          for(var i = 0; i < data.length; i++) {
             if (email === data[i].email) {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
                   '<h4 class="panel-title">' +
                   '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a></h4>' +
+                  //'<button type="button" class="close" onclick="deleteJob(' + data[i].title + ');" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                   '</div>' +
                   '<div id="col' + (count) + '" class="panel-collapse collapse">' +
-                   '<div id="interested" class="panel-body">' +
+                   '<div id="' + data[i].title + '" class="panel-body">' +
                    // '<div>Role Name: Hello</div>' +
                    // '<div>Role Type: hello</div>' +
                    // '<div>Role Gender: 12</div>' +
@@ -208,17 +229,22 @@ function getAllJobs(){
                    // '<div>Role Description: sdafasdfasdfasdfasdf</div>' +
                   '</div>' +
                   '</div></div></br>';
-                for(var j = 0; j < data[i].applicants.length; j++) {
-                   var divA = document.createElement('div');
-                   divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].name + '</div>';
-                   divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
-                   document.getElementById("interested").appendChild(divA);
-                }
                 document.getElementById("showJobsID").appendChild(newdiv);
                 count++;
+              }
             }
-          }
-        })
+            for(var i = 0; i < data.length; i++) {
+              if (email === data[i].email) {
+                for(var j = 0; j < data[i].applicants.length; j++) {
+                  profGetName(data[i].applicants[j].userEmail, data[i].title);
+                  // var divA = document.createElement('div');
+                  // divA.innerHTML = '<div>Applicant: ' + data[i].applicants[j].userEmail + '</div>';
+                  // // divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data[i].applicants[j].name + '" target="_blank">' + data[i].applicants[j].name + '</a>';
+                  // document.getElementById(data[i].title).appendChild(divA);
+                }
+              }
+            }
+          })
       }
       else {
         console.log("incorrect username/password");
@@ -229,6 +255,30 @@ function getAllJobs(){
     });
 }
 
+function deleteJob(a){
+    var d = {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+          name: a
+      })
+    }
+    fetch(url+"/jobs/delete", d)
+    .then(function(res){
+        if(res.ok){
+            getAllJobs();
+        }
+        else{
+            console.log("delete failed");
+        }
+    })
+    .catch(function(err){
+        console.log("POST request failed", err);
+    })
+}
+
 function cancelReservation(email, equipment, size) {
   var equipmentData = {
     method : "POST",
@@ -237,18 +287,14 @@ function cancelReservation(email, equipment, size) {
     },
     body: JSON.stringify({
         email: email,
-        size : size,
-        equipments: equipment
+        equipments: equipments
       })
   }
     fetch(url + '/cancelEquipment', equipmentData)
     .then(function(res) {
       if(res.ok){
-          res.json().then(function(data) {
-            console.log("feedback sent!");
-            location.href("../HTML/profile.html?email=" + email);
-          });
-          //login to profile
+        console.log("cancellation sent!");
+        location.href = "../HTML/profile.html?email=" + email;
       }
       else{
           //alert incorrect
@@ -257,5 +303,30 @@ function cancelReservation(email, equipment, size) {
   })
   .catch(function(err){
       console.log("POST request failed", err);
-  });
+    });
+  }
+
+
+function profGetName(e, id) {
+    var obj = {
+      method: "GET",
+    }
+    fetch(url+"/profile?email=" + e, obj)
+      .then(function(res){
+        if(res.ok) {
+             res.json().then(function(data){
+               var divA = document.createElement('div');
+               //divA.innerHTML = '<div>Applicant: ' + data.name + '</div>';
+               //divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data.name + '>' + data.name + '</a>';
+               divA.innerHTML = "Link: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
+               document.getElementById(id).appendChild(divA);
+             });
+        }
+        else {
+          console.log("error getting name");
+        }
+      })
+      .catch(function(err){
+        console.log("GET request failed", err);
+      });
 }

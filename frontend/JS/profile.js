@@ -2,7 +2,7 @@ var count = 0;
 
 function body_onload() {
   renderProfile();
-  //renderEquipments();
+  renderEquipments();
   getAllJobs();
   HomeBtn.onclick = HomeBtn_onclick;
   JobsBtn.onclick = JobsBtn_onclick;
@@ -11,7 +11,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
-  cancelBtn = cancel_onclick;
+  cancelBtn.onclick = cancel_onclick;
 }
 
 function renderProfile(){
@@ -53,9 +53,39 @@ function logout_onclick() {
 }
 
 function cancel_onclick() {
+  //console.log("inside cancel onclick");
   var email = sessionStorage.getItem("email");
-  var equipment = equipmentGet(email);
-  cancelReservation(email, equipment, size);
+  var equipments = new Array();
+  var profile = {
+      method : "GET",
+  };
+  var dateFrom;
+    fetch(url+"/profile?email=" + email)
+      .then(function(res){
+        if(res.ok) {
+             res.json().then(function(data){
+               equipments = data.equipments;
+               dateFrom = data.dateFrom;
+
+               if (((new Date() - new Date(dateFrom)) / (1000 * 60 * 60)) < 24) {
+                 alert("You can't cancel checkout for equipments less than 24 hrs in advance");
+                 return;
+               }
+
+               if (equipments.length == 0)
+                 return;
+
+               cancelReservation(email, equipments);
+            });
+      }
+      else{
+          location.href = "../HTML/404notfound.html";
+      }
+    })
+    .catch(function(err){
+      console.log("GET request failed", err);
+    });
+  //var equipment = equipmentGet(email);
 }
 
 function updateJ(divName) {
@@ -77,8 +107,4 @@ function updateJ(divName) {
     };
 
     profileUpdate(email, profile);
-}
-
-function updateEdit(divName) {
-
 }

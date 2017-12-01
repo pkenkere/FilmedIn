@@ -280,4 +280,17 @@ h1 {
   color: white;
 }
 #cancelBtn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+#Equip {
+  border-style: solid;
+  margin: 5px 0px;
+  padding-left: 5px;
+}
+
+#listequips {
+  margin-top: 20px;
 }

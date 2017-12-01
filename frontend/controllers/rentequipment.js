@@ -46,7 +46,7 @@ function getAllEquip(){
             var checkbox = document.createElement("input");
 
             checkbox.type = "checkbox";    // make the element a checkbox
-            checkbox.id = i;               // give it id
+            checkbox.id = equip.category;  // give it id
             checkbox.value = equip.name;   // make its value
 
             label.appendChild(checkbox);   // add the box to the element
