@@ -32,8 +32,8 @@ exports.updateEquipment = function(equipData, callback) {
   });
 }
 
-exports.deleteEquipment = function(name, callback) {
-  equipments.remove({name: name}, callback);
+exports.deleteEquipment = function(id, callback) {
+  equipments.remove({_id: getObjectId(id)}, callback);
 }
 
 exports.getEquipByName = function(name, callback) {

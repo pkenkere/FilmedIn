@@ -55,7 +55,7 @@ module.exports = function(app,db) {
   });
 
   app.post('/deleteEquipment', function (req, res) {
-    EM.deleteEquipment(req.param('name'), function(e, o) {
+    EM.deleteEquipment(req.body.id, function(e, o) {
       if (e) {
         res.status(500).send('error deleting equipment');
       }

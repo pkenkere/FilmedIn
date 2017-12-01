@@ -211,7 +211,7 @@ function getAllJobs(){
           var count = 0;
           var email = sessionStorage.getItem("email");
           for(var i = 0; i < data.length; i++) {
-            if (email === data[i].email) {
+            if (email === data[i].email && data[i].title != null && data[i].title != undefined && data[i].title != '') {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
