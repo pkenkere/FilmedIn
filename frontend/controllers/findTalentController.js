@@ -8,7 +8,6 @@ function talentGet(ext) {
   .then(function(res){
     if (res.ok) {
       res.json().then(function(data) {
-        console.log(data);
         fillTalent(data);
       });
     }

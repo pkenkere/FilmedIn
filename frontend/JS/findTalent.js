@@ -31,7 +31,8 @@ function btnSrch_onclick(){
   //   obj += "type="+ProductionTypes.value+"&";
   // }
   if(ethnicity.value != null && ethnicity.value != ""){
-    obj += "ethnicity="+ethnicity.value+"&";
+    if(ethnicity.value != "All Ethnicities")
+      obj += "ethnicity="+ethnicity.value+"&";
   }
   obj = obj.substring(0,obj.length-1);
   console.log(obj);
@@ -86,14 +87,19 @@ function logout_onclick() {
 }
 
 function fillTalent(talent){
+  console.log(talent);
   for(var i = 0; i<talent.length; i++){
     var row = srchTalent.insertRow(i);
     var col1 = document.createElement("td");
     var col2 = document.createElement("td");
     var col3 = document.createElement("td");
 
-    col1.innerHTML = "<a href='../HTML/userProfile.html/profile="+talent[i].email+"'>"+talent.name+"<a>";
+    col1.innerHTML = "<a href='../HTML/userProfile.html?profile="+talent[i].email+"'>"+talent[i].name+"<a>";
     col2.innerHTML = talent[i].age;
     col3.innerHTML = talent[i].gender;
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
   }
 }
