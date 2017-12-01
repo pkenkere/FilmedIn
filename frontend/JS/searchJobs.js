@@ -7,6 +7,7 @@ function body_onload() {
   RentBtn.onclick = rentBtn_onclick;
   btnSrch.onclick = search;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
 }
 
 function HomeBtn_onclick(){
@@ -37,6 +38,10 @@ function rentBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 function search(){

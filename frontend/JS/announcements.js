@@ -8,6 +8,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
 //  getAllAnnounce();
 PrintAnnouncements();
   SubmitRep.onclick = submitReport;
@@ -17,6 +18,10 @@ var annid;
 function PrintAnnouncements() {
   getAllAnnounce();
 
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 function feedbackBtn_onclick() {
