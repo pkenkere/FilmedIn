@@ -98,11 +98,7 @@ exports.getAllProfiles = function(callback) {
 
 exports.getProfiles = function(criterias, callback) {
   console.log("log from manager minAge: " + criterias.minAge);
-  profiles.find({
-    age: { $gt : criterias.minAge, $lt : criterias.maxAge },
-    ethnicity : criterias.ethnicity,
-    gender : criterias.gender
-  }).toArray(
+  profiles.find(criterias).toArray(
     function(e, res) {
       if (e)
         callback(e);
