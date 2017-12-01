@@ -117,24 +117,24 @@ function equipmentGet(e) {
   .then(function(res){
     if(res.ok) {
          res.json().then(function(data){
-           /*var equipobj = document.getElementById('Equip');
-           if (data.equipments == null) {
-             console.log("equipments " + data.equipments);
-             equipobj.innerHTML = "";
-           }
-           else {
-             equipobj.innerHTML = "Equipment Reservation" + data.equipments;
-           }*/
-
           var equipList = document.getElementById('equipList');
-          for (var i = 0; i < data.equipments.length; i++) {
+
+          if (data.equipments.length == 0) {
             var child = document.createElement("div");
-            child.id = "Equip";
-            child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+            //child.id = "";
+            child.innerHTML = "No equipments rented currently";
             equipList.appendChild(child);
           }
+          else {
+            for (var i = 0; i < data.equipments.length; i++) {
+              var child = document.createElement("div");
+              child.id = "Equip";
+              child.innerHTML = "Name: " + data.equipments[i].name + "\nCategory: " + data.equipments[i].category;
+              equipList.appendChild(child);
+            }
+          }
         });
-  }
+      }
   else{
       location.href = "../HTML/404notfound.html";
   }
@@ -232,4 +232,31 @@ function getAllJobs(){
     .catch(function(err){
         console.log("GET request failed", err);
     });
+}
+
+function cancelReservation(email, equipments) {
+  var equipmentData = {
+    method : "POST",
+    headers:{
+        'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+        email: email,
+        equipments: equipments
+      })
+  }
+    fetch(url + '/cancelEquipment', equipmentData)
+    .then(function(res) {
+      if(res.ok){
+        console.log("cancellation sent!");
+        location.href = "../HTML/profile.html?email=" + email;
+      }
+      else{
+          //alert incorrect
+          console.log("incorrect posting");
+      }
+  })
+  .catch(function(err){
+      console.log("POST request failed", err);
+  });
 }

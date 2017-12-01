@@ -11,6 +11,7 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  cancelBtn.onclick = cancel_onclick;
 }
 
 function renderProfile(){
@@ -51,6 +52,34 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
+function cancel_onclick() {
+  var email = sessionStorage.getItem("email");
+  var equipments = new Array();
+  var profile = {
+      method : "GET",
+  };
+
+    fetch(url+"/profile?email=" + email)
+      .then(function(res){
+        if(res.ok) {
+             res.json().then(function(data){
+               equipments = data.equipments;
+            });
+      }
+      else{
+          location.href = "../HTML/404notfound.html";
+      }
+    })
+    .catch(function(err){
+      console.log("GET request failed", err);
+    });
+  //var equipment = equipmentGet(email);
+  if (equipments.length == 0)
+    return;
+  
+  cancelReservation(email, equipments);
+}
+
 function updateJ(divName) {
     var email = sessionStorage.getItem("email");
 
@@ -70,8 +99,4 @@ function updateJ(divName) {
     };
 
     profileUpdate(email, profile);
-}
-
-function updateEdit(divName) {
-
 }
