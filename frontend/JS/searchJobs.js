@@ -8,6 +8,7 @@ function body_onload() {
   btnSrch.onclick = search;
   FeedbackBtn.onclick = feedbackBtn_onclick;
   Profile.onclick = Profile_onclick;
+  SuccessAlert.style.display = "none";
 }
 
 function HomeBtn_onclick(){
@@ -44,6 +45,14 @@ function Profile_onclick(){
   location.href = "../HTML/profile.html";
 }
 
+function displaySuccess() {
+  SuccessAlert.style.display = "block";
+}
+
+function hideSuccess() {
+  SuccessAlert.style.display = "none";
+}
+
 function search(){
   // console.log(gender);
   // console.log(RoleTypes.value);
@@ -52,7 +61,7 @@ function search(){
   // console.log(ProductionTypes.value);
   // console.log(ethnicity.value);
   var q = {
-    //gender:,  ASK MEEEENNNUUU <<<<<<<--------------------------
+    //gender: ,  ASK MEEEENNNUUU <<<<<<<--------------------------
     roleType: RoleTypes.value,
     minAge: ageFrom.value,
     maxAge: ageTo.value,
@@ -60,6 +69,22 @@ function search(){
     ethnicity: ethnicity.value
   }
   var obj = "/jobs/search?";
+  console.log(chck1.checked);
+  var temp = "gender=";
+  if(chck1.checked){
+    if(chck2.checked){return;}
+    temp += "Male";
+  }
+  if(chck2.checked){
+    if(chck1.checked){return;}
+    temp += "Female";
+  }
+  temp += "&";
+  console.log(temp);
+  if(temp == "gender=&"){
+    temp = "";
+  }
+  obj+=temp;
   if(RoleTypes.value != null && RoleTypes.value != ""){
     obj += "roleType="+RoleTypes.value+"&";
   }
