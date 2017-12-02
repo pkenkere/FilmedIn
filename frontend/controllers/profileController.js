@@ -210,14 +210,17 @@ function getAllJobs(){
         res.json().then(function(data){
           var count = 0;
           var email = sessionStorage.getItem("email");
+          document.getElementById("showJobsID").innerHTML = "";
           for(var i = 0; i < data.length; i++) {
             if (email === data[i].email && data[i].title != null && data[i].title != undefined && data[i].title != '') {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
                   '<h4 class="panel-title">' +
-                  '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a></h4>' +
-                  //'<button type="button" class="close" onclick="deleteJob(' + data[i].title + ');" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                  '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a>' +
+                  '<span id = "' + data[i]._id + '"class=' + '"glyphicon glyphicon-remove"' + '></span>' +
+                  '</h4>' +
+
                   '</div>' +
                   '<div id="col' + (count) + '" class="panel-collapse collapse">' +
                    '<div id="' + data[i].title + '" class="panel-body">' +
@@ -230,6 +233,10 @@ function getAllJobs(){
                   '</div>' +
                   '</div></div></br>';
                 document.getElementById("showJobsID").appendChild(newdiv);
+                var btn = document.getElementById("" + data[i]._id);
+                console.log(btn);
+                console.log(data[i]._id);
+                btn.onclick = deleteJob;
                 count++;
               }
             }
@@ -255,19 +262,21 @@ function getAllJobs(){
     });
 }
 
-function deleteJob(a){
+function deleteJob(){
     var d = {
         method: "POST",
         headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          name: a
+          id: this.id
       })
     }
     fetch(url+"/jobs/delete", d)
     .then(function(res){
         if(res.ok){
+          //var doc = document.getElementById("showJobsID");
+          //doc.innerHTML = "";
             getAllJobs();
         }
         else{
@@ -318,7 +327,7 @@ function profGetName(e, id) {
                var divA = document.createElement('div');
                //divA.innerHTML = '<div>Applicant: ' + data.name + '</div>';
                //divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data.name + '>' + data.name + '</a>';
-               divA.innerHTML = "Link: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
+               divA.innerHTML = "Applicant: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
                document.getElementById(id).appendChild(divA);
              });
         }
