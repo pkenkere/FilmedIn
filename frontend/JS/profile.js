@@ -104,11 +104,11 @@ function updateJ(divName) {
       linkedInLink : userLinked.value,
       facebookLink : userFace.value,
       instagramLink : userInsta.value,
-      resumeLink : userResume.value
-      /*job : {
+      resumeLink : userResume.value,
+      pastJobs : {
         job_name : userJobN.value,
         job_desc : userJobD.value
-      }*/
+      }
     };
 
     profileUpdate(email, profile);

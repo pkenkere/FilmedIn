@@ -34,11 +34,13 @@ module.exports = function(app,db) {
                 if (o) {
                   var jobsPosted = new Array();
                   var equips = new Array();
+                  var pastJobs = new Array();
                   PM.addProfileInfo(req.param('email'), {
                     email : req.param('email'),
                     name : o.name,
                     age : req.param('age'),
                     gender : req.param('gender'),
+                    pastJobs : pastJobs,
                     ethnicity : req.param('ethnicity'),
                     education : req.param('education'),
                     instagramLink : req.param('instagramLink'),
@@ -74,7 +76,9 @@ module.exports = function(app,db) {
                       instagramLink : req.param('instagramLink'),
                       facebookLink : req.param('facebookLink'),
                       linkedInLink : req.param('linkedInLink'),
-                      resumeLink : req.param('resumeLink')
+                      resumeLink : req.param('resumeLink'),
+                      pastJob_name : req.param('pastJobs').job_name,
+                      pastJob_desc : req.param('pastJobs').job_desc
                       // TODO : JOB updates
                     }, function (e, o) {
                       if (e) {

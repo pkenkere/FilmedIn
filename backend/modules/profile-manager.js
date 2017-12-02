@@ -36,6 +36,7 @@ exports.updateProfile = function(email, newData, callback) {
       //console.log(o);
       console.log("name: " + o.name);
       console.log("email: " + o.email);
+      var pastJob = {};
       if (newData.major != '' && newData.major != null)
         o.major = newData.major;
       if (newData.year != '' && newData.year != null)
@@ -50,6 +51,13 @@ exports.updateProfile = function(email, newData, callback) {
         o.linkedInLink = newData.linkedInLink;
       if (newData.resumeLink != '' && newData.resumeLink != null)
         o.resumeLink = newData.resumeLink;
+      if (newData.pastJob_name != '' && newData.pastJob_name != null) {
+        pastJob.pastJob_name = newData.pastJob_name;
+        pastJob.pastJob_desc = newData.pastJob_desc;
+        var pastJobs = o.pastJobs;
+        pastJobs.push(pastJob);
+        o.pastJobs = pastJobs;
+      }
       if (newData.jobPosted != '' && newData.jobPosted != null) {
         console.log("jobs posted: " + o.jobsPosted);
         var jobs = o.jobsPosted;
