@@ -105,7 +105,8 @@ function profileGet(e){
                  }
 
                  var pastJobs = document.getElementById("pastJobs");
-                 for (var i = 0; i < data.pastJobs; i++) {
+                 console.log(data.pastJobs.length);
+                 for (var i = 0; i < data.pastJobs.length; i++) {
                    var job = data.pastJobs[i];
                    var child = document.createElement('div');
                    console.log(job.pastJob_name);
