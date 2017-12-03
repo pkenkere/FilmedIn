@@ -35,7 +35,8 @@ function jobApplyPost(temp){
     .then(function(res){
         if(res.ok){
             console.log("applied!");
-            location.href = "../HTML/profile.html";
+            displaySuccess();
+            $('#myRoleModal').modal('hide');            
         }
         else{
             console.log("failed");

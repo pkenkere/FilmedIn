@@ -28,7 +28,7 @@
 </head>
 <body onload="body_onload()">
   <div id ="printAll">
-    <label>News and Announcements!</label>
+    <h1>News and Announcements!</h1>
   </div>
   <!-- <div id="divEntriesHead">
       <div id="divEntriesHead1" class="divEntriesCol1">Headline</div>
@@ -50,6 +50,7 @@
         </button>
       </div>
       <div class="modal-body">
+        <form id="reports">
         <div class="form-group">
           <input type="email" id="reporter" class="form-control" placeholder="Enter your email ID" name="email"/>
         </div>
@@ -59,6 +60,8 @@
         <div class="form-group" id="comments">
           <label>Please describe why you think the announcement is inappropriate.<label>
             <br>  <textarea rows="4" cols="50" id="description" name="comment"></textarea>
+          </div>
+        </form>
     </div>
       <div class="modal-footer">
         <button id = "SubmitRep" type="button" class="btn btn-info" data-toggle="modal">Submit</button>

@@ -8,6 +8,7 @@ function body_onload() {
   SuccessAlert.style.display = "none";
   document.getElementById("rangeDis").disabled = true;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
 }
 var count = 0;
 var arr = new Array();
@@ -129,6 +130,10 @@ function rentBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 // $(document).ready(function () {

@@ -12,6 +12,7 @@ function body_onload() {
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
   cancelBtn.onclick = cancel_onclick;
+  Profile.onclick = Profile_onclick;
 }
 
 function renderProfile(){
@@ -50,6 +51,10 @@ function rentBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 function cancel_onclick() {
@@ -99,11 +104,11 @@ function updateJ(divName) {
       linkedInLink : userLinked.value,
       facebookLink : userFace.value,
       instagramLink : userInsta.value,
-      resumeLink : userResume.value
-      /*job : {
+      resumeLink : userResume.value,
+      pastJobs : {
         job_name : userJobN.value,
         job_desc : userJobD.value
-      }*/
+      }
     };
 
     profileUpdate(email, profile);

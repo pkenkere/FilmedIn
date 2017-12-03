@@ -103,6 +103,17 @@ function profileGet(e){
                  else {
                    resumeLink.innerHTML = "Link: " + '<a href="' + data.resumeLink+ '" target="_blank">' + data.resumeLink + '</a>';
                  }
+
+                 var pastJobs = document.getElementById("pastJobs");
+                 console.log(data.pastJobs.length);
+                 for (var i = 0; i < data.pastJobs.length; i++) {
+                   var job = data.pastJobs[i];
+                   var child = document.createElement('div');
+                   console.log(job.pastJob_name);
+                   console.log(job.pastJob_desc);
+                   child.innerHTML = '<div>' + job.pastJob_name + '</div><div>' + job.pastJob_desc + '</div>';
+                   pastJobs.appendChild(child);
+                 }
              });
             //console.log("res: " + res);
         }
