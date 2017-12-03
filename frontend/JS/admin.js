@@ -1,6 +1,6 @@
 var edata;
 
-function body_onload() { 
+function body_onload() {
   addEquip.onclick = addEquipment;
   addAdminBtn.onclick = addAdmin;
   addNewsBtn.onclick = addNews;
@@ -9,7 +9,7 @@ function body_onload() {
   // HomeBtn.onclick = HomeBtn_onclick;
   // JobsBtn.onclick = JobsBtn_onclick;
   // ProfBtn.onclick = ProfBtn_onclick;
-  // PostJobBtn.onclick = PostJobBtn_onclick;  
+  // PostJobBtn.onclick = PostJobBtn_onclick;
   LogoutBtn.onclick = logout_onclick;
   // RentBtn.onclick = rentBtn_onclick;
   // Profile.onclick = Profile_onclick;
@@ -188,10 +188,5 @@ function displayFeedbacks() {
 }
 
 function displayUsers() {
-  //getAllUsers();
-}
-
-function remove() {
-  removeProfileInappropriate();
-
+  getAllUsers();
 }

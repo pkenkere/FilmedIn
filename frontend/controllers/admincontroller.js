@@ -188,7 +188,6 @@ function getAllFeed() {
       if(res.ok){
          res.json().then(function(data) {
            var categ = document.getElementById('seeFeedback');
-
            for (var i = 0; i < data.length; i++) {
               var feed = data[i];
               console.log("feedback email: " + feed.email);
@@ -239,7 +238,7 @@ function removeFeedback() {
   })
 }
 
-/*function getAllUsers() {
+function getAllUsers() {
   var profileData= {
     method: "GET"
   }
@@ -247,14 +246,16 @@ function removeFeedback() {
     .then(function(res){
       if(res.ok){
          res.json().then(function(data) {
+          var categ = document.getElementById('RemoveUser');
            for (var i = 0; i < data.length; i++) {
               var profile = data[i];
               var child = document.createElement("div");
-            //  var j = data[i].
-            //  child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '</h4><p class=' + '"card-text"' + '>' + profile.email + '</p></div></div>';
-                child.innerHTML = '<div class=' + '"panel panel-default"' + '><div class=' + '"panel-heading"' + '><h4 class=' + '"card-title"' + '>Name: ' + profile.name + '\t\t\t' + '<span id = ' + '"crossBtn"' + 'class=' + '"glyphicon glyphicon-remove"' +'onclick=' + '"remove()"' + '></span></p></h4><h4 class=' + '"panel-body"' + '>' + 'Email: ' + 'profile.email + '</h4></div></div>';
-              var categ = document.getElementById('RemoveUser');
+                child.innerHTML = '<div class=' + '"panel panel-default"' + '><h4 class=' + '"panel-heading"' + '>Name: ' + profile.name +'<span id = "' + profile._id + '"class=' + '"glyphicon glyphicon-remove"' + '></span></h4><h4 class='
+                 + '"panel-body"' + '>' + 'Email: ' + profile.email + '</h4></div></div>';
               categ.appendChild(child);
+              var btn = document.getElementById(profile._id);
+              console.log(btn);
+              btn.onclick = removeProfile;
             }
         })
       }
@@ -266,22 +267,24 @@ function removeFeedback() {
     .catch(function(err){
         console.log("GET request failed", err);
     });
-}*/
+}
 
-/*function removeProfile(email) {
+function removeProfile() {
   var reportData = {
       method: "POST",
       headers: {
           'content-type': 'application/json'
       },
       body: JSON.stringify({
-          email: email,
+          id: this.id,
       })
   }
   fetch(url+'/deleteProfile', reportData)
   .then(function(res){
       if(res.ok){
           //reset password
+          var categ = document.getElementById('RemoveUser');
+          categ.innerHTML = "";
           console.log("reporting done");
       }
       else{
@@ -292,4 +295,4 @@ function removeFeedback() {
   .catch(function(err){
       console.log("POST request failed", err);
   });
-}*/
+}
