@@ -44,6 +44,10 @@ function displaySuccess() {
   SuccessAlert.style.display = "block";
 }
 
+function hideSuccess() {
+  SuccessAlert.style.display = "none";
+}
+
 function feedbackBtn_onclick(){
   console.log('clicked');
   location.href = "../HTML/feedbackform.html";
@@ -123,6 +127,7 @@ function fillDiv(a) {
     row.onclick = delEquip;
     row.Index = "delEq"+i;
     row.value = allEq[i].name;
+    row.id = allEq[i]._id;
     console.log(allEq[i].name);
     colName.innerHTML = allEq[i].name + "<B>&times;</B>";
 
@@ -144,8 +149,8 @@ function removeEquipment() {
 }
 
 function delEquip(){
-  console.log("Came here with id="+this.value);
-  deleteEquip(this.value);
+  console.log("Came here with id="+this.id);
+  deleteEquip(this.id);
 }
 
 function delAnnounce(){
@@ -155,20 +160,21 @@ function delAnnounce(){
 
 function fillDivAnnounce(a) {
   console.log(a);
-  var allAnn = a;
+  //var allAnn = a;
   var div = document.getElementById("dispNews");
   div.innerHTML = "";
-  for(var i = 0; i < allAnn.length; i++){
+  for(var i = 0; i < a.length; i++){
     var row = document.createElement("div");
     var colName = document.createElement("div");
     //var colDel = document.createElement("span");
     //colDel.innerHTML = "&times;";
     //colDel.ondblclick = "deleteEquip()";
+    console.log("headline: " + a[i].headline);
     row.onclick = delAnnounce;
     row.Index = "delAnnounce"+i;
-    row.value = allAnn[i].headline;
-    row.idVal = allAnn[i]._id;
-    colName.innerHTML = allAnn[i].headline + "<B>&times;</B>";
+    row.value = a[i].headline;
+    row.idVal = a[i]._id;
+    colName.innerHTML = a[i].headline + "<B>&times;</B>";
 
     row.appendChild(colName);
     //row.appendChild(colDel);
@@ -182,7 +188,7 @@ function displayFeedbacks() {
 }
 
 function displayUsers() {
-  getAllUsers();
+  //getAllUsers();
 }
 
 function remove() {

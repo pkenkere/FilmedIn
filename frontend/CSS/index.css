@@ -1,13 +1,16 @@
 h1 {
   margin: 0;
   position: absolute;
-  top: 40%;
+  top: 35%;
   left: 50%;
   margin-right: -50%;
-  color: red;
+  color: white;
+  background-color: rgba(199, 168, 41, 0.5);
+  border-radius: 25px;
+  border: 2px solid rgba(199, 168, 41, 0.5);
   font-size: 100px;
-  font-style: italic;
-  font-family: fantasy;
+  /*font-style: italic;*/
+  font: Helvetica;
   transform: translate(-50%, -50%);
 }
 
@@ -45,7 +48,7 @@ html {
   position: absolute;
   background-color: rgba(199, 168, 41, 0.5);
   border: 2px solid rgb(229, 198, 71);
-  top: 75%;
+  top: 70%;
   right: 70%;
   /*width: 10%;*/
   width: 150px;
@@ -55,7 +58,7 @@ html {
   color: white;
   position: absolute;
   background-color: rgba(199, 168, 41, 0.5);
-  top: 75%;
+  top: 70%;
   border: 2px solid rgb(229, 198, 71);
   left: 70%;
   width: 150px;

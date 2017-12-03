@@ -12,6 +12,7 @@ function body_onload() {
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
   cancelBtn.onclick = cancel_onclick;
+  Profile.onclick = Profile_onclick;
 }
 
 function renderProfile(){
@@ -52,6 +53,10 @@ function logout_onclick() {
   location.href = "../HTML/index.html";
 }
 
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
+}
+
 function cancel_onclick() {
   //console.log("inside cancel onclick");
   var email = sessionStorage.getItem("email");
@@ -66,7 +71,7 @@ function cancel_onclick() {
              res.json().then(function(data){
                equipments = data.equipments;
                dateFrom = data.dateFrom;
-               console.log(((new Date() - new Date(dateFrom)) / (1000 * 60 * 60)));
+               console.log(((new Date(dateFrom) - new Date()) / (1000 * 60 * 60)));
                if (((new Date(dateFrom) - new Date()) / (1000 * 60 * 60)) < 24) {
                  alert("You can't cancel checkout for equipments less than 24 hrs in advance");
                  return;
@@ -99,11 +104,11 @@ function updateJ(divName) {
       linkedInLink : userLinked.value,
       facebookLink : userFace.value,
       instagramLink : userInsta.value,
-      resumeLink : userResume.value
-      /*job : {
+      resumeLink : userResume.value,
+      pastJobs : {
         job_name : userJobN.value,
         job_desc : userJobD.value
-      }*/
+      }
     };
 
     profileUpdate(email, profile);

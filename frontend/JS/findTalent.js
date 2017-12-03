@@ -7,19 +7,25 @@ function body_onload() {
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 function btnSrch_onclick(){
   var q = {
     //gender:,  ASK MEEEENNNUUU <<<<<<<--------------------------
-    name: name.value,
+    name: profName.value,
     minAge: ageFrom.value,
     maxAge: ageTo.value,
     ethnicity: ethnicity.value
   }
   var obj = "/profiles?";
-  if(name.value != null && name.value != ""){
-    obj += "name="+name.value+"&";
+  console.log(profName.value);
+  if(profName.value != null && profName.value != ""){
+    obj += "name="+profName.value+"&";
   }
   if(ageFrom.value != null && ageFrom.value != ""){
     obj += "minAge="+ageFrom.value+"&";
@@ -88,6 +94,7 @@ function logout_onclick() {
 
 function fillTalent(talent){
   console.log(talent);
+  srchTalent.innerHTML = "";
   for(var i = 0; i<talent.length; i++){
     var row = srchTalent.insertRow(i);
     var col1 = document.createElement("td");

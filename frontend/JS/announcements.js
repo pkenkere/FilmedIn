@@ -1,6 +1,14 @@
 //var entries = new Array();
 
 function body_onload() {
+  HomeBtn.onclick = HomeBtn_onclick;
+  JobsBtn.onclick = JobsBtn_onclick;
+  ProfBtn.onclick = ProfBtn_onclick;
+  PostJobBtn.onclick = PostJobBtn_onclick;
+  LogoutBtn.onclick = logout_onclick;
+  RentBtn.onclick = rentBtn_onclick;
+  FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
 //  getAllAnnounce();
 PrintAnnouncements();
   SubmitRep.onclick = submitReport;
@@ -9,6 +17,40 @@ PrintAnnouncements();
 var annid;
 function PrintAnnouncements() {
   getAllAnnounce();
+
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
+}
+
+function feedbackBtn_onclick() {
+  location.href = "../HTML/feedbackform.html";
+}
+
+function HomeBtn_onclick(){
+  location.href = "../HTML/announcements.html";
+}
+
+function JobsBtn_onclick(){
+  location.href = "../HTML/searchJobs.html";
+}
+
+function ProfBtn_onclick(){
+  location.href = "../HTML/findTalent.html";
+}
+
+function PostJobBtn_onclick(){
+  location.href = "../HTML/Jobpost.html";
+}
+
+function rentBtn_onclick(){
+  location.href = "../HTML/rentequip.html";
+}
+
+function logout_onclick() {
+  localStorage.removeItem("loggedInId");
+  location.href = "../HTML/index.html";
 }
 // function displayEntries(entries) {
 //         console.log("entered");

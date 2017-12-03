@@ -6,6 +6,7 @@ function body_onload(){
   LogoutBtn.onclick = logout_onclick;
   RentBtn.onclick = rentBtn_onclick;
   FeedbackBtn.onclick = feedbackBtn_onclick;
+  Profile.onclick = Profile_onclick;
   getAllEquip()
 }
 
@@ -103,6 +104,10 @@ function feedbackBtn_onclick(){
 function logout_onclick() {
   localStorage.removeItem("loggedInId");
   location.href = "../HTML/index.html";
+}
+
+function Profile_onclick(){
+  location.href = "../HTML/profile.html";
 }
 
 // var arreee = new Array();

@@ -26,13 +26,16 @@
   </div>
 </head>
 <body onload="body_onload()">
-  <div class="HeaderPanel" id="header">Send Us Your Feedback</div>
+  <div class="alert alert-success" id="SuccessAlert">
+<strong>Success!</strong> Added Successfully!
+</div>
+  <div class="HeaderPanel" id="header">Send Us Your Feedback | 1-(800)-FILMEDN | feedback.filmedin@gmail.com</div>
     <div class = "content">
       <div class="box-top1"></div>
-      <form>
+      <form id="feedForm">
         <div class="form-group">
           <label>Enter your email ID</label>
-          <input type="email" id="emailF" class="form-control" placeholder="Enter email ID" required/>
+          <input onchange="hideSuccess();" type="email" id="emailF" class="form-control" placeholder="Enter email ID" required/>
         </div>
         <div class="form-group">
           <label>Is this the first time you have visited the website? </label>
@@ -107,6 +110,7 @@
             <br>  <textarea rows="4" cols="50" id="comment"> </textarea>
     </div>
     <button type="button" class="btn btn-primary btn-lg" id="sendFeedbackBtn">Send Feedback</button>
+  </form>
 </div>
 </body>
-<html>
+</html>
