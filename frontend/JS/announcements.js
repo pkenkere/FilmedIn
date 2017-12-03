@@ -9,7 +9,6 @@ PrintAnnouncements();
 var annid;
 function PrintAnnouncements() {
   getAllAnnounce();
-  
 }
 // function displayEntries(entries) {
 //         console.log("entered");
@@ -53,4 +52,5 @@ var email = reporter.value;
 var title = titleR.value;
 var text = document.getElementById('description').value;
 reportInappropriate(email, annid, title, text);
+document.getElementById("reports").reset();
  }

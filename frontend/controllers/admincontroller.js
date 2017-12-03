@@ -191,7 +191,7 @@ function getAllFeed() {
               var feed = data[i];
               console.log("feedback email: " + feed.email);
               var child = document.createElement("div");
-              child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>From: ' + feed.email + '</h4><p class=' + '"card-text"' + '>' + feed.feedback + '</p></div></div>';
+              child.innerHTML = '<div class=' + '"card"' + '><div class=' + '"card-block"' + ' id=' + '"card"' + '><h4 class=' + '"card-title"' + '>From: ' + feed.email + + '\t\t\t' + '<span id = ' + '"crossBtn"' + 'class=' + '"glyphicon glyphicon-remove"' +'onclick=' + '"remove()"' + '</h4><p class=' + '"card-text"' + '>' + feed.feedback + '</p></div></div>';
 
               var categ = document.getElementById('seeFeedback');
               categ.appendChild(child);
@@ -252,7 +252,6 @@ function removeProfile(email) {
   .then(function(res){
       if(res.ok){
           //reset password
-          location.href = "../HTML/profile.html";
           console.log("reporting done");
       }
       else{
