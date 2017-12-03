@@ -242,7 +242,7 @@ function getAllUsers() {
   var profileData= {
     method: "GET"
   }
-  fetch(url+"/printProfiles", profileData)
+  fetch(url+"/printUsers", profileData)
     .then(function(res){
       if(res.ok){
          res.json().then(function(data) {
@@ -279,7 +279,7 @@ function removeProfile() {
           id: this.id,
       })
   }
-  fetch(url+'/deleteProfile', reportData)
+  fetch(url+'/delete', reportData)
   .then(function(res){
       if(res.ok){
           //reset password
