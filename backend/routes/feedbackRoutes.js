@@ -57,4 +57,20 @@ module.exports = function(app,db) {
         res.send(feedbacks);
     })
   });
+
+  app.post('/deleteFeedback', function(req, res) {
+    console.log(req.body.id);
+    FM.deleteFeedback(req.body.id, function(e) {
+      if (e)
+        res.status(400).send('error while deleting feedback');
+      else
+        res.status(200).send('feedback deleted');
+    });
+  });
+
+  app.post('/resetFeedbacks', function(req, res) {
+    FM.delAllRecords(function(){
+      res.send('ok');
+    });
+  });
 };

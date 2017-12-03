@@ -212,7 +212,7 @@ function getAllJobs(){
           var email = sessionStorage.getItem("email");
           document.getElementById("showJobsID").innerHTML = "";
           for(var i = 0; i < data.length; i++) {
-            if (email === data[i].email && data[i].title != null && data[i].title != undefined && data[i].title != '') {
+            if (email === data[i].email) {
               var newdiv = document.createElement('div');
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
@@ -296,7 +296,7 @@ function cancelReservation(email, equipment, size) {
     },
     body: JSON.stringify({
         email: email,
-        equipments: equipments
+        equipments: equipment
       })
   }
     fetch(url + '/cancelEquipment', equipmentData)

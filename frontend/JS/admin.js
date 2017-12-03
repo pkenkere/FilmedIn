@@ -160,20 +160,21 @@ function delAnnounce(){
 
 function fillDivAnnounce(a) {
   console.log(a);
-  var allAnn = a;
+  //var allAnn = a;
   var div = document.getElementById("dispNews");
   div.innerHTML = "";
-  for(var i = 0; i < allAnn.length; i++){
+  for(var i = 0; i < a.length; i++){
     var row = document.createElement("div");
     var colName = document.createElement("div");
     //var colDel = document.createElement("span");
     //colDel.innerHTML = "&times;";
     //colDel.ondblclick = "deleteEquip()";
+    console.log("headline: " + a[i].headline);
     row.onclick = delAnnounce;
     row.Index = "delAnnounce"+i;
-    row.value = allAnn[i].headline;
-    row.idVal = allAnn[i]._id;
-    colName.innerHTML = allAnn[i].headline + "<B>&times;</B>";
+    row.value = a[i].headline;
+    row.idVal = a[i]._id;
+    colName.innerHTML = a[i].headline + "<B>&times;</B>";
 
     row.appendChild(colName);
     //row.appendChild(colDel);
@@ -187,7 +188,7 @@ function displayFeedbacks() {
 }
 
 function displayUsers() {
-  getAllUsers();
+  //getAllUsers();
 }
 
 function remove() {
