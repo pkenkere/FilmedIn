@@ -48,4 +48,19 @@ module.exports = function(app, db) {
       }
     });
   });
+
+  app.post('/deleteReport', function(req, res) {
+    RM.deleteReport(req.body.id, function(e) {
+      if (e)
+        res.status(400).send('error while deleting report');
+      else
+        res.status(200).send('report deleted');
+    });
+  });
+
+  app.post('/resetReports', function(req, res) {
+    RM.delAllRecords(function(){
+      res.send('ok');
+    });
+  });
 };

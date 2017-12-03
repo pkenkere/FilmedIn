@@ -28,3 +28,17 @@ exports.getAllReports = function(callback) {
       }
   });
 }
+
+exports.deleteReport = function(id, callback) {
+  reports.remove({_id: getObjectId(id)}, callback);
+}
+
+exports.delAllRecords = function(callback)
+{
+    reports.remove({}, callback); // reset accounts collection for testing //
+}
+
+var getObjectId = function(id)
+{
+    return new require('mongodb').ObjectID(id);
+}
