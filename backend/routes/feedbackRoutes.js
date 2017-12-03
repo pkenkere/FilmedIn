@@ -69,7 +69,7 @@ module.exports = function(app,db) {
   });
 
   app.post('/resetFeedbacks', function(req, res) {
-    FM.delAllRecords(function(){
+    FM.delAllFeedbacks(function(){
       res.send('ok');
     });
   });
