@@ -100,7 +100,7 @@ module.exports = function(app,db) {
 	//Route to delete all jobs for testing
 	app.post('/jobs/deleteall', function(req, res) {
 		controller.delAllJobs(function(){
-			res.redirect('/jobs')
+			res.status(200).send('ok');
 		});
 	});
 

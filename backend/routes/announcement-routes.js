@@ -41,7 +41,7 @@ module.exports = function(app,db) {
 	//Delete all announcements for testing
 	app.post('/announcements/deleteall', function(req, res) {
 		controller.delAllAnnouncements(function(){
-			res.redirect('/announcements');
+			res.status(400).send('ok');
 		});
 	});
 
