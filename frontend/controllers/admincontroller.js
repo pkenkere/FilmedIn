@@ -285,6 +285,7 @@ function removeProfile() {
           //reset password
           var categ = document.getElementById('RemoveUser');
           categ.innerHTML = "";
+          getAllUsers();
           console.log("reporting done");
       }
       else{
