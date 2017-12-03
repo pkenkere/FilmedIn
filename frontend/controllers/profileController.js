@@ -338,7 +338,7 @@ function profGetName(e, id) {
                var divA = document.createElement('div');
                //divA.innerHTML = '<div>Applicant: ' + data.name + '</div>';
                //divA.innerHTML = "Applicant: " + '<a href="' + "userProfile.html?profile=" + data.name + '>' + data.name + '</a>';
-               divA.innerHTML = "Applicant: " + '<a href="../HTML/userProfile.html?profile=' + data.email + '" target="_blank">' + data.name + '</a>';
+               divA.innerHTML = "Applicant: " + '<a href="../HTML/userProfile.html?profile=' + data.name + '" target="_blank">' + data.name + '</a>';
                document.getElementById(id).appendChild(divA);
              });
         }
