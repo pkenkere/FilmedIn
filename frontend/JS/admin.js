@@ -59,16 +59,19 @@ function addEquipment() {
   var availability = document.querySelector('input[name="yesorno"]:checked').value;
   console.log(availability);
     addEquipmentPost(equipmentName.value, category, availability);
+    rentForm.reset();
 }
 
 function addNews() {
   var headline = newsName.value;
   var description = descriptionNews.value;
   addNewsPost(headline,description);
+  addAnnForm.reset();
 }
 
 function addAdmin() {
   addNewAdmin(emailInput.value);
+  addAdminForm.reset();
 }
 
 function updateColor() {
