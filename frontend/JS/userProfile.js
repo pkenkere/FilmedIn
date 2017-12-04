@@ -16,6 +16,7 @@ function renderProfile(){
   var array = arr[1].split("=");
   console.log(array[1]);
   profileGet(array[1]);
+  return;
 }
 
 function HomeBtn_onclick(){
