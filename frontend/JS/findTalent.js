@@ -24,6 +24,21 @@ function btnSrch_onclick(){
   }
   var obj = "/profiles?";
   console.log(profName.value);
+  var temp = "gender=";
+
+  if(chck1.checked){
+    temp += "Male";
+  }
+  if(chck2.checked){
+    temp += "Female";
+    if(chck1.checked){temp = "";}
+  }
+  temp += "&";
+  console.log(temp);
+  if(temp == "gender=&"){
+    temp = "";
+  }
+  obj+=temp;
   if(profName.value != null && profName.value != ""){
     obj += "name="+profName.value+"&";
   }
