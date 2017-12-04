@@ -117,6 +117,9 @@ function PostJobBtn_onclick(){
 
 function displaySuccess() {
   SuccessAlert.style.display = "block";
+  window.setTimeout(function() {
+    SuccessAlert.style.display = "none";    
+  }, 4000);
 }
 
 function hideSuccess() {
