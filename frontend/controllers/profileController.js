@@ -228,12 +228,13 @@ function getAllJobs(){
                 newdiv.innerHTML = '<div class="panel panel-default">' +
                   '<div class="panel-heading">' +
                   '<h4 class="panel-title">' +
-                  '<a data-toggle="collapse" data-parent="#job-accordion" href="#col' + (count) + '"> ' + data[i].title + '</a>' +
+                  '<a > ' + data[i].title + '</a>' +
                   '<span id = "' + data[i]._id + '"class=' + '"glyphicon glyphicon-remove"' + '></span>' +
                   '</h4>' +
 
                   '</div>' +
-                  '<div id="col' + (count) + '" class="panel-collapse collapse">' +
+                  '<div id="col' + (count) + '" >' +
+                  '<div>Job Desciption: ' + data[i].desc + '</div>' +
                    '<div id="' + data[i].title + '" class="panel-body">' +
                    // '<div>Role Name: Hello</div>' +
                    // '<div>Role Type: hello</div>' +
