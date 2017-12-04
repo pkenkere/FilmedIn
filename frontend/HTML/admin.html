@@ -54,7 +54,7 @@
 
   <div id = "AddAdmin" class="tabcontent">
       <h4 id = "">Add new admin</h4>
-    <form>
+    <form id = "addAdminForm">
     <div class="form-group">
       <label>Name of new admin</label>
       <input type="text" class="form-control" id="AdminName" placeholder="Enter name of user">
@@ -79,6 +79,7 @@
       <div class="tab-content">
         <div id="menu1" class="tab-pane fade in active">
           <br>
+            <form id = "rentForm">
               <label>Name of Equipment</label>
               <input type="text" class="form-control" id="equipmentName" placeholder="Enter name of equipment">
               <br>
@@ -98,12 +99,12 @@
               <input type="radio" id="available" name = "yesorno" value="true" /> Available
               <input type="radio" name="yesorno" id="noavailsable" value="false"/> Unavailable
               <br>
+              </form>
               <button type="submit" class="btn" id ="addEquip">ADD!</button>
         </div>
         <div id="menu2" class="tab-pane fade">
           <div id = "All">
           </div>
-        <button type="submit" class="btn" id ="removeEq">REMOVE!</button>
         </div>
       </div>
     </div>
@@ -117,6 +118,7 @@
 
   <div id="AddMenu" class="tab-pane fade in active">
     <br>
+        <form id = "addAnnForm">
         <label>News Headline</label>
         <input type="text" class="form-control" id="newsName" placeholder="Enter headline of news article">
         <br>
@@ -124,6 +126,7 @@
         <br>
         <textarea id = "descriptionNews"></textarea>
         <br>
+          </form>
         <button type="submit" class="btn" id ="addNewsBtn">ADD!</button>
   </div>
     <div id="RemoveMenu" class="tab-pane fade">
