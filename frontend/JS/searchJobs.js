@@ -47,6 +47,9 @@ function Profile_onclick(){
 
 function displaySuccess() {
   SuccessAlert.style.display = "block";
+  window.setTimeout(function() {
+    SuccessAlert.style.display = "none";    
+  }, 4000);
 }
 
 function hideSuccess() {
@@ -69,22 +72,20 @@ function search(){
     ethnicity: ethnicity.value
   }
   var obj = "/jobs/search?";
-  console.log(chck1.checked);
   var temp = "gender=";
   if(chck1.checked){
-    if(chck2.checked){return;}
     temp += "Male";
   }
   if(chck2.checked){
-    if(chck1.checked){return;}
     temp += "Female";
+    if(chck1.checked){temp = "";}
   }
   temp += "&";
   console.log(temp);
   if(temp == "gender=&"){
     temp = "";
   }
-  obj+=temp;
+    obj+=temp;
   if(RoleTypes.value != null && RoleTypes.value != ""){
     obj += "roleType="+RoleTypes.value+"&";
   }
